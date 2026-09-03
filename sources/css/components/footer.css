@@ -1,0 +1,32 @@
+.site-footer {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background-color: var(--bg-surface-subtle);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-copyright {
+  color: var(--text-secondary);
+}
+
+.footer-tech {
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+}

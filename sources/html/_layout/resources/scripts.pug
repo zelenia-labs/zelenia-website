@@ -1,0 +1,10 @@
+include ../setup/path
+
+-
+  var scripts = [
+    path.js + "main.js"
+  ]
+
+block scripts
+  for href in scripts
+    script(src=href type="module")

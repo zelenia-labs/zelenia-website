@@ -1,0 +1,20 @@
+include setup/path
+include ../_data/site
+
+doctype html
+html(lang='en')
+  head
+    include resources/metadata
+    include resources/favicon
+    include resources/styles
+    include resources/headjs
+    include resources/social
+
+  body.is-loading
+    a.skip-link(href='#main-content') Skip to content
+    include ../_components/header
+    main#main-content(tabindex="-1")
+      block content
+
+    include ../_components/footer
+    include resources/scripts
