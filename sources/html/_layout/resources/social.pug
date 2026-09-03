@@ -1,0 +1,18 @@
+-
+  var social = {
+    "og:site_name": site.name,
+    "og:title": `${site.name} | ${site.tagline}`,
+    "og:description": site.description,
+    "og:type": "website",
+    "og:url": site.url,
+    "og:locale": "en_US",
+    "twitter:card": "summary_large_image",
+    "twitter:title": `${site.name} | ${site.tagline}`,
+    "twitter:description": site.description
+  }
+
+for content, property in social
+  if property.startsWith('og:')
+    meta(property=property, content=content)
+  else
+    meta(name=property, content=content)

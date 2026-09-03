@@ -1,0 +1,19 @@
+-
+  var metadata = {
+    viewport: "width=device-width, initial-scale=1.0",
+    description: site.description,
+    keywords: "zelenia, zelenia labs, web performance, modern web, software engineering",
+    author: site.name,
+    "theme-color": "#0d0f12",
+    "color-scheme": "dark"
+  }
+
+meta(charset='UTF-8')
+title #{site.name} | #{site.tagline}
+
+for content, name in metadata
+  meta(name=name, content=content)
+
+link(type="text/plain", rel="robots", href="/robots.txt")
+link(type="text/plain", rel="author", href="/humans.txt")
+link(rel="canonical", href=site.url)

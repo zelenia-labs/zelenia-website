@@ -1,0 +1,7 @@
+@import 'core/reset.css';
+@import 'setup.css';
+@import 'core/base.css';
+
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/footer.css';
