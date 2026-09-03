@@ -1,7 +1,7 @@
 {
   "name": "zelenia-website",
   "description": "Zelenia Website",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.20.0",
