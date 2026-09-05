@@ -1,9 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, linkedSignal } from '@angular/core';
 import { email, form, FormField, required, submit } from '@angular/forms/signals';
 import { ContactIntake } from './contact-intake';
 import { ContactInquiry } from './contact.model';
 import { DiagnosticState } from '../diagnostic/diagnostic-state';
 import { ScrollReveal } from '../../ui/motion/scroll-reveal';
+import { PagespeedClient } from '../hero/pagespeed-client';
 
 @Component({
   selector: 'app-contact',
@@ -157,12 +158,16 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 export class Contact {
   readonly intake = inject(ContactIntake);
   readonly diagnostic = inject(DiagnosticState);
+  readonly pagespeed = inject(PagespeedClient);
 
-  protected readonly model = signal<ContactInquiry>({
-    companyUrl: '',
-    workEmail: '',
-    focus: this.diagnostic.activeCategoryId(),
-    notes: ''
+  protected readonly model = linkedSignal<string, ContactInquiry>({
+    source: this.pagespeed.targetUrl,
+    computation: (heroUrl, previous) => ({
+      companyUrl: heroUrl || (previous?.value.companyUrl ?? ''),
+      workEmail: previous?.value.workEmail ?? '',
+      focus: previous?.value.focus ?? this.diagnostic.activeCategoryId(),
+      notes: previous?.value.notes ?? ''
+    })
   });
 
   protected readonly contactForm = form(this.model, (s) => {
@@ -175,6 +180,7 @@ export class Contact {
     submit(this.contactForm, async () => {
       const success = await this.intake.submitInquiry(this.model());
       if (success) {
+        this.pagespeed.targetUrl.set('');
         this.model.set({
           companyUrl: '',
           workEmail: '',

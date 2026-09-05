@@ -2,21 +2,24 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Contact } from './contact';
 import { ContactIntake } from './contact-intake';
 import { DiagnosticState } from '../diagnostic/diagnostic-state';
+import { PagespeedClient } from '../hero/pagespeed-client';
 
 describe('Contact Component (Signal Forms)', () => {
   let fixture: ComponentFixture<Contact>;
   let component: Contact;
   let intake: ContactIntake;
+  let pagespeed: PagespeedClient;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Contact],
-      providers: [ContactIntake, DiagnosticState]
+      providers: [ContactIntake, DiagnosticState, PagespeedClient]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Contact);
     component = fixture.componentInstance;
     intake = TestBed.inject(ContactIntake);
+    pagespeed = TestBed.inject(PagespeedClient);
     fixture.detectChanges();
   });
 
@@ -80,5 +83,14 @@ describe('Contact Component (Signal Forms)', () => {
     const confirmationEl = fixture.nativeElement.querySelector('#form-confirmation');
     expect(confirmationEl).toBeTruthy();
     expect(confirmationEl.textContent).toContain('Architectural Review Requested');
+  });
+
+  it('should automatically prefill companyUrl when PagespeedClient.targetUrl is updated from Hero', async () => {
+    pagespeed.targetUrl.set('https://acmecorp.com');
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const companyInput = fixture.nativeElement.querySelector('#company-url') as HTMLInputElement;
+    expect(companyInput.value).toBe('https://acmecorp.com');
   });
 });

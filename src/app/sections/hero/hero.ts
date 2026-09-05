@@ -64,6 +64,7 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                   auditForm.url().touched() && auditForm.url().errors().length > 0
                 "
                 [formField]="auditForm.url"
+                (input)="onUrlInput($event)"
               />
             </div>
             <button
@@ -203,12 +204,18 @@ export class Hero {
     });
   });
 
+  onUrlInput(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.pagespeed.targetUrl.set(value);
+  }
+
   onAnalyze(event?: Event): void {
     if (event) {
       event.preventDefault();
     }
     submit(this.auditForm, async () => {
       const url = this.auditModel().url;
+      this.pagespeed.targetUrl.set(url);
       await this.pagespeed.runAudit(url);
     });
   }

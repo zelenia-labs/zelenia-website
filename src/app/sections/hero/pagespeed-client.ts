@@ -32,6 +32,7 @@ export interface AuditResults {
   providedIn: 'root'
 })
 export class PagespeedClient {
+  readonly targetUrl = signal('');
   readonly isScanning = signal(false);
   readonly scanLog = signal('Connecting to Google PageSpeed Insights API...');
   readonly auditResult = signal<AuditResults | null>(null);
@@ -69,6 +70,7 @@ export class PagespeedClient {
     const targetUrl = this.normalizeUrl(rawUrl);
     if (!targetUrl) return null;
 
+    this.targetUrl.set(rawUrl.trim());
     this.isScanning.set(true);
     this.scanLog.set('Connecting to Google PageSpeed Insights API...');
 
