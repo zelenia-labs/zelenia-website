@@ -8,6 +8,8 @@ Library/
 dist/
 build/
 out/
+out-tsc/
+.analog/
 .next/
 .nuxt/
 .cache/
