@@ -1,0 +1,81 @@
+section.site-section.contact-section#contact(aria-labelledby="contact-title")
+  .container
+    .contact-card
+      .contact-card__header
+        span.section-tag Let's Connect
+        h2.section-title#contact-title Let's build something wonderful together.
+        p.section-subhead
+          | Have a project in mind, an architectural challenge to untangle, or a design system to bring to life? Connect directly with Alejandro and Yolanda &mdash; zero sales reps, zero agency layers.
+
+      form.contact-form#contact-form(novalidate)
+        .form-grid
+          .form-group
+            label.form-label(for="company-url")
+              | Company or Website URL 
+              span.form-label__optional (Optional)
+            .input-wrapper
+              input.form-input#company-url(
+                type="url"
+                name="company_url"
+                placeholder="https://yourcompany.com"
+                autocomplete="url"
+                spellcheck="false"
+              )
+
+          .form-group
+            label.form-label(for="work-email")
+              | Work Email 
+              span.form-label__required(aria-hidden="true") *
+            .input-wrapper
+              input.form-input#work-email(
+                type="email"
+                name="email"
+                required
+                placeholder="partner@company.com"
+                autocomplete="email"
+                spellcheck="false"
+              )
+            span.form-error#email-error(role="alert" aria-live="polite")
+
+          .form-group.form-group--full
+            label.form-label(for="primary-focus") Primary Focus Challenge
+            .select-wrapper
+              select.form-select#primary-focus(name="focus")
+                for cat in diagnosticData.categories
+                  option(value=cat.id) #{cat.label}
+              span.select-arrow(aria-hidden="true") ↓
+
+          .form-group.form-group--full
+            label.form-label(for="project-notes")
+              | Additional Context or Architectural Constraints 
+              span.form-label__optional (Optional)
+            .textarea-wrapper
+              textarea.form-textarea#project-notes(
+                name="notes"
+                rows="3"
+                placeholder="Share your current stack, primary pain points, target timeline, or benchmark goals..."
+              )
+
+        .form-actions
+          button.btn.btn--primary.btn--submit#submit-btn(type="submit")
+            span.btn-text Say Hello to the Partners
+            span.arrow-indicator(aria-hidden="true") →
+            span.btn-spinner(aria-hidden="true")
+
+        //- Submission Confirmation Banner (hidden initially)
+        .form-confirmation#form-confirmation(
+          role="status"
+          aria-live="polite"
+          hidden
+        )
+          .confirmation-content
+            span.confirmation-icon(aria-hidden="true") ✓
+            .confirmation-text
+              h4.confirmation-title Architectural Review Requested
+              p.confirmation-body
+                | Thank you. Your inquiry has been routed directly to Alejandro Cuba and Yolanda Santacruz. We will review your architecture and respond within 24 hours.
+
+      .reassurance-footer
+        p.reassurance-text
+          span.reassurance-prefix [ DIRECT ENGAGEMENT ] 
+          | Zero sales representatives or account managers. You will consult directly with the engineering and design partners.

@@ -4,4 +4,11 @@
 
 @import 'components/header.css';
 @import 'components/hero.css';
+@import 'components/audit-widget.css';
+@import 'components/advantage.css';
+@import 'components/capabilities.css';
+@import 'components/capabilities-dossier.css';
+@import 'components/leadership.css';
+@import 'components/diagnostic.css';
+@import 'components/contact.css';
 @import 'components/footer.css';

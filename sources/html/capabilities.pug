@@ -1,0 +1,183 @@
+extends _layout/base
+
+block pageVars
+  - var pageTitle = "Capabilities Dossier // Core Web Vitals, Responsive Architecture, a11y & Design Systems | Zelenia Studio"
+
+block content
+
+  article.dossier-page
+    header.dossier-hero
+      .container
+        nav.dossier-breadcrumb(aria-label="Breadcrumb Navigation")
+          a.dossier-back-link(href="/" aria-label="Return to Studio Home")
+            span.arrow-back(aria-hidden="true") ←
+            span Return to Studio Home
+
+        .dossier-hero__content
+          span.section-tag [ ARCHITECTURAL DOSSIER ]
+          h1.dossier-hero__title Technical Capabilities &amp; Engineering Standards
+          p.dossier-hero__subhead
+            | A comprehensive inspection of Zelenia’s specialized disciplines. Direct partner execution across runtime performance, responsive architecture, accessibility compliance, and design system modernization.
+
+    //- Pillar 01
+    section.dossier-section#performance(aria-labelledby="pillar-01-title")
+      .container
+        .dossier-pillar-header
+          span.dossier-pillar__num 01 // PERFORMANCE
+          h2.dossier-pillar__title#pillar-01-title Core Web Vitals &amp; Runtime Performance Engineering
+          p.dossier-pillar__lead
+            | Google’s Core Web Vitals are not merely search ranking signals; they are direct multipliers of user retention, conversion rates, and digital brand trust. We conduct deep-dive profiling to eliminate browser bottlenecks.
+
+        .dossier-breakdown-grid
+          .dossier-col
+            h3.dossier-col__title Largest Contentful Paint (LCP) Protocols
+            p.dossier-col__body
+              | We isolate and remediate LCP sub-parts: Time to First Byte (TTFB), Resource Load Delay, Resource Load Time, and Element Render Delay. By enforcing high-priority fetch hints (`fetchpriority="high"`), preconnecting critical origins, optimizing image compression formats (AVIF/WebP), and inlining critical path CSS, we reliably achieve sub-1.8s render times.
+            ul.dossier-checklist
+              li Critical resource preloading and DNS preconnect optimization
+              li Zero render-blocking JavaScript in document head
+              li Modern image formats with responsive srcset density curves
+
+          .dossier-col
+            h3.dossier-col__title Interaction to Next Paint (INP) Remediation
+            p.dossier-col__body
+              | Main thread contention ruins user experience. We decompose monolithic JavaScript execution blocks into prioritized sub-tasks, leveraging `scheduler.yield()` and `requestAnimationFrame()` where available, eliminating input delay and rendering interaction latency across complex enterprise interfaces.
+            ul.dossier-checklist
+              li Script task chunking to prevent main thread lockup
+              li Debounced event handlers and non-blocking state updates
+              li Passive touch and scroll event listeners for smooth scrolling
+
+          .dossier-col
+            h3.dossier-col__title Cumulative Layout Shift (CLS) Elimination
+            p.dossier-col__body
+              | Unstable layouts trigger immediate abandonment. We guarantee zero layout shifts by reserving precise intrinsic aspect ratios on all visual containers, using CSS `font-display: swap` with metric-overridden fallback fonts (`size-adjust`), and avoiding dynamic DOM injection above existing viewports.
+            ul.dossier-checklist
+              li Explicit CSS aspect-ratio on all media containers
+              li Font metric matching to prevent FOIT/FOUT shifts
+              li Deterministic slot reserved sizing for dynamic embeds
+
+    //- Pillar 02
+    section.dossier-section#responsive(aria-labelledby="pillar-02-title")
+      .container
+        .dossier-pillar-header
+          span.dossier-pillar__num 02 // RESPONSIVE
+          h2.dossier-pillar__title#pillar-02-title Responsive Architecture &amp; Device Parity
+          p.dossier-pillar__lead
+            | Modern web applications must operate fluidly across viewports ranging from 360px mobile displays to 4K ultra-wide workstations without visual degradation or broken states.
+
+        .dossier-breakdown-grid
+          .dossier-col
+            h3.dossier-col__title Modern CSS Grid &amp; Container Queries
+            p.dossier-col__body
+              | We construct resilient, context-aware component layouts using CSS Grid, Subgrid, and Container Queries (`@container`). Components adapt based on their allocated parent space rather than arbitrary global viewport widths, enabling modular reuse across dashboards, sidebars, and main content feeds.
+            ul.dossier-checklist
+              li Component-level adaptation with container query units
+              li Multi-column CSS Grid without brittle media query breakpoints
+              li Subgrid alignment preserving vertical and horizontal baselines
+
+          .dossier-col
+            h3.dossier-col__title Fluid Typography &amp; Dynamic Viewport Scaling
+            p.dossier-col__body
+              | By formulating mathematical `clamp()` functions keyed to viewport percentages, typography and structural padding scale continuously and gracefully. This eliminates jarring breakpoint jumps and guarantees editorial reading comfort on every device.
+            ul.dossier-checklist
+              li Proportional typographic scales using fluid CSS clamp formulas
+              li Readable measure control (`max-inline-size: 54ch`) on long-form prose
+              li High DPI screen optimization with crisp vector rendering
+
+          .dossier-col
+            h3.dossier-col__title Touch Ergonomics &amp; Mobile Parity
+            p.dossier-col__body
+              | Mobile interfaces must never be an afterthought. We engineer touch target zones adhering strictly to accessibility standards (minimum 44x44px interactive areas), account for device safe areas (`env(safe-area-inset-*)`), and optimize mobile keyboard transitions.
+            ul.dossier-checklist
+              li Safe-area inset support for modern notch and gesture displays
+              li Ergonomic bottom navigation zones for single-handed reach
+              li Native touch gestures without scroll-jacking or input lag
+
+    //- Pillar 03
+    section.dossier-section#compliance(aria-labelledby="pillar-03-title")
+      .container
+        .dossier-pillar-header
+          span.dossier-pillar__num 03 // COMPLIANCE
+          h2.dossier-pillar__title#pillar-03-title Semantic HTML, WCAG 2.2 AA &amp; Technical SEO
+          p.dossier-pillar__lead
+            | Clean semantic code is the foundation of digital accessibility, search engine indexability, and future-proof DOM architecture. We ensure universal reach and zero regulatory exposure.
+
+        .dossier-breakdown-grid
+          .dossier-col
+            h3.dossier-col__title Strict WCAG 2.2 AA Verification
+            p.dossier-col__body
+              | We validate every interactive surface through automated auditing and manual assistive technology testing with Apple VoiceOver and NVDA. Every dialog, disclosure, and menu implements strict WAI-ARIA authoring practices.
+            ul.dossier-checklist
+              li High contrast color compliance (minimum 4.5:1 text ratio)
+              li Complete keyboard navigability with visible focus indicators
+              li Accessible names, roles, and live regions for dynamic states
+
+          .dossier-col
+            h3.dossier-col__title Semantic DOM &amp; Zero-Runtime Overhead
+            p.dossier-col__body
+              | By prioritizing native HTML5 elements (`<dialog>`, `<nav>`, `<main>`, `<article>`, `<details>`) over bloated custom div soup, we minimize DOM depth, reduce memory footprints, and deliver lightning-fast crawl efficiency for search engines.
+            ul.dossier-checklist
+              li Standard HTML5 landmark elements for seamless screen reader jumping
+              li Minimalist DOM depth maximizing browser parsing speed
+              li Skip navigation links and deterministic tab sequences
+
+          .dossier-col
+            h3.dossier-col__title Technical SEO &amp; Structured Microdata
+            p.dossier-col__body
+              | Search engine spiders reward fast, well-structured pages. We incorporate comprehensive Open Graph metadata, Twitter Cards, canonical URL tags, automated sitemap generators, and Schema.org JSON-LD microdata for rich search results.
+            ul.dossier-checklist
+              li Schema.org structured data for organization and service entities
+              li Canonical link enforcement preventing duplicate content penalties
+              li Automated sitemap updates with precise lastmod timestamps
+
+    //- Pillar 04
+    section.dossier-section#systems(aria-labelledby="pillar-04-title")
+      .container
+        .dossier-pillar-header
+          span.dossier-pillar__num 04 // SYSTEMS
+          h2.dossier-pillar__title#pillar-04-title Tokenized Design Systems &amp; Visual Modernization
+          p.dossier-pillar__lead
+            | Design software mockups often disintegrate during development handoffs. Because our design and engineering partners collaborate in real time, we build tokenized bridges that ensure 100% design-to-code fidelity.
+
+        .dossier-breakdown-grid
+          .dossier-col
+            h3.dossier-col__title Figma Variables to CSS Custom Properties
+            p.dossier-col__body
+              | We structure multi-tiered design token architectures (Global, Semantic, Component) linking Figma variables directly to CSS custom properties. When design values update, the entire production codebase synchronizes seamlessly.
+            ul.dossier-checklist
+              li Multi-tier token hierarchy (colors, typography, radii, spacing)
+              li Dark mode and theme-switching via native CSS variables
+              li Automated token extraction eliminating manual color matching
+
+          .dossier-col
+            h3.dossier-col__title Modular Component Libraries
+            p.dossier-col__body
+              | We design and build reusable, framework-agnostic component architectures. Each component maintains strict separation of concerns, complete documentation, built-in accessibility, and zero unwanted side effects.
+            ul.dossier-checklist
+              li Encapsulated component styles with zero global namespace pollution
+              li Reusable UI primitives tested across edge cases and error states
+              li Comprehensive living design documentation and token references
+
+          .dossier-col
+            h3.dossier-col__title GPU-Accelerated Micro-Interactions
+            p.dossier-col__body
+              | Motion transforms an interface from static to alive. We craft subtle, high-precision micro-interactions utilizing exclusively composited CSS properties (`transform`, `opacity`) to guarantee 60fps rendering with zero paint thrashing.
+            ul.dossier-checklist
+              li Hardware-accelerated transitions utilizing GPU compositor layers
+              li Custom Cubic Bézier timing functions tailored to brand character
+              li Full `prefers-reduced-motion` compliance for vestibular safety
+
+    //- Dossier Bottom CTA
+    section.dossier-cta-section
+      .container
+        .dossier-cta-inner
+          span.section-tag [ NEXT STEPS ]
+          h2.dossier-cta__title Ready to elevate your web architecture?
+          p.dossier-cta__subhead
+            | Consult directly with Alejandro Cuba and Yolanda Santacruz. Zero bureaucracy, senior practitioners only.
+          .dossier-cta__actions
+            a.btn.btn--primary.btn--lg(href="/#contact")
+              span Request an Architectural Review
+              span.arrow-indicator(aria-hidden="true") →
+            a.btn.btn--secondary.btn--lg(href="/")
+              span Return to Studio Home

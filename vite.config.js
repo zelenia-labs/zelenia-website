@@ -9,19 +9,20 @@ function htmlOptimizerPlugin() {
     name: 'html-optimizer-plugin',
     enforce: 'post',
     async generateBundle(options, bundle) {
-      const htmlFile = Object.values(bundle).find((f) => f.fileName.endsWith('.html'));
+      const htmlFiles = Object.values(bundle).filter((f) => f.fileName.endsWith('.html'));
       const cssFile = Object.values(bundle).find((f) => f.fileName.endsWith('.css'));
-      if (htmlFile) {
+      const cssContent =
+        cssFile &&
+        (typeof cssFile.source === 'string' ? cssFile.source : cssFile.source.toString('utf8'));
+
+      for (const htmlFile of htmlFiles) {
         let html =
           typeof htmlFile.source === 'string' ? htmlFile.source : htmlFile.source.toString('utf8');
 
-        if (cssFile) {
-          const cssContent =
-            typeof cssFile.source === 'string' ? cssFile.source : cssFile.source.toString('utf8');
+        if (cssFile && cssContent) {
           const escapedFileName = cssFile.fileName.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
           const cssRegex = new RegExp(`<link[^>]*href=["'][^"']*${escapedFileName}["'][^>]*>`, 'g');
           html = html.replace(cssRegex, () => `<style>${cssContent}</style>`);
-          delete bundle[cssFile.fileName];
         }
 
         htmlFile.source = await minify(html, {
@@ -32,6 +33,10 @@ function htmlOptimizerPlugin() {
           collapseWhitespace: true,
           conservativeCollapse: true
         });
+      }
+
+      if (cssFile) {
+        delete bundle[cssFile.fileName];
       }
     }
   };
@@ -50,6 +55,14 @@ export default defineConfig({
     htmlOptimizerPlugin()
   ],
   publicDir: resolve(import.meta.dirname, 'public'),
+  server: {
+    port: 5173,
+    strictPort: true
+  },
+  preview: {
+    port: 4173,
+    strictPort: true
+  },
   build: {
     modulePreload: { polyfill: false },
     minify: 'terser',
@@ -66,7 +79,10 @@ export default defineConfig({
     assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
-      input: resolve(import.meta.dirname, 'sources/html/index.pug')
+      input: [
+        resolve(import.meta.dirname, 'sources/html/index.pug'),
+        resolve(import.meta.dirname, 'sources/html/capabilities.pug')
+      ]
     }
   },
   resolve: {

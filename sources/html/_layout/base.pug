@@ -1,5 +1,7 @@
 include setup/path
 include ../_data/site
+include ../_data/diagnostic
+block pageVars
 
 doctype html
 html(lang='en')
@@ -12,6 +14,7 @@ html(lang='en')
 
   body.is-loading
     a.skip-link(href='#main-content') Skip to content
+    canvas#ambient-canvas.ambient-canvas(aria-hidden="true")
     include ../_components/header
     main#main-content(tabindex="-1")
       block content

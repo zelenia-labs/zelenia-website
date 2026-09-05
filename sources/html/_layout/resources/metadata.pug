@@ -2,14 +2,14 @@
   var metadata = {
     viewport: "width=device-width, initial-scale=1.0",
     description: site.description,
-    keywords: "zelenia, zelenia labs, web performance, modern web, software engineering",
+    keywords: "zelenia, boutique engineering studio, product design studio, frontend architecture, web performance, core web vitals, google developer expert, design systems, a11y, WCAG",
     author: site.name,
-    "theme-color": "#0d0f12",
+    "theme-color": "#0b0e14",
     "color-scheme": "dark"
   }
 
 meta(charset='UTF-8')
-title #{site.name} | #{site.tagline}
+title #{pageTitle ? pageTitle : `${site.name} | ${site.tagline}`}
 
 for content, name in metadata
   meta(name=name, content=content)

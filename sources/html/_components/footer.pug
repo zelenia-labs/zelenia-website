@@ -1,5 +1,31 @@
-footer.site-footer#contact
-  .footer-inner
-    .footer-content
-      p.footer-copyright &copy; #{new Date().getFullYear()} Zelenia Labs. All rights reserved.
-      p.footer-tech Built with modern web standards and zero-runtime architecture.
+footer.site-footer(role="contentinfo")
+  .container.footer-inner
+    .footer-top
+      .footer-brand
+        a.site-logo(href="/" aria-label="Zelenia Home")
+          span.logo-text Zelenia
+          span.logo-slash(aria-hidden="true") /
+          span.logo-subtext Studio
+        p.footer-tagline
+          | Elite frontend engineering and high-precision product design studio. Zero bureaucracy, absolute senior density.
+
+      nav.footer-nav(aria-label="Footer Navigation")
+        .footer-nav-col
+          span.footer-nav-code [ 01 // STUDIO ]
+          ul.footer-nav-list
+            li: a(href="/capabilities.html") Capabilities Dossier
+            li: a(href="/#advantage") The Advantage
+            li: a(href="/#leadership") Leadership
+            li: a(href="/#diagnostic") Project Diagnostic
+            li: a(href="/#contact") Book a Review
+
+        .footer-nav-col
+          span.footer-nav-code [ 02 // DOSSIER ]
+          ul.footer-nav-list
+            li: a(href="https://www.linkedin.com/in/alejandrocuba/" target="_blank" rel="noopener noreferrer") Alejandro Cuba (GDE) ↗
+            li: a(href="https://www.linkedin.com/in/yolandasantacruz/" target="_blank" rel="noopener noreferrer") Yolanda Santacruz ↗
+            li: a(href=site.socials.github target="_blank" rel="noopener noreferrer") GitHub ↗
+
+    .footer-bottom
+      p.footer-copyright &copy; #{new Date().getFullYear()} Zelenia Inc. All rights reserved.
+      p.footer-tech [ STANDARDS // ZERO RUNTIME &bull; WCAG 2.2 AA &bull; HIGH-PRECISION DOM ]
