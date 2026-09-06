@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Hero } from './hero';
 import { PagespeedClient } from './pagespeed-client';
 import { StudioContent } from '../../content/studio-content';
@@ -11,7 +12,7 @@ describe('Hero Component (Signal Forms URL Validation)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Hero],
-      providers: [PagespeedClient, StudioContent]
+      providers: [PagespeedClient, StudioContent, provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Hero);

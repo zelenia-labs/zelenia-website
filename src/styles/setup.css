@@ -1,95 +1,111 @@
 :root {
   interpolate-size: allow-keywords;
 
-  /* DevTools Core Palette Tokens */
-  --bg: #080a0e;
-  --surface: #0f131a;
-  --surface-2: #161b24;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(43, 127, 255, 0.4);
+  /* Studio Core Luminous Palette Tokens (nvision-inspired) */
+  --bg: #fcfcfd;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(0, 85, 255, 0.35);
   --blue: #0055ff;
-  --cyan: #00e5ff;
-  --text: #fff;
-  --text-2: #94a3b8;
+  --cyan: #0284c7;
+  --text: #0f172a;
+  --text-2: #334155;
   --muted: #64748b;
-  --radius: 22px;
-  --shell: min(1003px, calc(100vw - 44px));
+  --radius: 20px;
+  --shell: min(1040px, calc(100vw - 48px));
 
   /* Surface & Background Aliases */
   --bg-base: var(--bg);
   --bg-surface: var(--surface);
   --bg-surface-elevated: var(--surface-2);
-  --bg-surface-hover: #1f2734;
-  --bg-surface-subtle: #0b0e14;
-  --bg-glass: rgba(8, 10, 14, 0.85);
+  --bg-surface-hover: #f1f5f9;
+  --bg-surface-subtle: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+
+  /* Unified Cohesive Rhythm Tokens (Eliminates jarring dark-to-light flash) */
+  --bg-obsidian: #f8fafc;
+  --surface-obsidian: #ffffff;
+  --surface-obsidian-2: #f1f5f9;
+  --border-obsidian: rgba(15, 23, 42, 0.07);
+  --text-obsidian: #0f172a;
+  --text-obsidian-muted: #64748b;
+
+  --bg-luminous: #fcfcfd;
+  --surface-luminous: #ffffff;
+  --surface-luminous-2: #f8fafc;
+  --border-luminous: rgba(15, 23, 42, 0.07);
+  --text-luminous: #0f172a;
+  --text-luminous-muted: #334155;
 
   /* Hairline & Interactive Borders */
   --border-subtle: var(--border);
-  --border-medium: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-medium: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.2);
   --border-highlight: var(--border-hover);
 
   /* Typography Hierarchy */
   --text-primary: var(--text);
   --text-secondary: var(--text-2);
   --text-muted: var(--muted);
-  --text-inverse: #080a0e;
+  --text-inverse: #ffffff;
 
   /* Signature Brand Palette (#0055FF for CTAs and primary actions) */
   --brand-primary: var(--blue);
-  --brand-primary-hover: #1a6cff;
-  --brand-glow: rgba(0, 85, 255, 0.35);
+  --brand-primary-hover: #0045d6;
+  --brand-glow: rgba(0, 85, 255, 0.2);
   --accent-cyan: var(--cyan);
-  --accent-cyan-rgb: 0, 229, 255;
+  --accent-cyan-rgb: 2, 132, 199;
   --accent-emerald: #10b981;
   --accent-amber: #f59e0b;
   --accent-rose: #ef4444;
-  --accent-indigo: #6366f1;
+  --accent-indigo: #4f46e5;
 
   /* Aliases */
   --accent-blue: var(--blue);
-  --accent-blue-vibrant: #1a6cff;
+  --accent-blue-vibrant: #0055ff;
   --accent-blue-rgb: 0, 85, 255;
-  --accent-violet: #818cf8;
+  --accent-violet: #6366f1;
   --accent-highlight: var(--brand-primary);
   --accent-highlight-rgb: var(--accent-blue-rgb);
   --accent-highlight-hover: var(--brand-primary-hover);
   --accent-pink: var(--brand-primary);
 
-  /* Atmospheric Per-Section Ambient Gradients */
+  /* Atmospheric Per-Section Ambient Gradients (Subtle Luminous Tints) */
   --ambient-hero: radial-gradient(
-    ellipse 70% 50% at 50% 10%,
-    rgba(0, 85, 255, 0.1) 0%,
-    rgba(8, 10, 14, 0) 70%
+    ellipse 70% 50% at 50% 0%,
+    rgba(0, 85, 255, 0.04) 0%,
+    rgba(252, 252, 253, 0) 70%
   );
   --ambient-advantage: radial-gradient(
     ellipse 65% 50% at 15% 45%,
-    rgba(99, 102, 241, 0.06) 0%,
-    rgba(8, 10, 14, 0) 70%
+    rgba(99, 102, 241, 0.03) 0%,
+    rgba(252, 252, 253, 0) 70%
   );
   --ambient-capabilities: radial-gradient(
     ellipse 70% 55% at 85% 50%,
-    rgba(16, 185, 129, 0.07) 0%,
-    rgba(0, 85, 255, 0.04) 35%,
-    rgba(8, 10, 14, 0) 75%
+    rgba(14, 165, 233, 0.03) 0%,
+    rgba(0, 85, 255, 0.02) 35%,
+    rgba(252, 252, 253, 0) 75%
   );
   --ambient-leadership: radial-gradient(
     ellipse 65% 50% at 20% 50%,
-    rgba(0, 85, 255, 0.08) 0%,
-    rgba(0, 229, 255, 0.04) 40%,
-    rgba(8, 10, 14, 0) 70%
+    rgba(0, 85, 255, 0.03) 0%,
+    rgba(2, 132, 199, 0.02) 40%,
+    rgba(252, 252, 253, 0) 70%
   );
   --ambient-diagnostic: radial-gradient(
     ellipse 70% 50% at 75% 40%,
-    rgba(99, 102, 241, 0.05) 0%,
-    rgba(0, 85, 255, 0.05) 40%,
-    rgba(8, 10, 14, 0) 70%
+    rgba(99, 102, 241, 0.03) 0%,
+    rgba(0, 85, 255, 0.02) 40%,
+    rgba(252, 252, 253, 0) 70%
   );
   --ambient-contact: radial-gradient(
     ellipse 70% 60% at 50% 60%,
-    rgba(16, 185, 129, 0.07) 0%,
-    rgba(0, 85, 255, 0.06) 35%,
-    rgba(8, 10, 14, 0) 75%
+    rgba(16, 185, 129, 0.03) 0%,
+    rgba(0, 85, 255, 0.03) 35%,
+    rgba(252, 252, 253, 0) 75%
   );
 
   /* Typography Scales */
@@ -104,7 +120,7 @@
   --container-max-width: var(--shell);
   --container-gutter: clamp(1.25rem, 4vw, 2.5rem);
   --section-spacing: clamp(5.5rem, 10vw, 9.5rem);
-  --measure-prose: 52ch;
+  --measure-prose: 65ch;
   --gap-spacious: clamp(2rem, 4vw, 3.5rem);
   --radius-xs: 6px;
   --radius-sm: 12px;

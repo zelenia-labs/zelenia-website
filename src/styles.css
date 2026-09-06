@@ -7,7 +7,10 @@
 @import './styles/components/audit-widget.css';
 @import './styles/components/advantage.css';
 @import './styles/components/capabilities.css';
+@import './styles/components/capabilities-dossier.css';
 @import './styles/components/leadership.css';
 @import './styles/components/diagnostic.css';
 @import './styles/components/contact.css';
+@import './styles/components/transparency.css';
+@import './styles/components/faq.css';
 @import './styles/components/footer.css';

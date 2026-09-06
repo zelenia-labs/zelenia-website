@@ -8,16 +8,17 @@ export class DiagnosticState {
   readonly categories: DiagnosticCategory[] = [
     {
       id: 'vitals',
-      label: 'Core Web Vitals Optimization',
-      shortLabel: 'Web Vitals',
+      label: 'Performance Engineering Sprint',
+      shortLabel: 'Performance Sprint',
       tagline: 'LCP, INP & CLS Remediation',
+      investmentFloor: 'From $6,500',
       division: {
-        engineering: 75,
-        design: 25,
-        label: '75% Engineering / 25% Design'
+        engineering: 80,
+        design: 20,
+        label: '80% Engineering / 20% Design'
       },
       turnaround: {
-        standard: '2 to 3 Weeks',
+        standard: '2 Weeks',
         accelerated: '1 to 2 Weeks'
       },
       deliverables: {
@@ -62,10 +63,11 @@ export class DiagnosticState {
       label: 'Responsive & Accessibility Overhaul',
       shortLabel: 'Responsive & a11y',
       tagline: 'WCAG 2.2 AA & Multi-Device Parity',
+      investmentFloor: 'From $12,000',
       division: {
-        engineering: 55,
-        design: 45,
-        label: '55% Engineering / 45% Design'
+        engineering: 60,
+        design: 40,
+        label: '60% Engineering / 40% Design'
       },
       turnaround: {
         standard: '3 to 4 Weeks',
@@ -80,7 +82,7 @@ export class DiagnosticState {
           'Touch-target calibration (min 44x44px) and fluid typography scaling'
         ],
         accelerated: [
-          'Full-scale parallel remediation of high-traffic views by both partners',
+          'Full-scale parallel remediation of high-traffic views by both founders',
           'Immediate repair of screen-reader blockers and keyboard trap vulnerabilities',
           'Mobile viewport refactoring across edge-case device aspect ratios',
           'Comprehensive accessibility conformance statement and VPAT guidance'
@@ -112,14 +114,15 @@ export class DiagnosticState {
       label: 'Design System & Visual Modernization',
       shortLabel: 'Design System',
       tagline: 'Tokenized UI & Component Modularity',
+      investmentFloor: 'From $12,000',
       division: {
-        engineering: 35,
-        design: 65,
-        label: '35% Engineering / 65% Design'
+        engineering: 40,
+        design: 60,
+        label: '40% Engineering / 60% Design'
       },
       turnaround: {
-        standard: '4 to 6 Weeks',
-        accelerated: '3 to 4 Weeks'
+        standard: '4 Weeks',
+        accelerated: '2 to 3 Weeks'
       },
       deliverables: {
         standard: [
@@ -162,10 +165,11 @@ export class DiagnosticState {
       label: 'End-to-End Digital Rebuild',
       shortLabel: 'Full Rebuild',
       tagline: 'Zero Technical Debt & Flawless Execution',
+      investmentFloor: 'From $24,000',
       division: {
         engineering: 50,
         design: 50,
-        label: '50% Engineering / 50% Design (Equal Co-Pilot)'
+        label: '50% Engineering / 50% Design'
       },
       turnaround: {
         standard: '6 to 8 Weeks',
@@ -240,6 +244,8 @@ export class DiagnosticState {
     const cat = this.activeCategory();
     return this.isAccelerated() ? cat.turnaround.accelerated : cat.turnaround.standard;
   });
+
+  readonly investmentFloor = computed(() => this.activeCategory().investmentFloor);
 
   readonly paceCadenceLabel = computed(() =>
     this.isAccelerated() ? 'Dedicated Intensive Cadence' : 'Phased Sprint Cadence'

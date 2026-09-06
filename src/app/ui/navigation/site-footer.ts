@@ -1,38 +1,39 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { StudioContent } from '../../content/studio-content';
 
 @Component({
   selector: 'app-site-footer',
+  imports: [RouterLink],
   template: `
     <footer class="site-footer" role="contentinfo">
       <div class="container footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
-            <a class="site-logo" href="/" aria-label="Zelenia Home">
-              <span class="logo-text">Zelenia</span>
-              <span class="logo-slash" aria-hidden="true">/</span>
-              <span class="logo-subtext">Studio</span>
+            <a class="site-logo" routerLink="/" aria-label="Zelenia Home">
+              <span class="logo-text">ZELENIA</span>
             </a>
             <p class="footer-tagline">
-              Elite frontend engineering and high-precision product design studio. Zero bureaucracy,
-              absolute senior density.
+              High-Precision Frontend Engineering &amp; Product Design Studio.
+            </p>
+            <p class="footer-assurance">
+              Direct communication. Zero sales representatives. Zero account managers.
             </p>
           </div>
 
           <nav class="footer-nav" aria-label="Footer Navigation">
             <div class="footer-nav-col">
-              <span class="footer-nav-code">[ 01 // STUDIO ]</span>
+              <span class="footer-nav-code">[ 01 // NAVIGATION ]</span>
               <ul class="footer-nav-list">
-                <li><a href="#capabilities">Capabilities</a></li>
-                <li><a href="#advantage">The Model</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#diagnostic">Project Diagnostic</a></li>
-                <li><a href="#contact">Book a Review</a></li>
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/process">Process &amp; Scope</a></li>
+                <li><a routerLink="/team">The Team</a></li>
+                <li><a routerLink="/contact">Contact</a></li>
               </ul>
             </div>
 
             <div class="footer-nav-col">
-              <span class="footer-nav-code">[ 02 // DOSSIER ]</span>
+              <span class="footer-nav-code">[ 02 // PROFILES ]</span>
               <ul class="footer-nav-list">
                 <li>
                   <a
@@ -49,7 +50,7 @@ import { StudioContent } from '../../content/studio-content';
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Yolanda Santacruz ↗
+                    Yolanda Santa Cruz ↗
                   </a>
                 </li>
                 <li>

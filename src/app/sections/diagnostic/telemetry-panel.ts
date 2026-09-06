@@ -5,8 +5,16 @@ import { DivisionOfLabor } from './diagnostic.model';
   selector: 'app-telemetry-panel',
   template: `
     <div class="diagnostic-telemetry">
+      <div class="telemetry-cell telemetry-cell--floor">
+        <span class="telemetry-label">[ STARTING INVESTMENT FLOOR ]</span>
+        <div class="telemetry-value-row">
+          <span class="telemetry-value" style="color: var(--cyan);">{{ investmentFloor() }}</span>
+        </div>
+        <span class="telemetry-sub">50% Deposit / 50% Staging Handoff</span>
+      </div>
+
       <div class="telemetry-cell telemetry-cell--turnaround">
-        <span class="telemetry-label">[ ESTIMATED TURNAROUND ]</span>
+        <span class="telemetry-label">[ ESTIMATED TIMEFRAME ]</span>
         <div class="telemetry-value-row">
           <span class="telemetry-value">{{ turnaround() }}</span>
         </div>
@@ -15,7 +23,7 @@ import { DivisionOfLabor } from './diagnostic.model';
 
       <div class="telemetry-cell telemetry-cell--division">
         <div class="telemetry-division-header">
-          <span class="telemetry-label">[ DIVISION OF LABOR ]</span>
+          <span class="telemetry-label">[ EFFORT DISTRIBUTION ]</span>
           <span class="telemetry-ratio">{{ division().label }}</span>
         </div>
         <div class="division-meter" aria-label="Division of labor visual bar">
@@ -45,6 +53,7 @@ import { DivisionOfLabor } from './diagnostic.model';
   `
 })
 export class TelemetryPanel {
+  readonly investmentFloor = input.required<string>();
   readonly turnaround = input.required<string>();
   readonly paceLabel = input.required<string>();
   readonly division = input.required<DivisionOfLabor>();

@@ -30,16 +30,23 @@ interface Particle {
   `,
   styles: `
     :host {
-      display: contents;
+      display: block;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
   `
 })
 export class AmbientCanvas implements OnDestroy {
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly hostRef = inject(ElementRef<HTMLElement>);
   private readonly canvasRef = viewChild<ElementRef<HTMLCanvasElement>>('canvas');
 
   private animationFrameId: number | null = null;
   private resizeListener: (() => void) | null = null;
+  private resizeObserver: ResizeObserver | null = null;
   private mouseMoveListener: ((e: MouseEvent) => void) | null = null;
   private mouseLeaveListener: (() => void) | null = null;
 
@@ -55,41 +62,51 @@ export class AmbientCanvas implements OnDestroy {
     const canvas = this.canvasRef()?.nativeElement;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: true });
+    if (typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent)) {
+      return;
+    }
+
+    let ctx: CanvasRenderingContext2D | null = null;
+    try {
+      ctx = canvas.getContext('2d', { alpha: true });
+    } catch {
+      return;
+    }
     if (!ctx) return;
+
+    const host = this.hostRef.nativeElement;
+    const parent: HTMLElement = host.parentElement ?? host;
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width = (canvas.width = parent.clientWidth || window.innerWidth);
+    let height = (canvas.height = parent.clientHeight || window.innerHeight);
 
     const colors = [
-      'rgba(0, 85, 255, 0.45)', // Royal Blue #0055FF
-      'rgba(0, 229, 255, 0.35)', // Cyan
-      'rgba(16, 185, 129, 0.35)', // Emerald
-      'rgba(248, 250, 252, 0.35)' // Soft White
+      'rgba(0, 85, 255, 0.28)', // Royal Blue #0055FF
+      'rgba(14, 165, 233, 0.22)', // Sky Blue
+      'rgba(16, 185, 129, 0.2)', // Emerald
+      'rgba(99, 102, 241, 0.18)' // Indigo
     ];
 
-    const particleCount = Math.min(Math.floor((width * height) / 38000), 40);
+    const particleCount = Math.min(Math.floor((width * height) / 32000), 38);
     const particles: Particle[] = [];
 
     const createParticle = (): Particle => {
-      const spawnLeft = Math.random() < 0.5;
-      const flankWidth = width > 900 ? width * 0.22 : width * 0.16;
-      const x = spawnLeft ? Math.random() * flankWidth : width - Math.random() * flankWidth;
+      const x = Math.random() * width;
       const y = Math.random() * height;
-      const radius = Math.random() * 2.2 + 1.2;
+      const radius = Math.random() * 2.4 + 1.2;
       return {
         x,
         y,
-        vx: (Math.random() - 0.5) * 0.12,
-        vy: (Math.random() - 0.5) * 0.12,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
         radius,
         baseRadius: radius,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.45 + 0.25,
+        alpha: Math.random() * 0.45 + 0.3,
         pulseSpeed: Math.random() * 0.008 + 0.004,
         pulseStep: Math.random() * Math.PI,
         visibility: 1
@@ -104,8 +121,19 @@ export class AmbientCanvas implements OnDestroy {
     let mouseY: number | null = null;
 
     this.mouseMoveListener = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      const rect = canvas.getBoundingClientRect();
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+      } else {
+        mouseX = null;
+        mouseY = null;
+      }
     };
 
     this.mouseLeaveListener = () => {
@@ -113,22 +141,24 @@ export class AmbientCanvas implements OnDestroy {
       mouseY = null;
     };
 
-    this.resizeListener = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    const updateDimensions = () => {
+      const rect = parent.getBoundingClientRect();
+      width = canvas.width = Math.max(rect.width, 320);
+      height = canvas.height = Math.max(rect.height, 400);
     };
 
+    this.resizeListener = updateDimensions;
     window.addEventListener('resize', this.resizeListener, { passive: true });
     window.addEventListener('mousemove', this.mouseMoveListener, { passive: true });
     window.addEventListener('mouseleave', this.mouseLeaveListener, { passive: true });
 
+    if (typeof ResizeObserver !== 'undefined' && parent) {
+      this.resizeObserver = new ResizeObserver(() => updateDimensions());
+      this.resizeObserver.observe(parent);
+    }
+
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
-
-      const centerX = width / 2;
-      const sanctuaryRadius =
-        width > 900 ? Math.min(width * 0.34, 520) : Math.min(width * 0.3, 320);
-      const fadeBuffer = 140;
 
       for (const p of particles) {
         p.x += p.vx;
@@ -139,27 +169,13 @@ export class AmbientCanvas implements OnDestroy {
         if (p.y < -20) p.y = height + 20;
         if (p.y > height + 20) p.y = -20;
 
-        const distFromCenter = Math.abs(p.x - centerX);
-        if (distFromCenter < sanctuaryRadius + 60) {
-          const pushDir = p.x < centerX ? -1 : 1;
-          p.vx += pushDir * 0.01;
-        }
-
-        if (distFromCenter <= sanctuaryRadius) {
-          p.visibility = 0;
-        } else if (distFromCenter < sanctuaryRadius + fadeBuffer) {
-          p.visibility = (distFromCenter - sanctuaryRadius) / fadeBuffer;
-        } else {
-          p.visibility = 1;
-        }
-
         if (mouseX !== null && mouseY !== null) {
           const dx = mouseX - p.x;
           const dy = mouseY - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 200;
+          const maxDist = 220;
           if (dist < maxDist) {
-            const force = (1 - dist / maxDist) * 0.015;
+            const force = (1 - dist / maxDist) * 0.02;
             p.x += dx * force;
             p.y += dy * force;
           }
@@ -168,17 +184,15 @@ export class AmbientCanvas implements OnDestroy {
         p.pulseStep += p.pulseSpeed;
         p.radius = p.baseRadius + Math.sin(p.pulseStep) * 0.4;
 
-        if (p.visibility > 0) {
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.globalAlpha = p.alpha * p.visibility;
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = p.color;
-          ctx.fill();
-          ctx.restore();
-        }
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+        ctx.restore();
       }
 
       this.animationFrameId = requestAnimationFrame(animate);
@@ -193,6 +207,9 @@ export class AmbientCanvas implements OnDestroy {
     }
     if (this.resizeListener) {
       window.removeEventListener('resize', this.resizeListener);
+    }
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
     }
     if (this.mouseMoveListener) {
       window.removeEventListener('mousemove', this.mouseMoveListener);

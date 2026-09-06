@@ -12,143 +12,298 @@ import { PagespeedClient } from '../hero/pagespeed-client';
   template: `
     <section class="site-section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container" appScrollReveal>
-        <div class="contact-card">
-          <div class="contact-card__header">
-            <span class="section-tag">Let's Connect</span>
-            <h2 class="section-title" id="contact-title">
-              Let's build something wonderful together.
-            </h2>
-            <p class="section-subhead">
-              Have a project in mind, an architectural challenge to untangle, or a design system to
-              bring to life? Connect directly with Alejandro and Yolanda &mdash; zero sales reps,
-              zero agency layers.
-            </p>
+        <!-- Header & Availability Badge -->
+        <div class="contact-hub-header">
+          <div class="availability-pill">
+            <span class="pulsating-dot" aria-hidden="true"></span>
+            <span
+              >Studio Hours: Mon &ndash; Fri, 9:00 AM &ndash; 6:00 PM EST &bull; Direct Team
+              Response</span
+            >
           </div>
+          <h2 class="section-title" id="contact-title">Three ways to get started.</h2>
+          <p class="section-subhead" style="margin-inline: auto;">
+            Pick the channel that matches your workflow. Every channel connects directly to the
+            engineering and design founders &mdash; zero sales reps, zero account managers.
+          </p>
+        </div>
 
-          <form class="contact-form" id="contact-form" novalidate (submit)="onSubmit($event)">
-            <div class="form-grid">
-              <!-- Company URL -->
-              <div class="form-group">
-                <label class="form-label" for="company-url">
-                  Company or Website URL
-                  <span class="form-label__optional">(Optional)</span>
-                </label>
-                <div class="input-wrapper">
-                  <input
-                    class="form-input"
-                    id="company-url"
-                    type="url"
-                    placeholder="https://yourcompany.com"
-                    autocomplete="url"
-                    spellcheck="false"
-                    [formField]="contactForm.companyUrl"
-                  />
-                </div>
-              </div>
+        <div class="omnichannel-grid">
+          <!-- Channel 1: Structured Scope Request (Signal Forms with Progressive Disclosure) -->
+          <div class="channel-card channel-card--blue">
+            <span class="channel-card__badge">[ CHANNEL 01 // STRUCTURED INTAKE ]</span>
+            <h3 class="channel-card__title">Structured Scope Request</h3>
+            <p class="channel-card__desc">
+              For teams with defined goals. Evaluated directly by the founders within one business
+              day.
+            </p>
 
-              <!-- Work Email -->
-              <div class="form-group">
-                <label class="form-label" for="work-email">
-                  Work Email
-                  <span class="form-label__required" aria-hidden="true">*</span>
-                </label>
-                <div class="input-wrapper">
-                  <input
-                    class="form-input"
-                    id="work-email"
-                    type="email"
-                    placeholder="partner@company.com"
-                    autocomplete="email"
-                    spellcheck="false"
-                    [class.is-invalid]="
-                      contactForm.workEmail().touched() &&
-                      contactForm.workEmail().errors().length > 0
-                    "
-                    [formField]="contactForm.workEmail"
-                  />
+            <form class="contact-form" id="contact-form" novalidate (submit)="onSubmit($event)">
+              <div class="form-grid">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label class="form-label" for="full-name">Your Name</label>
+                  <div class="input-wrapper">
+                    <input
+                      class="form-input"
+                      id="full-name"
+                      type="text"
+                      placeholder="Jane Doe"
+                      autocomplete="name"
+                      [formField]="contactForm.fullName"
+                    />
+                  </div>
                 </div>
-                @if (
-                  contactForm.workEmail().touched() && contactForm.workEmail().errors().length > 0
-                ) {
-                  <span class="form-error" id="email-error" role="alert" aria-live="polite">
-                    {{ contactForm.workEmail().errors()[0].message }}
+
+                <!-- Work Email -->
+                <div class="form-group">
+                  <label class="form-label" for="work-email">
+                    Work Email
+                    <span class="form-label__required" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <input
+                      class="form-input"
+                      id="work-email"
+                      type="email"
+                      placeholder="jane@company.com"
+                      autocomplete="email"
+                      spellcheck="false"
+                      [class.is-invalid]="
+                        contactForm.workEmail().touched() &&
+                        contactForm.workEmail().errors().length > 0
+                      "
+                      [formField]="contactForm.workEmail"
+                    />
+                  </div>
+                  @if (
+                    contactForm.workEmail().touched() && contactForm.workEmail().errors().length > 0
+                  ) {
+                    <span class="form-error" id="email-error" role="alert" aria-live="polite">
+                      {{ contactForm.workEmail().errors()[0].message }}
+                    </span>
+                  }
+                </div>
+
+                <!-- Company / Website URL -->
+                <div class="form-group">
+                  <label class="form-label" for="company-url">
+                    Website URL
+                    <span class="form-label__optional">(Optional)</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <input
+                      class="form-input"
+                      id="company-url"
+                      type="url"
+                      placeholder="https://yourcompany.com"
+                      autocomplete="url"
+                      spellcheck="false"
+                      [formField]="contactForm.companyUrl"
+                    />
+                  </div>
+                </div>
+
+                <!-- Primary Focus / Sprint Objective -->
+                <div class="form-group">
+                  <label class="form-label" for="primary-focus">Sprint Objective</label>
+                  <div class="select-wrapper">
+                    <select class="form-select" id="primary-focus" [formField]="contactForm.focus">
+                      @for (cat of diagnostic.categories; track cat.id) {
+                        <option [value]="cat.id">{{ cat.label }}</option>
+                      }
+                    </select>
+                    <span class="select-arrow" aria-hidden="true">↓</span>
+                  </div>
+                </div>
+
+                <!-- Progressive Disclosure Toggle -->
+                <label class="progressive-toggle-wrapper">
+                  <input
+                    type="checkbox"
+                    id="include-details"
+                    class="progressive-checkbox"
+                    [formField]="contactForm.includeDetails"
+                  />
+                  <span class="progressive-toggle-label">
+                    Add technical scope &amp; project specifications
                   </span>
+                  <span class="progressive-toggle-sub">(Optional detailed intake)</span>
+                </label>
+
+                <!-- Expanded Technical Layer (Progressive Disclosure) -->
+                @if (contactForm.includeDetails().value()) {
+                  <div class="progressive-expansion" id="progressive-expansion">
+                    <!-- Estimated Budget Bracket -->
+                    <div class="form-group">
+                      <label class="form-label" for="budget-bracket"
+                        >Estimated Budget Bracket</label
+                      >
+                      <div class="select-wrapper">
+                        <select
+                          class="form-select"
+                          id="budget-bracket"
+                          [formField]="contactForm.budgetBracket"
+                        >
+                          <option value="<$10k">&lt; $10,000 (Targeted Performance Sprint)</option>
+                          <option value="$10k-$20k">
+                            $10,000 &ndash; $20,000 (Accessibility &amp; Responsive Sprint)
+                          </option>
+                          <option value="$20k-$40k">
+                            $20,000 &ndash; $40,000 (Complete Modernization)
+                          </option>
+                          <option value="$40k+">$40,000+ (Custom Bespoke Architecture)</option>
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">↓</span>
+                      </div>
+                    </div>
+
+                    <!-- Current Tech Stack -->
+                    <div class="form-group">
+                      <label class="form-label" for="tech-stack">Current Technical Stack</label>
+                      <div class="input-wrapper">
+                        <input
+                          class="form-input"
+                          id="tech-stack"
+                          type="text"
+                          placeholder="e.g. Angular, React, Next.js, Plain HTML"
+                          [formField]="contactForm.techStack"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Target Launch Timeline -->
+                    <div class="form-group">
+                      <label class="form-label" for="timeline-select">Target Timeline</label>
+                      <div class="select-wrapper">
+                        <select
+                          class="form-select"
+                          id="timeline-select"
+                          [formField]="contactForm.timeline"
+                        >
+                          <option value="immediate">Immediate Priority (Within 2-3 weeks)</option>
+                          <option value="next-month">Scheduled (Within 1-2 months)</option>
+                          <option value="flexible">Flexible / Planning Phase</option>
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">↓</span>
+                      </div>
+                    </div>
+
+                    <!-- Architecture Constraints or Notes -->
+                    <div class="form-group">
+                      <label class="form-label" for="project-notes"
+                        >Primary Bottlenecks or Goals</label
+                      >
+                      <div class="input-wrapper">
+                        <input
+                          class="form-input"
+                          id="project-notes"
+                          type="text"
+                          placeholder="e.g. Sub-1.8s LCP required, WCAG 2.2 audit passing"
+                          [formField]="contactForm.notes"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 }
               </div>
 
-              <!-- Primary Focus Selector -->
-              <div class="form-group form-group--full">
-                <label class="form-label" for="primary-focus">Primary Focus Challenge</label>
-                <div class="select-wrapper">
-                  <select class="form-select" id="primary-focus" [formField]="contactForm.focus">
-                    @for (cat of diagnostic.categories; track cat.id) {
-                      <option [value]="cat.id">{{ cat.label }}</option>
-                    }
-                  </select>
-                  <span class="select-arrow" aria-hidden="true">↓</span>
-                </div>
+              <div class="form-actions" style="flex-direction: column; align-items: flex-start;">
+                <button
+                  class="btn btn--primary btn--submit"
+                  id="submit-btn"
+                  type="submit"
+                  [class.btn--loading]="intake.isSubmitting()"
+                  [disabled]="intake.isSubmitting()"
+                >
+                  <span class="btn-text">Submit Scope for Technical Review</span>
+                  <span class="arrow-indicator" aria-hidden="true">→</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+                <span class="sla-guarantee"
+                  >&bull; Evaluated directly by the founders within one business day.</span
+                >
               </div>
 
-              <!-- Additional Context / Notes -->
-              <div class="form-group form-group--full">
-                <label class="form-label" for="project-notes">
-                  Additional Context or Architectural Constraints
-                  <span class="form-label__optional">(Optional)</span>
-                </label>
-                <div class="textarea-wrapper">
-                  <textarea
-                    class="form-textarea"
-                    id="project-notes"
-                    rows="3"
-                    placeholder="Share your current stack, primary pain points, target timeline, or benchmark goals..."
-                    [formField]="contactForm.notes"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-actions">
-              <button
-                class="btn btn--primary btn--submit"
-                id="submit-btn"
-                type="submit"
-                [class.btn--loading]="intake.isSubmitting()"
-                [disabled]="intake.isSubmitting()"
-              >
-                <span class="btn-text">Say Hello to the Partners</span>
-                <span class="arrow-indicator" aria-hidden="true">→</span>
-                <span class="btn-spinner" aria-hidden="true"></span>
-              </button>
-            </div>
-
-            <!-- Submission Confirmation Banner -->
-            @if (intake.isSubmitted()) {
-              <div
-                class="form-confirmation"
-                id="form-confirmation"
-                role="status"
-                aria-live="polite"
-              >
-                <div class="confirmation-content">
-                  <span class="confirmation-icon" aria-hidden="true">✓</span>
-                  <div class="confirmation-text">
-                    <h4 class="confirmation-title">Architectural Review Requested</h4>
-                    <p class="confirmation-body">
-                      Thank you. Your inquiry has been routed directly to Alejandro Cuba and Yolanda
-                      Santacruz. We will review your architecture and respond within 24 hours.
-                    </p>
+              <!-- Submission Confirmation Banner -->
+              @if (intake.isSubmitted()) {
+                <div
+                  class="form-confirmation"
+                  id="form-confirmation"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <div class="confirmation-content">
+                    <span class="confirmation-icon" aria-hidden="true">✓</span>
+                    <div class="confirmation-text">
+                      <h4 class="confirmation-title">Architectural Review Requested</h4>
+                      <p class="confirmation-body">
+                        Thank you. Your inquiry has been routed directly to Alejandro Cuba and
+                        Yolanda Santa Cruz. We will review your architecture and respond within 24
+                        hours.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            }
-          </form>
+              }
+            </form>
+          </div>
 
-          <div class="reassurance-footer">
-            <p class="reassurance-text">
-              <span class="reassurance-prefix">[ DIRECT ENGAGEMENT ] </span>
-              Zero sales representatives or account managers. You will consult directly with the
-              engineering and design partners.
-            </p>
+          <!-- Channels 2 & 3: Sidebar -->
+          <div class="channels-sidebar">
+            <!-- Channel 2: 15-Minute Strategy Call -->
+            <div class="channel-card channel-card--purple">
+              <span class="channel-card__badge">[ CHANNEL 02 // DIRECT CALENDAR ]</span>
+              <h3 class="channel-card__title">15-Minute Strategy Call</h3>
+              <p class="channel-card__desc">
+                Direct calendar booking with the Principal Engineer and Lead Designer. No qualifying
+                sales screens.
+              </p>
+              <ul class="channel-points">
+                <li class="channel-point">
+                  <span class="channel-point__bullet">&bull;</span>
+                  <span>Assess architectural and timeline fit</span>
+                </li>
+                <li class="channel-point">
+                  <span class="channel-point__bullet">&bull;</span>
+                  <span>Outline preliminary technical paths</span>
+                </li>
+                <li class="channel-point">
+                  <span class="channel-point__bullet">&bull;</span>
+                  <span>Direct founder conversation</span>
+                </li>
+              </ul>
+              <a
+                class="btn btn--calendar"
+                href="https://calendar.app.google/zelenia-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="inline-size: 100%;"
+              >
+                <span>Schedule on Calendar</span>
+                <span class="arrow-indicator" aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <!-- Channel 3: Asynchronous Direct Messaging -->
+            <div class="channel-card channel-card--green">
+              <span class="channel-card__badge">[ CHANNEL 03 // ASYNC CHAT ]</span>
+              <h3 class="channel-card__title">Direct Founder Messaging</h3>
+              <p class="channel-card__desc">
+                Need a quick availability check or want to share screenshot links directly? Connect
+                via WhatsApp or Telegram.
+              </p>
+              <a
+                class="btn btn--messaging"
+                href="https://wa.me/18005550199?text=Hello%20Zelenia%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project%20sprint."
+                target="_blank"
+                rel="noopener noreferrer"
+                style="inline-size: 100%;"
+              >
+                <span>Open Direct Conversation</span>
+                <span class="arrow-indicator" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -163,9 +318,14 @@ export class Contact {
   protected readonly model = linkedSignal<string, ContactInquiry>({
     source: this.pagespeed.targetUrl,
     computation: (heroUrl, previous) => ({
+      fullName: previous?.value.fullName ?? '',
       companyUrl: heroUrl || (previous?.value.companyUrl ?? ''),
       workEmail: previous?.value.workEmail ?? '',
       focus: previous?.value.focus ?? this.diagnostic.activeCategoryId(),
+      includeDetails: previous?.value.includeDetails ?? false,
+      budgetBracket: previous?.value.budgetBracket ?? '$10k-$20k',
+      techStack: previous?.value.techStack ?? '',
+      timeline: previous?.value.timeline ?? 'immediate',
       notes: previous?.value.notes ?? ''
     })
   });
@@ -182,9 +342,14 @@ export class Contact {
       if (success) {
         this.pagespeed.targetUrl.set('');
         this.model.set({
+          fullName: '',
           companyUrl: '',
           workEmail: '',
           focus: this.diagnostic.activeCategoryId(),
+          includeDetails: false,
+          budgetBracket: '$10k-$20k',
+          techStack: '',
+          timeline: 'immediate',
           notes: ''
         });
         this.contactForm().reset();

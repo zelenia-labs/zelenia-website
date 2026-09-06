@@ -93,4 +93,25 @@ describe('Contact Component (Signal Forms)', () => {
     const companyInput = fixture.nativeElement.querySelector('#company-url') as HTMLInputElement;
     expect(companyInput.value).toBe('https://acmecorp.com');
   });
+
+  it('should toggle progressive disclosure fields when include-details checkbox is checked', async () => {
+    expect(fixture.nativeElement.querySelector('#progressive-expansion')).toBeNull();
+
+    const checkbox = fixture.nativeElement.querySelector('#include-details') as HTMLInputElement;
+    expect(checkbox).toBeTruthy();
+    checkbox.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const expansion = fixture.nativeElement.querySelector('#progressive-expansion');
+    expect(expansion).toBeTruthy();
+
+    const budgetSelect = fixture.nativeElement.querySelector(
+      '#budget-bracket'
+    ) as HTMLSelectElement;
+    expect(budgetSelect).toBeTruthy();
+
+    const techInput = fixture.nativeElement.querySelector('#tech-stack') as HTMLInputElement;
+    expect(techInput).toBeTruthy();
+  });
 });

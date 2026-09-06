@@ -42,8 +42,8 @@
 }
 
 .diagnostic-tab:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--blue);
+  background: rgba(0, 85, 255, 0.06);
 }
 
 .diagnostic-tab[aria-selected='true'] {
@@ -77,8 +77,8 @@
 
 .diagnostic-pace-toggle {
   display: inline-flex;
-  background: rgba(26, 32, 44, 0.6);
-  border: 1px solid var(--border-subtle);
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius-pill);
   padding: 3px;
   gap: 3px;
@@ -92,7 +92,7 @@
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #64748b;
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -100,13 +100,14 @@
 }
 
 .diagnostic-pace-btn:hover {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .diagnostic-pace-btn[aria-pressed='true'] {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: #ffffff;
+  color: #0f172a;
   font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 /* Telemetry Stats Bar: Open, Typographic Row */
@@ -116,8 +117,8 @@
   gap: clamp(2rem, 5vw, 4rem);
   margin-block-end: 3rem;
   padding-block: 2rem;
-  border-block-start: 1px solid var(--border-subtle);
-  border-block-end: 1px solid var(--border-subtle);
+  border-block-start: 1px solid rgba(15, 23, 42, 0.08);
+  border-block-end: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .telemetry-cell {
@@ -140,7 +141,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 600;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.035em;
   line-height: 1.1;
 }
@@ -162,7 +163,8 @@
 .telemetry-ratio {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
 }
 
 /* Division Meter */
@@ -172,8 +174,8 @@
   block-size: 16px;
   border-radius: var(--radius-pill);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .division-meter__eng {
@@ -250,11 +252,11 @@
 }
 
 .diagnostic-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius);
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: clamp(1.75rem, 2.8vw, 2.25rem);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
 }
 
 .panel-header {
@@ -273,7 +275,7 @@
 .panel-title {
   font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   font-weight: 600;
-  color: var(--text-primary);
+  color: #0f172a;
   margin: 0;
   letter-spacing: -0.025em;
 }
@@ -293,7 +295,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.9375rem;
-  color: var(--text-secondary);
+  color: #475569;
   line-height: 1.65;
 }
 
@@ -312,7 +314,7 @@
 .benchmark-tile {
   background: transparent;
   border: none;
-  border-block-start: 1px solid var(--border-subtle);
+  border-block-start: 1px solid rgba(15, 23, 42, 0.08);
   padding-block-start: 1rem;
   display: flex;
   flex-direction: column;
@@ -323,7 +325,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.03em;
 }
 

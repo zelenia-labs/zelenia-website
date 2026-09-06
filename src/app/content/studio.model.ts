@@ -1,4 +1,4 @@
-export interface Partner {
+export interface TeamMember {
   name: string;
   role: string;
   credentials: string;
@@ -9,9 +9,12 @@ export interface Partner {
   avatarImage?: string;
 }
 
+export type Partner = TeamMember;
+
 export interface NavItem {
   label: string;
   href: string;
+  fragment?: string;
 }
 
 export interface ProofItem {
@@ -32,6 +35,7 @@ export interface SiteData {
   description: string;
   nav: NavItem[];
   proofBar: ProofItem[];
-  partners: Partner[];
+  team: TeamMember[];
+  partners: TeamMember[];
   socials: SocialLinks;
 }

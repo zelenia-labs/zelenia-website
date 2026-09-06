@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { DiagnosticState } from './diagnostic-state';
 import { TelemetryPanel } from './telemetry-panel';
 import { DeliverablesList } from './deliverables-list';
-import { FaqAccordion } from './faq-accordion';
 import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 import { CategoryId } from './diagnostic.model';
 
 @Component({
   selector: 'app-diagnostic',
-  imports: [TelemetryPanel, DeliverablesList, FaqAccordion, ScrollReveal],
+  imports: [TelemetryPanel, DeliverablesList, ScrollReveal, RouterLink],
   template: `
     <section
       class="site-section diagnostic-section"
@@ -80,6 +80,7 @@ import { CategoryId } from './diagnostic.model';
             tabindex="0"
           >
             <app-telemetry-panel
+              [investmentFloor]="state.investmentFloor()"
               [turnaround]="state.turnaroundText()"
               [paceLabel]="state.paceCadenceLabel()"
               [division]="state.activeCategory().division"
@@ -90,7 +91,20 @@ import { CategoryId } from './diagnostic.model';
               [benchmarks]="state.benchmarks()"
             />
 
-            <app-faq-accordion [faqs]="state.faqs()" [categoryId]="state.activeCategoryId()" />
+            <!-- Action to request this scope -->
+            <div
+              class="diagnostic-action-wrap"
+              style="display: flex; justify-content: flex-end; margin-top: 1.5rem;"
+            >
+              <a
+                class="btn btn--primary btn--scope-request"
+                routerLink="/contact"
+                [queryParams]="{ focus: state.activeCategoryId() }"
+              >
+                <span>Request This Sprint Scope</span>
+                <span class="arrow-indicator" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 .advantage-section {
   position: relative;
+  background-color: #f4f6f9;
+  border-block: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 /* Asymmetrical Editorial Split Layout (Artwork + Stacked Pillars) */
@@ -26,8 +28,8 @@
   inline-size: 100%;
   block-size: auto;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
   object-fit: cover;
   aspect-ratio: 4 / 3;
   transition:
@@ -66,22 +68,22 @@
 .advantage-card {
   display: flex;
   flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius);
   padding: clamp(1.75rem, 3vw, 2.25rem);
   position: relative;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
   transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-fast);
 }
 
 .advantage-card:hover {
-  border-color: var(--border-hover);
-  box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.45),
-    0 0 20px rgba(0, 85, 255, 0.1);
+  border-color: rgba(0, 85, 255, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 85, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .advantage-card__top {
@@ -150,4 +152,33 @@
   .advantage-visual {
     position: static;
   }
+}
+
+/* Light Surface Variant (Block 2) */
+.block-luminous .advantage-card {
+  background: var(--surface-luminous);
+  border: 1px solid var(--border-luminous);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.block-luminous .advantage-card:hover {
+  border-color: rgba(0, 85, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 85, 255, 0.08);
+}
+
+.block-luminous .advantage-card__title {
+  color: var(--text-luminous);
+}
+
+.block-luminous .advantage-card__body {
+  color: var(--text-luminous-muted);
+}
+
+.block-luminous .advantage-card__meta {
+  border-block-start: 1px solid var(--border-luminous);
+}
+
+.block-luminous .advantage-img {
+  border: 1px solid var(--border-luminous);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
 }

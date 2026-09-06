@@ -1,24 +1,87 @@
 import { Component, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { form, FormField, required, submit, validate } from '@angular/forms/signals';
 import { PagespeedClient } from './pagespeed-client';
 import { AuditConsole } from './audit-console';
 import { StudioContent } from '../../content/studio-content';
 import { ScrollReveal } from '../../ui/motion/scroll-reveal';
+import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
 
 @Component({
   selector: 'app-hero',
-  imports: [FormField, AuditConsole, ScrollReveal],
+  imports: [FormField, AuditConsole, ScrollReveal, RouterLink, AmbientCanvas],
   template: `
-    <section class="hero-section" id="hero" aria-label="Studio Introduction">
-      <div class="container hero-container" appScrollReveal>
+    <!-- Hero Stage (Left-Aligned, Expansive & Atmospheric) -->
+    <header class="hero-section" id="hero" aria-label="Studio Introduction">
+      <!-- Hero-Scoped Interactive Particle Canvas -->
+      <app-ambient-canvas />
+
+      <!-- Subtle Atmospheric Artwork Overlay -->
+      <div class="hero-atmosphere" aria-hidden="true">
+        <div class="hero-atmosphere__mesh"></div>
+        <div class="hero-atmosphere__orb"></div>
+        <div class="hero-atmosphere__grid"></div>
+      </div>
+
+      <div class="container hero-container hero-layout--left" appScrollReveal>
         <h1 class="hero-title">
-          Elite frontend engineering meets
-          <span class="font-serif">high-precision product design.</span>
+          Where high-precision product design<br />
+          <span class="hero-title__accent font-serif">meets production engineering.</span>
         </h1>
 
         <p class="hero-subheadline">
-          {{ site().description }}
+          Direct senior execution by a Fortune 100 Principal Engineer and Lead Product Designer. We
+          repair critical web vitals, build bespoke interfaces, and deliver production software
+          without agency overhead.
         </p>
+
+        <!-- Left-Aligned Kinetic Action Cluster -->
+        <div class="hero-actions">
+          <a class="btn btn--primary btn--hero-cta" routerLink="/process">
+            <span>Scope Your Project</span>
+            <span class="arrow-indicator" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--secondary btn--hero-connect" routerLink="/contact">
+            <span>Three Ways to Connect</span>
+            <span class="arrow-indicator" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Understated Verification Footnote Ribbon -->
+        <div class="hero-proof-footnote" aria-label="Studio Credentials">
+          <div class="footnote-item">
+            <span class="footnote-dot" aria-hidden="true"></span>
+            <span class="footnote-text"><strong>20+ years</strong> of collective experience</span>
+          </div>
+          <span class="footnote-sep" aria-hidden="true">•</span>
+          <div class="footnote-item">
+            <span class="footnote-text">Fortune 100 leaders &amp; high-growth startups</span>
+          </div>
+          <span class="footnote-sep" aria-hidden="true">•</span>
+          <div class="footnote-item">
+            <span class="footnote-text">100% direct senior execution</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dedicated Live Site Diagnostic Section (Extracted from Hero Stage) -->
+    <section
+      class="site-section diagnostic-section"
+      id="diagnostic"
+      aria-labelledby="diagnostic-title"
+    >
+      <div class="container diagnostic-container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Live Architecture Audit</span>
+          <h2 class="section-title" id="diagnostic-title">
+            Search your company to analyze the site.
+          </h2>
+          <p class="section-subhead">
+            Run an instant real-world diagnostic on Core Web Vitals, semantic accessibility, and DOM
+            payload before booking a sprint.
+          </p>
+        </div>
 
         <!-- Live Site Audit Form -->
         <form
@@ -90,11 +153,6 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
               {{ auditForm.url().errors()[0].message }}
             </span>
           }
-
-          <p class="hero-alternative-prompt">
-            Don't have a live website yet? No problem &mdash;
-            <a class="hero-alt-link" href="#contact">talk to the partners directly &rarr;</a>
-          </p>
         </form>
 
         <!-- Live Audit Console Widget -->
@@ -116,20 +174,6 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
             }
           </div>
         }
-
-        <!-- Studio Verification Proof Row -->
-        <div class="hero-proof-row" aria-label="Studio Verification Metrics">
-          @for (item of site().proofBar; track item.label; let last = $last) {
-            <div class="proof-item">
-              <span class="proof-item__metric">{{ item.metric }}</span>
-              <span class="proof-item__label">{{ item.label }}</span>
-              <span class="proof-item__sub">{{ item.sub }}</span>
-            </div>
-            @if (!last) {
-              <div class="proof-separator" aria-hidden="true"></div>
-            }
-          }
-        </div>
       </div>
     </section>
   `

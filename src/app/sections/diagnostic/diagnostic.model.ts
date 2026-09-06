@@ -32,6 +32,7 @@ export interface DiagnosticCategory {
   label: string;
   shortLabel: string;
   tagline: string;
+  investmentFloor: string;
   division: DivisionOfLabor;
   turnaround: Turnaround;
   deliverables: Deliverables;

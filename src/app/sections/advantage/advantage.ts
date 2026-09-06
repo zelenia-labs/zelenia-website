@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-advantage',
-  imports: [ScrollReveal],
+  imports: [ScrollReveal, RouterLink],
   template: `
     <section
       class="site-section advantage-section"
@@ -12,14 +13,14 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
     >
       <div class="container" appScrollReveal>
         <div class="section-header">
-          <span class="section-tag">The Model</span>
+          <span class="section-tag">The Studio Advantage</span>
           <h2 class="section-title" id="advantage-title">
-            Why direct senior partnership changes everything.
+            Direct execution outperforms agency hierarchy.
           </h2>
           <p class="section-subhead">
-            Traditional agencies pitch senior credentials, then hand off delivery to junior
-            associates. We work on 100% senior density: you collaborate directly with the two
-            partners designing and programming every detail.
+            Agencies sell senior credibility during sales pitches, then delegate delivery to junior
+            staff. Zelenia operates on total senior density: you collaborate directly with the
+            senior engineers and designers programming every detail.
           </p>
         </div>
 
@@ -36,7 +37,7 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                 decoding="async"
               />
               <figcaption class="advantage-caption">
-                <span class="caption-code">[ FIGURE 01 // DUAL SENIOR PRACTITIONER COHESION ]</span>
+                <span class="caption-code">[ FIGURE 01 // SENIOR PRACTITIONER COHESION ]</span>
                 <span class="caption-text">
                   Real-time alignment between Principal Engineering and Lead Product Design.
                 </span>
@@ -52,7 +53,7 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
               </div>
               <h3 class="advantage-card__title">Direct Access to Senior Talent</h3>
               <p class="advantage-card__body">
-                Clients collaborate exclusively with the partners designing and programming the
+                Clients collaborate exclusively with the team members designing and programming the
                 product. Every architecture decision, interface state, and line of code is handled
                 by seasoned experts, eliminating junior handoffs and communication decay.
               </p>
@@ -90,9 +91,16 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                 budget directly funds production craft.
               </p>
               <div class="advantage-card__meta">
-                <span class="advantage-card__pill">Direct Partner Agility</span>
+                <span class="advantage-card__pill">Direct Team Agility</span>
               </div>
             </article>
+
+            <div class="advantage-cta-box" style="margin-top: 1rem;">
+              <a class="btn btn--primary" routerLink="/team">
+                <span>Meet the Team Behind Every Project</span>
+                <span class="arrow-indicator" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

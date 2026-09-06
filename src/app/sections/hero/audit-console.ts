@@ -1,8 +1,10 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuditResults } from './pagespeed-client';
 
 @Component({
   selector: 'app-audit-console',
+  imports: [RouterLink],
   template: `
     @if (results(); as res) {
       <div class="audit-results">
@@ -145,11 +147,11 @@ import { AuditResults } from './pagespeed-client';
           <div class="remediation-text">
             <h4 class="remediation-title">Ready to eliminate technical bottlenecks?</h4>
             <p class="remediation-sub">
-              Zelenia partners engineer direct solutions with zero junior delegation.
+              Our founders engineer direct solutions with zero junior delegation.
             </p>
           </div>
-          <a class="btn btn--primary btn--remediate" href="#contact">
-            <span>Remediate with Partners</span>
+          <a class="btn btn--primary btn--remediate" routerLink="/contact">
+            <span>Remediate with the Team</span>
             <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
           </a>
         </div>

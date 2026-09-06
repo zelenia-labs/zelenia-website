@@ -1,6 +1,6 @@
 html {
   font-size: 16px;
-  color-scheme: dark;
+  color-scheme: light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -37,15 +37,15 @@ body {
   }
 }
 
-/* Ambient Canvas Background (Astra Celestial Dynamics) */
+/* Ambient Canvas Background (Scoped Hero Particle Dynamics) */
 .ambient-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
   inline-size: 100%;
   block-size: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.8;
+  opacity: 0.55;
 }
 
 /* Headings Typography */
@@ -98,6 +98,42 @@ main:focus {
   scroll-margin-top: 5rem;
 }
 
+/* High-Contrast Section Blocks */
+.block-obsidian {
+  background-color: var(--bg-obsidian);
+  color: var(--text-obsidian);
+  border-bottom: 1px solid var(--border-obsidian);
+  position: relative;
+}
+
+.block-luminous {
+  background-color: var(--bg-luminous);
+  color: var(--text-luminous);
+  border-bottom: 1px solid var(--border-luminous);
+  position: relative;
+}
+
+.block-luminous h1,
+.block-luminous h2,
+.block-luminous h3,
+.block-luminous h4 {
+  color: var(--text-luminous);
+}
+
+.block-luminous .section-subhead,
+.block-luminous p {
+  color: var(--text-luminous-muted);
+}
+
+.block-luminous .section-tag {
+  color: var(--blue);
+}
+
+.block-luminous .section-tag::before,
+.block-luminous .section-tag::after {
+  color: #94a3b8;
+}
+
 .site-section::before {
   content: '';
   position: absolute;
@@ -112,7 +148,7 @@ main:focus {
 }
 
 .advantage-section::before {
-  background: var(--ambient-advantage);
+  background: transparent;
 }
 
 .capabilities-section::before {
@@ -120,7 +156,7 @@ main:focus {
 }
 
 .leadership-section::before {
-  background: var(--ambient-leadership);
+  background: transparent;
 }
 
 .diagnostic-section::before {
@@ -256,17 +292,17 @@ main:focus {
 
 /* Secondary Button */
 .btn--secondary {
-  background-color: var(--surface-2);
+  background-color: var(--surface);
   color: var(--text-primary);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .btn--secondary:hover {
-  background-color: #1f2734;
-  color: #ffffff;
+  background-color: var(--surface-2);
+  color: var(--blue);
   border-color: var(--border-hover);
+  box-shadow: 0 4px 12px rgba(0, 85, 255, 0.08);
 }
 
 .btn--ghost {
@@ -276,8 +312,8 @@ main:focus {
 }
 
 .btn--ghost:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  background-color: rgba(15, 23, 42, 0.05);
 }
 
 /* Arrow indicator */

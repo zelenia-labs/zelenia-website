@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { SiteHeader } from './site-header';
 import { StudioContent } from '../../content/studio-content';
 
@@ -9,7 +10,7 @@ describe('SiteHeader Component', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SiteHeader],
-      providers: [StudioContent]
+      providers: [StudioContent, provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SiteHeader);
@@ -40,6 +41,28 @@ describe('SiteHeader Component', () => {
 
     const ctaButton = fixture.nativeElement.querySelector('.btn--header');
     expect(ctaButton).toBeTruthy();
-    expect(ctaButton.textContent).toContain('Book a Review');
+    expect(ctaButton.textContent).toContain('Connect With Us');
+  });
+
+  it('should render the Advantage link and trigger smooth scroll when element is in DOM', () => {
+    const links = Array.from(
+      fixture.nativeElement.querySelectorAll('.nav-link')
+    ) as HTMLAnchorElement[];
+    const advantageLink = links.find((l) => l.textContent?.trim() === 'Advantage');
+    expect(advantageLink).toBeTruthy();
+    expect(advantageLink?.getAttribute('href')).toContain('advantage');
+
+    const fakeTarget = document.createElement('section');
+    fakeTarget.id = 'advantage';
+    fakeTarget.scrollIntoView = vi.fn();
+    document.body.appendChild(fakeTarget);
+
+    advantageLink?.click();
+    expect(fakeTarget.scrollIntoView).toHaveBeenCalledWith({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    document.body.removeChild(fakeTarget);
   });
 });
