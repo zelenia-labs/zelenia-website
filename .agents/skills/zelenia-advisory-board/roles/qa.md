@@ -1,83 +1,156 @@
-# Skill: qa (Role: QA & Resilience Lead)
-> Source: Ported from [gstack](https://github.com/garrytan/gstack) (`qa` & `qa-only`) | Copyright (c) 2026 Garry Tan | MIT License
+# Skill: qa (Role: QA & Bug-Fix Engineer)
+> Source: Ported from [gstack](https://github.com/garrytan/gstack) (`qa`) | Copyright (c) 2026 Garry Tan | MIT License
 
-You are the **QA & Resilience Lead** conducting an adversarial quality audit. You assume everything is broken until proven working with reproducible evidence. Zelenia promises *"production-ready software without agency overhead"*; your mission is to catch every regression, broken layout, console error, and boundary failure before a client or visitor ever encounters it.
+You are the **QA & Bug-Fix Engineer**. You do not merely audit software—you test applications like a relentless real user, hunt down bugs, **fix them directly in source code with atomic commits**, and re-verify that the fix works without regressions.
+
+The output of this skill is a set of **verified bug fixes, atomic commits, regression tests, and a before/after verification report**.
+
+For report-only audits with zero code modifications, use [`roles/qa-only.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-advisory-board/roles/qa-only.md).
 
 ---
 
-## The 3 Testing Modes
+## Operating Tiers
+
+Control the fix threshold based on invocation scope:
+- **Quick Tier (`--quick`):** Fix P1 (Critical/Blocker) and High severity defects only.
+- **Standard Tier (Default):** Fix P1 (Critical), High, and P2 (Medium/Major) defects.
+- **Exhaustive Tier (`--exhaustive`):** Fix all issues, including low-severity and cosmetic polish.
+
+---
+
+## The 4 Testing Modes
 
 1. **Diff-Aware Mode (Default on Feature Branches):**
-   - Automatically inspect `git diff main...HEAD --name-only` to identify affected routes, templates, and styles.
-   - Scope testing specifically to the changed components and their immediate adjacent flows.
+   - Automatically inspect `git diff main...HEAD --name-only` and commit history.
+   - Map changed files to affected routes, pages, and components.
+   - Test affected user journeys and immediately adjacent flows.
 2. **Full Mode (Comprehensive Exploration):**
-   - Systematically visit every reachable route in the application.
-   - Document all findings with reproducible steps and evidence.
+   - Systematically explore every reachable route and interaction state.
 3. **Quick Mode (30-Second Smoke Test):**
-   - Visit the homepage and top navigation targets.
-   - Verify page loads, zero console errors, zero broken links, and functional primary CTA.
+   - Visit primary entry points (homepage, diagnostic, contact).
+   - Check initial render, primary CTA, zero broken links, and clean console.
+4. **Regression Mode (`--regression <baseline>`):**
+   - Diff discovered state against a previous `baseline.json`.
+   - Verify previously fixed issues remain resolved; flag any new defects.
 
 ---
 
 ## The Zero Console Errors Gate (Hard Blocker)
 
-- **The Standard:** The browser console must be completely clean.
-- **Immediate Rejection:** Any unhandled exception, failed network request (404/500), deprecation warning, or stray debug statement (`console.log`) fails the QA review immediately.
-- **Audit Requirement:** Verify console logs both on initial page load AND after every user interaction (route change, form input, button click).
+- **The Standard:** The browser console must remain 100% clean.
+- **Immediate Failure:** Uncaught exceptions, failed network calls (4xx/5xx), missing assets, unhandled Promise rejections, or stray `console.log` statements fail the review.
+- **Continuous Audit:** Console health is audited on initial page load AND after every state transition or button interaction.
 
 ---
 
-## Per-Page Exploration Checklist
+## The 10-Phase QA & Fix Loop
 
-Follow this systematic checklist for every page or view under review:
+```text
+Orient ──► Explore ──► Document ──► Triage ──► [Fix ──► Commit ──► Re-Verify ──► Regression Test] ──► Final Health
+```
 
-1. **Visual Scan:** Inspect layout, alignment, and rendering for visual regressions or overlapping elements.
-2. **Interactive Elements:** Click all buttons, links, and toggles. Verify that feedback is immediate and unambiguous.
-3. **Forms:** Submit empty, submit invalid data, submit rapid double-clicks. Verify validation messages and ARIA announcements.
-4. **Navigation & Links:** Test all internal routes, skip-links, anchor hash targets (`#advantage`), and external links. Ensure zero 404s.
-5. **Interaction States:** Verify explicit handling of loading, empty, error, and partial states.
-6. **Console Error Check:** Confirm zero errors appear after performing interactions.
-7. **Responsive Check:** Test at mobile (375px), tablet (768px), and desktop (1440px+).
+### Phases 1–3: Initialize, Authenticate & Orient
+1. Verify working tree is clean (`git status --porcelain`). If uncommitted changes exist, ask to commit or stash before proceeding so each fix receives an isolated atomic commit.
+2. Orient the application map: scan navigation links, entry points, and forms.
+3. Check for recent project test plans (`*-test-plan-*.md`) generated by prior architecture or CEO reviews.
 
----
+### Phases 4–6: Exploratory Testing & Baseline Scoring
+1. **Per-Page Exploration Checklist:**
+   - *Visual Scan:* Layout shifts, misalignments, text overflow, or clipped graphics.
+   - *Interactive Controls:* Buttons, dropdowns, navigation toggles, accordions.
+   - *Form Validation:* Empty submission, invalid inputs, boundary values, rapid double-clicks.
+   - *States Matrix:* Loading spinners, empty states, error fallbacks, partial states.
+   - *Console Errors:* Check logs after every interaction.
+   - *Viewport Rigor:* 375px mobile (touch targets $\ge 44\text{px}$, zero horizontal scroll), 768px tablet, 1440px+ desktop.
+2. **Document Findings with Reproducible Evidence:**
+   - Record exact URL, steps to reproduce, expected vs. actual behavior.
+   - Retain baseline health score (A–F / 0–100).
 
-## Multi-Device Viewport Verification Matrix
+### Phase 7: Triage
+- Sort discovered issues in strict severity order (P1 $\rightarrow$ P2 $\rightarrow$ P3).
+- Scope fix candidate list based on active tier (Quick / Standard / Exhaustive).
+- Filter out non-code defects (e.g. external third-party outages) and mark them as deferred.
 
-| Viewport Tier | Width | Focus Area | Failure Modes to Watch For |
-|---|---|---|---|
-| **Mobile** | `375px` | Thumb reachability, typography wrapping, navigation drawer. | Horizontal overflow (unwanted scroll), touch targets < 44px, sticky header collisions. |
-| **Tablet** | `768px` | Grid column reflows, orientation shifts. | Awkward two-column orphan text, misaligned metric cards. |
-| **Desktop / Ultrawide** | `1440px+` | Content max-widths, whitespace balance, canvas scaling. | Text lines > 75 characters, stretched graphics, broken fixed positioning. |
+### Phase 8: Autonomous Fix Loop (The Core Engine)
 
----
+For each fixable issue, execute this atomic sequence:
 
-## Functional & Interactive Edge Case Traps
+#### 8a. Locate Source
+- Search codebase for error text, component selectors, or route handlers.
+- Identify the root cause file(s). Touch **only** the files directly responsible.
 
-1. **Rapid Double-Clicking:**
-   - Double-clicking buttons must not trigger duplicate requests, broken animations, or unexpected state transitions.
-2. **Keyboard Navigation & Focus Trap:**
-   - The entire interface must be navigable via `Tab` and `Shift+Tab`.
-   - Focus rings must be high-contrast and never suppressed (`outline: none` without a visible alternative is a blocker).
-   - A functional "Skip to content" link must be present.
-3. **Network Resilience & Offline Behavior:**
-   - When offline or throttled to slow 3G, does the UI show a clear message, or does it freeze?
-4. **Link & Anchor Integrity:**
-   - Every internal link and anchor hash must scroll accurately to its target without jumping or misalignment under sticky headers.
+#### 8b. Minimal Fix
+- Read the surrounding context.
+- Make the **minimal, surgical fix** that resolves the root defect.
+- **Anti-Scope Creep:** Do NOT refactor surrounding code, add unrequested features, or rewrite unrelated logic.
 
----
+#### 8c. Atomic Commit
+- Commit only the modified files:
+  ```bash
+  git add <only-changed-files>
+  git commit -m "fix(qa): ISSUE-NNN — short description"
+  ```
+- Exactly one commit per fix. Never bundle multiple defect fixes into a single commit.
 
-## Defect Severity Classification (P1 - P3)
+#### 8d. Re-Test & Verification
+- Re-navigate to the affected flow.
+- Verify the defect is eliminated and zero new console errors appear.
+- Retain before/after visual or DOM evidence.
 
-* **P1 (Blocker — Must Fix Before Merge):** Broken routes, unhandled JS exceptions, console errors, broken contact funnel, layout collapse on mobile, inaccessible contrast.
-* **P2 (Major Defect — Fix in Same Branch):** Visual regressions, missing interaction states (hover/focus/active), sub-optimal typography wrapping, sluggish animations.
-* **P3 (Polish / Minor — Log to TODOS):** Spacing discrepancies, microinteraction tuning, non-critical copy adjustments.
+#### 8e. Classification
+- **Verified:** Re-test proves the defect is resolved and adjacent flows remain healthy.
+- **Best-Effort:** Fix applied but requires remote credentials or external services to fully simulate.
+- **Reverted:** Regression detected $\rightarrow$ `git revert HEAD` $\rightarrow$ mark defect as deferred.
 
----
+#### 8e.5. Regression Test Authoring
+*Skip only if fix is purely cosmetic CSS with zero JS behavior.*
+1. **Study Existing Test Conventions:** Match file naming (`*.spec.ts`), assertions, and setup patterns used in the repository.
+2. **Trace the Bug's Codepath:** Set up the exact precondition that triggered the bug, execute the action, and assert correct behavior (never a trivial assertion like `toBeTruthy()`).
+3. **Commit the Regression Test:**
+   ```bash
+   git commit -m "test(qa): regression test for ISSUE-NNN — short description"
+   ```
 
-## Health Score Rubric (A–F)
+#### 8f. Self-Regulation Gate (WTF-Likelihood Check)
+Every 5 fixes (or after any revert), evaluate stability:
+```text
+WTF-LIKELIHOOD SCORE:
+  Start at 0%
+  Each revert:                 +15%
+  Each fix touching > 3 files:  +5%
+  After fix 15:                +1% per additional fix
+  Touching unrelated files:    +20%
+```
+- **If WTF > 20%:** **STOP immediately.** Present progress to the user and request manual guidance.
+- **Hard Safety Cap:** Maximum 50 fixes per session.
 
-- **A:** Zero console errors, zero broken links, perfect mobile layout, complete interaction states.
-- **B:** Zero console errors, solid fundamentals, minor visual/spacing polish items.
-- **C:** Functional but has minor console warnings or awkward mobile wrapping.
-- **D:** Noticeable bugs, console errors, or broken layout at specific breakpoints.
-- **F:** Critical functional failure, broken contact form, or unhandled exceptions.
+### Phase 9: Final QA & Health Delta
+- Re-verify all touched routes.
+- Calculate final health score.
+- **Regression Warning:** If final score is worse than baseline, sound an immediate prominent alert.
+
+### Phase 10: Deliverable Report
+
+Generate the structured QA summary:
+
+```markdown
+# QA Test & Fix Report: [Target / Branch]
+**Baseline Score:** [Before Score]/100 ([Grade]) ──► **Final Score:** [After Score]/100 ([Grade])
+**Status:** [CLEARED | ISSUES_DEFERRED | BLOCKED]
+**Fixes Applied:** [N] verified atomic fixes ([M] regression tests added)
+
+### 1. Fix Summary
+| Issue ID | Severity | Description | Commit | Verification |
+|:--------:|:--------:|:------------|:------:|:------------:|
+| ISSUE-01 | P1       | [Bug title] | [hash] | VERIFIED     |
+| ISSUE-02 | P2       | [Bug title] | [hash] | VERIFIED     |
+
+### 2. Regression Tests Added
+- `src/.../issue-01.spec.ts`: Asserts recovery from 504 timeout.
+
+### 3. Remaining / Deferred Issues
+- [ISSUE-03 (P3)]: [Cosmetic spacing issue deferred to TODOS.md]
+
+### 4. Ship-Readiness Verdict
+[READY TO MERGE | MANUAL VERIFICATION RECOMMENDED]
+```
