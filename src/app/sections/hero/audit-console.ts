@@ -15,11 +15,7 @@ import { AuditResults } from './pagespeed-client';
           </div>
           <div class="audit-badge-wrap">
             <span class="audit-badge">
-              {{
-                res.isSimulation
-                  ? '[ SYNTHETIC AUDIT SIMULATION ]'
-                  : '[ GOOGLE PAGESPEED LIVE API ]'
-              }}
+              {{ res.isSimulation ? 'Synthetic Simulation' : 'Google PageSpeed Live API' }}
             </span>
           </div>
         </div>

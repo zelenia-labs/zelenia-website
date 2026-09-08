@@ -88,10 +88,10 @@ export class AmbientCanvas implements OnDestroy {
     let cachedRect = parent.getBoundingClientRect();
 
     const colors = [
-      'rgba(0, 85, 255, 0.24)', // Royal Blue #0055FF
-      'rgba(14, 165, 233, 0.20)', // Sky Blue
-      'rgba(16, 185, 129, 0.18)', // Emerald
-      'rgba(71, 85, 105, 0.16)' // Architectural Slate
+      'rgba(12, 15, 20, 0.06)', // Soft Obsidian Slate
+      'rgba(2, 132, 199, 0.08)', // Faint Architectural Cyan
+      'rgba(5, 150, 105, 0.07)', // Soft Emerald
+      'rgba(180, 140, 54, 0.07)' // Warm Ochre
     ];
 
     const particleCount = Math.min(Math.floor((width * height) / 36000), 32);

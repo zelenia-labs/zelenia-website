@@ -28,3 +28,19 @@
 - **Conventions**: Follow Angular v20+ "Intent over Role" guidelines. Avoid role suffixes in file and class names (`.component.ts`, `.service.ts`, `.directive.ts`). Keep `.model.ts` for interfaces and data contracts.
 - **Build**: Ensure the static prerendering in `vite.config.ts` maintains the flat `dist/` output for hosting.
 - **Browser Subagent**: NEVER execute or launch the `browser_subagent` tool unless the user explicitly instructs to do so.
+
+## 3. Anti-AI-Slop & Cognitive Clarity Directives
+
+- **Zero Cognitive Overload**: Never dump multiple conflicting value propositions, tools, forms, and credentials into a single viewport.
+- **Single Job per Section**: Each section on the page must have exactly ONE primary objective:
+  - **Hero**: Studio positioning, primary value proposition, and ONE clear primary CTA.
+  - **Speed Audit**: Dedicated interactive speed diagnostic tool with full width and breathing room.
+  - **Intent Navigator**: Clear routing based on specific technical challenges.
+  - **Advantage / Leadership**: Why senior direct execution outperforms agency hierarchy.
+- **The Anti-Checklist Rule**: Personas and heuristics describe user motivations across the narrative funnel—they are NEVER a checklist to be stuffed simultaneously into the first 800px.
+- **Forbidden Patterns**:
+  - NO Russian nesting doll / box-in-a-box layouts (cards inside cards inside cards).
+  - NO bracketed pseudo-robotic tags (`[ ... ]` or `[ 01 // ... ]`).
+  - NO orphan credentials or dangling delimiter bullets.
+  - NO `backdrop-filter: blur()` over continuous `<canvas>` animations.
+  - NO use of the words "boutique" or "atelier" anywhere in user-facing copy.

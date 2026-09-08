@@ -51,8 +51,8 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(0, 85, 255, 0.25);
-  border-top-color: var(--blue);
+  border: 2px solid rgba(12, 15, 20, 0.15);
+  border-top-color: var(--text);
   animation: radarSpin 1s linear infinite;
 }
 
@@ -60,8 +60,8 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 1px solid var(--blue);
-  opacity: 0.6;
+  border: 1px solid var(--text);
+  opacity: 0.3;
   animation: radarPulse 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
@@ -161,11 +161,11 @@
   gap: 0.75rem;
   padding: 1rem 1.25rem;
   margin-block-end: 2.5rem;
-  background: rgba(245, 158, 11, 0.05);
+  background: rgba(245, 158, 11, 0.08);
   border-inline-start: 3px solid var(--accent-amber);
   border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
   font-size: 0.8125rem;
-  color: #fde68a;
+  color: #92400e;
   line-height: 1.55;
 }
 
@@ -212,7 +212,7 @@
 
 .gauge-bg {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
+  stroke: rgba(15, 23, 42, 0.08);
   stroke-width: 2.5;
 }
 

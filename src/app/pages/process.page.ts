@@ -66,7 +66,7 @@ export const routeMeta: RouteMeta = {
 
             <div class="deep-dive-grid">
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 01 // SCHEDULING ]</span>
+                <span class="deep-dive-code">01 &bull; Scheduling</span>
                 <h3 class="deep-dive-title">Long Task Offloading &amp; Sub-200ms INP</h3>
                 <p class="deep-dive-body">
                   We refactor long JavaScript tasks on the browser main thread, implement
@@ -76,7 +76,7 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 02 // CRITICAL PATH ]</span>
+                <span class="deep-dive-code">02 &bull; Critical Path</span>
                 <h3 class="deep-dive-title">Critical Path Priority &amp; Sub-1.8s LCP</h3>
                 <p class="deep-dive-body">
                   We streamline the critical rendering path with speculative resource hints, modern
@@ -85,7 +85,7 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 03 // FIELD DATA ]</span>
+                <span class="deep-dive-code">03 &bull; Field Data</span>
                 <h3 class="deep-dive-title">CrUX Field Data Calibration</h3>
                 <p class="deep-dive-body">
                   Synthetic lab scores are only a starting point. We optimize for 75th-percentile
@@ -110,7 +110,7 @@ export const routeMeta: RouteMeta = {
 
             <div class="deep-dive-grid">
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 01 // SCREEN READERS ]</span>
+                <span class="deep-dive-code">01 &bull; Screen Readers</span>
                 <h3 class="deep-dive-title">Native Screen Reader Workflows</h3>
                 <p class="deep-dive-body">
                   Every view is tested with native VoiceOver and NVDA screen readers to verify
@@ -120,7 +120,7 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 02 // KEYBOARD FLOWS ]</span>
+                <span class="deep-dive-code">02 &bull; Keyboard Navigation</span>
                 <h3 class="deep-dive-title">Zero Keyboard Trap Navigation</h3>
                 <p class="deep-dive-body">
                   We enforce visible focus indicators, logical tab ordering, and focus containment
@@ -129,7 +129,7 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">[ 03 // CRAWL INTEGRITY ]</span>
+                <span class="deep-dive-code">03 &bull; Crawl Integrity</span>
                 <h3 class="deep-dive-title">DOM Hierarchy &amp; Technical SEO</h3>
                 <p class="deep-dive-body">
                   We reconstruct broken DOM trees with exact heading structures, strict semantic
@@ -142,7 +142,7 @@ export const routeMeta: RouteMeta = {
           <!-- Section 4: Focused Scope Boundaries -->
           <div class="scope-boundary-box" style="margin-top: clamp(4rem, 7vw, 6rem);">
             <div class="scope-boundary-inner">
-              <span class="scope-boundary-badge">[ OUR ARCHITECTURAL BOUNDARY ]</span>
+              <span class="scope-boundary-badge">Scope Commitment</span>
               <h3 class="scope-boundary-title">
                 High-Precision Frontend Engineering &amp; Interface Craft &mdash; Zero Design System
                 Bureaucracy

@@ -52,7 +52,7 @@ export interface IntentPath {
           [attr.aria-labelledby]="'intent-tab-' + activePath().id"
         >
           <div class="intent-output-content">
-            <span class="intent-output-badge">[ STUDIO RESOLUTION ARCHITECTURE ]</span>
+            <span class="intent-output-badge">Our Approach</span>
             <p class="intent-output-text">{{ activePath().output }}</p>
           </div>
           <div class="intent-output-action">
@@ -71,8 +71,9 @@ export interface IntentPath {
   `,
   styles: `
     .intent-section {
-      background-color: #ffffff;
-      padding-block: clamp(5.5rem, 9vw, 8.5rem);
+      background-color: var(--surface-warm);
+      border-block: 1px solid var(--border);
+      padding-block: clamp(5rem, 8vw, 8rem);
       position: relative;
     }
 
@@ -91,10 +92,10 @@ export interface IntentPath {
     }
 
     .intent-tab {
-      background: #f8fafc;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 16px;
-      padding: 1.25rem 1.15rem;
+      background: var(--surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 1.35rem 1.25rem;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -105,55 +106,70 @@ export interface IntentPath {
         background-color var(--transition-fast),
         box-shadow var(--transition-fast),
         transform var(--transition-fast);
-      color: #334155;
+      color: var(--text-2);
+      box-shadow: 0 1px 3px rgba(18, 22, 30, 0.02);
+      position: relative;
     }
 
     .intent-tab:hover {
-      border-color: rgba(0, 85, 255, 0.3);
-      background: #ffffff;
-      color: #0f172a;
+      border-color: var(--border-hover);
+      color: var(--text);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 6px 16px rgba(18, 22, 30, 0.05);
     }
 
     .intent-tab[aria-selected='true'] {
-      border-color: var(--blue);
-      background: #ffffff;
-      color: #0f172a;
+      border-color: var(--text);
+      background: var(--surface);
+      color: var(--text);
       box-shadow:
-        0 0 0 1px var(--blue),
-        0 8px 24px rgba(0, 85, 255, 0.08);
+        0 0 0 1px var(--text),
+        0 8px 24px -4px rgba(18, 22, 30, 0.08);
       transform: translateY(-2px);
+    }
+
+    .intent-tab[aria-selected='true']::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 1.25rem;
+      right: 1.25rem;
+      height: 2px;
+      background: var(--text);
     }
 
     .intent-tab__tag {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      font-weight: 600;
-      color: var(--blue);
+      font-weight: 700;
+      color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+    }
+
+    .intent-tab[aria-selected='true'] .intent-tab__tag {
+      color: var(--text);
     }
 
     .intent-tab__label {
       font-size: 0.9375rem;
-      font-weight: 600;
+      font-weight: 650;
       line-height: 1.35;
-      color: #0f172a;
+      color: var(--text);
     }
 
     .intent-output-card {
       inline-size: 100%;
-      background: #f8fafc;
-      border: 1px solid rgba(0, 85, 255, 0.22);
-      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
       padding: clamp(1.75rem, 3vw, 2.5rem);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 85, 255, 0.04);
+      box-shadow: 0 12px 32px -6px rgba(18, 22, 30, 0.06);
       animation: intent-in 0.25s ease-out;
     }
 
@@ -164,18 +180,19 @@ export interface IntentPath {
     .intent-output-badge {
       display: block;
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
 
     .intent-output-text {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      color: #334155;
+      color: var(--text-2);
       max-inline-size: 65ch;
     }
 
@@ -190,8 +207,8 @@ export interface IntentPath {
 
     @keyframes intent-in {
       from {
-        opacity: 0.6;
-        transform: translateY(6px);
+        opacity: 0.7;
+        transform: translateY(4px);
       }
       to {
         opacity: 1;
@@ -199,13 +216,13 @@ export interface IntentPath {
       }
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
       .intent-tabs {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .intent-tabs {
         grid-template-columns: 1fr;
       }
@@ -215,7 +232,6 @@ export interface IntentPath {
       }
       .btn--intent {
         inline-size: 100%;
-        justify-content: center;
       }
     }
   `
@@ -224,41 +240,41 @@ export class IntentNavigator {
   readonly paths: IntentPath[] = [
     {
       id: 'vitals',
-      tag: 'RUNTIME ARCHITECTURE',
-      label: 'Fix Core Web Vitals & Runtime Performance',
+      tag: 'Web Performance',
+      label: 'Core Web Vitals & Sub-Second Load',
       output:
-        'We isolate and remediate LCP, INP, and CLS bottlenecks directly in production client-side code without altering backend infrastructure. Standard turnaround: 2 to 3-week fixed sprint.',
-      ctaText: 'Inspect Performance Sprint Scope',
+        'We isolate and remediate LCP, INP, and CLS bottlenecks directly in production client-side code without altering backend infrastructure. Guaranteed sub-second rendering for scale-ups.',
+      ctaText: 'View Performance Process',
       link: '/process',
       queryParams: { focus: 'vitals' }
     },
     {
       id: 'design',
-      tag: 'INTERFACE FIDELITY',
-      label: 'Modernize Design & Responsive UI',
+      tag: 'Design Systems',
+      label: 'Interface Design & Modern Design Systems',
       output:
-        'Our Lead Product Designer rebuilds typography hierarchy, visual layouts, and responsive fluid UI into a clean, high-performance production component library.',
-      ctaText: 'View Engineering Process',
+        'Our Lead Product Designer rebuilds design tokens, typography scales, responsive layouts, and reusable component libraries with 100% design-to-code fidelity.',
+      ctaText: 'Explore Design Process',
       link: '/process',
       queryParams: { focus: 'responsive' }
     },
     {
-      id: 'a11y',
-      tag: 'WCAG 2.2 AA & SEO',
-      label: 'Audit Semantic HTML, SEO & Accessibility',
+      id: 'flagship',
+      tag: 'Digital Flagships',
+      label: 'High-Value Practice & Brand Websites',
       output:
-        'We reconstruct DOM hierarchies and ARIA roles to achieve WCAG 2.2 AA compliance and maximize search engine crawlability.',
-      ctaText: 'Review Accessibility Sprint',
+        'For high-value commercial practices and premium brands. An authoritative, bespoke digital presence projecting credibility with zero ongoing maintenance headaches.',
+      ctaText: 'Explore Flagship Sprints',
       link: '/process',
       queryParams: { focus: 'a11y' }
     },
     {
       id: 'founders',
-      tag: 'DIRECT ACCESS',
-      label: 'Speak Directly with the Founders',
+      tag: 'Direct Partnership',
+      label: 'Direct Collaboration with Senior Principals',
       output:
-        'Skip sales representatives entirely. Select between a 15-minute diagnostic call, a structured scope form, or direct async messaging.',
-      ctaText: 'Jump to Connection Options',
+        'Zero account managers, zero sales representatives, zero junior handoffs. Direct execution with a Fortune 100 Principal Engineer and Lead Product Designer.',
+      ctaText: 'Get in Touch',
       link: '/contact'
     }
   ];

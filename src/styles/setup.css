@@ -1,63 +1,78 @@
 :root {
   interpolate-size: allow-keywords;
 
-  /* Studio Core Architectural Dark Haute Engineering Palette (from DESIGN-SYSTEM.md) */
-  --bg: #07090e;
-  --surface: #0e121b;
-  --surface-2: #141a24;
-  --surface-3: #1a2230;
-  --surface-elevated: #1e2738;
+  /* Studio Core Haute Architectural Light Palette: Warm Gallery Alabaster & Deep Titanium Obsidian */
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --surface-warm: #f4f1ea;
+  --surface-2: #f2efe7;
+  --surface-3: #e8e4da;
+  --surface-contrast: #0c0f14;
+  --surface-elevated: #ffffff;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.04);
-  --border-medium: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --border-hover: rgba(0, 85, 255, 0.5);
-  --border-focus: rgba(0, 85, 255, 0.6);
+  /* Architectural Hairline Borders */
+  --border: rgba(18, 22, 30, 0.08);
+  --border-subtle: rgba(18, 22, 30, 0.04);
+  --border-medium: rgba(18, 22, 30, 0.12);
+  --border-strong: rgba(18, 22, 30, 0.22);
+  --border-hover: rgba(18, 22, 30, 0.35);
+  --border-focus: #0c0f14;
 
-  /* High-Voltage Luminous Accents */
-  --blue: #0055ff;
-  --blue-hover: #1a68ff;
-  --cyan: #00e5ff;
-  --cyan-rgb: 0, 229, 255;
-  --emerald: #10b981;
-  --rose: #f43f5e;
-  --amber: #f59e0b;
+  /* Architectural Action Tokens */
+  --btn-primary-bg: #0c0f14;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1e2430;
+  --btn-primary-border: #0c0f14;
 
-  /* Typography Contrast Scale (WCAG AAA/AA) */
-  --text: #f8fafc;
-  --text-2: #94a3b8;
-  --muted: #64748b;
-  --text-inverse: #07090e;
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-text: #0c0f14;
+  --btn-secondary-border: rgba(18, 22, 30, 0.16);
+  --btn-secondary-hover: #f4f1ea;
 
-  /* Disciplined Architectural Radii (Replaces bubbly rounded corners) */
-  --radius-xs: 4px;
+  /* Surgical Telemetry & Diagnostic Accents */
+  --blue: #1e40af; /* Deep Intellectual Cobalt (for telemetry & code badges) */
+  --blue-hover: #1d368a;
+  --cyan: #0284c7;
+  --cyan-rgb: 2, 132, 199;
+  --emerald: #059669; /* Health & Sub-Second CWV Indicators */
+  --rose: #dc2626;
+  --amber: #d97706;
+  --gold: #b48c36;
+
+  /* Typographic Contrast Scale (WCAG AAA/AA) */
+  --text: #0c0f14; /* Deep Obsidian Ink */
+  --text-2: #384252; /* Charcoal Reading Weight */
+  --muted: #687487; /* Refined Architectural Caption */
+  --text-inverse: #ffffff;
+
+  /* Disciplined Architectural Radii */
+  --radius-xs: 3px;
   --radius-sm: 6px;
   --radius: 10px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-pill: 9999px;
-  --shell: min(1180px, calc(100vw - 48px));
+  --shell: min(1200px, calc(100vw - 48px));
 
   /* Surface & Background Aliases */
   --bg-base: var(--bg);
   --bg-surface: var(--surface);
-  --bg-surface-elevated: var(--surface-2);
-  --bg-surface-hover: #161e2c;
-  --bg-surface-subtle: #0b0f16;
-  --bg-glass: rgba(14, 18, 27, 0.85);
+  --bg-surface-elevated: var(--surface);
+  --bg-surface-hover: #f7f5ef;
+  --bg-surface-subtle: var(--surface-warm);
+  --bg-glass: rgba(251, 250, 247, 0.88);
 
   /* Unified Cohesive Rhythm Tokens */
   --bg-obsidian: var(--bg);
   --surface-obsidian: var(--surface);
-  --surface-obsidian-2: var(--surface-2);
+  --surface-obsidian-2: var(--surface-warm);
   --border-obsidian: var(--border);
   --text-obsidian: var(--text);
   --text-obsidian-muted: var(--text-2);
 
-  --bg-luminous: var(--bg);
-  --surface-luminous: var(--surface);
-  --surface-luminous-2: var(--surface-2);
+  --bg-luminous: #ffffff;
+  --surface-luminous: #ffffff;
+  --surface-luminous-2: var(--surface-warm);
   --border-luminous: var(--border);
   --text-luminous: var(--text);
   --text-luminous-muted: var(--text-2);
@@ -67,50 +82,50 @@
   --text-secondary: var(--text-2);
   --text-muted: var(--muted);
 
-  /* Signature Brand Palette (#0055FF for CTAs and primary actions) */
-  --brand-primary: var(--blue);
-  --brand-primary-hover: var(--blue-hover);
-  --brand-glow: rgba(0, 85, 255, 0.35);
+  /* Studio Action Tokens */
+  --brand-primary: var(--btn-primary-bg);
+  --brand-primary-hover: var(--btn-primary-hover);
+  --brand-glow: rgba(12, 15, 20, 0.12);
   --accent-cyan: var(--cyan);
-  --accent-cyan-rgb: 0, 229, 255;
+  --accent-cyan-rgb: 2, 132, 199;
   --accent-emerald: var(--emerald);
   --accent-amber: var(--amber);
   --accent-rose: var(--rose);
   --accent-blue: var(--blue);
-  --accent-blue-vibrant: #0055ff;
-  --accent-blue-rgb: 0, 85, 255;
+  --accent-blue-vibrant: #1e40af;
+  --accent-blue-rgb: 30, 64, 175;
   --accent-highlight: var(--brand-primary);
-  --accent-highlight-rgb: var(--accent-blue-rgb);
+  --accent-highlight-rgb: 12, 15, 20;
   --accent-highlight-hover: var(--brand-primary-hover);
 
-  /* Atmospheric Per-Section Ambient Gradients (Deep Spatial Luminous Accents) */
+  /* Atmospheric Per-Section Gallery Ambient Gradients */
   --ambient-hero:
-    radial-gradient(ellipse 65% 50% at 80% 15%, rgba(0, 85, 255, 0.08) 0%, transparent 70%),
-    radial-gradient(circle at 15% 85%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+    radial-gradient(ellipse 65% 45% at 85% 15%, rgba(180, 140, 54, 0.035) 0%, transparent 65%),
+    radial-gradient(circle at 12% 80%, rgba(5, 150, 105, 0.025) 0%, transparent 55%);
   --ambient-advantage: radial-gradient(
-    ellipse 60% 50% at 20% 50%,
-    rgba(0, 85, 255, 0.06) 0%,
+    ellipse 60% 50% at 15% 50%,
+    rgba(30, 64, 175, 0.025) 0%,
     transparent 70%
   );
   --ambient-capabilities: radial-gradient(
-    ellipse 65% 50% at 80% 50%,
-    rgba(16, 185, 129, 0.05) 0%,
+    ellipse 65% 50% at 85% 50%,
+    rgba(5, 150, 105, 0.025) 0%,
     transparent 70%
   );
   --ambient-leadership: radial-gradient(
     ellipse 65% 50% at 20% 50%,
-    rgba(0, 85, 255, 0.06) 0%,
+    rgba(180, 140, 54, 0.03) 0%,
     transparent 70%
   );
   --ambient-diagnostic: radial-gradient(
     ellipse 70% 50% at 50% 30%,
-    rgba(0, 85, 255, 0.07) 0%,
+    rgba(12, 15, 20, 0.03) 0%,
     transparent 70%
   );
   --ambient-contact: radial-gradient(
-    ellipse 70% 60% at 50% 60%,
-    rgba(0, 85, 255, 0.08) 0%,
-    rgba(16, 185, 129, 0.04) 40%,
+    ellipse 70% 60% at 50% 50%,
+    rgba(180, 140, 54, 0.03) 0%,
+    rgba(5, 150, 105, 0.02) 40%,
     transparent 75%
   );
 
@@ -125,7 +140,7 @@
   /* Spacing & Layout Tokens */
   --container-max-width: var(--shell);
   --container-gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --section-spacing: clamp(5.5rem, 10vw, 9.5rem);
+  --section-spacing: clamp(5rem, 8vw, 8.5rem);
   --measure-prose: 68ch;
   --gap-spacious: clamp(2rem, 4vw, 3.5rem);
 

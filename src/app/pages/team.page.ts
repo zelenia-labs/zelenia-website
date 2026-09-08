@@ -219,14 +219,16 @@ export const routeMeta: RouteMeta = {
       position: absolute;
       bottom: 1rem;
       left: 1rem;
-      background: rgba(8, 10, 14, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(8px);
       padding: 0.35rem 0.85rem;
       border-radius: var(--radius-pill);
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-weight: 600;
+      color: #090d15;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
     }
     .team-profile-name {
       font-size: clamp(1.5rem, 2.2vw, 1.85rem);

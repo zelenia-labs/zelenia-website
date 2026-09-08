@@ -59,21 +59,21 @@
 /* Direct Practitioner Help Card */
 .faq-help-card {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
   padding: 1.5rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px rgba(18, 22, 30, 0.02);
 }
 
 .faq-help-card__badge {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--cyan);
+  font-weight: 700;
+  color: var(--muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -100,10 +100,10 @@
 }
 
 .faq-accordion-item {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
   background-color: var(--surface);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(18, 22, 30, 0.02);
   transition:
     border-color var(--transition-normal),
     box-shadow var(--transition-normal),
@@ -112,16 +112,16 @@
 }
 
 .faq-accordion-item:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 12px 32px rgba(0, 85, 255, 0.1);
+  border-color: var(--text);
+  box-shadow: 0 6px 18px -2px rgba(18, 22, 30, 0.05);
   transform: translateY(-1px);
 }
 
 .faq-accordion-item[open] {
-  border-color: rgba(0, 85, 255, 0.45);
-  background-color: var(--surface-2);
-  box-shadow: 0 12px 36px rgba(0, 85, 255, 0.12);
-  border-left: 3px solid var(--blue);
+  border-color: var(--text);
+  background-color: var(--surface);
+  box-shadow: 0 8px 24px -4px rgba(18, 22, 30, 0.08);
+  border-left: 3px solid var(--text);
 }
 
 .faq-summary {
@@ -151,8 +151,8 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--cyan);
-  background: rgba(0, 85, 255, 0.1);
+  color: var(--blue);
+  background: rgba(0, 82, 255, 0.08);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
   letter-spacing: 0.06em;
@@ -171,14 +171,14 @@
 }
 
 .faq-accordion-item:hover .faq-summary__question {
-  color: #ffffff;
+  color: var(--blue);
 }
 
 .faq-summary__toggle {
   inline-size: 34px;
   block-size: 34px;
   border-radius: 50%;
-  background: var(--surface-3);
+  background: var(--surface-2);
   color: var(--text-2);
   display: flex;
   align-items: center;
@@ -191,8 +191,8 @@
 }
 
 .faq-accordion-item:hover .faq-summary__toggle {
-  background: rgba(0, 85, 255, 0.2);
-  color: #ffffff;
+  background: rgba(0, 82, 255, 0.1);
+  color: var(--blue);
 }
 
 .faq-accordion-item[open] .faq-summary__toggle {

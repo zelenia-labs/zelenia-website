@@ -32,13 +32,15 @@ import { isPlatformBrowser } from '@angular/common';
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background-color: #0a0d14;
+      background-color: #fbfaf7;
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       will-change: transform, opacity;
       transform: translate3d(0, 0, 0);
+      box-shadow: 0 20px 50px rgba(18, 22, 30, 0.08);
+      border-bottom: 1px solid rgba(18, 22, 30, 0.08);
       transition: transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
@@ -59,7 +61,7 @@ import { isPlatformBrowser } from '@angular/common';
       font-family: var(--font-heading, Inter, sans-serif);
       font-size: clamp(2.25rem, 5.5vw, 4rem);
       font-weight: 700;
-      color: #ffffff;
+      color: #0c0f14;
       letter-spacing: 0.18em;
       transition: letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -79,7 +81,7 @@ import { isPlatformBrowser } from '@angular/common';
     .preloader-line {
       inline-size: 0;
       block-size: 2px;
-      background: linear-gradient(90deg, transparent, #0055ff 50%, transparent);
+      background: linear-gradient(90deg, transparent, #0c0f14 50%, transparent);
       border-radius: 9999px;
       opacity: 0;
       transition:

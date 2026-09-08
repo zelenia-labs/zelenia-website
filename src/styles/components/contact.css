@@ -3,13 +3,13 @@
 }
 
 .contact-card {
-  background: var(--surface);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: clamp(2rem, 4.5vw, 3.75rem);
   max-inline-size: 820px;
   margin-inline: auto;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.05);
 }
 
 .contact-card__header {
@@ -62,7 +62,7 @@
 .form-select,
 .form-textarea {
   inline-size: 100%;
-  background: var(--surface-2);
+  background: #ffffff;
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 0.875rem 1.125rem;
@@ -70,7 +70,7 @@
   font-size: 0.9375rem;
   color: var(--text);
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),
@@ -79,7 +79,7 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .form-input:hover,
@@ -92,11 +92,11 @@
 .form-select:focus-visible,
 .form-textarea:focus-visible {
   outline: none;
-  border-color: var(--blue);
+  border-color: var(--text);
   box-shadow:
-    0 0 0 3px rgba(0, 85, 255, 0.25),
-    0 0 16px rgba(0, 85, 255, 0.2);
-  background: var(--surface-3);
+    0 0 0 3px rgba(12, 15, 20, 0.08),
+    0 2px 8px rgba(12, 15, 20, 0.04);
+  background: #ffffff;
 }
 
 .form-select {
@@ -203,7 +203,7 @@
   min-inline-size: 24px;
   border-radius: 50%;
   background: var(--accent-emerald);
-  color: #0b0e14;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,7 +215,7 @@
   margin: 0 0 0.25rem 0;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .confirmation-body {
@@ -421,7 +421,7 @@
 .progressive-toggle-label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #0f172a;
   cursor: pointer;
 }
 
@@ -437,8 +437,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(22, 27, 36, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f8fafc;
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   animation: expandIn 0.25s ease-out;
 }
@@ -456,7 +456,7 @@
 
 .sla-guarantee {
   font-size: 0.75rem;
-  color: var(--cyan);
+  color: var(--blue);
   font-family: var(--font-mono);
   margin-top: 0.5rem;
 }

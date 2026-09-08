@@ -1,0 +1,256 @@
+import { Component, inject, signal } from '@angular/core';
+import { form, FormField, required, submit, validate } from '@angular/forms/signals';
+import { PagespeedClient } from './pagespeed-client';
+import { AuditConsole } from './audit-console';
+import { ScrollReveal } from '../../ui/motion/scroll-reveal';
+
+@Component({
+  selector: 'app-speed-audit',
+  imports: [FormField, AuditConsole, ScrollReveal],
+  template: `
+    <section
+      class="site-section speed-audit-section"
+      id="speed-audit"
+      aria-labelledby="speed-audit-title"
+    >
+      <div class="container audit-container" appScrollReveal>
+        <div class="section-header section-header--center">
+          <span class="section-tag">Instant Diagnostic</span>
+          <h2 class="section-title" id="speed-audit-title">Audit your production web speed.</h2>
+          <p class="section-subhead">
+            Analyze your live website against Google's real-world Core Web Vitals thresholds. Zero
+            sales gates, instant diagnostic feedback.
+          </p>
+        </div>
+
+        <div class="audit-card-wrapper">
+          <div class="hero-audit-card">
+            <div class="audit-card-head">
+              <div class="audit-card-title-wrap">
+                <span class="audit-card-title">Live Site Performance Audit</span>
+                <span class="audit-card-subtitle"
+                  >Powered by Google PageSpeed Insights Live API</span
+                >
+              </div>
+              <span class="audit-card-pill">Free Audit</span>
+            </div>
+
+            <form
+              class="hero-audit-form"
+              id="hero-audit-form"
+              role="search"
+              aria-label="Live Site Performance Audit"
+              novalidate
+              (submit)="onAnalyze($event)"
+            >
+              <div
+                class="hero-audit-bar"
+                [class.is-invalid]="
+                  auditForm.url().touched() && auditForm.url().errors().length > 0
+                "
+              >
+                <div class="audit-input-wrapper">
+                  <svg
+                    class="input-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    ></path>
+                  </svg>
+                  <input
+                    class="hero-audit-input"
+                    id="hero-audit-url"
+                    type="url"
+                    placeholder="https://yourcompany.com"
+                    aria-label="Enter your website URL for PageSpeed analysis"
+                    autocomplete="url"
+                    inputmode="url"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    [class.is-invalid]="
+                      auditForm.url().touched() && auditForm.url().errors().length > 0
+                    "
+                    [formField]="auditForm.url"
+                    (input)="onUrlInput($event)"
+                  />
+                </div>
+                <button
+                  class="btn btn--primary btn--hero-audit"
+                  id="hero-audit-btn"
+                  type="submit"
+                  [class.btn--loading]="pagespeed.isScanning()"
+                  [disabled]="pagespeed.isScanning()"
+                >
+                  <span class="btn-text">Run Live Audit</span>
+                  <span class="arrow-indicator" aria-hidden="true">→</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              @if (auditForm.url().touched() && auditForm.url().errors().length > 0) {
+                <span
+                  class="form-error hero-audit-error"
+                  id="hero-url-error"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  {{ auditForm.url().errors()[0].message }}
+                </span>
+              }
+            </form>
+
+            <div class="audit-card-guarantees">
+              <div class="guarantee-item">
+                <span class="guarantee-dot" aria-hidden="true"></span>
+                <span>Sub-0.8s LCP Benchmark</span>
+              </div>
+              <div class="guarantee-item">
+                <span class="guarantee-dot" aria-hidden="true"></span>
+                <span>Zero Layout Shift (CLS)</span>
+              </div>
+              <div class="guarantee-item">
+                <span class="guarantee-dot" aria-hidden="true"></span>
+                <span>Direct Senior Engineering</span>
+              </div>
+            </div>
+
+            <!-- Live Audit Console Widget -->
+            @if (pagespeed.isScanning() || pagespeed.auditResult()) {
+              <div class="hero-audit-widget" id="hero-audit-widget" aria-live="polite">
+                @if (pagespeed.isScanning()) {
+                  <div class="audit-scanner" id="audit-scanner">
+                    <div class="scanner-spinner" aria-hidden="true">
+                      <div class="scanner-ring"></div>
+                      <div class="scanner-pulse"></div>
+                    </div>
+                    <div class="scanner-status">
+                      <span class="scanner-title">Scanning Core Web Vitals</span>
+                      <span class="scanner-log" id="scanner-log">{{ pagespeed.scanLog() }}</span>
+                    </div>
+                  </div>
+                } @else {
+                  <app-audit-console [results]="pagespeed.auditResult()" />
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  styles: `
+    .speed-audit-section {
+      background-color: var(--surface-warm);
+      border-block-start: 1px solid var(--border);
+      padding-block: clamp(5rem, 8vw, 7.5rem);
+      position: relative;
+    }
+
+    .audit-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .audit-card-wrapper {
+      inline-size: 100%;
+      max-inline-size: 780px;
+      margin-block-start: 2.5rem;
+    }
+  `
+})
+export class SpeedAudit {
+  readonly pagespeed = inject(PagespeedClient);
+
+  protected readonly auditModel = signal({
+    url: ''
+  });
+
+  protected readonly auditForm = form(this.auditModel, (s) => {
+    required(s.url, { message: 'Please enter a website URL to analyze.' });
+    validate(s.url, ({ value }) => {
+      const raw = value().trim();
+      if (!raw) return undefined;
+
+      try {
+        const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+        const parsed = new URL(candidate);
+
+        if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+          return {
+            kind: 'invalidUrl',
+            message: 'Please provide a valid website URL with http:// or https://'
+          };
+        }
+
+        const hostname = parsed.hostname.toLowerCase();
+
+        // Disallow localhost, loopback, and private network addresses
+        const isLocal =
+          hostname === 'localhost' ||
+          hostname === '127.0.0.1' ||
+          hostname === '0.0.0.0' ||
+          hostname === '[::1]' ||
+          hostname.endsWith('.localhost') ||
+          hostname.endsWith('.local') ||
+          hostname.endsWith('.internal') ||
+          hostname.endsWith('.test') ||
+          hostname.startsWith('192.168.') ||
+          hostname.startsWith('10.') ||
+          /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(hostname);
+
+        if (isLocal) {
+          return {
+            kind: 'disallowedLocalhost',
+            message:
+              'Localhost and private addresses are not supported. Please enter a public website URL.'
+          };
+        }
+
+        // Hostname must be a valid public domain with a recognized TLD
+        const domainLabels = hostname.split('.');
+        const tld = domainLabels[domainLabels.length - 1];
+        if (domainLabels.length < 2 || !tld || tld.length < 2 || !/^[a-z]{2,}$/i.test(tld)) {
+          return {
+            kind: 'invalidUrl',
+            message: 'Please provide a valid website URL (e.g. company.com or https://company.com).'
+          };
+        }
+
+        return undefined;
+      } catch {
+        return {
+          kind: 'invalidUrl',
+          message: 'Please provide a valid website URL (e.g. company.com or https://company.com).'
+        };
+      }
+    });
+  });
+
+  onUrlInput(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.pagespeed.targetUrl.set(value);
+  }
+
+  onAnalyze(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+
+    submit(this.auditForm, async () => {
+      const urlToAudit = this.auditModel().url.trim();
+      await this.pagespeed.runAudit(urlToAudit);
+    });
+  }
+}

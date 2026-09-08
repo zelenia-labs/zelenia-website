@@ -8,7 +8,7 @@ import { Benchmark } from './diagnostic.model';
       <!-- Deliverables Card -->
       <div class="diagnostic-panel diagnostic-panel--deliverables">
         <div class="panel-header">
-          <span class="panel-code">[ DELIVERABLES ]</span>
+          <span class="panel-code">Scope &amp; Deliverables</span>
           <h3 class="panel-title">Direct Production Deliverables</h3>
         </div>
         <ul class="deliverables-list">
@@ -24,7 +24,7 @@ import { Benchmark } from './diagnostic.model';
       <!-- Benchmarks Card -->
       <div class="diagnostic-panel diagnostic-panel--benchmarks">
         <div class="panel-header">
-          <span class="panel-code">[ TELEMETRY TARGETS ]</span>
+          <span class="panel-code">Performance Targets</span>
           <h3 class="panel-title">Target Benchmark Outputs</h3>
         </div>
         <div class="benchmarks-grid">

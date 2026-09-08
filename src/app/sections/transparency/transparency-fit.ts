@@ -188,25 +188,25 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>Venture-backed startups &amp; high-growth companies:</strong>
-                    Where web performance, Core Web Vitals, and design fidelity directly drive
-                    conversion.
+                    <strong>Venture-backed scale-ups &amp; tech enterprises:</strong>
+                    Where sub-second web performance, Core Web Vitals, and enterprise UI fidelity
+                    directly close Fortune 500 buyers.
                   </div>
                 </li>
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>Direct practitioner access:</strong>
-                    You require direct access to the actual Principal Engineer and Lead Designer
-                    writing the architecture and interfaces.
+                    <strong>High-value professional practices &amp; prestige brands:</strong>
+                    Regional commercial firms ($5M–$35M) and independent studios requiring an
+                    unmistakable digital flagship with zero maintenance overhead.
                   </div>
                 </li>
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>Production execution over theater:</strong>
-                    You value shipping clean, production-ready code over sitting through
-                    administrative status meetings and agency bureaucracy.
+                    <strong>Direct senior density:</strong>
+                    You demand direct collaboration with the seasoned Principal Engineer and Lead
+                    Designer writing the architecture and interfaces.
                   </div>
                 </li>
               </ul>

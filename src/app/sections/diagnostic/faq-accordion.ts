@@ -6,7 +6,7 @@ import { FaqItem } from './diagnostic.model';
   template: `
     <div class="diagnostic-panel diagnostic-panel--faq">
       <div class="panel-header">
-        <span class="panel-code">[ OPERATIONAL DIRECTIVES ]</span>
+        <span class="panel-code">Operational Directives</span>
         <h3 class="panel-title">Contextual Operational FAQs</h3>
       </div>
       <div class="accordion" id="diagnostic-faq-accordion">

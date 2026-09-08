@@ -1,67 +1,53 @@
-/* Hero Section Styles (Expansive, Left-Aligned Editorial Aesthetics) */
+/* Editorial Studio Hero Stage */
 .hero-section {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  min-block-size: calc(88vh - 60px);
-  padding-block: clamp(7rem, 12vw, 10.5rem) clamp(4rem, 7vw, 6rem);
-  text-align: left;
+  justify-content: center;
+  min-block-size: calc(80vh - 65px);
+  padding-block: clamp(4.5rem, 7.5vw, 6.5rem) clamp(3.5rem, 5.5vw, 5rem);
+  text-align: center;
   position: relative;
   overflow: hidden;
   background-color: var(--bg);
 }
 
-/* Atmospheric Layer (Visual Background Depth behind Hero Text) */
-.hero-atmosphere {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.hero-atmosphere__mesh {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 65% 50% at 80% 20%,
-      rgba(0, 85, 255, 0.05) 0%,
-      rgba(2, 132, 199, 0.03) 40%,
-      transparent 70%
-    ),
-    radial-gradient(circle at 15% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 55%);
-}
-
-.hero-atmosphere__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(15, 23, 42, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
-}
-
-/* Left-Aligned Hero Stage Container */
 .hero-container {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: clamp(1.5rem, 2.5vw, 2.25rem);
-  max-inline-size: 1040px;
+  inline-size: 100%;
 }
 
-/* Expansive 2-Line Headline */
-.hero-title {
-  font-size: clamp(2.75rem, 5.8vw, 5.25rem);
+.hero-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-inline-size: 820px;
+  margin-inline: auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-block-end: 1.5rem;
+  box-shadow: 0 1px 3px rgba(18, 22, 30, 0.02);
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  font-weight: 650;
   letter-spacing: -0.035em;
-  line-height: 1.08;
+  line-height: 1.06;
   color: var(--text);
   margin: 0;
   text-wrap: balance;
@@ -74,133 +60,160 @@
   color: var(--text);
 }
 
-/* Tightened, Left-Aligned Subheadline */
 .hero-subheadline {
-  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   color: var(--text-2);
-  line-height: 1.7;
+  line-height: 1.65;
   max-inline-size: 640px;
-  margin: 0;
+  margin-block-start: 1.5rem;
+  margin-block-end: 0;
   text-wrap: pretty;
   font-weight: 400;
 }
 
-/* Action Cluster */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  margin-block-start: 0.5rem;
+  justify-content: center;
+  margin-block-start: 2.25rem;
 }
 
 .btn--hero-cta {
-  padding: 0.875rem 2rem;
+  padding: 0.95rem 2.25rem;
   font-size: 0.9375rem;
+  font-weight: 600;
 }
 
-.btn--hero-connect {
-  padding: 0.875rem 1.75rem;
-  font-size: 0.9375rem;
-}
-
-/* Understated Proof Footnote Ribbon (Not competing with headline) */
-.hero-proof-footnote {
+/* Proof Credential Bar */
+.hero-proof-bar {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.85rem 1.25rem;
-  margin-block-start: clamp(2.5rem, 4vw, 3.5rem);
-  padding-block-start: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.15rem;
+  margin-block-start: clamp(2.25rem, 3.5vw, 3rem);
+  padding-block-start: 1.25rem;
   border-block-start: 1px solid var(--border);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
   inline-size: 100%;
-  max-inline-size: 800px;
+  max-inline-size: 520px;
 }
 
-.footnote-item {
-  display: flex;
+.proof-item {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  white-space: nowrap;
 }
 
-.footnote-dot {
+.proof-dot {
   inline-size: 6px;
   block-size: 6px;
   border-radius: 50%;
   background-color: var(--emerald);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.4);
 }
 
-.footnote-text strong {
+.proof-text strong {
   color: var(--text);
   font-weight: 600;
 }
 
-.footnote-sep {
-  color: rgba(255, 255, 255, 0.15);
+.proof-sep {
+  color: var(--border-strong);
   user-select: none;
 }
 
-/* =========================================================
-   Dedicated Diagnostic Section (Extracted with soft background)
-   ========================================================= */
-.diagnostic-section {
-  background-color: var(--surface);
-  border-block: 1px solid var(--border);
-  padding-block: clamp(5rem, 8vw, 7.5rem);
+/* Speed Audit Card Component Styles (Used in Dedicated Section) */
+.hero-audit-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  box-shadow:
+    0 2px 4px rgba(18, 22, 30, 0.02),
+    0 20px 48px -12px rgba(18, 22, 30, 0.08);
   position: relative;
+  inline-size: 100%;
 }
 
-.diagnostic-container {
+.audit-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-block-end: 1.75rem;
+}
+
+.audit-card-title-wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  gap: 0.25rem;
+  text-align: left;
 }
 
-/* Live Audit Form & Input Bar */
+.audit-card-title {
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.audit-card-subtitle {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.audit-card-pill {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--surface-warm);
+  border: 1px solid var(--border-medium);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Audit Form */
 .hero-audit-form {
   inline-size: 100%;
-  max-inline-size: 660px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .hero-audit-bar {
   inline-size: 100%;
   display: flex;
   align-items: center;
-  background: var(--surface-2);
+  background: var(--bg);
   border: 1px solid var(--border-medium);
-  border-radius: var(--radius-pill);
-  padding: 0.4rem 0.4rem 0.4rem 1.25rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.35rem 0.35rem 0.85rem;
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast);
 }
 
 .hero-audit-bar:focus-within {
-  border-color: var(--blue);
-  box-shadow:
-    0 0 0 3px rgba(0, 85, 255, 0.18),
-    0 8px 24px rgba(15, 23, 42, 0.06);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(12, 15, 20, 0.08);
 }
 
 .hero-audit-bar.is-invalid {
-  border-color: var(--accent-rose);
+  border-color: var(--rose);
 }
 
 .hero-audit-bar.is-invalid:focus-within {
-  border-color: var(--accent-rose);
-  box-shadow:
-    0 0 0 3px rgba(239, 68, 68, 0.18),
-    0 8px 24px rgba(15, 23, 42, 0.06);
+  border-color: var(--rose);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
 }
 
 .audit-input-wrapper {
@@ -211,10 +224,10 @@
 }
 
 .input-icon {
-  color: var(--text-muted);
+  color: var(--muted);
   display: flex;
   align-items: center;
-  margin-inline-end: 0.75rem;
+  margin-inline-end: 0.65rem;
   flex-shrink: 0;
 }
 
@@ -223,33 +236,34 @@
   background: transparent;
   border: none;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--text);
   outline: none;
   min-inline-size: 0;
 }
 
 .hero-audit-input::placeholder {
-  color: #64748b;
+  color: var(--muted);
 }
 
 .hero-audit-error {
   display: block;
-  font-size: 0.8125rem;
-  color: var(--accent-rose);
-  text-align: center;
+  font-size: 0.78rem;
+  color: var(--rose);
+  font-family: var(--font-mono);
+  text-align: left;
 }
 
 .btn--hero-audit {
-  padding: 0.75rem 1.75rem;
-  font-size: 0.875rem;
-  min-height: 44px;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.8125rem;
+  min-height: 40px;
 }
 
 .btn--hero-audit.btn--loading .btn-spinner {
   display: inline-block;
-  inline-size: 14px;
-  block-size: 14px;
+  inline-size: 13px;
+  block-size: 13px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-top-color: #ffffff;
   border-radius: 50%;
@@ -267,17 +281,45 @@
   }
 }
 
+/* Guarantees Row Below Form */
+.audit-card-guarantees {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 1.5rem;
+  padding-block-start: 1.15rem;
+  border-block-start: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-2);
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.guarantee-dot {
+  inline-size: 5px;
+  block-size: 5px;
+  border-radius: 50%;
+  background-color: var(--emerald);
+}
+
+/* Live Audit Scanner / Results */
 .hero-audit-widget {
   inline-size: 100%;
-  max-inline-size: 800px;
-  margin-block-start: 1rem;
+  margin-block-start: 1.25rem;
   animation: auditFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes auditFadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -286,93 +328,98 @@
 }
 
 .audit-scanner {
-  background: var(--surface-2);
+  background: var(--surface-warm);
   border: 1px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem 2.5rem;
+  border-radius: var(--radius-sm);
+  padding: 1.35rem 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  gap: 1.25rem;
 }
 
 .scanner-spinner {
   position: relative;
-  inline-size: 40px;
-  block-size: 40px;
+  inline-size: 30px;
+  block-size: 30px;
   flex-shrink: 0;
 }
 
 .scanner-ring {
   inline-size: 100%;
   block-size: 100%;
-  border: 3px solid rgba(0, 85, 255, 0.2);
-  border-top-color: var(--blue);
+  border: 2px solid rgba(12, 15, 20, 0.15);
+  border-top-color: var(--text);
   border-radius: 50%;
   animation: heroSpin 0.9s linear infinite;
 }
 
 .scanner-pulse {
   position: absolute;
-  inset: 6px;
+  inset: 5px;
   border-radius: 50%;
-  background: rgba(0, 85, 255, 0.15);
-  animation: pulse-glow 2s infinite ease-in-out;
+  background: rgba(12, 15, 20, 0.08);
 }
 
 .scanner-status {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
+  text-align: left;
 }
 
 .scanner-title {
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text);
 }
 
 .scanner-log {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--cyan);
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    padding-block: clamp(5.5rem, 10vw, 7.5rem) 3.5rem;
+@media (max-width: 640px) {
+  .hero-actions {
+    inline-size: 100%;
+  }
+
+  .btn--hero-cta {
+    inline-size: 100%;
+    justify-content: center;
   }
 
   .hero-audit-bar {
     flex-direction: column;
-    padding: 0.75rem;
-    border-radius: var(--radius-md);
-    gap: 0.75rem;
+    padding: 0.65rem;
+    gap: 0.65rem;
   }
 
   .audit-input-wrapper {
     inline-size: 100%;
-    padding-inline: 0.25rem;
   }
 
   .hero-audit-input {
     inline-size: 100%;
-    padding-block: 0.5rem;
-    text-align: left;
   }
 
   .btn--hero-audit {
     inline-size: 100%;
+    justify-content: center;
   }
 
-  .hero-proof-footnote {
+  .hero-proof-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .proof-sep {
+    display: none;
+  }
+
+  .audit-card-guarantees {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.65rem;
-  }
-
-  .footnote-sep {
-    display: none;
+    gap: 0.5rem;
   }
 }

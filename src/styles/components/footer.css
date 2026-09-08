@@ -1,8 +1,9 @@
 .site-footer {
   padding-block: clamp(5rem, 8vw, 7rem) clamp(3rem, 5vw, 4.5rem);
-  background: transparent;
+  background: var(--surface-warm);
+  border-top: 1px solid var(--border);
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--muted);
   position: relative;
   z-index: 1;
 }
@@ -29,7 +30,7 @@
 
 .footer-tagline {
   margin: 0;
-  color: var(--text-secondary);
+  color: var(--text-2);
   line-height: 1.65;
   font-size: 0.875rem;
 }
@@ -49,7 +50,8 @@
 .footer-nav-code {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--muted);
   letter-spacing: 0.08em;
 }
 
@@ -63,14 +65,14 @@
 }
 
 .footer-nav-list a {
-  color: var(--text-secondary);
+  color: var(--text-2);
   text-decoration: none;
   font-size: 0.875rem;
   transition: color var(--transition-fast);
 }
 
 .footer-nav-list a:hover {
-  color: var(--blue);
+  color: var(--text);
 }
 
 .footer-bottom {

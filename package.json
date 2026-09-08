@@ -1,7 +1,7 @@
 {
   "name": "zelenia-website",
   "version": "1.0.1",
-  "description": "Zelenia Boutique Studio SPA",
+  "description": "Zelenia Studio SPA",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@11.20.0",

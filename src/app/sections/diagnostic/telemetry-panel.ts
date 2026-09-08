@@ -6,7 +6,7 @@ import { DivisionOfLabor } from './diagnostic.model';
   template: `
     <div class="diagnostic-telemetry">
       <div class="telemetry-cell telemetry-cell--floor">
-        <span class="telemetry-label">[ STARTING INVESTMENT FLOOR ]</span>
+        <span class="telemetry-label">Starting Investment</span>
         <div class="telemetry-value-row">
           <span class="telemetry-value" style="color: var(--cyan);">{{ investmentFloor() }}</span>
         </div>
@@ -14,7 +14,7 @@ import { DivisionOfLabor } from './diagnostic.model';
       </div>
 
       <div class="telemetry-cell telemetry-cell--turnaround">
-        <span class="telemetry-label">[ ESTIMATED TIMEFRAME ]</span>
+        <span class="telemetry-label">Estimated Timeframe</span>
         <div class="telemetry-value-row">
           <span class="telemetry-value">{{ turnaround() }}</span>
         </div>
@@ -23,7 +23,7 @@ import { DivisionOfLabor } from './diagnostic.model';
 
       <div class="telemetry-cell telemetry-cell--division">
         <div class="telemetry-division-header">
-          <span class="telemetry-label">[ EFFORT DISTRIBUTION ]</span>
+          <span class="telemetry-label">Effort Distribution</span>
           <span class="telemetry-ratio">{{ division().label }}</span>
         </div>
         <div class="division-meter" aria-label="Division of labor visual bar">

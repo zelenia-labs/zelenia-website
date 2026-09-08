@@ -23,7 +23,7 @@ import { StudioContent } from '../../content/studio-content';
 
           <nav class="footer-nav" aria-label="Footer Navigation">
             <div class="footer-nav-col">
-              <span class="footer-nav-code">[ 01 // NAVIGATION ]</span>
+              <span class="footer-nav-code">Navigation</span>
               <ul class="footer-nav-list">
                 <li><a routerLink="/">Home</a></li>
                 <li><a routerLink="/process">Process &amp; Scope</a></li>
@@ -33,7 +33,7 @@ import { StudioContent } from '../../content/studio-content';
             </div>
 
             <div class="footer-nav-col">
-              <span class="footer-nav-code">[ 02 // PROFILES ]</span>
+              <span class="footer-nav-code">Connect</span>
               <ul class="footer-nav-list">
                 <li>
                   <a
@@ -66,7 +66,7 @@ import { StudioContent } from '../../content/studio-content';
         <div class="footer-bottom">
           <p class="footer-copyright">&copy; {{ currentYear }} Zelenia Inc. All rights reserved.</p>
           <p class="footer-tech">
-            [ STANDARDS // ZERO RUNTIME &bull; WCAG 2.2 AA &bull; HIGH-PRECISION DOM ]
+            WCAG 2.2 AA &bull; Sub-Second Architecture &bull; Direct Senior Execution
           </p>
         </div>
       </div>

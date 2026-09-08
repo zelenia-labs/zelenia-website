@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 import { Hero } from '../sections/hero/hero';
+import { SpeedAudit } from '../sections/hero/speed-audit';
 import { IntentNavigator } from '../sections/hero/intent-navigator';
 import { Advantage } from '../sections/advantage/advantage';
 import { CapabilitiesSummary } from '../sections/capabilities/capabilities-summary';
@@ -10,7 +11,7 @@ import { TransparencyFit } from '../sections/transparency/transparency-fit';
 import { PageFaq, PageFaqItem } from '../ui/faq/page-faq';
 
 export const routeMeta: RouteMeta = {
-  title: 'Zelenia // Boutique Frontend Engineering & Product Design Studio',
+  title: 'Zelenia // Frontend Engineering & Product Design Studio',
   meta: [
     {
       name: 'description',
@@ -19,7 +20,7 @@ export const routeMeta: RouteMeta = {
     },
     {
       property: 'og:title',
-      content: 'Zelenia // Boutique Frontend Engineering & Product Design Studio'
+      content: 'Zelenia // Frontend Engineering & Product Design Studio'
     },
     {
       property: 'og:description',
@@ -38,6 +39,7 @@ export const routeMeta: RouteMeta = {
   imports: [
     RouterLink,
     Hero,
+    SpeedAudit,
     IntentNavigator,
     Advantage,
     CapabilitiesSummary,
@@ -45,8 +47,11 @@ export const routeMeta: RouteMeta = {
     PageFaq
   ],
   template: `
-    <!-- Section 1 & 2: Hero Stage & Dedicated Diagnostic Section -->
+    <!-- Section 1: Editorial Studio Hero Stage -->
     <app-hero />
+
+    <!-- Section 2: Dedicated Live Site Speed Audit -->
+    <app-speed-audit />
 
     <!-- Section 3: Standalone Direct Intent Navigator -->
     <app-intent-navigator />
@@ -113,12 +118,13 @@ export default class Home {
       if (this.isBrowser) {
         const fragment = this.route.snapshot.fragment ?? window.location.hash.replace('#', '');
         if (fragment) {
-          setTimeout(() => {
-            const el = document.getElementById(fragment);
-            if (el) {
+          const el = document.getElementById(fragment);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < 0 || rect.top > 160) {
               el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-          }, 120);
+          }
         }
       }
     });

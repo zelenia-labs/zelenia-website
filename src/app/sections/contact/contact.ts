@@ -31,7 +31,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
         <div class="omnichannel-grid">
           <!-- Channel 1: Structured Scope Request (Signal Forms with Progressive Disclosure) -->
           <div class="channel-card channel-card--blue">
-            <span class="channel-card__badge">[ CHANNEL 01 // STRUCTURED INTAKE ]</span>
+            <span class="channel-card__badge">Project Inquiry</span>
             <h3 class="channel-card__title">Structured Scope Request</h3>
             <p class="channel-card__desc">
               For teams with defined goals. Evaluated directly by the founders within one business
@@ -253,7 +253,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
           <div class="channels-sidebar">
             <!-- Channel 2: 15-Minute Strategy Call -->
             <div class="channel-card channel-card--purple">
-              <span class="channel-card__badge">[ CHANNEL 02 // DIRECT CALENDAR ]</span>
+              <span class="channel-card__badge">Direct Calendar</span>
               <h3 class="channel-card__title">15-Minute Strategy Call</h3>
               <p class="channel-card__desc">
                 Direct calendar booking with the Principal Engineer and Lead Designer. No qualifying
@@ -287,7 +287,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
             <!-- Channel 3: Asynchronous Direct Messaging -->
             <div class="channel-card channel-card--green">
-              <span class="channel-card__badge">[ CHANNEL 03 // ASYNC CHAT ]</span>
+              <span class="channel-card__badge">Direct Message</span>
               <h3 class="channel-card__title">Direct Founder Messaging</h3>
               <p class="channel-card__desc">
                 Need a quick availability check or want to share screenshot links directly? Connect

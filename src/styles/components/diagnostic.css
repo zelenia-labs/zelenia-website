@@ -77,11 +77,12 @@
 
 .diagnostic-pace-toggle {
   display: inline-flex;
-  background: var(--surface-2);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 3px;
   gap: 3px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .diagnostic-pace-btn {
@@ -104,10 +105,10 @@
 }
 
 .diagnostic-pace-btn[aria-pressed='true'] {
-  background: var(--surface-3);
+  background: var(--blue);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 4px var(--brand-glow);
 }
 
 /* Telemetry Stats Bar: Open, Typographic Row */
@@ -149,7 +150,7 @@
 .telemetry-sub {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--cyan);
+  color: var(--blue);
   margin-block-start: 0.4rem;
 }
 
@@ -174,7 +175,7 @@
   block-size: 16px;
   border-radius: var(--radius-pill);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(15, 23, 42, 0.05);
   border: 1px solid var(--border);
 }
 
@@ -375,7 +376,7 @@
 }
 
 .accordion-trigger:hover {
-  color: #ffffff;
+  color: var(--blue);
 }
 
 .accordion-trigger:focus-visible {

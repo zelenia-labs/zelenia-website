@@ -7,7 +7,7 @@ import { SiteData } from './studio.model';
 export class StudioContent {
   private readonly siteData = signal<SiteData>({
     name: 'Zelenia',
-    tagline: 'Boutique Frontend Engineering & Product Design Studio',
+    tagline: 'Frontend Engineering & Product Design Studio',
     url: 'https://zelenia.com',
     description:
       'Zelenia pairs a Fortune 100 Principal Engineer with an industry-tested Lead Product Designer. We repair critical web vitals, rebuild complex digital interfaces, and deliver production-ready software without agency overhead.',

@@ -37,7 +37,7 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                 decoding="async"
               />
               <figcaption class="advantage-caption">
-                <span class="caption-code">[ FIGURE 01 // SENIOR PRACTITIONER COHESION ]</span>
+                <span class="caption-code">Figure 01 — Senior Practitioner Cohesion</span>
                 <span class="caption-text">
                   Real-time alignment between Principal Engineering and Lead Product Design.
                 </span>
