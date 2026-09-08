@@ -256,25 +256,25 @@ export class IntentNavigator {
         'Our Lead Product Designer rebuilds design tokens, typography scales, responsive layouts, and reusable component libraries with 100% design-to-code fidelity.',
       ctaText: 'Explore Design Process',
       link: '/process',
-      queryParams: { focus: 'responsive' }
+      queryParams: { focus: 'design-system' }
     },
     {
       id: 'flagship',
-      tag: 'Digital Flagships',
-      label: 'High-Value Practice & Brand Websites',
+      tag: 'Digital Rebuilds',
+      label: 'End-to-End Modernization & Rebuilds',
       output:
-        'For high-value commercial practices and premium brands. An authoritative, bespoke digital presence projecting credibility with zero ongoing maintenance headaches.',
-      ctaText: 'Explore Flagship Sprints',
+        'For high-value commercial practices and venture-backed scale-ups. An authoritative, bespoke digital presence engineered for conversion, prestige, and zero maintenance headaches.',
+      ctaText: 'Explore Rebuild Sprints',
       link: '/process',
-      queryParams: { focus: 'a11y' }
+      queryParams: { focus: 'rebuild' }
     },
     {
-      id: 'founders',
-      tag: 'Direct Partnership',
-      label: 'Direct Collaboration with Senior Principals',
+      id: 'agency',
+      tag: 'Agency Replacement',
+      label: 'Replacing an Underperforming Agency',
       output:
-        'Zero account managers, zero sales representatives, zero junior handoffs. Direct execution with a Fortune 100 Principal Engineer and Lead Product Designer.',
-      ctaText: 'Get in Touch',
+        'Stuck in a bloated agency contract or backlogged internal sprint? We step directly into your Git repository to unblock critical roadmaps and deliver production software in weeks, not quarters.',
+      ctaText: 'Connect With the Founders',
       link: '/contact'
     }
   ];

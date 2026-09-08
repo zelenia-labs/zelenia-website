@@ -37,7 +37,7 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
                 decoding="async"
               />
               <figcaption class="advantage-caption">
-                <span class="caption-code">Figure 01 — Senior Practitioner Cohesion</span>
+                <span class="caption-code">Senior Practitioner Cohesion</span>
                 <span class="caption-text">
                   Real-time alignment between Principal Engineering and Lead Product Design.
                 </span>
@@ -86,12 +86,12 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
               </div>
               <h3 class="advantage-card__title">High Efficiency, Zero Bureaucracy</h3>
               <p class="advantage-card__body">
-                Without account managers, status meetings, or agency retainers funding corporate
-                overhead, cycle times remain compact. Decisions occur immediately, and the entire
-                budget directly funds production craft.
+                Traditional agencies allocate over 40% of billable fees to account managers and
+                junior revisions. By removing corporate overhead, cycle times compress from months
+                to weeks, and 100% of your budget directly funds production craft.
               </p>
               <div class="advantage-card__meta">
-                <span class="advantage-card__pill">Direct Team Agility</span>
+                <span class="advantage-card__pill">Zero Billing Waste</span>
               </div>
             </article>
 

@@ -90,14 +90,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.65rem 1.15rem;
+  gap: 0.75rem 1.5rem;
   margin-block-start: clamp(2.25rem, 3.5vw, 3rem);
   padding-block-start: 1.25rem;
   border-block-start: 1px solid var(--border);
   font-size: 0.8125rem;
   color: var(--text-2);
   inline-size: 100%;
-  max-inline-size: 520px;
+  max-inline-size: 640px;
 }
 
 .proof-item {
@@ -118,11 +118,6 @@
 .proof-text strong {
   color: var(--text);
   font-weight: 600;
-}
-
-.proof-sep {
-  color: var(--border-strong);
-  user-select: none;
 }
 
 /* Speed Audit Card Component Styles (Used in Dedicated Section) */
@@ -411,10 +406,6 @@
   .hero-proof-bar {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .proof-sep {
-    display: none;
   }
 
   .audit-card-guarantees {

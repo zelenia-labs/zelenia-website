@@ -17,7 +17,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
           <div class="availability-pill">
             <span class="pulsating-dot" aria-hidden="true"></span>
             <span
-              >Studio Hours: Mon &ndash; Fri, 9:00 AM &ndash; 6:00 PM EST &bull; Direct Team
+              >Studio Hours: Mon &ndash; Fri, 9:00 AM &ndash; 6:00 PM EST &mdash; Direct Team
               Response</span
             >
           </div>
@@ -221,7 +221,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                   <span class="btn-spinner" aria-hidden="true"></span>
                 </button>
                 <span class="sla-guarantee"
-                  >&bull; Evaluated directly by the founders within one business day.</span
+                  >Evaluated directly by the founders within one business day.</span
                 >
               </div>
 
@@ -261,15 +261,15 @@ import { PagespeedClient } from '../hero/pagespeed-client';
               </p>
               <ul class="channel-points">
                 <li class="channel-point">
-                  <span class="channel-point__bullet">&bull;</span>
+                  <span class="channel-point__icon" aria-hidden="true">✓</span>
                   <span>Assess architectural and timeline fit</span>
                 </li>
                 <li class="channel-point">
-                  <span class="channel-point__bullet">&bull;</span>
+                  <span class="channel-point__icon" aria-hidden="true">✓</span>
                   <span>Outline preliminary technical paths</span>
                 </li>
                 <li class="channel-point">
-                  <span class="channel-point__bullet">&bull;</span>
+                  <span class="channel-point__icon" aria-hidden="true">✓</span>
                   <span>Direct founder conversation</span>
                 </li>
               </ul>

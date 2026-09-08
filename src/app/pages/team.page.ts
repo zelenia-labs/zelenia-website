@@ -38,8 +38,8 @@ export const routeMeta: RouteMeta = {
             <h1 class="section-title">Meet the team behind every pixel and line of code.</h1>
             <p class="section-subhead">
               We are Alejandro Cuba and Yolanda Santa Cruz. Two seasoned practitioners who build
-              high-performance digital products directly with you. Zero junior handoffs, zero agency
-              bureaucracy, just deep craft and direct collaboration.
+              high-performance digital products directly with you. Strictly capped at two concurrent
+              client sprints to guarantee 100% senior dedication.
             </p>
           </div>
 
@@ -139,6 +139,16 @@ export const routeMeta: RouteMeta = {
                 With 20+ years of enterprise architecture experience and a Google Developer Expert
                 on your team, you get clean TypeScript, optimal bundle budgets, and sub-second
                 performance built into the foundational codebase.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <span class="philosophy-index">04</span>
+              <h3 class="philosophy-title">Capped Capacity, Total Dedication</h3>
+              <p class="philosophy-text">
+                We strictly limit active client engagements to a maximum of two concurrent sprints.
+                Your codebase, release milestones, and architecture never compete with an agency
+                queue of dozens of backlogged accounts.
               </p>
             </div>
           </div>

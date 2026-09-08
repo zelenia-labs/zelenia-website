@@ -65,9 +65,7 @@ import { StudioContent } from '../../content/studio-content';
 
         <div class="footer-bottom">
           <p class="footer-copyright">&copy; {{ currentYear }} Zelenia Inc. All rights reserved.</p>
-          <p class="footer-tech">
-            WCAG 2.2 AA &bull; Sub-Second Architecture &bull; Direct Senior Execution
-          </p>
+          <p class="footer-tech">WCAG 2.2 AA / Sub-Second Architecture / Direct Senior Execution</p>
         </div>
       </div>
     </footer>

@@ -360,9 +360,11 @@
   color: #334155;
 }
 
-.channel-point__bullet {
+.channel-point__icon {
   color: var(--blue);
   font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .btn--calendar {

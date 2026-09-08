@@ -36,10 +36,13 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
             <article class="capability-pillar">
               <span class="capability-pillar__num">02</span>
-              <h3 class="capability-pillar__name">Responsive Architecture &amp; Device Parity</h3>
+              <h3 class="capability-pillar__name">
+                Multi-Surface Architecture &amp; Viewport Fidelity
+              </h3>
               <p class="capability-pillar__desc">
-                Interfaces must remain intentional across every display format. We reconstruct CSS
-                architecture and responsive layouts to maintain visual harmony on all viewports.
+                We eliminate mobile layout degradation, touch latency, and responsive rendering
+                defects. Your applications maintain fluid visual harmony and interaction speed
+                across every device.
               </p>
             </article>
 
@@ -56,11 +59,13 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
             <article class="capability-pillar">
               <span class="capability-pillar__num">04</span>
-              <h3 class="capability-pillar__name">Full Visual &amp; Interface Modernization</h3>
+              <h3 class="capability-pillar__name">
+                Enterprise UI Modernization &amp; Design Systems
+              </h3>
               <p class="capability-pillar__desc">
-                We overhaul dated digital surfaces with contemporary interfaces. From typography
-                hierarchy and motion curves to modular UI component libraries, we bring complete
-                cohesion.
+                We overhaul legacy digital surfaces with tokenized design systems, production-ready
+                component libraries, and GPU-accelerated motion that your internal engineers can
+                adopt immediately.
               </p>
             </article>
           </div>

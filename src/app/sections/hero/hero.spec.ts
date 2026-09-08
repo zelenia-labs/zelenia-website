@@ -27,8 +27,8 @@ describe('Hero Component (Clean Editorial Presentation)', () => {
   it('should render the primary studio headline', () => {
     const titleEl = fixture.nativeElement.querySelector('.hero-title');
     expect(titleEl).toBeTruthy();
-    expect(titleEl.textContent).toContain('Where high-precision design');
-    expect(titleEl.textContent).toContain('meets production engineering.');
+    expect(titleEl.textContent).toContain('Production frontend engineering');
+    expect(titleEl.textContent).toContain('Executed directly by the founders.');
   });
 
   it('should render exactly one primary CTA button to scope a project', () => {
@@ -42,6 +42,6 @@ describe('Hero Component (Clean Editorial Presentation)', () => {
     expect(proofBar).toBeTruthy();
     expect(proofBar.textContent).toContain('20+ years');
     expect(proofBar.textContent).toContain('Fortune 100 track record');
-    expect(proofBar.textContent).toContain('100% senior density');
+    expect(proofBar.textContent).toContain('Capped at 2 concurrent client sprints');
   });
 });

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DiagnosticState } from './diagnostic-state';
 import { TelemetryPanel } from './telemetry-panel';
 import { DeliverablesList } from './deliverables-list';
@@ -113,6 +113,14 @@ import { CategoryId } from './diagnostic.model';
 })
 export class Diagnostic {
   readonly state = inject(DiagnosticState);
+  private readonly route = inject(ActivatedRoute);
+
+  constructor() {
+    const focus = this.route.snapshot.queryParams['focus'];
+    if (focus && this.state.categories.some((c) => c.id === focus)) {
+      this.state.selectCategory(focus as CategoryId);
+    }
+  }
 
   onTabKeydown(event: KeyboardEvent, currentIndex: number): void {
     const count = this.state.categories.length;

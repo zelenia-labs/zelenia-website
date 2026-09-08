@@ -14,17 +14,16 @@ import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
 
       <div class="container hero-container">
         <div class="hero-editorial">
-          <span class="hero-eyebrow">Direct Senior Execution</span>
+          <span class="hero-eyebrow">Direct Senior Execution — Zero Agency Layers</span>
 
           <h1 class="hero-title">
-            Where high-precision design<br />
-            <span class="hero-title__accent">meets production engineering.</span>
+            Production frontend engineering &amp; design.<br />
+            <span class="hero-title__accent">Executed directly by the founders.</span>
           </h1>
 
           <p class="hero-subheadline">
-            Direct collaboration with a Fortune 100 Principal Engineer and Lead Product Designer. We
-            engineer sub-second web applications, robust design systems, and bespoke digital
-            flagships without agency overhead.
+            We repair critical web vitals, build resilient design systems, and modernize digital
+            surfaces for tech scale-ups and high-value practices—with zero junior handoffs.
           </p>
 
           <div class="hero-actions">
@@ -37,15 +36,15 @@ import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
           <div class="hero-proof-bar" aria-label="Studio Credentials">
             <div class="proof-item">
               <span class="proof-dot" aria-hidden="true"></span>
-              <span class="proof-text"><strong>20+ years</strong> experience</span>
+              <span class="proof-text"><strong>20+ years</strong> enterprise experience</span>
             </div>
-            <span class="proof-sep" aria-hidden="true">•</span>
             <div class="proof-item">
-              <span class="proof-text">Fortune 100 track record</span>
+              <span class="proof-dot" aria-hidden="true"></span>
+              <span class="proof-text">Fortune 100 track record &amp; GDE</span>
             </div>
-            <span class="proof-sep" aria-hidden="true">•</span>
             <div class="proof-item">
-              <span class="proof-text">100% senior density</span>
+              <span class="proof-dot" aria-hidden="true"></span>
+              <span class="proof-text">Capped at 2 concurrent client sprints</span>
             </div>
           </div>
         </div>
