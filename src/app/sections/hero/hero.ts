@@ -4,12 +4,11 @@ import { form, FormField, required, submit, validate } from '@angular/forms/sign
 import { PagespeedClient } from './pagespeed-client';
 import { AuditConsole } from './audit-console';
 import { StudioContent } from '../../content/studio-content';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
 
 @Component({
   selector: 'app-hero',
-  imports: [FormField, AuditConsole, ScrollReveal, RouterLink, AmbientCanvas],
+  imports: [FormField, AuditConsole, RouterLink, AmbientCanvas],
   template: `
     <!-- Hero Stage (Left-Aligned, Expansive & Atmospheric) -->
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
@@ -19,11 +18,10 @@ import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
       <!-- Subtle Atmospheric Artwork Overlay -->
       <div class="hero-atmosphere" aria-hidden="true">
         <div class="hero-atmosphere__mesh"></div>
-        <div class="hero-atmosphere__orb"></div>
         <div class="hero-atmosphere__grid"></div>
       </div>
 
-      <div class="container hero-container hero-layout--left" appScrollReveal>
+      <div class="container hero-container hero-layout--left">
         <h1 class="hero-title">
           Where high-precision product design<br />
           <span class="hero-title__accent font-serif">meets production engineering.</span>
@@ -43,7 +41,7 @@ import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
           </a>
           <a class="btn btn--secondary btn--hero-connect" routerLink="/contact">
             <span>Three Ways to Connect</span>
-            <span class="arrow-indicator" aria-hidden="true">↗</span>
+            <span class="arrow-indicator" aria-hidden="true">→</span>
           </a>
         </div>
 

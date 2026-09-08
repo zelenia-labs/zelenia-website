@@ -212,7 +212,7 @@
 
 .gauge-bg {
   fill: none;
-  stroke: rgba(15, 23, 42, 0.08);
+  stroke: rgba(255, 255, 255, 0.1);
   stroke-width: 2.5;
 }
 
@@ -244,14 +244,14 @@
   font-family: var(--font-heading);
   font-size: 1.375rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
 }
 
 .gauge-label {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #475569;
+  color: var(--text-2);
   letter-spacing: -0.01em;
 }
 
@@ -262,8 +262,8 @@
   gap: clamp(1.5rem, 3vw, 3rem);
   margin-block-end: 2.5rem;
   padding-block: 1.5rem;
-  border-block-start: 1px solid rgba(15, 23, 42, 0.08);
-  border-block-end: 1px solid rgba(15, 23, 42, 0.08);
+  border-block-start: 1px solid var(--border);
+  border-block-end: 1px solid var(--border);
 }
 
 .vital-pill {
@@ -287,7 +287,7 @@
   font-family: var(--font-heading);
   font-size: 1.375rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
 }
 
 .vital-badge {

@@ -77,8 +77,8 @@
 
 .diagnostic-pace-toggle {
   display: inline-flex;
-  background: #f1f5f9;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 3px;
   gap: 3px;
@@ -92,7 +92,7 @@
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-2);
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
@@ -100,14 +100,14 @@
 }
 
 .diagnostic-pace-btn:hover {
-  color: #0f172a;
+  color: var(--text);
 }
 
 .diagnostic-pace-btn[aria-pressed='true'] {
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--surface-3);
+  color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Telemetry Stats Bar: Open, Typographic Row */
@@ -117,8 +117,8 @@
   gap: clamp(2rem, 5vw, 4rem);
   margin-block-end: 3rem;
   padding-block: 2rem;
-  border-block-start: 1px solid rgba(15, 23, 42, 0.08);
-  border-block-end: 1px solid rgba(15, 23, 42, 0.08);
+  border-block-start: 1px solid var(--border);
+  border-block-end: 1px solid var(--border);
 }
 
 .telemetry-cell {
@@ -141,7 +141,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
   letter-spacing: -0.035em;
   line-height: 1.1;
 }
@@ -149,7 +149,7 @@
 .telemetry-sub {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--brand-primary);
+  color: var(--cyan);
   margin-block-start: 0.4rem;
 }
 
@@ -163,7 +163,7 @@
 .telemetry-ratio {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #0f172a;
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -174,8 +174,8 @@
   block-size: 16px;
   border-radius: var(--radius-pill);
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.05);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
 }
 
 .division-meter__eng {

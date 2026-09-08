@@ -47,8 +47,10 @@ export class AmbientCanvas implements OnDestroy {
   private animationFrameId: number | null = null;
   private resizeListener: (() => void) | null = null;
   private resizeObserver: ResizeObserver | null = null;
+  private intersectionObserver: IntersectionObserver | null = null;
   private mouseMoveListener: ((e: MouseEvent) => void) | null = null;
   private mouseLeaveListener: (() => void) | null = null;
+  private isVisible = true;
 
   constructor() {
     afterNextRender(() => {
@@ -83,30 +85,31 @@ export class AmbientCanvas implements OnDestroy {
 
     let width = (canvas.width = parent.clientWidth || window.innerWidth);
     let height = (canvas.height = parent.clientHeight || window.innerHeight);
+    let cachedRect = parent.getBoundingClientRect();
 
     const colors = [
-      'rgba(0, 85, 255, 0.28)', // Royal Blue #0055FF
-      'rgba(14, 165, 233, 0.22)', // Sky Blue
-      'rgba(16, 185, 129, 0.2)', // Emerald
-      'rgba(99, 102, 241, 0.18)' // Indigo
+      'rgba(0, 85, 255, 0.24)', // Royal Blue #0055FF
+      'rgba(14, 165, 233, 0.20)', // Sky Blue
+      'rgba(16, 185, 129, 0.18)', // Emerald
+      'rgba(71, 85, 105, 0.16)' // Architectural Slate
     ];
 
-    const particleCount = Math.min(Math.floor((width * height) / 32000), 38);
+    const particleCount = Math.min(Math.floor((width * height) / 36000), 32);
     const particles: Particle[] = [];
 
     const createParticle = (): Particle => {
       const x = Math.random() * width;
       const y = Math.random() * height;
-      const radius = Math.random() * 2.4 + 1.2;
+      const radius = Math.random() * 2.2 + 1.1;
       return {
         x,
         y,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.15,
+        vx: (Math.random() - 0.5) * 0.14,
+        vy: (Math.random() - 0.5) * 0.14,
         radius,
         baseRadius: radius,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.45 + 0.3,
+        alpha: Math.random() * 0.4 + 0.25,
         pulseSpeed: Math.random() * 0.008 + 0.004,
         pulseStep: Math.random() * Math.PI,
         visibility: 1
@@ -121,15 +124,14 @@ export class AmbientCanvas implements OnDestroy {
     let mouseY: number | null = null;
 
     this.mouseMoveListener = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
       if (
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
+        e.clientX >= cachedRect.left &&
+        e.clientX <= cachedRect.right &&
+        e.clientY >= cachedRect.top &&
+        e.clientY <= cachedRect.bottom
       ) {
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
+        mouseX = e.clientX - cachedRect.left;
+        mouseY = e.clientY - cachedRect.top;
       } else {
         mouseX = null;
         mouseY = null;
@@ -142,9 +144,9 @@ export class AmbientCanvas implements OnDestroy {
     };
 
     const updateDimensions = () => {
-      const rect = parent.getBoundingClientRect();
-      width = canvas.width = Math.max(rect.width, 320);
-      height = canvas.height = Math.max(rect.height, 400);
+      cachedRect = parent.getBoundingClientRect();
+      width = canvas.width = Math.max(cachedRect.width, 320);
+      height = canvas.height = Math.max(cachedRect.height, 400);
     };
 
     this.resizeListener = updateDimensions;
@@ -157,7 +159,34 @@ export class AmbientCanvas implements OnDestroy {
       this.resizeObserver.observe(parent);
     }
 
+    // Viewport Visibility Guard: Pause RAF when off-screen to preserve CPU and guarantee INP < 30ms
+    if (typeof IntersectionObserver !== 'undefined' && parent) {
+      this.intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          const wasVisible = this.isVisible;
+          this.isVisible = entry ? entry.isIntersecting : true;
+
+          if (this.isVisible && !wasVisible) {
+            if (this.animationFrameId === null) {
+              this.animationFrameId = requestAnimationFrame(animate);
+            }
+          } else if (!this.isVisible && this.animationFrameId !== null) {
+            cancelAnimationFrame(this.animationFrameId);
+            this.animationFrameId = null;
+          }
+        },
+        { threshold: 0.05 }
+      );
+      this.intersectionObserver.observe(parent);
+    }
+
     const animate = () => {
+      if (!this.isVisible) {
+        this.animationFrameId = null;
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       for (const p of particles) {
@@ -173,7 +202,7 @@ export class AmbientCanvas implements OnDestroy {
           const dx = mouseX - p.x;
           const dy = mouseY - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 220;
+          const maxDist = 200;
           if (dist < maxDist) {
             const force = (1 - dist / maxDist) * 0.02;
             p.x += dx * force;
@@ -182,16 +211,24 @@ export class AmbientCanvas implements OnDestroy {
         }
 
         p.pulseStep += p.pulseSpeed;
-        p.radius = p.baseRadius + Math.sin(p.pulseStep) * 0.4;
+        p.radius = p.baseRadius + Math.sin(p.pulseStep) * 0.35;
 
+        // High-performance dual-pass rendering: crisp particle + subtle halo without expensive software shadowBlur
         ctx.save();
+        ctx.fillStyle = p.color;
+
+        // Subtle ambient halo (pure 2D arc, 0 CPU shadowBlur cost)
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 2.2, 0, Math.PI * 2);
+        ctx.globalAlpha = p.alpha * 0.22;
+        ctx.fill();
+
+        // Core nucleus particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
         ctx.fill();
+
         ctx.restore();
       }
 
@@ -204,6 +241,9 @@ export class AmbientCanvas implements OnDestroy {
   ngOnDestroy(): void {
     if (this.animationFrameId !== null) {
       cancelAnimationFrame(this.animationFrameId);
+    }
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
     }
     if (this.resizeListener) {
       window.removeEventListener('resize', this.resizeListener);

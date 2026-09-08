@@ -1,7 +1,7 @@
 .advantage-section {
   position: relative;
-  background-color: #f4f6f9;
-  border-block: 1px solid rgba(15, 23, 42, 0.06);
+  background-color: var(--bg);
+  border-block: 1px solid var(--border);
 }
 
 /* Asymmetrical Editorial Split Layout (Artwork + Stacked Pillars) */
@@ -28,8 +28,8 @@
   inline-size: 100%;
   block-size: auto;
   border-radius: var(--radius);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
   object-fit: cover;
   aspect-ratio: 4 / 3;
   transition:
@@ -68,12 +68,12 @@
 .advantage-card {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: clamp(1.75rem, 3vw, 2.25rem);
   position: relative;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition:
     border-color var(--transition-normal),
     box-shadow var(--transition-normal),
@@ -81,8 +81,8 @@
 }
 
 .advantage-card:hover {
-  border-color: rgba(0, 85, 255, 0.35);
-  box-shadow: 0 12px 32px rgba(0, 85, 255, 0.08);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 36px rgba(0, 85, 255, 0.15);
   transform: translateY(-2px);
 }
 

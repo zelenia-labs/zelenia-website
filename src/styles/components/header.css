@@ -6,8 +6,8 @@
   right: 0;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background: rgba(252, 252, 253, 0.85);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  background: rgba(7, 9, 14, 0.82);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
@@ -35,7 +35,7 @@
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 1.125rem;
-  color: #0f172a;
+  color: var(--text);
   letter-spacing: 0.05em;
 }
 

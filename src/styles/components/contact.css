@@ -62,15 +62,15 @@
 .form-select,
 .form-textarea {
   inline-size: 100%;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
   padding: 0.875rem 1.125rem;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  color: #0f172a;
+  color: var(--text);
   box-sizing: border-box;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast),
@@ -79,13 +79,13 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .form-input:hover,
 .form-select:hover,
 .form-textarea:hover {
-  border-color: rgba(15, 23, 42, 0.28);
+  border-color: var(--border-strong);
 }
 
 .form-input:focus-visible,
@@ -94,9 +94,9 @@
   outline: none;
   border-color: var(--blue);
   box-shadow:
-    0 0 0 3px rgba(0, 85, 255, 0.2),
-    0 0 12px rgba(0, 85, 255, 0.1);
-  background: #ffffff;
+    0 0 0 3px rgba(0, 85, 255, 0.25),
+    0 0 16px rgba(0, 85, 255, 0.2);
+  background: var(--surface-3);
 }
 
 .form-select {
