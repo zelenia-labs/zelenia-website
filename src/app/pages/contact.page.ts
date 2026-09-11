@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
 import { Contact } from '../sections/contact/contact';
-import { PageFaq, PageFaqItem } from '../ui/faq/page-faq';
+import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 
 export const routeMeta: RouteMeta = {
   title: 'Connect With the Team // Three Ways to Get Started // Zelenia',

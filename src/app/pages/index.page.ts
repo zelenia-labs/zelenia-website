@@ -8,7 +8,7 @@ import { IntentNavigator } from '../sections/hero/intent-navigator';
 import { Advantage } from '../sections/advantage/advantage';
 import { CapabilitiesSummary } from '../sections/capabilities/capabilities-summary';
 import { TransparencyFit } from '../sections/transparency/transparency-fit';
-import { PageFaq, PageFaqItem } from '../ui/faq/page-faq';
+import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 
 export const routeMeta: RouteMeta = {
   title: 'Zelenia // Frontend Engineering & Product Design Studio',

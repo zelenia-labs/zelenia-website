@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { Partner } from '../../content/studio.model';
+import { Partner } from '../../content/team';
 
 @Component({
   selector: 'app-partner-card',

@@ -2,18 +2,17 @@ import { Component, inject, signal } from '@angular/core';
 import { form, FormField, required, submit, validate } from '@angular/forms/signals';
 import { PagespeedClient } from './pagespeed-client';
 import { AuditConsole } from './audit-console';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-speed-audit',
-  imports: [FormField, AuditConsole, ScrollReveal],
+  imports: [FormField, AuditConsole],
   template: `
     <section
       class="site-section speed-audit-section"
       id="speed-audit"
       aria-labelledby="speed-audit-title"
     >
-      <div class="container audit-container" appScrollReveal>
+      <div class="container audit-container">
         <div class="section-header section-header--center">
           <span class="section-tag">Instant Diagnostic</span>
           <h2 class="section-title" id="speed-audit-title">Audit your production web speed.</h2>

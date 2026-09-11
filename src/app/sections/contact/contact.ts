@@ -3,15 +3,14 @@ import { email, form, FormField, required, submit } from '@angular/forms/signals
 import { ContactIntake } from './contact-intake';
 import { ContactInquiry } from './contact.model';
 import { DiagnosticState } from '../diagnostic/diagnostic-state';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 import { PagespeedClient } from '../hero/pagespeed-client';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormField, ScrollReveal],
+  imports: [FormField],
   template: `
     <section class="site-section contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="container" appScrollReveal>
+      <div class="container">
         <!-- Header & Availability Badge -->
         <div class="contact-hub-header">
           <div class="availability-pill">

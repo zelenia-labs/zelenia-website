@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { StudioContent } from '../../content/studio-content';
+import { WebsiteContent } from '../../content/website-content';
 
 @Component({
   selector: 'app-site-footer',
@@ -72,7 +72,7 @@ import { StudioContent } from '../../content/studio-content';
   `
 })
 export class SiteFooter {
-  private readonly studio = inject(StudioContent);
-  readonly site = this.studio.site;
+  private readonly website = inject(WebsiteContent);
+  readonly site = this.website.site;
   readonly currentYear = new Date().getFullYear();
 }

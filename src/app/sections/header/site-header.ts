@@ -2,8 +2,8 @@ import { Component, computed, DestroyRef, inject, PLATFORM_ID, signal } from '@a
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { StudioContent } from '../../content/studio-content';
-import { NavItem } from '../../content/studio.model';
+import { WebsiteContent } from '../../content/website-content';
+import { NavItem } from '../../content/navigation';
 
 @Component({
   selector: 'app-site-header',
@@ -40,13 +40,13 @@ import { NavItem } from '../../content/studio.model';
   `
 })
 export class SiteHeader {
-  private readonly studio = inject(StudioContent);
+  private readonly website = inject(WebsiteContent);
   private readonly router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
-  readonly site = this.studio.site;
+  readonly site = this.website.site;
   readonly currentUrl = signal<string>('/');
   readonly activeSection = signal<string | null>(null);
 

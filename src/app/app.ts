@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IntroPreloader } from './ui/motion/intro-preloader';
-import { SiteHeader } from './ui/navigation/site-header';
-import { SiteFooter } from './ui/navigation/site-footer';
+import { SiteHeader } from './sections/header/site-header';
+import { SiteFooter } from './sections/footer/site-footer';
 
 @Component({
   selector: 'app-root',

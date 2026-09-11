@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 import { Diagnostic } from '../sections/diagnostic/diagnostic';
-import { PageFaq, PageFaqItem } from '../ui/faq/page-faq';
-import { ScrollReveal } from '../ui/motion/scroll-reveal';
+import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 
 export const routeMeta: RouteMeta = {
   title: 'Development Process & Scope Estimator // Zelenia',
@@ -27,12 +26,12 @@ export const routeMeta: RouteMeta = {
 
 @Component({
   selector: 'app-process-page',
-  imports: [RouterLink, Diagnostic, PageFaq, ScrollReveal],
+  imports: [RouterLink, Diagnostic, PageFaq],
   template: `
     <div class="process-page">
       <!-- Process Hero -->
       <section class="site-section process-hero">
-        <div class="container" appScrollReveal>
+        <div class="container">
           <div class="section-header section-header--center">
             <span class="section-tag">How We Work</span>
             <h1 class="section-title">Direct Senior Execution: Our Development Process</h1>
@@ -52,7 +51,7 @@ export const routeMeta: RouteMeta = {
 
       <!-- Section 2 & 3: Performance Engineering & Technical Accessibility Deep Dive -->
       <section class="site-section process-deep-dive">
-        <div class="container" appScrollReveal>
+        <div class="container">
           <!-- Performance Engineering -->
           <div class="deep-dive-block">
             <div class="section-header">

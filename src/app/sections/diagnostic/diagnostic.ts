@@ -3,19 +3,18 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DiagnosticState } from './diagnostic-state';
 import { TelemetryPanel } from './telemetry-panel';
 import { DeliverablesList } from './deliverables-list';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 import { CategoryId } from './diagnostic.model';
 
 @Component({
   selector: 'app-diagnostic',
-  imports: [TelemetryPanel, DeliverablesList, ScrollReveal, RouterLink],
+  imports: [TelemetryPanel, DeliverablesList, RouterLink],
   template: `
     <section
       class="site-section diagnostic-section"
       id="diagnostic"
       aria-labelledby="diagnostic-title"
     >
-      <div class="container" appScrollReveal>
+      <div class="container">
         <div class="section-header">
           <span class="section-tag">Interactive Assessment &amp; FAQ</span>
           <h2 class="section-title" id="diagnostic-title">

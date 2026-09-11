@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-advantage',
-  imports: [ScrollReveal, RouterLink],
+  imports: [RouterLink],
   template: `
     <section
       class="site-section advantage-section"
       id="advantage"
       aria-labelledby="advantage-title"
     >
-      <div class="container" appScrollReveal>
+      <div class="container">
         <div class="section-header">
           <span class="section-tag">The Studio Advantage</span>
           <h2 class="section-title" id="advantage-title">

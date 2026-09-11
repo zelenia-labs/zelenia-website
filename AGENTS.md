@@ -8,9 +8,9 @@
 - **Meta-framework**: **AnalogJS (`@analogjs/platform`)** with Angular v22.
 - **Directory Structure (Intent over Role)**:
   - `src/app/pages/`: File-based route endpoints (`index.page.ts`).
-  - `src/app/sections/`: Landing page narrative sections (`hero/`, `leadership/`, `advantage/`, `capabilities/`, `diagnostic/`, `contact/`).
-  - `src/app/ui/`: Presentation and motion primitives (`ui/motion/`, `ui/canvas/`, `ui/navigation/`).
-  - `src/app/content/`: Centralized studio data models (`studio.model.ts`) and content provider (`studio-content.ts`).
+  - `src/app/sections/`: Landing page narrative sections (`hero/`, `leadership/`, `advantage/`, `capabilities/`, `diagnostic/`, `contact/`, `faq/`, `header/`, `footer/`).
+  - `src/app/ui/`: Presentation and motion primitives (`ui/motion/`).
+  - `src/app/content/`: Domain data fixtures with co-located types (`team.ts`, `navigation.ts`, etc.), and content provider (`website-content.ts`).
   - `src/styles/`: Design system tokens, resets, base typography, and component stylesheets.
 - **Static Assets (`public/`)**: Copied to `dist/` root during build.
 - **Design System**: See [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md).

@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-transparency-fit',
-  imports: [ScrollReveal],
   template: `
     <section
       class="site-section transparency-section"
       id="transparency"
       aria-labelledby="transparency-title"
     >
-      <div class="container" appScrollReveal>
+      <div class="container">
         <!-- Section 6A: Radical Transparency & Zero Lock-In -->
         <div class="section-header section-header--center">
           <span class="section-tag">Commercial Boundaries</span>

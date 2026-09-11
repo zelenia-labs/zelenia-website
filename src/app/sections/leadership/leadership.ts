@@ -1,18 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { StudioContent } from '../../content/studio-content';
+import { WebsiteContent } from '../../content/website-content';
 import { PartnerCard } from './partner-card';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-leadership',
-  imports: [PartnerCard, ScrollReveal],
+  imports: [PartnerCard],
   template: `
     <section
       class="site-section leadership-section"
       id="leadership"
       aria-labelledby="leadership-title"
     >
-      <div class="container" appScrollReveal>
+      <div class="container">
         <div class="section-header">
           <span class="section-tag">Who We Are</span>
           <h2 class="section-title" id="leadership-title">
@@ -35,6 +34,6 @@ import { ScrollReveal } from '../../ui/motion/scroll-reveal';
   `
 })
 export class Leadership {
-  private readonly studio = inject(StudioContent);
-  readonly site = this.studio.site;
+  private readonly website = inject(WebsiteContent);
+  readonly site = this.website.site;
 }

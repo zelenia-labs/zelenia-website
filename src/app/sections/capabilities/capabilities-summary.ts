@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ScrollReveal } from '../../ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-capabilities-summary',
-  imports: [ScrollReveal, RouterLink],
+  imports: [RouterLink],
   template: `
     <section
       class="site-section capabilities-section"
       id="capabilities"
       aria-labelledby="capabilities-title"
     >
-      <div class="container" appScrollReveal>
+      <div class="container">
         <div class="capabilities-breather">
           <div class="section-header">
             <span class="section-tag">Core Capabilities</span>

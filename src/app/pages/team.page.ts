@@ -1,9 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
-import { StudioContent } from '../content/studio-content';
-import { PageFaq, PageFaqItem } from '../ui/faq/page-faq';
-import { ScrollReveal } from '../ui/motion/scroll-reveal';
+import { WebsiteContent } from '../content/website-content';
+import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 
 export const routeMeta: RouteMeta = {
   title: 'Our Team // Alejandro Cuba & Yolanda Santa Cruz // Zelenia',
@@ -27,12 +26,12 @@ export const routeMeta: RouteMeta = {
 
 @Component({
   selector: 'app-team-page',
-  imports: [RouterLink, PageFaq, ScrollReveal],
+  imports: [RouterLink, PageFaq],
   template: `
     <div class="team-page">
       <!-- Team Hero -->
       <section class="site-section team-hero">
-        <div class="container" appScrollReveal>
+        <div class="container">
           <div class="section-header section-header--center">
             <span class="section-tag">The Studio Team</span>
             <h1 class="section-title">Meet the team behind every pixel and line of code.</h1>
@@ -100,7 +99,7 @@ export const routeMeta: RouteMeta = {
 
       <!-- Senior Density Philosophy -->
       <section class="site-section team-philosophy">
-        <div class="container" appScrollReveal>
+        <div class="container">
           <div class="section-header">
             <span class="section-tag">Our Philosophy</span>
             <h2 class="section-title">The 100% Senior Density Model</h2>
@@ -332,8 +331,8 @@ export const routeMeta: RouteMeta = {
   `
 })
 export default class TeamPage {
-  private readonly studio = inject(StudioContent);
-  readonly team = computed(() => this.studio.site().team);
+  private readonly website = inject(WebsiteContent);
+  readonly team = this.website.team;
 
   readonly teamFaqs: PageFaqItem[] = [
     {

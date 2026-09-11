@@ -1,17 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { StudioContent } from '../../content/studio-content';
-import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
+import { WebsiteContent } from '../../content/website-content';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, AmbientCanvas],
+  imports: [RouterLink],
   template: `
     <!-- Editorial Studio Hero Stage -->
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
-      <!-- Ambient Canvas -->
-      <app-ambient-canvas />
-
       <div class="container hero-container">
         <div class="hero-editorial">
           <span class="hero-eyebrow">Direct Senior Execution — Zero Agency Layers</span>
@@ -53,6 +49,6 @@ import { AmbientCanvas } from '../../ui/canvas/ambient-canvas';
   `
 })
 export class Hero {
-  private readonly studio = inject(StudioContent);
-  readonly site = this.studio.site;
+  private readonly website = inject(WebsiteContent);
+  readonly site = this.website.site;
 }
