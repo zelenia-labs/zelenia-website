@@ -45,3 +45,4 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
 
 export const PARTNERS: Partner[] = TEAM_MEMBERS;
+

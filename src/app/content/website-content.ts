@@ -1,6 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { NavItem, NAVIGATION_ITEMS } from './navigation';
-import { ProofItem, PROOF_ITEMS } from './proof-bar';
 import { TeamMember, Partner, TEAM_MEMBERS, PARTNERS } from './team';
 import { SocialLinks, SOCIAL_LINKS } from './social';
 
@@ -13,7 +12,6 @@ export interface WebsiteInfo {
 
 export interface SiteData extends WebsiteInfo {
   nav: NavItem[];
-  proofBar: ProofItem[];
   team: TeamMember[];
   partners: Partner[];
   socials: SocialLinks;
@@ -33,7 +31,6 @@ export const WEBSITE_INFO: WebsiteInfo = {
 export class WebsiteContent {
   readonly info = signal<WebsiteInfo>(WEBSITE_INFO).asReadonly();
   readonly nav = signal<NavItem[]>(NAVIGATION_ITEMS).asReadonly();
-  readonly proofBar = signal<ProofItem[]>(PROOF_ITEMS).asReadonly();
   readonly team = signal<TeamMember[]>(TEAM_MEMBERS).asReadonly();
   readonly partners = signal<Partner[]>(PARTNERS).asReadonly();
   readonly socials = signal<SocialLinks>(SOCIAL_LINKS).asReadonly();
@@ -44,9 +41,9 @@ export class WebsiteContent {
     url: this.info().url,
     description: this.info().description,
     nav: this.nav(),
-    proofBar: this.proofBar(),
     team: this.team(),
     partners: this.partners(),
     socials: this.socials()
   }));
 }
+
