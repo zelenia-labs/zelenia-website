@@ -16,7 +16,6 @@ import { CategoryId } from './diagnostic.model';
     >
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Interactive Assessment &amp; FAQ</span>
           <h2 class="section-title" id="diagnostic-title">
             Diagnose your project scope in real time.
           </h2>

@@ -267,11 +267,8 @@
   gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--blue);
-  background: rgba(0, 85, 255, 0.06);
-  border: 1px solid rgba(0, 85, 255, 0.18);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-pill);
+  color: var(--muted);
+  letter-spacing: 0.04em;
   margin-block-end: 1rem;
 }
 

@@ -36,12 +36,4 @@ describe('Hero Component (Clean Editorial Presentation)', () => {
     expect(ctaBtns.length).toBe(1);
     expect(ctaBtns[0].textContent).toContain('Scope Your Project');
   });
-
-  it('should render the studio credentials proof bar', () => {
-    const proofBar = fixture.nativeElement.querySelector('.hero-proof-bar');
-    expect(proofBar).toBeTruthy();
-    expect(proofBar.textContent).toContain('20+ years');
-    expect(proofBar.textContent).toContain('Fortune 100 track record');
-    expect(proofBar.textContent).toContain('Capped at 2 concurrent client sprints');
-  });
 });

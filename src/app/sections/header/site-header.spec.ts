@@ -44,29 +44,7 @@ describe('SiteHeader Component', () => {
     expect(ctaButton.textContent).toContain('Connect With Us');
   });
 
-  it('should render the Advantage link and trigger smooth scroll when element is in DOM', () => {
-    const links = Array.from(
-      fixture.nativeElement.querySelectorAll('.nav-link')
-    ) as HTMLAnchorElement[];
-    const advantageLink = links.find((l) => l.textContent?.trim() === 'Advantage');
-    expect(advantageLink).toBeTruthy();
-    expect(advantageLink?.getAttribute('href')).toContain('advantage');
-
-    const fakeTarget = document.createElement('section');
-    fakeTarget.id = 'advantage';
-    fakeTarget.scrollIntoView = vi.fn();
-    document.body.appendChild(fakeTarget);
-
-    advantageLink?.click();
-    expect(fakeTarget.scrollIntoView).toHaveBeenCalledWith({
-      behavior: 'smooth',
-      block: 'start'
-    });
-
-    document.body.removeChild(fakeTarget);
-  });
-
-  it('should only highlight Process when route is /process and NOT highlight Advantage simultaneously', () => {
+  it('should only highlight Process when route is /process', () => {
     component.currentUrl.set('/process');
     fixture.detectChanges();
 
@@ -77,12 +55,9 @@ describe('SiteHeader Component', () => {
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
     expect(activeLinks[0].textContent?.trim()).toBe('Process');
-
-    const advantageLink = links.find((l) => l.textContent?.trim() === 'Advantage');
-    expect(advantageLink?.classList.contains('is-active')).toBe(false);
   });
 
-  it('should only highlight Team when route is /team and NOT highlight Advantage simultaneously', () => {
+  it('should only highlight Team when route is /team', () => {
     component.currentUrl.set('/team');
     fixture.detectChanges();
 
@@ -93,29 +68,17 @@ describe('SiteHeader Component', () => {
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
     expect(activeLinks[0].textContent?.trim()).toBe('Team');
-
-    const advantageLink = links.find((l) => l.textContent?.trim() === 'Advantage');
-    expect(advantageLink?.classList.contains('is-active')).toBe(false);
   });
 
-  it('should only highlight Advantage on home route when activeSection is advantage', () => {
+  it('should not highlight any dedicated page link on root route without fragment', () => {
     component.currentUrl.set('/');
     component.activeSection.set(null);
     fixture.detectChanges();
 
-    let links = Array.from(
+    const links = Array.from(
       fixture.nativeElement.querySelectorAll('.nav-link')
     ) as HTMLAnchorElement[];
-    let activeLinks = links.filter((l) => l.classList.contains('is-active'));
+    const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(0);
-
-    // Scroll into advantage
-    component.activeSection.set('advantage');
-    fixture.detectChanges();
-
-    links = Array.from(fixture.nativeElement.querySelectorAll('.nav-link')) as HTMLAnchorElement[];
-    activeLinks = links.filter((l) => l.classList.contains('is-active'));
-    expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('Advantage');
   });
 });

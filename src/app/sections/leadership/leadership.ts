@@ -13,7 +13,6 @@ import { PartnerCard } from './partner-card';
     >
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Who We Are</span>
           <h2 class="section-title" id="leadership-title">
             Meet the makers behind every pixel and line of code.
           </h2>

@@ -33,7 +33,6 @@ export const routeMeta: RouteMeta = {
       <section class="site-section team-hero">
         <div class="container">
           <div class="section-header section-header--center">
-            <span class="section-tag">The Studio Team</span>
             <h1 class="section-title">Meet the team behind every pixel and line of code.</h1>
             <p class="section-subhead">
               We are Alejandro Cuba and Yolanda Santa Cruz. Two seasoned practitioners who build
@@ -61,20 +60,12 @@ export const routeMeta: RouteMeta = {
                       <span>{{ member.avatarInitials }}</span>
                     </div>
                   }
-                  <div class="team-profile-role-badge">
-                    <span>{{ member.role }}</span>
-                  </div>
                 </div>
 
                 <div class="team-profile-info">
                   <h2 class="team-profile-name">{{ member.name }}</h2>
+                  <p class="team-profile-role">{{ member.role }}</p>
                   <p class="team-profile-credentials">{{ member.credentials }}</p>
-
-                  <div class="team-profile-highlights">
-                    @for (highlight of member.highlights; track highlight) {
-                      <span class="team-highlight-pill">{{ highlight }}</span>
-                    }
-                  </div>
 
                   <p class="team-profile-bio">{{ member.background }}</p>
 
@@ -100,7 +91,7 @@ export const routeMeta: RouteMeta = {
       <!-- Team & Collaboration FAQ -->
       <div id="team-faq-wrapper">
         <app-page-faq
-          tag="Team &amp; Collaboration FAQ"
+          tag="Team &amp; Collaboration"
           title="Direct practitioner collaboration."
           subtitle="Answers about who works on your project, daily communication, production rigor, and capacity limits."
           [items]="teamFaqs"
@@ -108,7 +99,6 @@ export const routeMeta: RouteMeta = {
 
         <section class="site-section team-cta-section">
           <div class="container" style="text-align: center;">
-            <span class="section-tag">Direct Access</span>
             <h2 class="section-title">Ready to work directly with the founders?</h2>
             <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
               Connect with Alejandro and Yolanda for an honest assessment of your frontend
@@ -167,27 +157,20 @@ export const routeMeta: RouteMeta = {
       color: #94a3b8;
       background: #f1f5f9;
     }
-    .team-profile-role-badge {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(8px);
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #090d15;
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
-    }
     .team-profile-name {
       font-size: clamp(1.5rem, 2.2vw, 1.85rem);
       font-weight: 600;
       color: var(--text-luminous);
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.25rem;
       letter-spacing: -0.02em;
+    }
+    .team-profile-role {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-luminous-muted);
+      letter-spacing: 0.04em;
+      margin: 0 0 0.35rem;
     }
     .team-profile-credentials {
       font-size: 0.9375rem;
@@ -195,21 +178,6 @@ export const routeMeta: RouteMeta = {
       font-weight: 500;
       margin: 0 0 1rem;
       line-height: 1.4;
-    }
-    .team-profile-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.25rem;
-    }
-    .team-highlight-pill {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: #475569;
-      background: rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 0.25rem 0.65rem;
-      border-radius: var(--radius-pill);
     }
     .team-profile-bio {
       font-size: 0.9375rem;

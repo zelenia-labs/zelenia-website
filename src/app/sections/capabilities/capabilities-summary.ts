@@ -13,7 +13,6 @@ import { RouterLink } from '@angular/router';
       <div class="container">
         <div class="capabilities-breather">
           <div class="section-header">
-            <span class="section-tag">Core Capabilities</span>
             <h2 class="section-title" id="capabilities-title">
               Engineered for speed, built for conversion.
             </h2>
@@ -25,7 +24,6 @@ import { RouterLink } from '@angular/router';
 
           <div class="capabilities-pillars-row">
             <article class="capability-pillar">
-              <span class="capability-pillar__num">01</span>
               <h3 class="capability-pillar__name">Core Web Vitals &amp; Performance Engineering</h3>
               <p class="capability-pillar__desc">
                 We diagnose and resolve critical bottlenecks across Largest Contentful Paint,
@@ -34,7 +32,6 @@ import { RouterLink } from '@angular/router';
             </article>
 
             <article class="capability-pillar">
-              <span class="capability-pillar__num">02</span>
               <h3 class="capability-pillar__name">
                 Multi-Surface Architecture &amp; Viewport Fidelity
               </h3>
@@ -46,7 +43,6 @@ import { RouterLink } from '@angular/router';
             </article>
 
             <article class="capability-pillar">
-              <span class="capability-pillar__num">03</span>
               <h3 class="capability-pillar__name">
                 Semantic HTML, Accessibility (a11y) &amp; Technical SEO
               </h3>
@@ -57,7 +53,6 @@ import { RouterLink } from '@angular/router';
             </article>
 
             <article class="capability-pillar">
-              <span class="capability-pillar__num">04</span>
               <h3 class="capability-pillar__name">
                 Enterprise UI Modernization &amp; Design Systems
               </h3>

@@ -18,7 +18,6 @@ export interface IntentPath {
     <section class="site-section intent-section" id="intent" aria-labelledby="intent-prompt">
       <div class="container intent-container">
         <div class="section-header section-header--center">
-          <span class="section-tag">Direct Consultation</span>
           <h2 class="section-title" id="intent-prompt">What can we help you solve today?</h2>
           <p class="section-subhead">
             Select your immediate technical challenge to see how we scope, architect, and resolve it

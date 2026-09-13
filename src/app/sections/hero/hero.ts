@@ -10,7 +10,7 @@ import { WebsiteContent } from '../../content/website-content';
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
       <div class="container hero-container">
         <div class="hero-editorial">
-          <span class="hero-eyebrow">Direct Senior Execution — Zero Agency Layers</span>
+          <span class="hero-eyebrow">Studio // Direct Senior Execution</span>
 
           <h1 class="hero-title">
             Production frontend engineering &amp; design.<br />
@@ -18,8 +18,8 @@ import { WebsiteContent } from '../../content/website-content';
           </h1>
 
           <p class="hero-subheadline">
-            We repair critical web vitals, build resilient design systems, and modernize digital
-            surfaces for tech scale-ups and high-value practices—with zero junior handoffs.
+            We repair critical web vitals, build resilient design systems, and deliver production
+            software for scale-ups and high-value practices—with zero junior handoffs.
           </p>
 
           <div class="hero-actions">
@@ -27,21 +27,6 @@ import { WebsiteContent } from '../../content/website-content';
               <span>Scope Your Project</span>
               <span class="arrow-indicator" aria-hidden="true">→</span>
             </a>
-          </div>
-
-          <div class="hero-proof-bar" aria-label="Studio Credentials">
-            <div class="proof-item">
-              <span class="proof-dot" aria-hidden="true"></span>
-              <span class="proof-text"><strong>20+ years</strong> enterprise experience</span>
-            </div>
-            <div class="proof-item">
-              <span class="proof-dot" aria-hidden="true"></span>
-              <span class="proof-text">Fortune 100 track record &amp; GDE</span>
-            </div>
-            <div class="proof-item">
-              <span class="proof-dot" aria-hidden="true"></span>
-              <span class="proof-text">Capped at 2 concurrent client sprints</span>
-            </div>
           </div>
         </div>
       </div>

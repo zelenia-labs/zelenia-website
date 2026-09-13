@@ -14,26 +14,14 @@ import { AuditConsole } from './audit-console';
     >
       <div class="container audit-container">
         <div class="section-header section-header--center">
-          <span class="section-tag">Instant Diagnostic</span>
-          <h2 class="section-title" id="speed-audit-title">Audit your production web speed.</h2>
+          <h2 class="section-title" id="speed-audit-title">Audit your live web speed.</h2>
           <p class="section-subhead">
-            Analyze your live website against Google's real-world Core Web Vitals thresholds. Zero
-            sales gates, instant diagnostic feedback.
+            Real-world Core Web Vitals via Google PageSpeed Insights. Zero sales gates, instant diagnostic feedback.
           </p>
         </div>
 
         <div class="audit-card-wrapper">
           <div class="hero-audit-card">
-            <div class="audit-card-head">
-              <div class="audit-card-title-wrap">
-                <span class="audit-card-title">Live Site Performance Audit</span>
-                <span class="audit-card-subtitle"
-                  >Powered by Google PageSpeed Insights Live API</span
-                >
-              </div>
-              <span class="audit-card-pill">Free Audit</span>
-            </div>
-
             <form
               class="hero-audit-form"
               id="hero-audit-form"
@@ -91,7 +79,7 @@ import { AuditConsole } from './audit-console';
                   [class.btn--loading]="pagespeed.isScanning()"
                   [disabled]="pagespeed.isScanning()"
                 >
-                  <span class="btn-text">Run Live Audit</span>
+                  <span class="btn-text">Run Audit</span>
                   <span class="arrow-indicator" aria-hidden="true">→</span>
                   <span class="btn-spinner" aria-hidden="true"></span>
                 </button>
@@ -108,21 +96,6 @@ import { AuditConsole } from './audit-console';
                 </span>
               }
             </form>
-
-            <div class="audit-card-guarantees">
-              <div class="guarantee-item">
-                <span class="guarantee-dot" aria-hidden="true"></span>
-                <span>Sub-0.8s LCP Benchmark</span>
-              </div>
-              <div class="guarantee-item">
-                <span class="guarantee-dot" aria-hidden="true"></span>
-                <span>Zero Layout Shift (CLS)</span>
-              </div>
-              <div class="guarantee-item">
-                <span class="guarantee-dot" aria-hidden="true"></span>
-                <span>Direct Senior Engineering</span>
-              </div>
-            </div>
 
             <!-- Live Audit Console Widget -->
             @if (pagespeed.isScanning() || pagespeed.auditResult()) {

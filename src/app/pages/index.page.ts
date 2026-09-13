@@ -43,8 +43,7 @@ export const routeMeta: RouteMeta = {
     IntentNavigator,
     Advantage,
     CapabilitiesSummary,
-    TransparencyFit,
-    PageFaq
+    TransparencyFit
   ],
   template: `
     <!-- Section 1: Editorial Studio Hero Stage -->
@@ -59,42 +58,32 @@ export const routeMeta: RouteMeta = {
     <!-- Section 4: The Advantage & Senior Density -->
     <app-advantage />
 
-    <!-- Section 3: Core Capabilities Overview -->
+    <!-- Section 5: Core Capabilities Overview -->
     <app-capabilities-summary />
 
-    <!-- Section 4: Radical Transparency & Mutual Fit Filter -->
+    <!-- Section 6: Radical Transparency & Mutual Fit Filter -->
     <app-transparency-fit />
 
-    <!-- Section 5: Commercial Hesitation FAQ & Contact Gateway -->
-    <div id="commercial-faq">
-      <app-page-faq
-        tag="Commercial FAQ"
-        title="What teams ask before committing to a senior sprint."
-        subtitle="Transparent answers regarding studio capacity, asset ownership, warranties, and in-house adoption."
-        [items]="commercialFaqs"
-      />
-
-      <section class="site-section home-gateway-section">
-        <div class="container" style="text-align: center;">
-          <span class="section-tag">Direct Collaboration</span>
-          <h2 class="section-title">Ready to build without the agency overhead?</h2>
-          <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
-            Connect directly with Alejandro and Yolanda. Zero sales representatives, zero account
-            managers, just direct senior execution.
-          </p>
-          <div class="gateway-actions">
-            <a class="btn btn--primary" routerLink="/contact">
-              <span>Three Ways to Get Started</span>
-              <span class="arrow-indicator" aria-hidden="true">→</span>
-            </a>
-            <a class="btn btn--secondary" routerLink="/process">
-              <span>Calculate Scope &amp; Timeline</span>
-              <span class="arrow-indicator" aria-hidden="true">↗</span>
-            </a>
-          </div>
+    <!-- Section 7: Direct Collaboration Gateway -->
+    <section class="site-section home-gateway-section">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title">Ready to build without agency overhead?</h2>
+        <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
+          Connect directly with Alejandro and Yolanda. Zero sales representatives, zero account
+          managers, direct senior execution.
+        </p>
+        <div class="gateway-actions">
+          <a class="btn btn--primary" routerLink="/contact">
+            <span>Start a Conversation</span>
+            <span class="arrow-indicator" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--secondary" routerLink="/process">
+            <span>Calculate Scope &amp; Timeline</span>
+            <span class="arrow-indicator" aria-hidden="true">↗</span>
+          </a>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   `,
   styles: `
     .home-gateway-section {
@@ -129,23 +118,4 @@ export default class Home {
       }
     });
   }
-
-  readonly commercialFaqs: PageFaqItem[] = [
-    {
-      q: 'Can a two-person studio handle our entire web overhaul?',
-      a: 'Yes. Traditional agencies allocate over 40% of billable hours to account managers, internal coordination, and junior revisions. A seasoned Principal Engineer and Lead Designer working in tight unison move faster, produce cleaner architecture, and deliver higher baseline performance.'
-    },
-    {
-      q: 'Do we own all deliverables and source code?',
-      a: 'Completely. Work is conducted either directly in your Git organization or transferred upon milestone completion. You retain 100% ownership of source code, design files, and documentation with zero vendor lock-in.'
-    },
-    {
-      q: 'What happens if an issue arises after launch?',
-      a: 'Every sprint includes a complimentary 30-day technical warranty. Any regression, layout shift, or script defect introduced during our sprint is resolved immediately at zero charge.'
-    },
-    {
-      q: 'How do our in-house engineers adopt your code?',
-      a: 'We deliver clean pull requests, modular component structures, and comprehensive implementation guides. We conduct a direct engineering handoff session to ensure your team is entirely self-sufficient.'
-    }
-  ];
 }

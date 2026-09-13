@@ -16,9 +16,6 @@ import { WebsiteContent } from '../../content/website-content';
             <p class="footer-tagline">
               High-Precision Frontend Engineering &amp; Product Design Studio.
             </p>
-            <p class="footer-assurance">
-              Direct communication. Zero sales representatives. Zero account managers.
-            </p>
           </div>
 
           <nav class="footer-nav" aria-label="Footer Navigation">
@@ -65,7 +62,6 @@ import { WebsiteContent } from '../../content/website-content';
 
         <div class="footer-bottom">
           <p class="footer-copyright">&copy; {{ currentYear }} Zelenia Inc. All rights reserved.</p>
-          <p class="footer-tech">WCAG 2.2 AA / Sub-Second Architecture / Direct Senior Execution</p>
         </div>
       </div>
     </footer>

@@ -33,7 +33,6 @@ export const routeMeta: RouteMeta = {
       <section class="site-section process-hero">
         <div class="container">
           <div class="section-header section-header--center">
-            <span class="section-tag">How We Work</span>
             <h1 class="section-title">Direct Senior Execution: Our Development Process</h1>
             <p class="section-subhead">
               We eliminate agency layers, account managers, and junior handoffs. Every sprint is
@@ -55,7 +54,6 @@ export const routeMeta: RouteMeta = {
           <!-- Performance Engineering -->
           <div class="deep-dive-block">
             <div class="section-header">
-              <span class="section-tag">Core Specialization</span>
               <h2 class="section-title">Performance Engineering: Runtime Rigor over Quick Fixes</h2>
               <p class="section-subhead">
                 True performance is an architectural discipline. We remediate client-side
@@ -65,7 +63,6 @@ export const routeMeta: RouteMeta = {
 
             <div class="deep-dive-grid">
               <article class="deep-dive-card">
-                <span class="deep-dive-code">01 / Scheduling</span>
                 <h3 class="deep-dive-title">Long Task Offloading &amp; Sub-200ms INP</h3>
                 <p class="deep-dive-body">
                   We refactor long JavaScript tasks on the browser main thread, implement
@@ -75,7 +72,6 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">02 / Critical Path</span>
                 <h3 class="deep-dive-title">Critical Path Priority &amp; Sub-1.8s LCP</h3>
                 <p class="deep-dive-body">
                   We streamline the critical rendering path with speculative resource hints, modern
@@ -84,7 +80,6 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">03 / Field Data</span>
                 <h3 class="deep-dive-title">CrUX Field Data Calibration</h3>
                 <p class="deep-dive-body">
                   Synthetic lab scores are only a starting point. We optimize for 75th-percentile
@@ -97,7 +92,6 @@ export const routeMeta: RouteMeta = {
           <!-- Technical Accessibility & SEO -->
           <div class="deep-dive-block" style="margin-top: clamp(4.5rem, 8vw, 7rem);">
             <div class="section-header">
-              <span class="section-tag">Compliance &amp; Visibility</span>
               <h2 class="section-title">
                 Technical Accessibility (WCAG 2.2 AA) &amp; Semantic SEO
               </h2>
@@ -109,7 +103,6 @@ export const routeMeta: RouteMeta = {
 
             <div class="deep-dive-grid">
               <article class="deep-dive-card">
-                <span class="deep-dive-code">01 / Screen Readers</span>
                 <h3 class="deep-dive-title">Native Screen Reader Workflows</h3>
                 <p class="deep-dive-body">
                   Every view is tested with native VoiceOver and NVDA screen readers to verify
@@ -119,7 +112,6 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">02 / Keyboard Navigation</span>
                 <h3 class="deep-dive-title">Zero Keyboard Trap Navigation</h3>
                 <p class="deep-dive-body">
                   We enforce visible focus indicators, logical tab ordering, and focus containment
@@ -128,7 +120,6 @@ export const routeMeta: RouteMeta = {
               </article>
 
               <article class="deep-dive-card">
-                <span class="deep-dive-code">03 / Crawl Integrity</span>
                 <h3 class="deep-dive-title">DOM Hierarchy &amp; Technical SEO</h3>
                 <p class="deep-dive-body">
                   We reconstruct broken DOM trees with exact heading structures, strict semantic
@@ -141,7 +132,6 @@ export const routeMeta: RouteMeta = {
           <!-- Section 4: Focused Scope Boundaries -->
           <div class="scope-boundary-box" style="margin-top: clamp(4rem, 7vw, 6rem);">
             <div class="scope-boundary-inner">
-              <span class="scope-boundary-badge">Scope Commitment</span>
               <h3 class="scope-boundary-title">
                 High-Precision Frontend Engineering &amp; Interface Craft &mdash; Zero Design System
                 Bureaucracy
@@ -160,7 +150,7 @@ export const routeMeta: RouteMeta = {
       <!-- Section 5: Process & Delivery FAQ -->
       <div id="process-faq-wrapper">
         <app-page-faq
-          tag="Process &amp; Delivery FAQ"
+          tag="Process &amp; Delivery"
           title="How our senior sprints operate in practice."
           subtitle="Answers about sprint timing, accelerated delivery, repository access, and scope changes."
           [items]="processFaqs"
@@ -168,7 +158,6 @@ export const routeMeta: RouteMeta = {
 
         <section class="site-section process-cta-section">
           <div class="container" style="text-align: center;">
-            <span class="section-tag">Next Steps</span>
             <h2 class="section-title">Have a specific project scope in mind?</h2>
             <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
               Connect directly with Alejandro and Yolanda for a preliminary architectural

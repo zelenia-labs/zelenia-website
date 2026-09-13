@@ -117,11 +117,6 @@ main:focus {
   color: var(--blue);
 }
 
-.block-luminous .section-tag::before,
-.block-luminous .section-tag::after {
-  color: #94a3b8;
-}
-
 .site-section::before {
   content: '';
   position: absolute;
@@ -172,26 +167,14 @@ main:focus {
 }
 
 .section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text);
-  background-color: var(--surface-warm);
-  border: 1px solid var(--border-medium);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-xs);
-  margin-bottom: 1.25rem;
-}
-
-.section-tag::before {
-  content: '◆';
-  font-size: 0.5rem;
-  color: var(--blue);
+  color: var(--muted);
+  margin-bottom: 0.75rem;
 }
 
 .section-heading h2,
