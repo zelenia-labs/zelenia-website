@@ -23,42 +23,37 @@ triggers:
 
 # Zelenia Buyer Personas & Ideal Customer Profiles (ICPs)
 
-A permanent repository of **hyper-realistic, research-grounded Buyer Personas** representing the exact corporate, entrepreneurial, and institutional decision-makers who hire Zelenia as a high-end boutique S-Corp (Alejandro Cuba, Fortune 100 Principal Engineer & GDE + Yolanda Santa Cruz, Lead Product Designer & Visual Artist).
+A permanent repository of **3 hyper-focused, orthogonal Buyer Personas** representing the primary decision-makers who hire Zelenia (Alejandro Cuba, Fortune 100 Principal Engineer & GDE + Yolanda Santa Cruz, Lead Product Designer & Visual Artist).
 
-## Operational Architecture
+## The Orthogonal 3-Persona Triad
 
-Every persona lives in `personas/` as an independent, fully realized dossier:
+To eliminate cognitive dissonance, prevent persona collision, and avoid generic or diluted evaluations when summoning the AI Advisory Board or executing agentic UX reviews, Zelenia's audience is strictly focused on three non-overlapping archetypes:
 
-### Tier 1: Core Corporate & Enterprise Decision Makers
-- **`enterprise-vp-engineering.md`**: Marcus Vance — VP of Engineering (Scale-Up / Post-IPO Tech Enterprise, $100M+ ARR).
-- **`venture-backed-founder-cpo.md`**: Elena Rostova — Co-Founder & Chief Product Officer (Series A/B Startup, High-Stakes Scale-Up).
-- **`growth-marketing-executive.md`**: Julian Thorne — VP of Growth & Marketing (High-ACV B2B SaaS).
-- **`pe-operating-partner.md`**: Claire Sterling — Operating Partner & Technical Diligence Lead (Private Equity / Growth Capital).
-
-### Tier 2: High-Value Practice Owners & Strategic Champions
-- **`high-value-firm-owner.md`**: Arthur Pendelton — Managing Partner / Founder (Prestige Corporate Law, Surgical Clinic, Wealth Advisory, $5M–$35M Revenue).
-- **`prestige-artist-creator.md`**: Mateo / Elena Ramos — Established Fine Artist & Master Sculptor / Prestige Studio Practitioner ($5k–$85k+ Artwork Price Points).
-- **`bootstrapped-founder.md`**: Soren Lindqvist — Bootstrapped Founder & Solo Operator ($1M–$10M ARR Vertical SaaS).
-- **`fractional-cto-advisor.md`**: Gregory Sterling — Fractional CTO & Advisory Board Member (Venture Partner across 6–10 PortCos).
-- **`internal-product-champion.md`**: Maya Lin — Staff Product Manager / Tech Lead (Mid-Market Enterprise with Backlogged Internal Devs).
+1. **`creative-practitioner.md`**: Mateo Ramos / Sofia Valdés — Established Visual Artist, Fine Art Sculptor, Musician, or Cultural Creator (word of mouth / direct referral).
+2. **`startup-cto.md`**: Alex Mercer / Gregory Vance — Startup CTO, Technical Co-Founder (Seed to Series B), or Senior Engineering Advisor.
+3. **`growth-marketing-leader.md`**: Julian Thorne — VP of Marketing & Growth / Brand Director (High-growth company / scale-up).
 
 ---
 
-## Token Efficiency Directive
-- **DO NOT** load all persona files into context simultaneously.
-- When evaluating a specific feature, headline, or layout, summon **only** the target persona relevant to that funnel (e.g. `view_file` on `personas/enterprise-vp-engineering.md` for architecture and performance claims; `personas/venture-backed-founder-cpo.md` for product and design systems; `personas/high-value-firm-owner.md` for boutique credibility and white-glove onboarding).
-- For holistic positioning audits, iterate sequentially across the dossiers.
+## Token Efficiency & Anti-Collision Protocol
+
+- **Zero Blending:** NEVER average or blend the 3 personas into a generic, homogeneous "user". Each persona evaluates the digital experience through an orthogonal, distinct lens.
+- **Selective Summoning:** When evaluating a specific feature, section, or prompt, summon **only** the target persona relevant to that specific job:
+  - Summon `creative-practitioner.md` for visual curation, media fidelity, typography elegance, and absence of commercial clutter.
+  - Summon `startup-cto.md` for architectural depth, signals/reactivity, code delivery hygiene, and technical SLAs.
+  - Summon `growth-marketing-leader.md` for conversion rate optimization, Core Web Vitals speed guarantees, and executive value propositions.
+- **Sequential Triad Audit:** For full-site reviews, interrogate each persona sequentially, never simultaneously in a single prompt.
 
 ---
 
 ## How to Interrogate Assets Against Personas
 
-Whenever an engineer, designer, or prompt author writes copy, crafts an interface, or proposes a sprint deliverable, subject it to the **3 Buyer Reality Tests**:
+Whenever an engineer, designer, or prompt author writes copy, crafts an interface, or proposes a sprint deliverable, subject it to the **3 Reality Tests**:
 
 1. **The Bullshit Detector (Anti-Fluff Test):**
    - *Question:* Does this sound like generic agency buzzwords ("holistic digital transformation", "unlocking potential"), or does it speak to the executive's specific, quantifiable operational pain?
 2. **The Status-Quo Friction Test:**
-   - *Question:* Why would this persona spend $30k–$80k with Zelenia this month rather than delegating to an internal junior team or sticking with their existing workaround?
+   - *Question:* Why would this persona invest $15k–$75k with Zelenia this month rather than delegating to an internal team, hiring a junior freelancer, or sticking with their existing workaround?
 3. **The Proof-to-Promise Ratio:**
    - *Question:* For every bold claim made on the page, is there immediate, verifiable evidence (concrete metric, GDE/Fortune 100 credential, live diagnostic, or direct GitHub commit model)?
 
@@ -68,11 +63,6 @@ Whenever an engineer, designer, or prompt author writes copy, crafts an interfac
 
 | Persona Dossier | Primary Role & Archetype | Core Buying Motivation | Blocker / Red Flag on Landing Page |
 |:---|:---|:---|:---|
-| [`enterprise-vp-engineering.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/enterprise-vp-engineering.md) | **Marcus Vance** — VP of Engineering | CWV compliance, tech debt elimination, senior architectural leadership | Generic templates, junior agency vibes, lack of technical depth |
-| [`venture-backed-founder-cpo.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/venture-backed-founder-cpo.md) | **Elena Rostova** — Co-Founder & CPO | Bespoke visual prestige, enterprise closing, rapid 4-6 week turnaround | Cookie-cutter YC look, slow timelines, bloated agency retainers |
-| [`growth-marketing-executive.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/growth-marketing-executive.md) | **Julian Thorne** — VP of Growth | Sub-second LCP, killing bounce rates, standout brand identity | Slow page loads (>1s), generic purple SaaS cards, confusing CTAs |
-| [`pe-operating-partner.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/pe-operating-partner.md) | **Claire Sterling** — PE Operating Partner | Portfolio modernization, clean IP transfer, rapid technical turnaround | Vendor lock-in, proprietary dependencies, lack of enterprise governance |
-| [`high-value-firm-owner.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/high-value-firm-owner.md) | **Arthur Pendelton** — High-Value Firm Owner | Digital flagship prestige, high-ticket inbound client inquiries | Clunky WordPress templates, incomprehensible tech jargon |
-| [`bootstrapped-founder.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/bootstrapped-founder.md) | **Soren Lindqvist** — Bootstrapped Founder | Capital efficiency, extreme quality without full-time hiring/equity | Bloated agency overhead, account managers, non-technical pitches |
-| [`fractional-cto-advisor.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/fractional-cto-advisor.md) | **Gregory Sterling** — Fractional CTO / Advisor | Reputational safety, zero risk of junior handoffs, top-tier PRs | Unproven teams, agencies hiding behind junior subcontractor pools |
-| [`internal-product-champion.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/internal-product-champion.md) | **Maya Lin** — Staff PM / Tech Lead | Bypassing 14-month internal backlog with elite, respected code | Outside agencies that internal engineers reject and refuse to merge |
+| [`creative-practitioner.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/creative-practitioner.md) | **Mateo Ramos / Sofia Valdés** — Creative & Cultural Practitioner | Bespoke digital home & living archive, lightning-fast high-res media, curatorial dignity | Cheap e-commerce stores, "Buy Now" buttons, noisy marketing popups, broken templates |
+| [`startup-cto.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/startup-cto.md) | **Alex Mercer / Gregory Vance** — Startup CTO & Technical Advisor | Senior direct execution on GitHub, modern reactive architecture, zero junior handoff risk | Agencies hiding behind junior subcontractors, unproven buzzwords, slow delivery |
+| [`growth-marketing-leader.md`](file:///Users/zorphdark/dev/zelenia-website/.agents/skills/zelenia-personas/personas/growth-marketing-leader.md) | **Julian Thorne** — VP of Marketing & Growth | Sub-second LCP, Core Web Vitals repair, brand memorability, conversion pipeline | 3-second page loads, generic SaaS templates, bloated scripts, ambiguous CTAs |
