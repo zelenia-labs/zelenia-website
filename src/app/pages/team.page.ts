@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 import { WebsiteContent } from '../content/website-content';
@@ -97,69 +97,12 @@ export const routeMeta: RouteMeta = {
         </div>
       </section>
 
-      <!-- Senior Density Philosophy -->
-      <section class="site-section team-philosophy">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-tag">Our Philosophy</span>
-            <h2 class="section-title">The 100% Senior Density Model</h2>
-            <p class="section-subhead">
-              Traditional agencies pitch senior credibility during sales meetings, then delegate
-              execution to junior associates. We believe client capital should fund craft, not
-              overhead.
-            </p>
-          </div>
-
-          <div class="philosophy-grid">
-            <div class="philosophy-card">
-              <span class="philosophy-index">01</span>
-              <h3 class="philosophy-title">Real-Time Design-to-Code Parity</h3>
-              <p class="philosophy-text">
-                Engineering and design collaborate in browser space from day one. Complex
-                interaction states, viewport edge cases, and accessibility criteria are validated
-                immediately rather than discovered after months of static Figma design handoffs.
-              </p>
-            </div>
-
-            <div class="philosophy-card">
-              <span class="philosophy-index">02</span>
-              <h3 class="philosophy-title">Direct Communication, Zero Friction</h3>
-              <p class="philosophy-text">
-                You work directly with Alejandro and Yolanda. Every Slack message, pull request
-                review, and architectural decision is handled by the practitioners writing the code,
-                eliminating miscommunication and project drag.
-              </p>
-            </div>
-
-            <div class="philosophy-card">
-              <span class="philosophy-index">03</span>
-              <h3 class="philosophy-title">Production Rigor from Day One</h3>
-              <p class="philosophy-text">
-                With 20+ years of enterprise architecture experience and a Google Developer Expert
-                on your team, you get clean TypeScript, optimal bundle budgets, and sub-second
-                performance built into the foundational codebase.
-              </p>
-            </div>
-
-            <div class="philosophy-card">
-              <span class="philosophy-index">04</span>
-              <h3 class="philosophy-title">Capped Capacity, Total Dedication</h3>
-              <p class="philosophy-text">
-                We strictly limit active client engagements to a maximum of two concurrent sprints.
-                Your codebase, release milestones, and architecture never compete with an agency
-                queue of dozens of backlogged accounts.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Team & Collaboration FAQ -->
       <div id="team-faq-wrapper">
         <app-page-faq
           tag="Team &amp; Collaboration FAQ"
           title="Direct practitioner collaboration."
-          subtitle="Answers about who works on your project, daily communication, and capacity limits."
+          subtitle="Answers about who works on your project, daily communication, production rigor, and capacity limits."
           [items]="teamFaqs"
         />
 
@@ -290,40 +233,7 @@ export const routeMeta: RouteMeta = {
       color: #1a6cff;
       text-decoration: underline;
     }
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: clamp(1.5rem, 2.5vw, 2rem);
-    }
-    .philosophy-card {
-      background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: var(--radius);
-      padding: clamp(1.75rem, 2.5vw, 2.25rem);
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
-    }
-    .philosophy-index {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: var(--blue);
-      margin-bottom: 0.75rem;
-    }
-    .philosophy-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-block-end: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-    .philosophy-text {
-      font-size: 0.9375rem;
-      line-height: 1.65;
-      color: #475569;
-      margin: 0;
-      max-inline-size: 65ch;
-    }
+
     .team-cta-section {
       padding-block: clamp(4rem, 7vw, 6rem);
       border-top: 1px solid var(--border);
@@ -337,19 +247,23 @@ export default class TeamPage {
   readonly teamFaqs: PageFaqItem[] = [
     {
       q: 'Who actually writes our code and designs our interfaces?',
-      a: 'Alejandro Cuba and Yolanda Santa Cruz. We do not employ junior developers, subcontractors, or offshore agencies. Every line of code and interface element is created directly by the two founders.'
+      a: 'Alejandro Cuba and Yolanda Santa Cruz. We do not employ junior developers, account managers, or subcontractors. Client capital directly funds craft, not agency overhead—every line of code and interface element is created directly by the two founders.'
+    },
+    {
+      q: 'How does the 100% senior density model compare to a traditional agency?',
+      a: 'Traditional agencies pitch senior credibility during sales meetings, then delegate execution to junior associates or offshore teams. We eliminate that overhead: you work directly with a Google Developer Expert and enterprise architect with 20+ years of experience, building clean TypeScript, optimal bundle budgets, and sub-second performance into your foundational codebase from day one.'
     },
     {
       q: 'What does day-to-day communication look like during a sprint?',
-      a: 'You communicate directly with Alejandro and Yolanda via shared Slack/Discord channels, asynchronous Loom video walk-throughs, and direct pull request reviews. Zero account managers, zero status meetings.'
+      a: 'You communicate directly with Alejandro and Yolanda via shared Slack/Discord channels, asynchronous Loom video walk-throughs, and direct pull request reviews. Every architectural decision is handled by the practitioners writing the code, eliminating miscommunication, status meetings, and project drag.'
     },
     {
       q: 'How do engineering and design collaborate in real time?',
-      a: 'We do not treat design as a static handoff. Technical feasibility, micro-interactions, responsive breakpoints, and accessibility are tested in browser code simultaneously as visual layouts are finalized.'
+      a: 'We collaborate in browser space from day one rather than relying on static Figma handoffs. Complex interaction states, responsive breakpoints, edge cases, and accessibility criteria are designed and validated simultaneously in production code with real-time parity.'
     },
     {
       q: 'How many client projects does Zelenia take on at once?',
-      a: 'To guarantee 100% senior density and rapid cycle velocity, we strictly limit active engagements to a maximum of two client sprints concurrently.'
+      a: 'To guarantee 100% senior density, rapid velocity, and total dedication, we strictly limit active engagements to a maximum of two concurrent client sprints. Your codebase, release milestones, and architecture never compete with an agency queue of backlogged accounts.'
     }
   ];
 }
