@@ -29,15 +29,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: 'Yolanda Santa Cruz',
-    role: 'Lead Product Designer & Visual Artist',
-    credentials: 'Lead Product Designer & Visual Artist',
+    role: 'Lead Product Designer',
+    credentials: 'Lead Product Designer',
     highlights: [
       '10+ Years Experience',
       'Seed to Series E Unicorns',
       'Fortune 500 Enterprises'
     ],
     background:
-      '10+ years of experience directing product design across venture-backed technology startups from Seed to Series E, as well as Fortune 500 enterprises. Combines fine-arts composition with systematic UI design and high-conversion interaction models.',
+      '10+ years of experience leading UX and product design across venture-backed technology startups from Seed to Series E, as well as Fortune 500 enterprises. Specializes in art direction, visual conversion psychology, user experience, and aesthetic elevation for high-performance digital products.',
     linkedin: 'https://www.linkedin.com/in/yolandasantacruz/',
     avatarInitials: 'YSC',
     avatarImage: 'portrait_yolanda.jpg'
