@@ -18,24 +18,26 @@
   --border-hover: rgba(18, 22, 30, 0.35);
   --border-focus: #0c0f14;
 
-  /* Architectural Action Tokens */
-  --btn-primary-bg: #0c0f14;
+  /* Architectural Action Tokens: Deep Sovereign Navy & Pure Alabaster */
+  --btn-primary-bg: #122444;
   --btn-primary-text: #ffffff;
-  --btn-primary-hover: #1e2430;
-  --btn-primary-border: #0c0f14;
+  --btn-primary-hover: #0c1a33;
+  --btn-primary-border: rgba(18, 36, 68, 0.45);
 
   --btn-secondary-bg: #ffffff;
   --btn-secondary-text: #0c0f14;
-  --btn-secondary-border: rgba(18, 22, 30, 0.16);
-  --btn-secondary-hover: #f4f1ea;
+  --btn-secondary-border: rgba(18, 22, 30, 0.14);
+  --btn-secondary-hover: #fbfaf8;
 
-  /* Surgical Telemetry & Diagnostic Accents */
-  --blue: #1e40af; /* Deep Intellectual Cobalt (for telemetry & code badges) */
-  --blue-hover: #1d368a;
+  /* Surgical Telemetry & Diagnostic Accents: Architectural Lapis Sapphire */
+  --blue: #1848b8; /* Refined Architectural Lapis Sapphire (Trust & Authority) */
+  --blue-hover: #12368a;
+  --blue-rgb: 24, 72, 184;
   --cyan: #0284c7;
   --cyan-rgb: 2, 132, 199;
-  --emerald: #059669; /* Health & Sub-Second CWV Indicators */
-  --rose: #dc2626;
+  --emerald: #059669; /* Phosphor Green (Health & Sub-Second CWV) */
+  --emerald-rgb: 5, 150, 105;
+  --rose: #e11d48;
   --amber: #d97706;
   --gold: #b48c36;
 
@@ -100,32 +102,34 @@
 
   /* Atmospheric Per-Section Gallery Ambient Gradients */
   --ambient-hero:
-    radial-gradient(ellipse 65% 45% at 85% 15%, rgba(180, 140, 54, 0.035) 0%, transparent 65%),
-    radial-gradient(circle at 12% 80%, rgba(5, 150, 105, 0.025) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 55% at 50% -10%, rgba(24, 72, 184, 0.06) 0%, rgba(2, 132, 199, 0.03) 45%, transparent 70%),
+    radial-gradient(circle at 10% 40%, rgba(5, 150, 105, 0.04) 0%, transparent 50%);
   --ambient-advantage: radial-gradient(
-    ellipse 60% 50% at 15% 50%,
-    rgba(30, 64, 175, 0.025) 0%,
+    ellipse 65% 55% at 20% 50%,
+    rgba(24, 72, 184, 0.05) 0%,
+    rgba(2, 132, 199, 0.02) 40%,
     transparent 70%
   );
   --ambient-capabilities: radial-gradient(
-    ellipse 65% 50% at 85% 50%,
-    rgba(5, 150, 105, 0.025) 0%,
+    ellipse 70% 50% at 80% 40%,
+    rgba(5, 150, 105, 0.04) 0%,
+    rgba(24, 72, 184, 0.03) 40%,
     transparent 70%
   );
   --ambient-leadership: radial-gradient(
     ellipse 65% 50% at 20% 50%,
-    rgba(180, 140, 54, 0.03) 0%,
+    rgba(24, 72, 184, 0.04) 0%,
     transparent 70%
   );
   --ambient-diagnostic: radial-gradient(
     ellipse 70% 50% at 50% 30%,
-    rgba(12, 15, 20, 0.03) 0%,
+    rgba(0, 82, 255, 0.06) 0%,
     transparent 70%
   );
   --ambient-contact: radial-gradient(
     ellipse 70% 60% at 50% 50%,
-    rgba(180, 140, 54, 0.03) 0%,
-    rgba(5, 150, 105, 0.02) 40%,
+    rgba(0, 82, 255, 0.06) 0%,
+    rgba(5, 150, 105, 0.04) 40%,
     transparent 75%
   );
 

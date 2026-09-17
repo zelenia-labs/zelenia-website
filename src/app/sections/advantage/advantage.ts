@@ -11,70 +11,63 @@ import { RouterLink } from '@angular/router';
       aria-labelledby="advantage-title"
     >
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="advantage-title">
-            Direct execution outperforms agency hierarchy.
-          </h2>
-          <p class="section-subhead">
-            Agencies sell senior credibility during sales pitches, then delegate delivery to junior
-            staff. Zelenia operates on total senior density: you collaborate directly with the
-            senior engineers and designers programming every detail.
-          </p>
-        </div>
-
-        <div class="advantage-split-layout">
+        <div class="advantage-editorial-layout">
+          <!-- Visual Column: Sticky Art Feature -->
           <div class="advantage-visual">
             <figure class="advantage-figure">
               <img
                 class="advantage-img"
                 src="/assets/images/studio_synergy_prism.jpg"
-                alt="3D abstract frosted glass and obsidian chrome sculpture refracting cyan-teal and emerald light, symbolizing the dual synergy of engineering rigor and visual craft"
+                alt="Sculptural refraction of cyan and emerald light, symbolizing the live synergy of engineering rigor and visual craft"
                 width="800"
                 height="600"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption class="advantage-caption">
-                <span class="caption-text">
-                  Real-time alignment between Principal Engineering and Lead Product Design.
-                </span>
+                Direct DOM co-authoring between Principal Engineering and Lead Product Design.
               </figcaption>
             </figure>
           </div>
 
-          <div class="advantage-pillars">
-            <article class="advantage-card">
-              <h3 class="advantage-card__title">Direct Access to Senior Talent</h3>
-              <p class="advantage-card__body">
-                Clients collaborate exclusively with the team members designing and programming the
-                product. Every architecture decision, interface state, and line of code is handled
-                by seasoned experts, eliminating junior handoffs and communication decay.
-              </p>
-            </article>
+          <!-- Narrative Column (Completely Unboxed) -->
+          <div class="advantage-narrative">
+            <span class="section-tag">Senior Density</span>
+            <h2 class="section-title" id="advantage-title">
+              Direct founder execution outperforms agency hierarchy.
+            </h2>
 
-            <article class="advantage-card">
-              <h3 class="advantage-card__title">Seamless Design-to-Code Parity</h3>
-              <p class="advantage-card__body">
-                Visual intent and technical execution evolve simultaneously. Because engineering and
-                design collaborate in real time, complex layouts, micro-interactions, and
-                accessibility standards never get lost in translation between design software and
-                the browser.
-              </p>
-            </article>
+            <div class="advantage-prose">
+              <div class="advantage-block">
+                <h3 class="advantage-subtitle">The Traditional Agency Overhead Trap</h3>
+                <p class="advantage-text">
+                  Traditional agencies pitch you with senior partners, then bill 40%+ overhead to
+                  fund account managers, coordinators, and weekly status decks. The people who
+                  pitched your contract never touch your codebase, causing translation decay
+                  between design software and code, broken responsive breakpoints, and brittle
+                  dependencies.
+                </p>
+              </div>
 
-            <article class="advantage-card">
-              <h3 class="advantage-card__title">High Efficiency, Zero Bureaucracy</h3>
-              <p class="advantage-card__body">
-                Traditional agencies allocate over 40% of billable fees to account managers and
-                junior revisions. By removing corporate overhead, cycle times compress from months
-                to weeks, and 100% of your budget directly funds production craft.
-              </p>
-            </article>
+              <div class="advantage-block">
+                <h3 class="advantage-subtitle">The Zelenia Model: Pure Senior Craft</h3>
+                <p class="advantage-text">
+                  We operate with zero middle management. Every line of TypeScript, styling token,
+                  and layout architecture is programmed directly by Alejandro and Yolanda in live
+                  browser space. With a strict limit of two concurrent client sprints, we deliver in
+                  weeks what agencies delay for quarters.
+                </p>
+              </div>
+            </div>
 
-            <div class="advantage-cta-box" style="margin-top: 1rem;">
+            <div class="advantage-actions">
               <a class="btn btn--primary" routerLink="/team">
                 <span>Meet the Founders</span>
-                <span class="arrow-indicator" aria-hidden="true">→</span>
+                <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="btn btn--secondary" routerLink="/process">
+                <span>Review Sprint Methodology</span>
+                <span class="arrow-indicator" aria-hidden="true">&nearr;</span>
               </a>
             </div>
           </div>

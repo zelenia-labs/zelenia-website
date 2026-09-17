@@ -9,36 +9,38 @@
 
 ### 1 Home (`/` - `index.page.ts`)
 
-- **Primary Function:** Studio positioning, live URL diagnostic tool, intent routing, and model comparison.
-- **Sections:**
-  1. **Hero (`app-hero` / `#hero`):**
-     - Value proposition: Senior frontend engineering and product design executed directly by the founders.
-     - Primary CTA: Route to `/process`.
-  2. **Live Site Speed Audit (`app-speed-audit` / `#speed-audit`):**
-     - Interactive URL diagnostic powered by the Google PageSpeed Insights API.
-     - Telemetry: Live Core Web Vitals (LCP, INP, CLS) and Lighthouse score. Un-gated developer tool.
-  3. **Intent Navigator (`app-intent-navigator` / `#intent`):**
-     - Problem-based routing matrix:
-       - _Web Performance (Core Web Vitals)_ → `/process?focus=vitals`
+- **Primary Function:** High-impact studio positioning, core engagement pathways, senior density advantage, and comprehensive capabilities summary. Delivered with extreme aesthetic craft and concise, high-signal narrative flow that guides visitors effortlessly into `/process` and `/contact`.
+- **Aesthetic Direction (Internal Blueprint):**
+  - High-prestige, bespoke, and meticulous execution ("gourmet" quality) achieved via spatial breathing room, disciplined architectural surfaces, and refined typography (Newsreader editorial serif accents + Inter + Roboto Mono).
+  - *Strict Anti-Slop Directive:* Zero use of the forbidden words "boutique" or "atelier" anywhere in customer-facing UI or copy.
+- **Sections Breakdown:**
+  1. **Editorial Studio Hero (`app-hero` / `#hero`):**
+     - *Single Objective:* Studio positioning, core value proposition, and immediate authority.
+     - *Value Proposition:* Direct senior partnership pairing a Fortune 100 Principal Engineer & GDE with an industry-tested Lead Product Designer.
+     - *Primary CTA:* Direct route to `/process` (Scope & Timeline) and `/contact` (Start Conversation).
+  2. **Diagnostic Speed Audit (Strategic Posture: Optional / Secondary Instrument):**
+     - *Board Determination:* Decoupled from the home page critical path. Zelenia's performance engineering is grounded in synthetic profiling, 75th-percentile real-world field metrics (CrUX), and Real User Monitoring (RUM)—not third-party rate-limited single-run API calls.
+     - *Status:* Maintained as an optional, secondary diagnostic demonstration or dedicated asset on `/process`, avoiding third-party API fragility, CORS dependencies, and misleading lab-only scores on the primary landing surface.
+  3. **Core Engagement Tracks (`app-engagement-tracks` / `#tracks` — formerly *Intent Navigator*):**
+     - *Reframing:* Replaces the internal/robotic label "Intent Navigator" with an executive, problem-first decision framework.
+     - *Problem-to-Sprint Pathways:*
+       - _Sub-Second Speed & Web Vitals (CrUX / RUM)_ → `/process?focus=vitals`
+       - _Adaptive Multi-Surface & Viewport Architecture_ → `/process?focus=responsive`
+       - _Semantic Foundation, A11y & Technical SEO/SMO_ → `/process?focus=technical-seo`
        - _Aesthetic Elevation & Visual CRO_ → `/process?focus=visual-elevation`
-       - _End-to-End Rebuilds_ → `/process?focus=rebuild`
-       - _Agency Replacement_ → `/contact`
-  4. **The Advantage & Model Comparison (`app-advantage` / `#advantage`):**
-     - **Direct Senior Execution vs. Traditional Agency:**
-       - **Traditional Agency Drawbacks (Cons):**
-         - _Junior Delegation:_ Senior partners pitch; interns or junior contractors deliver.
-         - _Administrative Overhead:_ 40%+ of billable fees fund account managers, coordinators, and status meetings.
-         - _Translation Decay:_ Handoffs between separate design and engineering teams introduce visual, responsive, and accessibility defects.
-         - _Code Fragility:_ Bloated dependencies and rushed delivery accumulate technical debt from day one.
-       - **Zelenia Direct Model (Pros):**
-         - _100% Senior Execution:_ Every line of TypeScript, CSS, and styling token is authored directly by the two founders.
-         - _Zero Intermediaries:_ Direct engineering and design access without account managers or sales representatives.
-         - _Capped Capacity:_ Maximum of **two concurrent client sprints** to guarantee focused bandwidth and zero backlog drag.
-         - _Real-Time Browser Synergy:_ UI and code are refined directly in live browser space and staging, eliminating static mock translation loss, Figma drift, and handoff decay.
+       - _End-to-End Modernization & Agency Replacement_ → `/contact`
+  4. **The Advantage & Senior Density (`app-advantage` / `#advantage`):**
+     - *Executive Narrative (Anti-AI Slop):* Replaces verbose, generic pros/cons bullet points with a sharp, cohesive comparative narrative tailored to growth marketers and engineering leaders:
+       - *The Agency Overhead Trap:* Traditional agencies pitch senior partners, then silently delegate production to junior subcontractors. Over 40% of billable hours fund account managers, status calls, and handoff friction between disconnected design and engineering silos, creating translation decay and brittle code.
+       - *The Zelenia Senior Density Model:* Zero account managers, zero junior delegation, and zero handoff decay. Both founders co-author design tokens and production TypeScript directly in live browser space. Capped at a strict limit of two concurrent client sprints to ensure uncompromised focus, shipping in 2–4 weeks what agencies delay for quarters.
   5. **Capabilities Summary (`app-capabilities-summary` / `#capabilities`):**
-     - Summary of the 4 core pillars: Web Vitals, multi-surface responsiveness, semantic a11y/SEO, and aesthetic elevation / visual CRO.
-  6. **Direct Gateway:**
-     - Final routing to `/contact` and `/process`.
+     - Cohesive narrative articulating Zelenia's 4 core engineering and design pillars:
+       - _1. Web Vitals & Runtime Performance:_ Sub-second LCP (< 1.0s), zero layout shift (CLS 0.00), and sub-50ms interaction response (INP). Engineered and validated via synthetic diagnostics, 75th-percentile field calibration (CrUX), and Real User Monitoring (RUM).
+       - _2. Adaptive Multi-Surface Architecture:_ Fluid responsive layouts engineered for seamless fidelity across mobile, tablet, desktop, and large displays, eliminating breakpoint glitches and touch latency.
+       - _3. Semantic Infrastructure, A11y, Technical SEO & SMO:_ Clean HTML5 DOM landmarks, WCAG 2.2 AA accessibility compliance, schema.org structured data, and rich OpenGraph/Twitter social media optimization (SMO) for search engines and social platforms.
+       - _4. Aesthetic Elevation & Visual CRO:_ Elimination of cognitive friction, conversion-focused visual hierarchy, editorial typographic balance, and sub-50ms visual responsiveness that drives qualified business conversions.
+  6. **Direct Collaboration Gateway (`app-gateway` / `#gateway`):**
+     - Low-friction closing section providing dual direct gateways: direct calendar intake for a 15-minute architectural review with the founders, or exploring the interactive sprint scope estimator on `/process`.
 
 ### 2 Development Process & Scope Estimator (`/process` - `process.page.ts`)
 
