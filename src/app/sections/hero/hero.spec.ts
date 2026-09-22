@@ -31,28 +31,19 @@ describe('Hero Component (Clean Editorial Presentation)', () => {
     expect(titleEl.textContent).toContain('Executed directly by the founders.');
   });
 
-  it('should render exactly one primary CTA button to scope a project', () => {
-    const ctaBtns = fixture.nativeElement.querySelectorAll('.btn--hero-cta');
-    expect(ctaBtns.length).toBe(1);
-    expect(ctaBtns[0].textContent).toContain('Scope Your Project');
+  it('should render the primary CTA button to scope and timeline', () => {
+    const ctaBtn = fixture.nativeElement.querySelector('.btn--hero-cta');
+    expect(ctaBtn).toBeTruthy();
+    expect(ctaBtn.textContent).toContain('Scope & Timeline');
+    expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/process');
   });
 
-  it('should render the founder verification lockup linking to the team page', () => {
-    const lockupEl = fixture.nativeElement.querySelector('.hero-founders-lockup');
-    expect(lockupEl).toBeTruthy();
-    expect(lockupEl.getAttribute('routerlink') || lockupEl.getAttribute('href')).toBe('/team');
-
-    const namesEl = lockupEl.querySelector('.founders-names');
-    const credsEl = lockupEl.querySelector('.founders-credentials');
-    expect(namesEl).toBeTruthy();
-    expect(namesEl.textContent).toContain('Alejandro Cuba Ruiz & Yolanda Santa Cruz');
-    expect(credsEl).toBeTruthy();
-    expect(credsEl.textContent).toContain('Google Developer Expert & Lead Product Designer');
-  });
-
-  it('should render the secondary action in link mode to calculate scope and timeline', () => {
-    const secondaryLink = fixture.nativeElement.querySelector('.hero-secondary-link');
-    expect(secondaryLink).toBeTruthy();
-    expect(secondaryLink.textContent).toContain('Calculate Scope & Timeline');
+  it('should render the secondary CTA button to start a conversation', () => {
+    const secondaryBtn = fixture.nativeElement.querySelector('.btn--secondary');
+    expect(secondaryBtn).toBeTruthy();
+    expect(secondaryBtn.textContent).toContain('Start Conversation');
+    expect(secondaryBtn.getAttribute('routerlink') || secondaryBtn.getAttribute('href')).toBe(
+      '/contact'
+    );
   });
 });

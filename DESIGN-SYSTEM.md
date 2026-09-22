@@ -8,6 +8,7 @@
 ## 1. Design Thesis: "Precision Computing Meets Fine Craft"
 
 - **The Memorable-Thing Anchor:**
+
   > _"Two elite practitioners pairing Fortune 100 frontend architecture with unicorn-tested product design to deliver high-performance web experiences of unmistakable craft and sub-second speed—completely eliminating agency overhead."_
 
 - **The Anti-AI-Slop & Anti-Convergence Manifesto:**
@@ -107,6 +108,7 @@
 To project absolute institutional confidence, rock-solid stability, and zero visual jitter, all buttons follow strict architectural rules:
 
 ### Primary Action (`.btn--primary`)
+
 - **Philosophy:** Tailored Sovereign Navy (`#122444`) conveying institutional confidence, security, and elite engineering authority—completely rejecting raw, oversaturated generic Bootstrap blue (`#0052ff` / `#0d6efd`).
 - **Geometry:** `border-radius: var(--radius-sm);` (6px disciplined rectangle).
 - **Background:** Solid Sovereign Navy (`var(--btn-primary-bg)` / `#122444`).
@@ -115,10 +117,12 @@ To project absolute institutional confidence, rock-solid stability, and zero vis
 - **Hover & Active:** Pure optical lighting transition without vertical lift or translation (zero `translateY`, zero `translateX`). Deepens to `#081120` on click with zero geometric shift.
 
 ### Secondary Action in Link Mode (`.hero-secondary-link`, `.action-secondary-link`)
+
 - **Philosophy:** Editorial link-mode action replacing bulky white button chrome with clean typography and seamless inline flow.
 - **Hover:** Pure color transition to Architectural Lapis Sapphire (`var(--blue)` / `#1848b8`) with completely static positioning (zero translation sideways or vertically).
 
 ### Secondary Button (`.btn--secondary`)
+
 - **Philosophy:** Gallery Alabaster precision surface pairing seamlessly with the light architectural canvas.
 - **Geometry:** `border-radius: var(--radius-sm);` (6px).
 - **Background:** Pure White (`#ffffff`).
@@ -128,6 +132,7 @@ To project absolute institutional confidence, rock-solid stability, and zero vis
 - **Hover:** `#fbfaf8`, border `rgba(18, 22, 30, 0.24)`, shadow `0 2px 4px rgba(18, 22, 30, 0.05)`, completely static without vertical displacement.
 
 ### Arrow Indicator (`.arrow-indicator`)
+
 - Refined sans arrow `→` anchored firmly beside text without translational jitter on hover.
 
 ---
@@ -140,10 +145,10 @@ Streamlined to a high-signal 5-section narrative funnel:
 
 1. **Editorial Studio Hero (`app-hero` / `#hero`):**
    - **Single Job:** Studio positioning, primary value proposition, and ONE clear primary CTA.
-   - **Direct Headline Entrance (No Eyebrow Stacking):** *"High-performance web experiences. Executed directly by the founders."* Begins directly with the primary headline, avoiding formulaic 3-tier stacking or decorative eyebrow pills.
+   - **Direct Headline Entrance (No Eyebrow Stacking):** _"High-performance web experiences. Executed directly by the founders."_ Begins directly with the primary headline, avoiding formulaic 3-tier stacking or decorative eyebrow pills.
    - **Subheadline Standard:** Concise, non-verbose narrative without em-dashes stating the direct partnership between a Fortune 100 Principal Engineer and an elite Product Designer shipping in weeks, not quarters.
    - **Proof Footnote:** Real executive milestones (Fortune 100 Principal Software Engineer & GDE + Seed-to-Series-E Unicorn Lead Designer).
-   - **Primary Action:** Direct route to `/process` (*Scope Your Project →*).
+   - **Primary Action:** Direct route to `/process` (_Scope Your Project →_).
 
 2. **Core Engagement Tracks (`app-engagement-tracks` / `#tracks`):**
    - **Concept:** Replaces robotic "Intent Navigator" with an executive, problem-first decision stage.
@@ -158,8 +163,8 @@ Streamlined to a high-signal 5-section narrative funnel:
 3. **The Advantage & Senior Density (`app-advantage` / `#advantage`):**
    - **Concept:** Unboxed, muscular editorial manifesto beside a sticky visual sculpture.
    - **Direct Contrast:**
-     - *The Agency Overhead Trap:* Senior partners pitch; junior subcontractors execute. 40%+ billable waste on account managers, status calls, and handoff decay.
-     - *The Zelenia Senior Density Model:* Zero account managers, zero junior delegation, direct live browser co-authoring, capped strictly at **two concurrent client sprints** (shipping in 2–4 weeks what agencies delay for quarters).
+     - _The Agency Overhead Trap:_ Senior partners pitch; junior subcontractors execute. 40%+ billable waste on account managers, status calls, and handoff decay.
+     - _The Zelenia Senior Density Model:_ Zero account managers, zero junior delegation, direct live browser co-authoring, capped strictly at **two concurrent client sprints** (shipping in 2–4 weeks what agencies delay for quarters).
 
 4. **Capabilities Summary (`app-capabilities-summary` / `#capabilities`):**
    - **Concept:** Open 4-column typographic showcase with royal cobalt indices and metric deliverables:

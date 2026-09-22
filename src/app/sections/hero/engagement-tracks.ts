@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-export type DisciplineKey = 'vitals' | 'responsive' | 'technical-seo' | 'visual-elevation' | 'rebuild';
+export type DisciplineKey =
+  'vitals' | 'responsive' | 'technical-seo' | 'visual-elevation' | 'rebuild';
 
 export interface DisciplineNav {
   id: DisciplineKey;
@@ -13,7 +14,11 @@ export interface DisciplineNav {
   selector: 'app-engagement-tracks',
   imports: [RouterLink],
   template: `
-    <section class="site-section disciplines-section" id="tracks" aria-labelledby="disciplines-heading">
+    <section
+      class="site-section disciplines-section"
+      id="tracks"
+      aria-labelledby="disciplines-heading"
+    >
       <div class="container">
         <!-- Section Header -->
         <div class="section-header">
@@ -96,9 +101,15 @@ export interface DisciplineNav {
 
                 <div class="pane-narrative">
                   <p>
-                    We isolate and eliminate main-thread bottlenecks directly in client-side production code. Validated via synthetic profiling, 75th-percentile field CrUX calibration, and continuous Real User Monitoring (RUM).
+                    We isolate and eliminate main-thread bottlenecks directly in client-side
+                    production code. Validated via synthetic profiling, 75th-percentile field CrUX
+                    calibration, and continuous Real User Monitoring (RUM).
                   </p>
-                  <a class="btn btn--primary" routerLink="/process" [queryParams]="{ focus: 'vitals' }">
+                  <a
+                    class="btn btn--primary"
+                    routerLink="/process"
+                    [queryParams]="{ focus: 'vitals' }"
+                  >
                     <span>Explore Performance Sprint</span>
                     <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
                   </a>
@@ -110,8 +121,14 @@ export interface DisciplineNav {
             @if (activeId() === 'responsive') {
               <div class="stage-pane pane-responsive">
                 <div class="pane-header">
-                  <span class="pane-meta">VIEWPORT ARCHITECTURE &mdash; MULTI-SURFACE FIDELITY</span>
-                  <div class="viewport-switchers" role="tablist" aria-label="Viewport size selector">
+                  <span class="pane-meta"
+                    >VIEWPORT ARCHITECTURE &mdash; MULTI-SURFACE FIDELITY</span
+                  >
+                  <div
+                    class="viewport-switchers"
+                    role="tablist"
+                    aria-label="Viewport size selector"
+                  >
                     <button
                       type="button"
                       class="switch-btn"
@@ -150,7 +167,9 @@ export interface DisciplineNav {
                       <div class="mock-dot"></div>
                       <div class="mock-dot"></div>
                       <div class="mock-dot"></div>
-                      <span class="mock-url">zelenia.com &bull; {{ viewportMode().toUpperCase() }} (FLUID)</span>
+                      <span class="mock-url"
+                        >zelenia.com &bull; {{ viewportMode().toUpperCase() }} (FLUID)</span
+                      >
                     </div>
                     <div class="canvas-mock-body">
                       <div class="mock-hero-line"></div>
@@ -165,9 +184,15 @@ export interface DisciplineNav {
 
                 <div class="pane-narrative">
                   <p>
-                    Fluid clamp-based spatial tokens that guarantee visual harmony and interaction speed across iOS, Android, macOS, and Windows. Zero viewport collapse and sub-50ms tap responsiveness.
+                    Fluid clamp-based spatial tokens that guarantee visual harmony and interaction
+                    speed across iOS, Android, macOS, and Windows. Zero viewport collapse and
+                    sub-50ms tap responsiveness.
                   </p>
-                  <a class="btn btn--primary" routerLink="/process" [queryParams]="{ focus: 'responsive' }">
+                  <a
+                    class="btn btn--primary"
+                    routerLink="/process"
+                    [queryParams]="{ focus: 'responsive' }"
+                  >
                     <span>Explore Viewport Sprint</span>
                     <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
                   </a>
@@ -185,13 +210,44 @@ export interface DisciplineNav {
 
                 <div class="dom-inspector">
                   <div class="dom-tree">
-                    <div class="tree-line"><span class="tag-open">&lt;main</span> <span class="attr-name">id</span>=<span class="attr-val">"content"</span> <span class="attr-name">role</span>=<span class="attr-val">"main"</span><span class="tag-close">&gt;</span></div>
-                    <div class="tree-line indent-1"><span class="tag-open">&lt;header</span> <span class="attr-name">aria-label</span>=<span class="attr-val">"Studio Introduction"</span><span class="tag-close">&gt;</span></div>
-                    <div class="tree-line indent-2"><span class="tag-open">&lt;h1</span> <span class="attr-name">class</span>=<span class="attr-val">"hero-title"</span><span class="tag-close">&gt;</span>High-Performance Engineering<span class="tag-open">&lt;/h1&gt;</span></div>
-                    <div class="tree-line indent-1"><span class="tag-open">&lt;/header&gt;</span></div>
-                    <div class="tree-line indent-1"><span class="tag-open">&lt;script</span> <span class="attr-name">type</span>=<span class="attr-val">"application/ld+json"</span><span class="tag-close">&gt;</span></div>
-                    <div class="tree-line indent-2 json-snippet">&#123; "&#64;type": "ProfessionalService", "founder": "Alejandro Cuba", "designer": "Yolanda Santa Cruz" &#125;</div>
-                    <div class="tree-line indent-1"><span class="tag-open">&lt;/script&gt;</span></div>
+                    <div class="tree-line">
+                      <span class="tag-open">&lt;main</span> <span class="attr-name">id</span>=<span
+                        class="attr-val"
+                        >"content"</span
+                      >
+                      <span class="attr-name">role</span>=<span class="attr-val">"main"</span
+                      ><span class="tag-close">&gt;</span>
+                    </div>
+                    <div class="tree-line indent-1">
+                      <span class="tag-open">&lt;header</span>
+                      <span class="attr-name">aria-label</span>=<span class="attr-val"
+                        >"Studio Introduction"</span
+                      ><span class="tag-close">&gt;</span>
+                    </div>
+                    <div class="tree-line indent-2">
+                      <span class="tag-open">&lt;h1</span>
+                      <span class="attr-name">class</span>=<span class="attr-val">"hero-title"</span
+                      ><span class="tag-close">&gt;</span>High-Performance Engineering<span
+                        class="tag-open"
+                        >&lt;/h1&gt;</span
+                      >
+                    </div>
+                    <div class="tree-line indent-1">
+                      <span class="tag-open">&lt;/header&gt;</span>
+                    </div>
+                    <div class="tree-line indent-1">
+                      <span class="tag-open">&lt;script</span>
+                      <span class="attr-name">type</span>=<span class="attr-val"
+                        >"application/ld+json"</span
+                      ><span class="tag-close">&gt;</span>
+                    </div>
+                    <div class="tree-line indent-2 json-snippet">
+                      &#123; "&#64;type": "ProfessionalService", "founder": "Alejandro Cuba",
+                      "designer": "Yolanda Santa Cruz" &#125;
+                    </div>
+                    <div class="tree-line indent-1">
+                      <span class="tag-open">&lt;/script&gt;</span>
+                    </div>
                     <div class="tree-line"><span class="tag-open">&lt;/main&gt;</span></div>
                   </div>
 
@@ -205,9 +261,15 @@ export interface DisciplineNav {
 
                 <div class="pane-narrative">
                   <p>
-                    Accessible code is crawlable code. We build strict HTML5 landmark hierarchies, verified screen reader navigation trees, structured schema.org data, and rich social media optimization (SMO) preview cards.
+                    Accessible code is crawlable code. We build strict HTML5 landmark hierarchies,
+                    verified screen reader navigation trees, structured schema.org data, and rich
+                    social media optimization (SMO) preview cards.
                   </p>
-                  <a class="btn btn--primary" routerLink="/process" [queryParams]="{ focus: 'technical-seo' }">
+                  <a
+                    class="btn btn--primary"
+                    routerLink="/process"
+                    [queryParams]="{ focus: 'technical-seo' }"
+                  >
                     <span>Explore Technical SEO Sprint</span>
                     <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
                   </a>
@@ -248,9 +310,15 @@ export interface DisciplineNav {
 
                 <div class="pane-narrative">
                   <p>
-                    We eliminate commercial clichés and cognitive drag. By combining fine-arts typographic balance with conversion-engineered visual paths, we turn qualified visitors into high-value signed clients.
+                    We eliminate commercial clichés and cognitive drag. By combining fine-arts
+                    typographic balance with conversion-engineered visual paths, we turn qualified
+                    visitors into high-value signed clients.
                   </p>
-                  <a class="btn btn--primary" routerLink="/process" [queryParams]="{ focus: 'visual-elevation' }">
+                  <a
+                    class="btn btn--primary"
+                    routerLink="/process"
+                    [queryParams]="{ focus: 'visual-elevation' }"
+                  >
                     <span>Explore Aesthetic Elevation</span>
                     <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
                   </a>
@@ -274,12 +342,16 @@ export interface DisciplineNav {
                   <div class="commit-log">
                     <div class="commit-row">
                       <span class="commit-hash">8f3a91c</span>
-                      <span class="commit-msg">feat: offload main-thread long tasks &bull; sub-1.0s LCP</span>
+                      <span class="commit-msg"
+                        >feat: offload main-thread long tasks &bull; sub-1.0s LCP</span
+                      >
                       <span class="commit-author">Alejandro Cuba (GDE)</span>
                     </div>
                     <div class="commit-row">
                       <span class="commit-hash">e294b0f</span>
-                      <span class="commit-msg">design: synchronize typography tokens &amp; accessible landmarks</span>
+                      <span class="commit-msg"
+                        >design: synchronize typography tokens &amp; accessible landmarks</span
+                      >
                       <span class="commit-author">Yolanda Santa Cruz</span>
                     </div>
                     <div class="commit-row">
@@ -297,7 +369,9 @@ export interface DisciplineNav {
 
                 <div class="pane-narrative">
                   <p>
-                    Unblock stalled roadmaps or replace underperforming agency retainers. Two senior founders committing production-grade TypeScript and styling tokens directly into your Git repository.
+                    Unblock stalled roadmaps or replace underperforming agency retainers. Two senior
+                    founders committing production-grade TypeScript and styling tokens directly into
+                    your Git repository.
                   </p>
                   <a class="btn btn--primary" routerLink="/contact">
                     <span>Connect with the Founders</span>
@@ -699,7 +773,8 @@ export interface DisciplineNav {
       line-height: 1.6;
     }
 
-    .tag-open, .tag-close {
+    .tag-open,
+    .tag-close {
       color: #93c5fd;
     }
 
@@ -738,7 +813,9 @@ export interface DisciplineNav {
       color: #cbd5e1;
     }
 
-    .badge-wcag, .badge-cro, .badge-git {
+    .badge-wcag,
+    .badge-cro,
+    .badge-git {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
       font-weight: 700;
@@ -938,7 +1015,7 @@ export class EngagementTracks {
     },
     {
       id: 'responsive',
-      title: 'Adaptive Multi-Surface',
+      title: 'Adaptive Interfaces',
       summary: 'Fluid layout fidelity across mobile, tablet & ultra-wide viewports'
     },
     {
@@ -953,8 +1030,8 @@ export class EngagementTracks {
     },
     {
       id: 'rebuild',
-      title: 'Direct Founder Delivery',
-      summary: '100% Git repository custody, zero middle management & 2–4 week sprints'
+      title: 'End-to-End Modernization',
+      summary: 'Agency replacement, modern frontend architecture & full production launch'
     }
   ];
 

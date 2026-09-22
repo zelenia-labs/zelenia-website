@@ -43,9 +43,8 @@ import { RouterLink } from '@angular/router';
                 <p class="advantage-text">
                   Traditional agencies pitch you with senior partners, then bill 40%+ overhead to
                   fund account managers, coordinators, and weekly status decks. The people who
-                  pitched your contract never touch your codebase, causing translation decay
-                  between design software and code, broken responsive breakpoints, and brittle
-                  dependencies.
+                  pitched your contract never touch your codebase, causing translation decay between
+                  design software and code, broken responsive breakpoints, and brittle dependencies.
                 </p>
               </div>
 

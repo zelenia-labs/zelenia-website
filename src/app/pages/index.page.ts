@@ -5,7 +5,6 @@ import { RouteMeta } from '@analogjs/router';
 import { Hero } from '../sections/hero/hero';
 import { EngagementTracks } from '../sections/hero/engagement-tracks';
 import { Advantage } from '../sections/advantage/advantage';
-import { CapabilitiesSummary } from '../sections/capabilities/capabilities-summary';
 
 export const routeMeta: RouteMeta = {
   title: 'Zelenia — Frontend Engineering & Product Design Studio',
@@ -33,7 +32,7 @@ export const routeMeta: RouteMeta = {
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Hero, EngagementTracks, Advantage, CapabilitiesSummary],
+  imports: [RouterLink, Hero, EngagementTracks, Advantage],
   template: `
     <!-- Section 1: Editorial Studio Hero Stage -->
     <app-hero />
@@ -44,15 +43,14 @@ export const routeMeta: RouteMeta = {
     <!-- Section 3: The Senior Density Advantage -->
     <app-advantage />
 
-    <!-- Section 4: Core Capabilities Overview -->
-    <app-capabilities-summary />
-
-    <!-- Section 5: Direct Collaboration Gateway -->
+    <!-- Section 4: Direct Collaboration Gateway -->
     <section class="site-section home-gateway-section" id="gateway">
       <div class="container" style="text-align: center;">
         <div class="section-header section-header--center" style="margin-bottom: 2.25rem;">
           <span class="section-tag">Direct Collaboration</span>
-          <h2 class="section-title">Build high-performance web products with zero agency overhead.</h2>
+          <h2 class="section-title">
+            Build high-performance web products with zero agency overhead.
+          </h2>
           <p class="section-subhead" style="margin-inline: auto;">
             Connect directly with Alejandro and Yolanda. Zero sales representatives, zero account
             managers—direct senior execution from day one.
@@ -62,6 +60,10 @@ export const routeMeta: RouteMeta = {
         <div class="gateway-actions">
           <a class="btn btn--primary" routerLink="/contact">
             <span>Start a Conversation</span>
+            <span class="arrow-indicator" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--secondary" routerLink="/process">
+            <span>Calculate Scope &amp; Timeline</span>
             <span class="arrow-indicator" aria-hidden="true">→</span>
           </a>
         </div>
@@ -80,7 +82,6 @@ export const routeMeta: RouteMeta = {
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
-    }
     }
   `
 })

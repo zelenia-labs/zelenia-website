@@ -31,11 +31,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Yolanda Santa Cruz',
     role: 'Lead Product Designer',
     credentials: 'Lead Product Designer',
-    highlights: [
-      '10+ Years Experience',
-      'Seed to Series E Unicorns',
-      'Fortune 500 Enterprises'
-    ],
+    highlights: ['10+ Years Experience', 'Seed to Series E Unicorns', 'Fortune 500 Enterprises'],
     background:
       '10+ years of experience leading UX and product design across venture-backed technology startups from Seed to Series E, as well as Fortune 500 enterprises. Specializes in art direction, visual conversion psychology, user experience, and aesthetic elevation for high-performance digital products.',
     linkedin: 'https://www.linkedin.com/in/yolandasantacruz/',
@@ -45,4 +41,3 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
 
 export const PARTNERS: Partner[] = TEAM_MEMBERS;
-

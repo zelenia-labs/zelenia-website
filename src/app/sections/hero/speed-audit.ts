@@ -16,7 +16,8 @@ import { AuditConsole } from './audit-console';
         <div class="section-header section-header--center">
           <h2 class="section-title" id="speed-audit-title">Audit your live web speed.</h2>
           <p class="section-subhead">
-            Real-world Core Web Vitals via Google PageSpeed Insights. Zero sales gates, instant diagnostic feedback.
+            Real-world Core Web Vitals via Google PageSpeed Insights. Zero sales gates, instant
+            diagnostic feedback.
           </p>
         </div>
 

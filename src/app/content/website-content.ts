@@ -46,4 +46,3 @@ export class WebsiteContent {
     socials: this.socials()
   }));
 }
-

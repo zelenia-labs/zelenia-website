@@ -102,7 +102,12 @@
 
   /* Atmospheric Per-Section Gallery Ambient Gradients */
   --ambient-hero:
-    radial-gradient(ellipse 70% 55% at 50% -10%, rgba(24, 72, 184, 0.06) 0%, rgba(2, 132, 199, 0.03) 45%, transparent 70%),
+    radial-gradient(
+      ellipse 70% 55% at 50% -10%,
+      rgba(24, 72, 184, 0.06) 0%,
+      rgba(2, 132, 199, 0.03) 45%,
+      transparent 70%
+    ),
     radial-gradient(circle at 10% 40%, rgba(5, 150, 105, 0.04) 0%, transparent 50%);
   --ambient-advantage: radial-gradient(
     ellipse 65% 55% at 20% 50%,
