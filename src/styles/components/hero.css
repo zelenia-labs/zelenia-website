@@ -1,123 +1,308 @@
 /* ==========================================================================
-   Editorial Studio Hero Stage: Monumental Craft & Architectural Telemetry
+   Editorial Studio Hero Stage: Photography Cover & Refined Authority
    ========================================================================== */
 
 .hero-section {
+  position: relative;
+  min-height: clamp(700px, 85vh, 810px);
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-block-size: calc(90vh - 65px);
-  padding-block: clamp(4.5rem, 8vw, 7.5rem) clamp(3.5rem, 6vw, 5.5rem);
-  text-align: center;
-  position: relative;
   overflow: hidden;
-  background-color: var(--bg);
+  color: #ffffff;
 }
 
-/* Atmospheric Optical Light Field */
-.hero-ambient-prism {
+/* Background Media & Atmospheric Layer Stack */
+.hero-media-wrapper {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  overflow: hidden;
   z-index: 0;
-  background:
-    radial-gradient(
-      ellipse 70% 45% at 50% 12%,
-      rgba(24, 72, 184, 0.07) 0%,
-      rgba(2, 132, 199, 0.035) 45%,
-      transparent 70%
-    ),
-    radial-gradient(circle at 85% 30%, rgba(5, 150, 105, 0.035) 0%, transparent 40%);
 }
 
-/* Architectural Hairline Coordinate Matrix */
-.hero-grid-matrix {
+.hero-video {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   Exact Figma Video Overlays & Atmospheric Effects (Matching Screenshots)
+   Fills:
+   1. Progressive Layer Blur (0px on right to 30px on left)
+   2. Solid #462411 @ 20% opacity
+   3. Linear #666666 100% to 0% @ 20% opacity
+   4. Linear #1E595C 100% to 0% @ 20% opacity
+   5. Multi Noise (size 0.5, density 100%, opacity 25%)
+   ========================================================================== */
+
+/* 1. Progressive Layer Blur: 0px to 30px on left */
+.hero-layer-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 35%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0) 80%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 35%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0) 80%
+  );
   pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(to right, rgba(18, 22, 30, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 22, 30, 0.03) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse 65% 50% at 50% 30%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 65% 50% at 50% 30%, black 20%, transparent 80%);
+  z-index: 1;
+}
+
+/* 2. Solid Color Fill: #462411 at 20% */
+.hero-fill-warm {
+  position: absolute;
+  inset: 0;
+  background-color: #462411;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 3. Linear Gradient Fill: #666666 100% to 0% at 20% */
+.hero-fill-charcoal {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(102, 102, 102, 0.2) 0%, rgba(102, 102, 102, 0) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* 4. Linear Gradient Fill: #1E595C 100% to 0% at 20% */
+.hero-fill-teal {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(30, 89, 92, 0.2) 0%, rgba(30, 89, 92, 0) 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* 5. Effect: Multi Noise (size 0.5, density 100%, opacity 25%) */
+.hero-effect-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='figmaNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='1.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23figmaNoise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 5;
 }
 
 .hero-container {
   position: relative;
-  z-index: 1;
-  inline-size: 100%;
+  z-index: 6;
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-block: clamp(6rem, 10vw, 8rem) clamp(3.5rem, 5vw, 5rem);
 }
 
-.hero-editorial {
+.hero-content {
+  max-width: 680px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-inline-size: 780px;
-  margin-inline: auto;
+  align-items: flex-start;
+  text-align: left;
 }
 
-/* Editorial Headline (Refined, Balanced Scale) */
+/* ==========================================================================
+   Hero Content Curtain-Reveal Motion System
+   Synchronized with the intro preloader curtain lifting at 1150ms.
+   Uses progressive enhancement, GPU acceleration, and cubic-bezier(0.16, 1, 0.3, 1).
+   ========================================================================== */
+
+/* State 1: While curtain is active (0ms to 1150ms) */
+html.has-curtain .hero-title,
+html.has-curtain .hero-subheadline,
+html.has-curtain .hero-action-dock,
+html.has-curtain .hero-metrics-bar {
+  opacity: 0;
+  transform: translateY(36px);
+  will-change: opacity, transform;
+}
+
+/* State 2: When curtain begins lifting (at 1150ms) */
+html.curtain-revealing .hero-title,
+html.curtain-revealing .hero-subheadline,
+html.curtain-revealing .hero-action-dock,
+html.curtain-revealing .hero-metrics-bar {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Stagger delays matching physical curtain reveal velocity */
+html.curtain-revealing .hero-title {
+  transition-delay: 0.08s;
+}
+
+html.curtain-revealing .hero-subheadline {
+  transition-delay: 0.22s;
+}
+
+html.curtain-revealing .hero-action-dock {
+  transition-delay: 0.36s;
+}
+
+html.curtain-revealing .hero-metrics-bar {
+  transition-delay: 0.5s;
+}
+
+/* State 3: When curtain is fully dismissed / on subsequent page visits */
+html.curtain-dismissed .hero-title,
+html.curtain-dismissed .hero-subheadline,
+html.curtain-dismissed .hero-action-dock,
+html.curtain-dismissed .hero-metrics-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Headline */
 .hero-title {
-  font-size: clamp(2.25rem, 4.2vw, 3.65rem);
-  font-weight: 650;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-  color: var(--text);
   margin: 0;
-  text-wrap: balance;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.75rem, 5.2vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  color: #ffffff;
 }
 
-.hero-title__accent {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-style: italic;
-  background: linear-gradient(135deg, #1848b8 0%, #0284c7 50%, #059669 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  padding-right: 0.05em;
+.hero-title__line {
+  display: block;
 }
 
+.hero-title__line:first-child {
+  color: #ffffff;
+}
+
+.hero-title__line:nth-child(2),
+.hero-title__line--secondary {
+  color: #d5dfe1;
+}
+
+/* Subheadline */
 .hero-subheadline {
-  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
-  color: var(--text-2);
-  line-height: 1.65;
-  max-inline-size: 600px;
   margin-block-start: 1.5rem;
   margin-block-end: 0;
-  text-wrap: pretty;
+  max-width: 520px;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-/* Hero Actions */
-.hero-actions {
-  display: flex;
+/* Action Button */
+.hero-action-dock {
+  margin-block-start: 2.25rem;
+}
+
+.btn--pill-hero {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
-  margin-block-start: 2.25rem;
-  flex-wrap: wrap;
+  gap: 0.65rem;
+  height: 43px;
+  padding-inline: 1.75rem;
+  background-color: #ffffff;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 550;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-fast);
 }
 
-.btn--hero-cta {
-  padding: 0.95rem 2.25rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  min-height: 48px;
+.btn--pill-hero:hover {
+  background-color: #f4f5f6;
+  /* Hover animation removed per user instruction */
 }
 
-/* Responsive Viewports */
-@media (max-width: 768px) {
-  .hero-actions {
-    flex-direction: column;
-    inline-size: 100%;
-    gap: 1rem;
+.hero-arrow {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.has-curtain .hero-title,
+  html.has-curtain .hero-subheadline,
+  html.has-curtain .hero-action-dock,
+  html.has-curtain .hero-metrics-bar,
+  html.curtain-revealing .hero-title,
+  html.curtain-revealing .hero-subheadline,
+  html.curtain-revealing .hero-action-dock,
+  html.curtain-revealing .hero-metrics-bar,
+  .hero-title,
+  .hero-subheadline,
+  .hero-action-dock,
+  .hero-metrics-bar {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
+}
 
-  .hero-actions .btn {
-    inline-size: 100%;
-    justify-content: center;
+/* Metrics Bar */
+.hero-metrics-bar {
+  margin-block-start: clamp(3rem, 5vw, 4.5rem);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+  padding-block-start: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metric-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.metric-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.metric-divider {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .metric-divider {
+    display: block;
+    width: 1px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.25);
   }
 }

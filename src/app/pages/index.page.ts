@@ -1,22 +1,27 @@
 import { afterNextRender, Component, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 import { Hero } from '../sections/hero/hero';
 import { EngagementTracks } from '../sections/hero/engagement-tracks';
+import { MetricsTracking } from '../sections/hero/metrics-tracking';
 import { Advantage } from '../sections/advantage/advantage';
+import { PersonalizedPlan } from '../sections/diagnostic/personalized-plan';
+import { Leadership } from '../sections/leadership/leadership';
+import { Contact } from '../sections/contact/contact';
+import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
-  title: 'Zelenia — Frontend Engineering & Product Design Studio',
+  title: 'Zelenia — High-Performance Frontend Architecture & Product Design',
   meta: [
     {
       name: 'description',
       content:
-        'Zelenia pairs a Fortune 100 Principal Engineer with an industry-tested Lead Product Designer. We engineer sub-second web flagships, build adaptive multi-surface architectures, and deliver production software without agency overhead.'
+        'Improve your online presence with sub-second speeds, bespoke design systems, and direct practitioner execution by a Google Developer Expert and a Lead Product Designer.'
     },
     {
       property: 'og:title',
-      content: 'Zelenia — Frontend Engineering & Product Design Studio'
+      content: 'Zelenia — Frontend Architecture & Product Design'
     },
     {
       property: 'og:description',
@@ -25,64 +30,43 @@ export const routeMeta: RouteMeta = {
     },
     {
       property: 'og:image',
-      content: 'https://zelenia.com/assets/images/og-image.jpg'
+      content: 'https://zelenia.com/assets/images/hero-workspace-bg.jpg'
     }
   ]
 };
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Hero, EngagementTracks, Advantage],
+  imports: [
+    Hero,
+    EngagementTracks,
+    MetricsTracking,
+    Advantage,
+    PersonalizedPlan,
+    Leadership,
+    Contact
+  ],
   template: `
-    <!-- Section 1: Editorial Studio Hero Stage -->
+    <!-- Section 1: Hero Section ("Improve your online presence") -->
     <app-hero />
 
-    <!-- Section 2: Core Engagement Tracks -->
+    <!-- Section 2: Performant Interfaces ("Focused on performant interfaces") -->
     <app-engagement-tracks />
 
-    <!-- Section 3: The Senior Density Advantage -->
+    <!-- Section 3: Telemetry Benchmarks ("Tracking the metrics that matter") -->
+    <app-metrics-tracking />
+
+    <!-- Section 4: Diagnostics & Clarity ("Less weight. More clarity.") -->
     <app-advantage />
 
-    <!-- Section 4: Direct Collaboration Gateway -->
-    <section class="site-section home-gateway-section" id="gateway">
-      <div class="container" style="text-align: center;">
-        <div class="section-header section-header--center" style="margin-bottom: 2.25rem;">
-          <span class="section-tag">Direct Collaboration</span>
-          <h2 class="section-title">
-            Build high-performance web products with zero agency overhead.
-          </h2>
-          <p class="section-subhead" style="margin-inline: auto;">
-            Connect directly with Alejandro and Yolanda. Zero sales representatives, zero account
-            managers—direct senior execution from day one.
-          </p>
-        </div>
+    <!-- Section 5: Architectural Plan ("Get your personalized Zelenia plan") -->
+    <app-personalized-plan />
 
-        <div class="gateway-actions">
-          <a class="btn btn--primary" routerLink="/contact">
-            <span>Start a Conversation</span>
-            <span class="arrow-indicator" aria-hidden="true">→</span>
-          </a>
-          <a class="btn btn--secondary" routerLink="/process">
-            <span>Calculate Scope &amp; Timeline</span>
-            <span class="arrow-indicator" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  `,
-  styles: `
-    .home-gateway-section {
-      padding-block: clamp(5rem, 8vw, 8rem);
-      border-top: 1px solid var(--border);
-      background-color: var(--bg);
-    }
-    .gateway-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-    }
+    <!-- Section 6: Founders ("Meet the founders of Zelenia Labs") -->
+    <app-leadership />
+
+    <!-- Section 7: Contact ("Tell us what needs attention") -->
+    <app-contact />
   `
 })
 export default class Home {
@@ -92,6 +76,7 @@ export default class Home {
   constructor() {
     afterNextRender(() => {
       if (this.isBrowser) {
+        initScrollReveal();
         const fragment = this.route.snapshot.fragment ?? window.location.hash.replace('#', '');
         if (fragment) {
           const el = document.getElementById(fragment);

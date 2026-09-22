@@ -143,6 +143,7 @@ export class IntroPreloader {
       if (prefersReduced) {
         this.isReducedMotion.set(true);
         this.isDismissed.set(false);
+        document.documentElement.classList.add('curtain-dismissed');
         setTimeout(() => {
           this.isCurtainUp.set(true);
           setTimeout(() => {
@@ -154,6 +155,7 @@ export class IntroPreloader {
 
       // Start sequence on page load and hard reload (Ctrl+R / Cmd+R)
       this.isDismissed.set(false);
+      document.documentElement.classList.add('has-curtain');
 
       // Phase 1: 50ms: Left-to-right character cascade triggers
       requestAnimationFrame(() => {
@@ -163,11 +165,15 @@ export class IntroPreloader {
       // Phase 2: 1150ms: User has read "ZELENIA" clearly -> Curtain glides up smoothly
       setTimeout(() => {
         this.isCurtainUp.set(true);
+        document.documentElement.classList.remove('has-curtain');
+        document.documentElement.classList.add('curtain-revealing');
       }, 1150);
 
       // Phase 3: 1800ms: Completely dismiss preloader from DOM
       setTimeout(() => {
         this.isDismissed.set(true);
+        document.documentElement.classList.remove('curtain-revealing');
+        document.documentElement.classList.add('curtain-dismissed');
       }, 1800);
     });
   }

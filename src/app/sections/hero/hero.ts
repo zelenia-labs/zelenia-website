@@ -6,32 +6,69 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
-      <!-- Atmospheric Architectural Light & Coordinate Grid -->
-      <div class="hero-ambient-prism" aria-hidden="true"></div>
-      <div class="hero-grid-matrix" aria-hidden="true"></div>
+      <!-- Background Video & Exact Figma Layer Stack -->
+      <div class="hero-media-wrapper" aria-hidden="true">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="/assets/images/hero-workspace-bg.jpg"
+          aria-hidden="true"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- 1. Progressive Layer Blur (0px to 30px) -->
+      <div class="hero-layer-blur" aria-hidden="true"></div>
+      <!-- 2. Solid Color Fill: #462411 at 20% opacity -->
+      <div class="hero-fill-warm" aria-hidden="true"></div>
+      <!-- 3. Linear Gradient Fill: #666666 100% to 0% at 20% opacity -->
+      <div class="hero-fill-charcoal" aria-hidden="true"></div>
+      <!-- 4. Linear Gradient Fill: #1E595C 100% to 0% at 20% opacity -->
+      <div class="hero-fill-teal" aria-hidden="true"></div>
+      <!-- 5. Effect: Multi Noise (size 0.5, density 100%, opacity 25%) -->
+      <div class="hero-effect-noise" aria-hidden="true"></div>
 
       <div class="container hero-container">
-        <div class="hero-editorial">
+        <div class="hero-content">
           <h1 class="hero-title">
-            High-performance web experiences.<br />
-            <span class="hero-title__accent">Executed directly by the founders.</span>
+            <span class="hero-title__line">Improve your</span>
+            <span class="hero-title__line hero-title__line--secondary">online presence</span>
           </h1>
 
           <p class="hero-subheadline">
-            A Fortune 100 Principal Engineer and a Lead Product Designer building fast,
-            high-converting digital products directly. Zero agency overhead.
+            High-performance frontend architecture and product design, delivered directly by two
+            senior partners with zero agency overhead.
           </p>
 
-          <!-- Hero Actions -->
-          <div class="hero-actions">
-            <a class="btn btn--primary btn--hero-cta" routerLink="/process">
-              <span>Scope &amp; Timeline</span>
-              <span class="arrow-indicator" aria-hidden="true">→</span>
+          <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
+          <div class="hero-action-dock">
+            <a class="btn btn--pill-hero" routerLink="/contact">
+              <span>Get in touch</span>
+              <span class="hero-arrow" aria-hidden="true">→</span>
             </a>
-            <a class="btn btn--secondary" routerLink="/contact">
-              <span>Start Conversation</span>
-              <span class="arrow-indicator" aria-hidden="true">→</span>
-            </a>
+          </div>
+
+          <!-- Bottom Metric Tiers separated by fine dividers -->
+          <div class="hero-metrics-bar" aria-label="Core Capabilities Summary">
+            <div class="metric-item">
+              <span class="metric-label">Technical SEO &amp; Speed</span>
+              <span class="metric-sub">Sub-second core vitals</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-label">Fractional Partnership</span>
+              <span class="metric-sub">Full design-to-code</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-label">Direct Senior Access</span>
+              <span class="metric-sub">Zero agency overhead</span>
+            </div>
           </div>
         </div>
       </div>

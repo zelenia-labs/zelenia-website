@@ -2,21 +2,38 @@ import { Component, computed, DestroyRef, inject, PLATFORM_ID, signal } from '@a
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { WebsiteContent } from '../../content/website-content';
-import { NavItem } from '../../content/navigation';
+
+export interface HeaderNavItem {
+  label: string;
+  href: string;
+  fragment?: string;
+}
 
 @Component({
   selector: 'app-site-header',
   imports: [RouterLink],
   template: `
-    <header class="site-header" id="site-header">
+    <header
+      class="site-header"
+      [class.is-scrolled-up]="isScrolledUp()"
+      [class.is-scrolled-down]="isScrolledDown()"
+      id="site-header"
+    >
       <div class="header-inner">
+        <!-- Zelenia Logo (public/Zelenia-Logo.svg) -->
         <a class="site-logo" routerLink="/" aria-label="Zelenia Home" (click)="onLogoClick($event)">
-          <span class="logo-text">ZELENIA</span>
+          <img
+            src="/Zelenia-Logo.svg"
+            alt="Zelenia Logo"
+            class="site-logo-icon"
+            width="15"
+            height="18"
+          />
         </a>
 
+        <!-- Main Nav Links (Our process, Services, About) -->
         <nav class="site-nav" id="site-navigation" aria-label="Main Navigation">
-          @for (item of site().nav; track item.label) {
+          @for (item of navItems; track item.label) {
             <a
               class="nav-link"
               [class.is-active]="isItemActive(item)"
@@ -29,10 +46,10 @@ import { NavItem } from '../../content/navigation';
           }
         </nav>
 
+        <!-- Right Pill Button (x=1274, y=24, w=102, h=35, rx=17.5 in design.svg: 'Book Call') -->
         <div class="header-cta">
-          <a class="btn btn--primary btn--header" routerLink="/contact">
-            <span>Connect With Us</span>
-            <span class="arrow-indicator" aria-hidden="true">→</span>
+          <a class="btn btn--pill-header btn--header" routerLink="/contact">
+            <span>Book Call</span>
           </a>
         </div>
       </div>
@@ -40,15 +57,22 @@ import { NavItem } from '../../content/navigation';
   `
 })
 export class SiteHeader {
-  private readonly website = inject(WebsiteContent);
   private readonly router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
-  readonly site = this.website.site;
   readonly currentUrl = signal<string>('/');
   readonly activeSection = signal<string | null>(null);
+  readonly isScrolledUp = signal<boolean>(false);
+  readonly isScrolledDown = signal<boolean>(false);
+  private lastScrollY = 0;
+
+  readonly navItems: HeaderNavItem[] = [
+    { label: 'Our process', href: '/process' },
+    { label: 'Services', href: '/#tracks', fragment: 'tracks' },
+    { label: 'About', href: '/team' }
+  ];
 
   private observer: IntersectionObserver | null = null;
 
@@ -74,19 +98,40 @@ export class SiteHeader {
     });
 
     if (this.isBrowser) {
+      const onScroll = () => {
+        const currentY = window.scrollY;
+        if (currentY <= 50) {
+          // At the top of the page: transparent, no background
+          this.isScrolledUp.set(false);
+          this.isScrolledDown.set(false);
+        } else if (currentY > this.lastScrollY + 8) {
+          // Scrolling down: tuck away
+          this.isScrolledDown.set(true);
+          this.isScrolledUp.set(false);
+        } else if (currentY < this.lastScrollY - 8) {
+          // Scrolling up (showing intent to navigate up): reveal with background applied
+          this.isScrolledUp.set(true);
+          this.isScrolledDown.set(false);
+        }
+        this.lastScrollY = currentY;
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      this.destroyRef.onDestroy(() => {
+        window.removeEventListener('scroll', onScroll);
+      });
+
       setTimeout(() => {
         this.setupScrollSpy();
       }, 50);
     }
   }
 
-  isItemActive(item: NavItem): boolean {
+  isItemActive(item: HeaderNavItem): boolean {
     const path = this.currentPath();
     if (item.fragment) {
-      // In-page section anchor (e.g. Advantage on /)
       return path === item.href && this.activeSection() === item.fragment;
     }
-    // Dedicated page route (e.g. /process or /team)
     return path === item.href;
   }
 
@@ -101,7 +146,7 @@ export class SiteHeader {
     }
   }
 
-  onNavClick(event: Event, item: NavItem): void {
+  onNavClick(event: Event, item: HeaderNavItem): void {
     const path = this.currentPath();
 
     if (item.fragment && path === item.href) {
@@ -135,18 +180,14 @@ export class SiteHeader {
       return;
     }
 
-    if (typeof window !== 'undefined' && window.location.hash === '#advantage') {
-      this.activeSection.set('advantage');
-    }
-
-    const advantageEl = document.getElementById('advantage');
-    if (advantageEl && 'IntersectionObserver' in window) {
+    const tracksEl = document.getElementById('tracks');
+    if (tracksEl && 'IntersectionObserver' in window) {
       this.observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             if (entry.isIntersecting) {
-              this.activeSection.set('advantage');
-            } else if (this.activeSection() === 'advantage') {
+              this.activeSection.set('tracks');
+            } else if (this.activeSection() === 'tracks') {
               this.activeSection.set(null);
             }
           }
@@ -156,7 +197,7 @@ export class SiteHeader {
           threshold: [0, 0.1, 0.2]
         }
       );
-      this.observer.observe(advantageEl);
+      this.observer.observe(tracksEl);
     }
   }
 

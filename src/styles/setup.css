@@ -1,160 +1,307 @@
 :root {
   interpolate-size: allow-keywords;
 
-  /* Studio Core Haute Architectural Light Palette: Warm Gallery Alabaster & Deep Titanium Obsidian */
-  --bg: #fbfaf7;
+  /* Color Palette — Directly Extracted from design.svg */
+  --bg: #fbfbfb;
   --surface: #ffffff;
-  --surface-warm: #f4f1ea;
-  --surface-2: #f2efe7;
-  --surface-3: #e8e4da;
-  --surface-contrast: #0c0f14;
+  --surface-warm: #faf9f6;
+  --surface-2: #f2ede4;
+  --surface-contrast: #24201b;
   --surface-elevated: #ffffff;
 
+  /* Sage / Slate-Teal Gradient Tokens */
+  --sage: #95afb5;
+  --sage-light: #d5dfe1;
+  --sage-gradient: linear-gradient(135deg, #95afb5 0%, #829da3 100%);
+  --sage-soft-gradient: linear-gradient(180deg, #d5dfe1 0%, #95afb5 100%);
+
+  /* Icon Badge Pastels */
+  --badge-green: #d8e2d5;
+  --badge-peach: #f2d8c8;
+  --badge-lavender: #e5dff2;
+  --dark-ink: #24201b;
+
+  /* Form & Interactive Tokens */
+  --input-bg: #faf9f6;
+  --input-border: rgba(36, 32, 27, 0.08);
+  --input-focus: #4d4a48;
+
   /* Architectural Hairline Borders */
-  --border: rgba(18, 22, 30, 0.08);
-  --border-subtle: rgba(18, 22, 30, 0.04);
-  --border-medium: rgba(18, 22, 30, 0.12);
-  --border-strong: rgba(18, 22, 30, 0.22);
-  --border-hover: rgba(18, 22, 30, 0.35);
-  --border-focus: #0c0f14;
+  --border: rgba(36, 32, 27, 0.08);
+  --border-subtle: rgba(36, 32, 27, 0.04);
+  --border-medium: rgba(36, 32, 27, 0.12);
+  --border-strong: rgba(36, 32, 27, 0.2);
+  --border-hover: rgba(36, 32, 27, 0.35);
 
-  /* Architectural Action Tokens: Deep Sovereign Navy & Pure Alabaster */
-  --btn-primary-bg: #122444;
-  --btn-primary-text: #ffffff;
-  --btn-primary-hover: #0c1a33;
-  --btn-primary-border: rgba(18, 36, 68, 0.45);
+  /* Button Tokens */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #4d4a48;
+  --btn-primary-hover: #f4f5f6;
+  --btn-primary-border: rgba(36, 32, 27, 0.1);
 
-  --btn-secondary-bg: #ffffff;
-  --btn-secondary-text: #0c0f14;
-  --btn-secondary-border: rgba(18, 22, 30, 0.14);
-  --btn-secondary-hover: #fbfaf8;
+  --btn-dark-bg: #24201b;
+  --btn-dark-text: #ffffff;
+  --btn-dark-hover: #3d372f;
 
-  /* Surgical Telemetry & Diagnostic Accents: Architectural Lapis Sapphire */
-  --blue: #1848b8; /* Refined Architectural Lapis Sapphire (Trust & Authority) */
-  --blue-hover: #12368a;
-  --blue-rgb: 24, 72, 184;
-  --cyan: #0284c7;
-  --cyan-rgb: 2, 132, 199;
-  --emerald: #059669; /* Phosphor Green (Health & Sub-Second CWV) */
-  --emerald-rgb: 5, 150, 105;
-  --rose: #e11d48;
-  --amber: #d97706;
-  --gold: #b48c36;
-
-  /* Typographic Contrast Scale (WCAG AAA/AA) */
-  --text: #0c0f14; /* Deep Obsidian Ink */
-  --text-2: #384252; /* Charcoal Reading Weight */
-  --muted: #687487; /* Refined Architectural Caption */
+  /* Typographic Contrast Scale */
+  --text: #4d4a48; /* Refined Charcoal */
+  --text-2: #667478; /* Slate Body */
+  --text-muted: #90999b; /* Subtle Muted Caption */
+  --text-accent: #a9b4b7; /* Light Slate Subheading */
   --text-inverse: #ffffff;
 
-  /* Disciplined Architectural Radii */
-  --radius-xs: 3px;
-  --radius-sm: 6px;
-  --radius: 10px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-pill: 9999px;
-  --shell: min(1200px, calc(100vw - 48px));
+  /* Card & Geometry Tokens */
+  --radius-xs: 4px;
+  --radius-sm: 12px; /* Input radius */
+  --radius: 20px; /* 2x2 grid card radius */
+  --radius-md: 20px;
+  --radius-lg: 24px; /* 3-card and photo radius */
+  --radius-pill: 9999px; /* Pill button radius */
+
+  /* Exact Desktop Grid from design.svg: 1440px canvas - (2 * 160px) = 1120px */
+  --shell: min(1120px, calc(100vw - 48px));
 
   /* Surface & Background Aliases */
   --bg-base: var(--bg);
   --bg-surface: var(--surface);
   --bg-surface-elevated: var(--surface);
-  --bg-surface-hover: #f7f5ef;
-  --bg-surface-subtle: var(--surface-warm);
-  --bg-glass: rgba(251, 250, 247, 0.88);
-
-  /* Unified Cohesive Rhythm Tokens */
-  --bg-obsidian: var(--bg);
-  --surface-obsidian: var(--surface);
-  --surface-obsidian-2: var(--surface-warm);
-  --border-obsidian: var(--border);
-  --text-obsidian: var(--text);
-  --text-obsidian-muted: var(--text-2);
-
-  --bg-luminous: #ffffff;
-  --surface-luminous: #ffffff;
-  --surface-luminous-2: var(--surface-warm);
-  --border-luminous: var(--border);
-  --text-luminous: var(--text);
-  --text-luminous-muted: var(--text-2);
+  --bg-surface-hover: #f4f5f6;
+  --bg-glass: rgba(251, 251, 251, 0.85);
 
   /* Typography Hierarchy */
   --text-primary: var(--text);
   --text-secondary: var(--text-2);
-  --text-muted: var(--muted);
+  --muted: var(--text-muted);
 
-  /* Studio Action Tokens */
   --brand-primary: var(--btn-primary-bg);
   --brand-primary-hover: var(--btn-primary-hover);
-  --brand-glow: rgba(12, 15, 20, 0.12);
-  --accent-cyan: var(--cyan);
-  --accent-cyan-rgb: 2, 132, 199;
-  --accent-emerald: var(--emerald);
-  --accent-amber: var(--amber);
-  --accent-rose: var(--rose);
-  --accent-blue: var(--blue);
-  --accent-blue-vibrant: #1e40af;
-  --accent-blue-rgb: 30, 64, 175;
-  --accent-highlight: var(--brand-primary);
-  --accent-highlight-rgb: 12, 15, 20;
-  --accent-highlight-hover: var(--brand-primary-hover);
-
-  /* Atmospheric Per-Section Gallery Ambient Gradients */
-  --ambient-hero:
-    radial-gradient(
-      ellipse 70% 55% at 50% -10%,
-      rgba(24, 72, 184, 0.06) 0%,
-      rgba(2, 132, 199, 0.03) 45%,
-      transparent 70%
-    ),
-    radial-gradient(circle at 10% 40%, rgba(5, 150, 105, 0.04) 0%, transparent 50%);
-  --ambient-advantage: radial-gradient(
-    ellipse 65% 55% at 20% 50%,
-    rgba(24, 72, 184, 0.05) 0%,
-    rgba(2, 132, 199, 0.02) 40%,
-    transparent 70%
-  );
-  --ambient-capabilities: radial-gradient(
-    ellipse 70% 50% at 80% 40%,
-    rgba(5, 150, 105, 0.04) 0%,
-    rgba(24, 72, 184, 0.03) 40%,
-    transparent 70%
-  );
-  --ambient-leadership: radial-gradient(
-    ellipse 65% 50% at 20% 50%,
-    rgba(24, 72, 184, 0.04) 0%,
-    transparent 70%
-  );
-  --ambient-diagnostic: radial-gradient(
-    ellipse 70% 50% at 50% 30%,
-    rgba(0, 82, 255, 0.06) 0%,
-    transparent 70%
-  );
-  --ambient-contact: radial-gradient(
-    ellipse 70% 60% at 50% 50%,
-    rgba(0, 82, 255, 0.06) 0%,
-    rgba(5, 150, 105, 0.04) 40%,
-    transparent 75%
-  );
 
   /* Typography Scales */
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-heading:
     'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
   --font-mono: 'Roboto Mono', 'SF Mono', Consolas, monospace;
 
-  /* Spacing & Layout Tokens */
+  /* Spacing Tokens */
   --container-max-width: var(--shell);
   --container-gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --section-spacing: clamp(5rem, 8vw, 8.5rem);
+  --section-spacing: clamp(5rem, 8vw, 7.5rem);
   --measure-prose: 68ch;
-  --gap-spacious: clamp(2rem, 4vw, 3.5rem);
 
-  /* Transitions & Animation Timing */
+  /* Transitions */
   --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Two-Tone Heading Utility matching Figma typography specs */
+.section-heading-twotone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  font-family: var(--font-sans);
+}
+
+.section-heading-twotone .heading-primary {
+  color: #4d4a48;
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.section-heading-twotone .heading-secondary {
+  color: #a9b4b7;
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+/* For darker background sections */
+.section-heading-twotone--dark .heading-primary,
+.section-heading-twotone.is-dark .heading-primary {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.section-heading-twotone--dark .heading-secondary,
+.section-heading-twotone.is-dark .heading-secondary {
+  color: #d5dfe1;
+  font-weight: 500;
+}
+
+.section-tag-subtle {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* Ambient Blur Glow Utility */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ==========================================================================
+   Figma Noise Effect Overlay
+   Specifications: Mono, Noise size: 0.5, Density: 100%, Color: #FFFFFF 15%
+   Applied to 'Personalized Plan' and 'Contact / Tell Us' sections
+   ========================================================================== */
+.section-noise-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/noise-mono.png');
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ==========================================================================
+   Progressive Scroll-Triggered Reveal System
+   Hardware-accelerated (opacity & transform), progressive enhancement, zero CLS
+   ========================================================================== */
+
+html.motion-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.motion-ready .reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for generic elements */
+html.motion-ready .reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+
+html.motion-ready .reveal-delay-2 {
+  transition-delay: 0.24s;
+}
+
+html.motion-ready .reveal-delay-3 {
+  transition-delay: 0.36s;
+}
+
+/* ==========================================================================
+   Focused on Performant Interfaces: Cards Sequential Entrance from Below
+   ========================================================================== */
+
+html.motion-ready .interfaces-grid .interface-card {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.motion-ready .interfaces-grid.is-revealed .interface-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.06s;
+}
+
+html.motion-ready .interfaces-grid.is-revealed .interface-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.22s;
+}
+
+html.motion-ready .interfaces-grid.is-revealed .interface-card:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.38s;
+}
+
+/* ==========================================================================
+   Diagnostics & Clarity 2x2 Grid Stagger
+   ========================================================================== */
+
+html.motion-ready .clarity-cards-grid .clarity-card {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.motion-ready .clarity-cards-grid.is-revealed .clarity-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.06s;
+}
+
+html.motion-ready .clarity-cards-grid.is-revealed .clarity-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.18s;
+}
+
+html.motion-ready .clarity-cards-grid.is-revealed .clarity-card:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+html.motion-ready .clarity-cards-grid.is-revealed .clarity-card:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.42s;
+}
+
+/* ==========================================================================
+   Founders Section Cards Stagger
+   ========================================================================== */
+
+html.motion-ready .founders-grid .founder-card {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.motion-ready .founders-grid.is-revealed .founder-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+
+html.motion-ready .founders-grid.is-revealed .founder-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.24s;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready .reveal-on-scroll,
+  html.motion-ready .interfaces-grid .interface-card,
+  html.motion-ready .clarity-cards-grid .clarity-card,
+  html.motion-ready .founders-grid .founder-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

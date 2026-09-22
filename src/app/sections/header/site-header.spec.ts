@@ -18,10 +18,13 @@ describe('SiteHeader Component', () => {
     fixture.detectChanges();
   });
 
-  it('should create the site header', () => {
+  it('should create the site header with Zelenia logo', () => {
     expect(component).toBeTruthy();
     const logoEl = fixture.nativeElement.querySelector('.site-logo');
     expect(logoEl).toBeTruthy();
+    const imgEl = logoEl.querySelector('.site-logo-icon');
+    expect(imgEl).toBeTruthy();
+    expect(imgEl.getAttribute('src')).toBe('/Zelenia-Logo.svg');
   });
 
   it('should not contain a hamburger menu button or nav-toggle', () => {
@@ -32,7 +35,7 @@ describe('SiteHeader Component', () => {
     expect(hamburgerBars.length).toBe(0);
   });
 
-  it('should render desktop navigation links and review button', () => {
+  it('should render desktop navigation links and Book Call pill button', () => {
     const navEl = fixture.nativeElement.querySelector('#site-navigation');
     expect(navEl).toBeTruthy();
 
@@ -41,10 +44,10 @@ describe('SiteHeader Component', () => {
 
     const ctaButton = fixture.nativeElement.querySelector('.btn--header');
     expect(ctaButton).toBeTruthy();
-    expect(ctaButton.textContent).toContain('Connect With Us');
+    expect(ctaButton.textContent).toContain('Book Call');
   });
 
-  it('should only highlight Process when route is /process', () => {
+  it('should only highlight Our process when route is /process', () => {
     component.currentUrl.set('/process');
     fixture.detectChanges();
 
@@ -54,10 +57,10 @@ describe('SiteHeader Component', () => {
 
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('Process');
+    expect(activeLinks[0].textContent?.trim()).toBe('Our process');
   });
 
-  it('should only highlight Team when route is /team', () => {
+  it('should only highlight About when route is /team', () => {
     component.currentUrl.set('/team');
     fixture.detectChanges();
 
@@ -67,7 +70,7 @@ describe('SiteHeader Component', () => {
 
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('Team');
+    expect(activeLinks[0].textContent?.trim()).toBe('About');
   });
 
   it('should not highlight any dedicated page link on root route without fragment', () => {

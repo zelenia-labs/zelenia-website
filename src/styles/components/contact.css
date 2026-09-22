@@ -431,8 +431,8 @@
 
 .progressive-toggle-label {
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #0f172a;
+  font-weight: 550;
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -444,13 +444,14 @@
 
 .progressive-expansion {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border: 1px solid var(--border);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  padding: 1.5rem clamp(1.25rem, 3vw, 1.75rem);
+  background: #ffffff;
+  border: 1px solid rgba(36, 32, 27, 0.12);
   border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   animation: expandIn 0.25s ease-out;
 }
 
@@ -474,9 +475,6 @@
 
 @media (max-width: 900px) {
   .omnichannel-grid {
-    grid-template-columns: 1fr;
-  }
-  .progressive-expansion {
     grid-template-columns: 1fr;
   }
 }

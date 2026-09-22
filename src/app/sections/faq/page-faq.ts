@@ -16,7 +16,7 @@ export interface PageFaqItem {
         <div class="faq-layout">
           <!-- Left Column: Sticky Editorial Context & Direct Action -->
           <div class="faq-context-col">
-            <div class="faq-sticky-panel">
+            <div class="faq-sticky-panel reveal-on-scroll">
               <div class="faq-badge-wrapper">
                 <span class="pulsating-dot" aria-hidden="true"></span>
                 <span class="faq-tag">{{ tag() }}</span>
@@ -40,7 +40,7 @@ export interface PageFaqItem {
 
           <!-- Right Column: Elevated Interactive Accordion Cards -->
           <div class="faq-accordion-col" role="region" aria-label="Frequently Asked Questions">
-            <div class="faq-accordion-list">
+            <div class="faq-accordion-list reveal-on-scroll reveal-delay-1">
               @for (item of items(); track item.q; let i = $index) {
                 <details class="faq-accordion-item" [open]="i === 0">
                   <summary class="faq-summary">
