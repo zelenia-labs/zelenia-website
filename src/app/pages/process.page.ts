@@ -275,7 +275,7 @@ export const routeMeta: RouteMeta = {
         id="process-audit-callout"
         aria-label="Complimentary Architecture and Speed Audit"
       >
-        <!-- Ambient Warm Glow Circle (750x750px, #f2ebdf) -->
+        <!-- Ambient Soft Sage-Teal Glow Circle (750x750px, #d5dfe1) -->
         <div class="ambient-glow glow--audit-callout" aria-hidden="true"></div>
 
         <div class="container">
@@ -542,7 +542,7 @@ export const routeMeta: RouteMeta = {
     .glow--audit-callout {
       width: 750px;
       height: 750px;
-      background-color: #f2ebdf;
+      background-color: #d5dfe1;
       opacity: 0.35;
       filter: blur(90px);
       top: 50%;
@@ -552,11 +552,11 @@ export const routeMeta: RouteMeta = {
 
     .audit-callout-card {
       position: relative;
-      background: linear-gradient(135deg, #fbf9f6 0%, #f6f0e6 100%);
-      border: 1px solid rgba(36, 32, 27, 0.08);
+      background: linear-gradient(135deg, #f0f5f6 0%, #e4eff1 100%);
+      border: none;
       border-radius: var(--radius-lg);
       padding: clamp(2.5rem, 5vw, 4.25rem) clamp(2rem, 5vw, 4.25rem);
-      box-shadow: 0 12px 36px rgba(36, 32, 27, 0.04);
+      box-shadow: 0 12px 36px rgba(130, 157, 163, 0.09);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: clamp(2.5rem, 5vw, 4.5rem);
@@ -588,7 +588,7 @@ export const routeMeta: RouteMeta = {
     }
 
     .audit-callout__title .heading-secondary {
-      color: #a9b4b7;
+      color: #7b989e;
     }
 
     .audit-callout__desc {
@@ -626,10 +626,11 @@ export const routeMeta: RouteMeta = {
     }
 
     .audit-callout__meta {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
       color: var(--text-muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
 
     .audit-callout__visual {
@@ -651,14 +652,10 @@ export const routeMeta: RouteMeta = {
         0 8px 20px -6px rgba(36, 32, 27, 0.12),
         0 0 1px rgba(36, 32, 27, 0.25);
       border: 1px solid rgba(255, 255, 255, 0.7);
-      transition:
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      transform: translate3d(0, 0, 0);
+      transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .audit-callout-card:hover .audit-dossier-frame {
-      transform: translateY(-4px);
       box-shadow:
         0 32px 64px -12px rgba(36, 32, 27, 0.25),
         0 12px 24px -6px rgba(36, 32, 27, 0.14),

@@ -16,8 +16,7 @@
   - **No Russian Nesting Dolls:** Reject cards inside cards inside cards. Replace with open, unboxed architectural layouts, hairline rules (`1px solid var(--border)`), and expansive typographic breathing room.
   - **No Bubbly Consumer Pills for Core Actions:** Buttons adhere to disciplined architectural geometry (`--radius-sm: 6px`). Oval pill buttons (`9999px`) are strictly forbidden for primary and secondary actions; pill radii are reserved exclusively for passive status pills and micro-tags.
   - **No 2010 Skeuomorphism or Diffuse Halos:** No embossed top/bottom bevels (`inset 0 1px 0`), no text-shadows, and no amateur neon blue drop-shadows (`box-shadow: 0 8px 24px -4px rgba(0, 82, 255, 0.35)`). Grounding relies on crisp 1px–2px physical contact shadows.
-  - **No Brackets or Pseudo-Robotic Slugs:** No bracketed tags (`[ ... ]`) or robotic separators (`//`). Micro-labels use pure monospace uppercase with tracked letter-spacing.
-  - **Editorial & Monospace Juxtaposition:** Pairing high-prestige editorial display typography (_Newsreader_ italic serif accents) with razor-sharp architectural sans (_Inter_) and technical telemetry monospace (_Roboto Mono_).
+  - **Unified Architectural Typography:** Pairing high-prestige editorial display serif accents (_Cormorant Garamond_ and _Newsreader_) with razor-sharp architectural sans (_Inter_) across all body copy, telemetry, and micro-labels.
   - **Luminous Alabaster Architecture:** A warm, refined gallery light palette featuring ultra-fine porcelain alabaster, crisp white elevated planes, and deep obsidian ink typographic contrast.
 
 ---
@@ -97,9 +96,9 @@
 - **Body & Narrative:**
   - Family: `'Inter', -apple-system, BlinkMacSystemFont, sans-serif`
   - Specs: `font-size: 1rem; line-height: 1.65; color: var(--text-2); font-weight: 400; text-wrap: pretty;`
-- **Technical Telemetry & Micro-Labels:**
-  - Family: `'Roboto Mono', monospace`
-  - Specs: `font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--muted);`
+- **Telemetry & Micro-Labels:**
+  - Family: `'Inter', -apple-system, BlinkMacSystemFont, sans-serif`
+  - Specs: `font-size: 0.75rem; letter-spacing: 0.02em; font-weight: 500; color: var(--muted);`
 
 ---
 

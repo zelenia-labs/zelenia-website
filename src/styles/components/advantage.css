@@ -35,7 +35,7 @@
 }
 
 .advantage-caption {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.5;

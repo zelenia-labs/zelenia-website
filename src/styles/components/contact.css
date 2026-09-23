@@ -24,8 +24,11 @@
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group--full {
@@ -117,6 +120,9 @@
 
 .custom-select-trigger {
   inline-size: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   height: 48px;
   background-color: #ffffff;
   border: 1px solid var(--border-medium);
@@ -155,12 +161,13 @@
 }
 
 .custom-select-value {
+  flex: 1 1 0%;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-inline-end: 0.75rem;
+  padding-inline-end: 0.5rem;
   line-height: 1.4;
-  flex: 1;
 }
 
 .custom-select-arrow {
@@ -363,14 +370,15 @@
 }
 
 .reassurance-prefix {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   color: var(--brand-primary);
   font-size: 0.75rem;
+  font-weight: 600;
 }
 
 @media (max-width: 680px) {
   .form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .btn--submit {
@@ -388,10 +396,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
+  font-weight: 500;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   margin-block-end: 1rem;
 }
 
@@ -433,8 +442,9 @@
 
 .channel-card__badge {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.6875rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-block-end: 0.5rem;
@@ -592,7 +602,7 @@
 .sla-guarantee {
   font-size: 0.75rem;
   color: var(--text-2);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   margin-top: 0.5rem;
 }
 

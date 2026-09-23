@@ -120,6 +120,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                     id="trigger-primary-focus"
                     aria-haspopup="listbox"
                     [attr.aria-expanded]="openDropdown() === 'focus'"
+                    [title]="currentFocusLabel()"
                     aria-controls="listbox-primary-focus"
                     (click)="toggleDropdown('focus', $event)"
                     (keydown)="onTriggerKeydown($event, 'focus')"
@@ -233,6 +234,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                           id="trigger-timeline-pace"
                           aria-haspopup="listbox"
                           [attr.aria-expanded]="openDropdown() === 'timeline'"
+                          [title]="currentTimelineLabel()"
                           aria-controls="listbox-timeline-pace"
                           (click)="toggleDropdown('timeline', $event)"
                           (keydown)="onTriggerKeydown($event, 'timeline')"
@@ -327,6 +329,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                           id="trigger-budget-bracket"
                           aria-haspopup="listbox"
                           [attr.aria-expanded]="openDropdown() === 'budget'"
+                          [title]="currentBudgetLabel()"
                           aria-controls="listbox-budget-bracket"
                           (click)="toggleDropdown('budget', $event)"
                           (keydown)="onTriggerKeydown($event, 'budget')"
@@ -540,29 +543,53 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .contact-form-card {
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.25rem;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     @media (min-width: 640px) {
       .form-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.5rem;
       }
     }
 
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
     .form-group--full {
       grid-column: 1 / -1;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .form-label {
@@ -633,10 +660,15 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .custom-select-wrapper {
       position: relative;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .custom-select-trigger {
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
       height: 48px;
       background-color: #ffffff;
       border: 1px solid rgba(36, 32, 27, 0.16);
@@ -684,12 +716,13 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .custom-select-value {
+      flex: 1 1 0%;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-inline-end: 0.75rem;
+      padding-inline-end: 0.5rem;
       line-height: 1.4;
-      flex: 1;
     }
 
     .custom-select-arrow {
@@ -829,6 +862,8 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .progressive-expansion {
       grid-column: 1 / -1;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
       box-sizing: border-box;
       display: block;
       background-color: #ffffff;
@@ -837,10 +872,32 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       padding: 1.5rem clamp(1.25rem, 3vw, 1.75rem);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
       margin-top: 0.25rem;
+      container-type: inline-size;
+      container-name: expansion;
     }
 
     .progressive-expansion .form-grid {
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 680px) {
+      .progressive-expansion .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
+    @container expansion (min-width: 480px) {
+      .progressive-expansion .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
     }
 
     /* Labels inside the white expansion card must be deep charcoal for high contrast */
@@ -858,6 +915,9 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       color: #24201b;
       font-weight: 500;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .progressive-expansion .form-input:focus {

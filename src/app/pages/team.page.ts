@@ -36,7 +36,7 @@ export const routeMeta: RouteMeta = {
         <div class="ambient-glow glow--team-warm" aria-hidden="true"></div>
 
         <div class="container">
-          <div class="section-header section-header--center reveal-on-scroll">
+          <div class="team-hero-header reveal-on-scroll">
             <span class="section-tag-subtle">Leadership &amp; Craft</span>
             <h1 class="section-heading-twotone" id="team-title">
               <span class="heading-primary">Meet the team behind</span>
@@ -49,122 +49,97 @@ export const routeMeta: RouteMeta = {
             </p>
           </div>
 
-          <!-- Founders Grid: Sequential entrance animation from below matching home page -->
-          <div class="founders-grid team-founders-grid">
-            <!-- Yolanda Santa Cruz -->
-            <article class="founder-card team-founder-card">
-              <div class="founder-photo-dock">
-                <img
-                  src="/assets/images/portrait_yolanda.jpg"
-                  alt="Yolanda Santa Cruz, Lead Product Designer and Visual Artist at Zelenia"
-                  class="founder-photo"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                />
+          <!-- Team Profiles Stack: Alternating Editorial Layout -->
+          <div class="team-profiles-stack">
+            <!-- Profile 1: Alejandro Cuba Ruiz (Content Left, Image Right) -->
+            <article class="team-profile-row team-profile-row--flipped reveal-on-scroll">
+              <div class="team-profile-content-col">
+                <h2 class="founder-name">Alejandro Cuba Ruiz</h2>
+                <span class="founder-role">Principal Frontend Architect &amp; GDE</span>
+
+                <div class="founder-chips" aria-label="Credentials">
+                  <span class="chip-item">20+ Years Experience</span>
+                  <span class="chip-item">Fortune 100 Principal Engineer</span>
+                  <span class="chip-item">Google Developer Expert</span>
+                </div>
+
+                <p class="founder-bio">
+                  Google Developer Expert (GDE) and Fortune 100 Principal Software Engineer with 20+
+                  years of software engineering leadership. Specializes in scalable frontend
+                  architecture, runtime optimization, sub-second performance, and enterprise web
+                  systems.
+                </p>
+
+                <div class="founder-social">
+                  <a
+                    class="founder-social-link"
+                    href="https://www.linkedin.com/in/alejandrocuba/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View Alejandro Cuba on LinkedIn"
+                  >
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                </div>
               </div>
 
-              <div class="founder-badge badge--peach" aria-hidden="true">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M17.18 13.01L16.03 7.28C16 7.13 15.93 6.98 15.81 6.87C15.7 6.76 15.56 6.67 15.41 6.64L4.87 3.87C4.73 3.84 4.59 3.84 4.45 3.88C4.31 3.92 4.19 3.99 4.09 4.09C3.99 4.19 3.91 4.32 3.88 4.45C3.84 4.59 3.83 4.74 3.87 4.88L6.64 15.41C6.67 15.57 6.75 15.71 6.87 15.82C6.98 15.93 7.13 16 7.28 16.03L13.01 17.18M4.09 4.1L10.17 10.17M15.27 19.92C15.11 20.08 14.9 20.17 14.68 20.17C14.46 20.17 14.24 20.08 14.09 19.92L12.77 18.6C12.61 18.45 12.52 18.23 12.52 18.01C12.52 17.79 12.61 17.58 12.77 17.42L17.42 12.77C17.58 12.61 17.79 12.52 18.01 12.52C18.23 12.52 18.44 12.61 18.6 12.77L19.92 14.09C20.08 14.25 20.17 14.46 20.17 14.68C20.17 14.9 20.08 15.11 19.92 15.27L15.27 19.92ZM13.01 11.35C13.01 12.27 12.26 13.01 11.34 13.01C10.42 13.01 9.68 12.27 9.68 11.35C9.68 10.43 10.42 9.68 11.34 9.68C12.26 9.68 13.01 10.43 13.01 11.35Z"
-                  ></path>
-                </svg>
-              </div>
-
-              <h2 class="founder-name">Yolanda Santa Cruz</h2>
-              <span class="founder-role">Lead Product Designer &amp; Visual Artist</span>
-
-              <div class="founder-chips" aria-label="Credentials">
-                <span class="chip-item">10+ Years Experience</span>
-                <span class="chip-item">Seed to Series E Unicorns</span>
-                <span class="chip-item">Fortune 500 Enterprises</span>
-              </div>
-
-              <p class="founder-bio">
-                10+ years of experience leading UX and product design across venture-backed
-                technology startups from Seed to Series E, as well as Fortune 500 enterprises.
-                Specializes in art direction, visual conversion psychology, user experience, and
-                aesthetic elevation for high-performance digital products.
-              </p>
-
-              <div class="founder-social">
-                <a
-                  class="founder-social-link"
-                  href="https://www.linkedin.com/in/yolandasantacruz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Yolanda Santa Cruz on LinkedIn"
-                >
-                  <span>Connect on LinkedIn</span>
-                </a>
+              <div class="team-profile-photo-col">
+                <div class="founder-photo-dock">
+                  <img
+                    src="/assets/images/portrait_alejandro.jpg"
+                    alt="Alejandro Cuba Ruiz, Principal Frontend Architect & Google Developer Expert at Zelenia"
+                    class="founder-photo"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </article>
 
-            <!-- Alejandro Cuba Ruiz -->
-            <article class="founder-card team-founder-card">
-              <div class="founder-photo-dock">
-                <img
-                  src="/assets/images/portrait_alejandro.jpg"
-                  alt="Alejandro Cuba Ruiz, Principal Frontend Architect & Google Developer Expert at Zelenia"
-                  class="founder-photo"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                />
+            <!-- Profile 2: Yolanda Santa Cruz (Image Left, Content Right) -->
+            <article class="team-profile-row reveal-on-scroll">
+              <div class="team-profile-photo-col">
+                <div class="founder-photo-dock">
+                  <img
+                    src="/assets/images/portrait_yolanda.jpg"
+                    alt="Yolanda Santa Cruz, Lead Product Designer and Visual Artist at Zelenia"
+                    class="founder-photo"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                </div>
               </div>
 
-              <div class="founder-badge badge--green" aria-hidden="true">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </div>
+              <div class="team-profile-content-col">
+                <h2 class="founder-name">Yolanda Santa Cruz</h2>
+                <span class="founder-role">Lead Product Designer &amp; Visual Artist</span>
 
-              <h2 class="founder-name">Alejandro Cuba Ruiz</h2>
-              <span class="founder-role">Principal Frontend Architect &amp; GDE</span>
+                <div class="founder-chips" aria-label="Credentials">
+                  <span class="chip-item">10+ Years Experience</span>
+                  <span class="chip-item">Seed to Series E Unicorns</span>
+                  <span class="chip-item">Fortune 500 Enterprises</span>
+                </div>
 
-              <div class="founder-chips" aria-label="Credentials">
-                <span class="chip-item">20+ Years Experience</span>
-                <span class="chip-item">Fortune 100 Principal Engineer</span>
-                <span class="chip-item">Google Developer Expert</span>
-              </div>
+                <p class="founder-bio">
+                  10+ years of experience leading UX and product design across venture-backed
+                  technology startups from Seed to Series E, as well as Fortune 500 enterprises.
+                  Specializes in art direction, visual conversion psychology, user experience, and
+                  aesthetic elevation for high-performance digital products.
+                </p>
 
-              <p class="founder-bio">
-                Google Developer Expert (GDE) and Fortune 100 Principal Software Engineer with 20+
-                years of software engineering leadership. Specializes in scalable frontend
-                architecture, runtime optimization, sub-second performance, and enterprise web
-                systems.
-              </p>
-
-              <div class="founder-social">
-                <a
-                  class="founder-social-link"
-                  href="https://www.linkedin.com/in/alejandrocuba/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Alejandro Cuba on LinkedIn"
-                >
-                  <span>Connect on LinkedIn</span>
-                </a>
+                <div class="founder-social">
+                  <a
+                    class="founder-social-link"
+                    href="https://www.linkedin.com/in/yolandasantacruz/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View Yolanda Santa Cruz on LinkedIn"
+                  >
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                </div>
               </div>
             </article>
           </div>
@@ -343,35 +318,66 @@ export const routeMeta: RouteMeta = {
       margin-block-end: 0;
     }
 
-    /* Founders Grid Matching Home Page Layout & Proportions */
-    .team-founders-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(2rem, 5vw, 4.5rem);
-      max-width: 960px;
-      margin-inline: auto;
+    /* Left-Aligned Hero Header */
+    .team-hero-header {
+      text-align: left;
+      margin-block-end: clamp(3.5rem, 6vw, 5.5rem);
+      max-width: 820px;
     }
 
-    .team-founder-card {
+    .team-hero-header .section-subhead {
+      margin-inline: 0;
+      max-width: 660px;
+      margin-block-start: 1rem;
+      margin-block-end: 0;
+    }
+
+    /* Alternating Editorial Showcase Stack */
+    .team-profiles-stack {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(4.5rem, 8vw, 7rem);
+      max-width: 1040px;
+    }
+
+    .team-profile-row {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) 1fr;
+      align-items: center;
+      gap: clamp(2.5rem, 5.5vw, 5.5rem);
+    }
+
+    .team-profile-row--flipped {
+      grid-template-columns: 1fr minmax(280px, 360px);
+    }
+
+    .team-profile-photo-col {
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .team-profile-content-col {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
     }
 
     .founder-photo-dock {
       width: 100%;
       aspect-ratio: 1 / 1;
-      max-height: 380px;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      margin-bottom: 1.5rem;
       background-color: var(--surface-warm);
-      box-shadow: none;
+      box-shadow: 0 16px 40px -12px rgba(36, 32, 27, 0.08);
+      border: 1px solid rgba(36, 32, 27, 0.04);
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .founder-photo-dock:hover {
+      box-shadow: 0 20px 48px -12px rgba(36, 32, 27, 0.12);
     }
 
     .founder-photo {
@@ -405,22 +411,22 @@ export const routeMeta: RouteMeta = {
     }
 
     .founder-name {
-      font-size: clamp(1.4rem, 2vw, 1.75rem);
+      font-size: clamp(1.65rem, 2.5vw, 2.15rem);
       font-weight: 550;
       color: var(--text);
-      letter-spacing: -0.02em;
-      margin: 0 0 0.25rem 0;
+      letter-spacing: -0.025em;
+      margin: 0 0 0.35rem 0;
       font-family: var(--font-sans);
       line-height: 1.2;
     }
 
     .founder-role {
       font-size: 0.8125rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
       display: block;
     }
 
@@ -428,7 +434,7 @@ export const routeMeta: RouteMeta = {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
     }
 
     .chip-item {
@@ -442,16 +448,16 @@ export const routeMeta: RouteMeta = {
     }
 
     .founder-bio {
-      font-size: 0.9375rem;
-      line-height: 1.65;
+      font-size: 1rem;
+      line-height: 1.7;
       color: var(--text-2);
       margin: 0 0 1.5rem 0;
       font-family: var(--font-sans);
-      flex-grow: 1;
+      max-width: 580px;
     }
 
     .founder-social {
-      margin-top: auto;
+      margin-top: 0.25rem;
     }
 
     .founder-social-link {
@@ -564,9 +570,16 @@ export const routeMeta: RouteMeta = {
     }
 
     @media (max-width: 860px) {
-      .team-founders-grid {
+      .team-profile-row,
+      .team-profile-row--flipped {
         grid-template-columns: 1fr;
-        max-width: 440px;
+        gap: 2rem;
+      }
+      .team-profile-row--flipped .team-profile-photo-col {
+        order: -1;
+      }
+      .team-profile-photo-col {
+        max-width: 340px;
       }
       .team-principles-grid {
         grid-template-columns: 1fr;

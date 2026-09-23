@@ -19,8 +19,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -28,14 +29,6 @@
 
 .dossier-back-link:hover {
   color: var(--text);
-}
-
-.dossier-back-link .arrow-back {
-  transition: transform var(--transition-fast);
-}
-
-.dossier-back-link:hover .arrow-back {
-  transform: translateX(-3px);
 }
 
 .dossier-hero__content {
@@ -77,10 +70,10 @@
 }
 
 .dossier-pillar__num {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--accent-emerald);
 }
 
@@ -156,8 +149,8 @@
 }
 
 .dossier-checklist li {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.5;
   display: flex;

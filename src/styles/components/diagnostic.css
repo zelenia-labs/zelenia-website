@@ -69,8 +69,10 @@
 }
 
 .control-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
   color: var(--text-muted);
   letter-spacing: 0.08em;
 }
@@ -132,11 +134,12 @@
 }
 
 .telemetry-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 0.08em;
-  margin-block-end: 0.65rem;
+  letter-spacing: 0.01em;
+  margin-block-end: 0.5rem;
 }
 
 .telemetry-value {
@@ -163,8 +166,8 @@
 }
 
 .telemetry-ratio {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   color: var(--text);
   font-weight: 600;
 }
@@ -207,9 +210,9 @@
 }
 
 .meter-tag {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
   white-space: nowrap;
   padding-inline: 0.5rem;
 }
@@ -221,8 +224,9 @@
 }
 
 .meter-legend-item {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text-muted);
   display: inline-flex;
   align-items: center;
@@ -388,7 +392,7 @@
 }
 
 .accordion-trigger__icon {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   color: var(--brand-primary);
 }

@@ -45,16 +45,17 @@ export interface PageFaqItem {
                     <span class="faq-accordion-icon" aria-hidden="true">+</span>
                   </button>
 
-                  @if (isOpen(i)) {
-                    <div
-                      class="faq-accordion-body"
-                      [id]="'faq-panel-' + i"
-                      role="region"
-                      [attr.aria-labelledby]="'faq-trigger-' + i"
-                    >
+                  <div
+                    class="faq-accordion-body"
+                    [id]="'faq-panel-' + i"
+                    role="region"
+                    [attr.aria-labelledby]="'faq-trigger-' + i"
+                    [attr.aria-hidden]="!isOpen(i)"
+                  >
+                    <div class="faq-accordion-inner">
                       <p class="faq-answer-text">{{ item.a }}</p>
                     </div>
-                  }
+                  </div>
                 </div>
               }
             </div>
@@ -62,11 +63,10 @@ export interface PageFaqItem {
             <!-- Direct Inquiry Card below FAQ items -->
             <div class="faq-inquiry-card">
               <div class="faq-inquiry-info">
-                <span class="faq-inquiry-tag">Direct Studio Access</span>
                 <p class="faq-inquiry-text">
                   {{
                     contactPrompt() ||
-                      'Have a specific project scope or timeline in mind? Our senior team answers inquiries directly within studio hours.'
+                      "Have a specific project scope, timeline, or a question you didn't see answered here? We reply directly within studio hours."
                   }}
                 </p>
               </div>
@@ -88,22 +88,14 @@ export class PageFaq {
   readonly items = input.required<PageFaqItem[]>();
   readonly contactPrompt = input<string>('');
 
-  // Default: Open the first item initially
-  readonly openIndices = signal<Set<number>>(new Set([0]));
+  // Single-item accordion: Only one question open at a time (first item open initially)
+  readonly openIndex = signal<number | null>(0);
 
   toggleItem(index: number): void {
-    this.openIndices.update((set) => {
-      const next = new Set(set);
-      if (next.has(index)) {
-        next.delete(index);
-      } else {
-        next.add(index);
-      }
-      return next;
-    });
+    this.openIndex.update((current) => (current === index ? null : index));
   }
 
   isOpen(index: number): boolean {
-    return this.openIndices().has(index);
+    return this.openIndex() === index;
   }
 }

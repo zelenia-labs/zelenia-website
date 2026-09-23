@@ -34,6 +34,12 @@ export default defineConfig(() => ({
             }
           },
           {
+            route: '/about',
+            sitemap: {
+              priority: '0.9'
+            }
+          },
+          {
             route: '/contact',
             sitemap: {
               priority: '0.9'

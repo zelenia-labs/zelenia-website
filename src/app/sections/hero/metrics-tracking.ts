@@ -694,7 +694,7 @@ export interface MetricTab {
 
     .dom-code {
       margin: 0;
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: clamp(0.72rem, 1.05vw, 0.8125rem);
       line-height: 1.6;
       white-space: pre-wrap;

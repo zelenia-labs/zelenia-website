@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-leadership',
+  imports: [RouterLink],
   template: `
     <section class="site-section founders-section" id="founders" aria-labelledby="founders-title">
       <!-- Ambient Glow Circle matching Figma (X: 174, Y: -18, W: 1040, H: 1040, Fill: #F2EBDF 40%, Opacity: 80%, Blur: 180) -->
@@ -91,6 +93,17 @@ import { Component } from '@angular/core';
               performance, and enterprise web systems.
             </p>
           </article>
+        </div>
+
+        <!-- Section CTA: Learn More About Us -->
+        <div class="founders-action reveal-on-scroll">
+          <a
+            class="btn btn--primary founders-cta-btn"
+            routerLink="/team"
+            aria-label="Learn more about our team and background"
+          >
+            <span>Learn More About Us</span>
+          </a>
         </div>
       </div>
     </section>
@@ -201,6 +214,32 @@ import { Component } from '@angular/core';
       margin: 0;
       font-family: var(--font-sans);
       max-width: 320px;
+    }
+
+    .founders-action {
+      display: flex;
+      justify-content: center;
+      margin-block-start: clamp(2.5rem, 4.5vw, 3.75rem);
+    }
+
+    .founders-cta-btn {
+      height: 44px;
+      padding-inline: 2rem;
+      font-size: 0.9rem;
+      font-weight: 550;
+      border-radius: var(--radius-pill);
+      background-color: var(--dark-ink);
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
+      transition: background-color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .founders-cta-btn:hover {
+      background-color: #3d372f;
+      box-shadow: 0 2px 6px rgba(36, 32, 27, 0.18);
     }
   `
 })
