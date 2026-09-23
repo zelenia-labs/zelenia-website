@@ -15,9 +15,11 @@ import { CategoryId } from './diagnostic.model';
       aria-labelledby="diagnostic-title"
     >
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="diagnostic-title">
-            Diagnose your project scope in real time.
+        <div class="section-header section-header--center reveal-on-scroll">
+          <span class="section-tag-subtle">Scope &amp; Estimation</span>
+          <h2 class="section-heading-twotone" id="diagnostic-title">
+            <span class="heading-primary">Diagnose your project scope</span>
+            <span class="heading-secondary">in real time.</span>
           </h2>
           <p class="section-subhead">
             Select your primary web challenge below to inspect our direct deliverables, timeline
@@ -25,7 +27,7 @@ import { CategoryId } from './diagnostic.model';
           </p>
         </div>
 
-        <div class="diagnostic-console" id="diagnostic-tool">
+        <div class="diagnostic-console reveal-on-scroll reveal-delay-1" id="diagnostic-tool">
           <!-- Category Tabs -->
           <div class="diagnostic-nav" role="tablist" aria-label="Project Scope Categories">
             @for (cat of state.categories; track cat.id; let i = $index) {
@@ -100,7 +102,6 @@ import { CategoryId } from './diagnostic.model';
                 [queryParams]="{ focus: state.activeCategoryId() }"
               >
                 <span>Request This Sprint Scope</span>
-                <span class="arrow-indicator" aria-hidden="true">→</span>
               </a>
             </div>
           </div>

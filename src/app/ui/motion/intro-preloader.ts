@@ -13,14 +13,14 @@ import { isPlatformBrowser } from '@angular/common';
         aria-label="Studio Introduction"
       >
         <div class="preloader-content">
-          <div class="preloader-wordmark" aria-label="ZELENIA">
-            <span class="preloader-char" style="--char-idx: 0">Z</span>
-            <span class="preloader-char" style="--char-idx: 1">E</span>
-            <span class="preloader-char" style="--char-idx: 2">L</span>
-            <span class="preloader-char" style="--char-idx: 3">E</span>
-            <span class="preloader-char" style="--char-idx: 4">N</span>
-            <span class="preloader-char" style="--char-idx: 5">I</span>
-            <span class="preloader-char" style="--char-idx: 6">A</span>
+          <div class="preloader-wordmark" aria-label="Zelenia Studio">
+            @for (item of wordmarkChars; track $index) {
+              @if (item.char === ' ') {
+                <span class="preloader-space">&nbsp;</span>
+              } @else {
+                <span class="preloader-char" [style.--char-idx]="item.idx">{{ item.char }}</span>
+              }
+            }
           </div>
           <div class="preloader-line" aria-hidden="true"></div>
         </div>
@@ -32,15 +32,15 @@ import { isPlatformBrowser } from '@angular/common';
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background-color: #fbfaf7;
+      background-color: var(--bg, #fbfbfb);
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       will-change: transform, opacity;
       transform: translate3d(0, 0, 0);
-      box-shadow: 0 20px 50px rgba(18, 22, 30, 0.08);
-      border-bottom: 1px solid rgba(18, 22, 30, 0.08);
+      box-shadow: 0 20px 50px rgba(36, 32, 27, 0.06);
+      border-bottom: 1px solid rgba(36, 32, 27, 0.08);
       transition: transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
@@ -55,38 +55,44 @@ import { isPlatformBrowser } from '@angular/common';
 
     .preloader-wordmark {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: center;
-      gap: clamp(0.25rem, 1vw, 0.6rem);
-      font-family: var(--font-heading, Inter, sans-serif);
-      font-size: clamp(2.25rem, 5.5vw, 4rem);
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(3rem, 6vw, 4.75rem);
       font-weight: 700;
-      color: #0c0f14;
-      letter-spacing: 0.18em;
-      transition: letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      color: #4d4a48;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      -webkit-text-stroke: 0.1px #4d4a48;
+      paint-order: stroke fill;
     }
 
     .preloader-char {
       display: inline-block;
       opacity: 0;
-      transform: translateY(20px);
-      filter: blur(8px);
+      transform: translateY(18px);
+      filter: blur(6px);
       transition:
         opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
         filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      transition-delay: calc(var(--char-idx) * 65ms);
+      transition-delay: calc(var(--char-idx) * 45ms);
     }
 
+    .preloader-space {
+      display: inline-block;
+      width: 0.28em;
+    }
+
+    /* Hairline Rule matching Figma design lines (1px, #D5DFE1, opacity 0.4-0.6) */
     .preloader-line {
       inline-size: 0;
-      block-size: 2px;
-      background: linear-gradient(90deg, transparent, #0c0f14 50%, transparent);
-      border-radius: 9999px;
+      block-size: 1px;
+      background: linear-gradient(90deg, transparent, #d5dfe1 15%, #d5dfe1 85%, transparent);
       opacity: 0;
       transition:
-        inline-size 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s,
-        opacity 0.6s ease 0.35s;
+        inline-size 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+        opacity 0.65s ease 0.3s;
     }
 
     .intro-preloader.is-animating .preloader-char {
@@ -95,13 +101,9 @@ import { isPlatformBrowser } from '@angular/common';
       filter: blur(0px);
     }
 
-    .intro-preloader.is-animating .preloader-wordmark {
-      letter-spacing: 0.24em;
-    }
-
     .intro-preloader.is-animating .preloader-line {
-      inline-size: clamp(140px, 30vw, 240px);
-      opacity: 0.85;
+      inline-size: clamp(140px, 25vw, 220px);
+      opacity: 0.65;
     }
 
     .intro-preloader.is-curtain-up {
@@ -128,6 +130,8 @@ import { isPlatformBrowser } from '@angular/common';
 export class IntroPreloader {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
+
+  readonly wordmarkChars = 'Zelenia Studio'.split('').map((char, idx) => ({ char, idx }));
 
   readonly isDismissed = signal(false);
   readonly isAnimating = signal(false);
@@ -162,14 +166,14 @@ export class IntroPreloader {
         this.isAnimating.set(true);
       });
 
-      // Phase 2: 1150ms: User has read "ZELENIA" clearly -> Curtain glides up smoothly
+      // Phase 2: 1150ms: User has read "Zelenia Studio" clearly -> Curtain glides up smoothly
       setTimeout(() => {
         this.isCurtainUp.set(true);
         document.documentElement.classList.remove('has-curtain');
         document.documentElement.classList.add('curtain-revealing');
       }, 1150);
 
-      // Phase 3: 1800ms: Completely dismiss preloader from DOM
+      // Phase 3: 1800ms: Transition complete -> Cleanup DOM from tree completely
       setTimeout(() => {
         this.isDismissed.set(true);
         document.documentElement.classList.remove('curtain-revealing');

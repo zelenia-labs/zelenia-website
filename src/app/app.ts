@@ -30,7 +30,7 @@ export class App {
     afterNextRender(() => {
       if (!this.isBrowser) return;
 
-      let disconnect = initScrollReveal();
+      const disconnect = initScrollReveal();
 
       const sub = this.router.events
         .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))

@@ -13,15 +13,19 @@ import { AuditConsole } from './audit-console';
       aria-labelledby="speed-audit-title"
     >
       <div class="container audit-container">
-        <div class="section-header section-header--center">
-          <h2 class="section-title" id="speed-audit-title">Audit your live web speed.</h2>
+        <div class="section-header section-header--center reveal-on-scroll">
+          <span class="section-tag-subtle">Core Web Vitals</span>
+          <h2 class="section-heading-twotone" id="speed-audit-title" style="align-items: center;">
+            <span class="heading-primary">Audit your live</span>
+            <span class="heading-secondary">web speed.</span>
+          </h2>
           <p class="section-subhead">
             Real-world Core Web Vitals via Google PageSpeed Insights. Zero sales gates, instant
             diagnostic feedback.
           </p>
         </div>
 
-        <div class="audit-card-wrapper">
+        <div class="audit-card-wrapper reveal-on-scroll reveal-delay-1">
           <div class="hero-audit-card">
             <form
               class="hero-audit-form"
@@ -81,7 +85,6 @@ import { AuditConsole } from './audit-console';
                   [disabled]="pagespeed.isScanning()"
                 >
                   <span class="btn-text">Run Audit</span>
-                  <span class="arrow-indicator" aria-hidden="true">→</span>
                   <span class="btn-spinner" aria-hidden="true"></span>
                 </button>
               </div>
@@ -140,6 +143,98 @@ import { AuditConsole } from './audit-console';
       inline-size: 100%;
       max-inline-size: 780px;
       margin-block-start: 2.5rem;
+    }
+
+    .hero-audit-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 2.5rem);
+      box-shadow: 0 4px 24px rgba(36, 32, 27, 0.04);
+    }
+
+    .hero-audit-bar {
+      display: flex;
+      align-items: center;
+      background: var(--surface-warm);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.35rem 0.35rem 1.25rem;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+      gap: 0.75rem;
+    }
+
+    .hero-audit-bar:focus-within {
+      border-color: var(--dark-ink);
+      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.06);
+    }
+
+    .hero-audit-bar.is-invalid {
+      border-color: var(--accent-rose, #e05252);
+    }
+
+    .audit-input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .input-icon {
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .hero-audit-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      width: 100%;
+    }
+
+    .hero-audit-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .btn--hero-audit {
+      flex-shrink: 0;
+      border-radius: var(--radius-pill);
+      height: 42px;
+      padding-inline: 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 550;
+    }
+
+    .hero-audit-error {
+      display: block;
+      color: var(--accent-rose, #e05252);
+      font-size: 0.8125rem;
+      margin-top: 0.65rem;
+      padding-left: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero-audit-bar {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
+      .audit-input-wrapper {
+        width: 100%;
+      }
+
+      .btn--hero-audit {
+        width: 100%;
+      }
     }
   `
 })

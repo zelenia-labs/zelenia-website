@@ -114,4 +114,88 @@ describe('Contact Component (Signal Forms)', () => {
     const techInput = fixture.nativeElement.querySelector('#tech-stack') as HTMLInputElement;
     expect(techInput).toBeTruthy();
   });
+
+  it('should toggle custom dropdown open and close on trigger click', async () => {
+    const trigger = fixture.nativeElement.querySelector(
+      '#trigger-primary-focus'
+    ) as HTMLButtonElement;
+    expect(trigger).toBeTruthy();
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+
+    trigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    const menu = fixture.nativeElement.querySelector('#listbox-primary-focus');
+    expect(menu).toBeTruthy();
+
+    // Click trigger again to close
+    trigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+  });
+
+  it('should select an option from custom dropdown and update model, native select, and trigger label', async () => {
+    const trigger = fixture.nativeElement.querySelector(
+      '#trigger-primary-focus'
+    ) as HTMLButtonElement;
+    trigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const options = fixture.nativeElement.querySelectorAll('.custom-select-option');
+    expect(options.length).toBeGreaterThan(1);
+
+    // Select the second option
+    const secondOption = options[1] as HTMLElement;
+    secondOption.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    // Menu should be closed
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+
+    // Native select should reflect the updated value
+    const selectEl = fixture.nativeElement.querySelector('#primary-focus') as HTMLSelectElement;
+    expect(selectEl.value).toBe(component['diagnostic'].categories[1].id);
+
+    // Trigger value label should reflect the updated selection
+    const valueEl = trigger.querySelector('.custom-select-value');
+    expect(valueEl?.textContent).toContain(component['diagnostic'].categories[1].label);
+  });
+
+  it('should close open custom dropdown on Escape key or outside click', async () => {
+    const trigger = fixture.nativeElement.querySelector(
+      '#trigger-primary-focus'
+    ) as HTMLButtonElement;
+    trigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeTruthy();
+
+    // Dispatch Escape
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+
+    // Open again, then click outside
+    trigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeTruthy();
+
+    document.body.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+  });
 });

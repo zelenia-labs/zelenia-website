@@ -49,7 +49,6 @@ import { RouterLink } from '@angular/router';
           <div class="plan-action">
             <a class="btn btn--pill-plan" routerLink="/process">
               <span>Get a free audit</span>
-              <span class="arrow-indicator" aria-hidden="true">→</span>
             </a>
           </div>
         </div>

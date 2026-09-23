@@ -22,9 +22,9 @@ describe('SiteHeader Component', () => {
     expect(component).toBeTruthy();
     const logoEl = fixture.nativeElement.querySelector('.site-logo');
     expect(logoEl).toBeTruthy();
-    const imgEl = logoEl.querySelector('.site-logo-icon');
-    expect(imgEl).toBeTruthy();
-    expect(imgEl.getAttribute('src')).toBe('/Zelenia-Logo.svg');
+    const markEl = logoEl.querySelector('.site-logo-mark');
+    expect(markEl).toBeTruthy();
+    expect(markEl.textContent?.trim()).toBe('Z');
   });
 
   it('should not contain a hamburger menu button or nav-toggle', () => {

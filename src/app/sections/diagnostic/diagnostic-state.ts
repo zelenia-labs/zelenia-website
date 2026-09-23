@@ -82,7 +82,7 @@ export class DiagnosticState {
           'Touch-target calibration (min 44x44px) and fluid typography scaling'
         ],
         accelerated: [
-          'Full-scale parallel remediation of high-traffic views by both founders',
+          'Full-scale parallel remediation of high-traffic views by senior leads',
           'Immediate repair of screen-reader blockers and keyboard trap vulnerabilities',
           'Mobile viewport refactoring across edge-case device aspect ratios',
           'Comprehensive accessibility conformance statement and VPAT guidance'

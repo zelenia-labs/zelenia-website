@@ -184,12 +184,13 @@ html.curtain-dismissed .hero-metrics-bar {
   font-size: clamp(2.75rem, 5.2vw, 4.25rem);
   font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 1.08;
+  line-height: 1.2;
   color: #ffffff;
 }
 
 .hero-title__line {
   display: block;
+  line-height: 1.2;
 }
 
 .hero-title__line:first-child {

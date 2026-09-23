@@ -49,7 +49,6 @@ export interface CapabilityItem {
             aria-label="Explore Development Process and Scope Estimator"
           >
             <span>Explore Process &amp; Scope Estimator</span>
-            <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>

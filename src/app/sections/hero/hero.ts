@@ -49,7 +49,6 @@ import { RouterLink } from '@angular/router';
           <div class="hero-action-dock">
             <a class="btn btn--pill-hero" routerLink="/contact">
               <span>Get in touch</span>
-              <span class="hero-arrow" aria-hidden="true">→</span>
             </a>
           </div>
 

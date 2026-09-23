@@ -47,7 +47,6 @@ import { Partner } from '../../content/team';
           [attr.aria-label]="linkedinAriaLabel()"
         >
           <span>Say Hello on LinkedIn</span>
-          <span class="arrow-indicator" aria-hidden="true">↗</span>
         </a>
       </div>
     </article>

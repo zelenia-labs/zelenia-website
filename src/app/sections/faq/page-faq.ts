@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 export interface PageFaqItem {
@@ -10,80 +10,69 @@ export interface PageFaqItem {
   selector: 'app-page-faq',
   imports: [RouterLink],
   template: `
-    <section class="site-section faq-section" aria-labelledby="faq-heading">
+    <section class="site-section faq-section" id="faq" aria-labelledby="faq-heading">
       <div class="container faq-container">
-        <!-- Asymmetric 2-Column Layout -->
         <div class="faq-layout">
-          <!-- Left Column: Sticky Editorial Context & Direct Action -->
-          <div class="faq-context-col">
-            <div class="faq-sticky-panel reveal-on-scroll">
-              <div class="faq-badge-wrapper">
-                <span class="pulsating-dot" aria-hidden="true"></span>
-                <span class="faq-tag">{{ tag() }}</span>
-              </div>
-              <h2 class="faq-title" id="faq-heading">{{ title() }}</h2>
-              @if (subtitle()) {
-                <p class="faq-subtitle">{{ subtitle() }}</p>
-              }
-
-              <!-- Direct Practitioner Help Card -->
-              <div class="faq-help-card">
-                <span class="faq-help-card__badge">DIRECT FOUNDER ACCESS</span>
-                <p class="faq-help-card__text">{{ contactPrompt() }}</p>
-                <a class="btn btn--secondary btn--faq-ask" routerLink="/contact">
-                  <span>Ask Us Directly</span>
-                  <span class="arrow-indicator" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
+          <!-- Left Column: FAQ Anchor & Context -->
+          <div class="faq-left-col reveal-on-scroll">
+            <span class="section-tag-subtle">{{ tag() }}</span>
+            <h2 class="faq-hero-heading" id="faq-heading">FAQ</h2>
+            @if (subtitle()) {
+              <p class="faq-hero-subhead">{{ subtitle() }}</p>
+            } @else if (title()) {
+              <p class="faq-hero-subhead">{{ title() }} {{ titleSecondary() }}</p>
+            }
           </div>
 
-          <!-- Right Column: Elevated Interactive Accordion Cards -->
-          <div class="faq-accordion-col" role="region" aria-label="Frequently Asked Questions">
-            <div class="faq-accordion-list reveal-on-scroll reveal-delay-1">
+          <!-- Right Column: Clean Accordion Stack & Direct Inquiry Dock -->
+          <div
+            class="faq-right-col reveal-on-scroll reveal-delay-1"
+            role="region"
+            aria-label="FAQ Accordion"
+          >
+            <div class="faq-accordion-stack">
               @for (item of items(); track item.q; let i = $index) {
-                <details class="faq-accordion-item" [open]="i === 0">
-                  <summary class="faq-summary">
-                    <div class="faq-summary__main">
-                      <span class="faq-summary__index">0{{ i + 1 }}</span>
-                      <span class="faq-summary__question">{{ item.q }}</span>
+                <div class="faq-accordion-card" [class.is-expanded]="isOpen(i)">
+                  <button
+                    type="button"
+                    class="faq-accordion-trigger"
+                    [id]="'faq-trigger-' + i"
+                    [attr.aria-expanded]="isOpen(i)"
+                    [attr.aria-controls]="'faq-panel-' + i"
+                    (click)="toggleItem(i)"
+                  >
+                    <span class="faq-question-text">{{ item.q }}</span>
+                    <span class="faq-accordion-icon" aria-hidden="true">+</span>
+                  </button>
+
+                  @if (isOpen(i)) {
+                    <div
+                      class="faq-accordion-body"
+                      [id]="'faq-panel-' + i"
+                      role="region"
+                      [attr.aria-labelledby]="'faq-trigger-' + i"
+                    >
+                      <p class="faq-answer-text">{{ item.a }}</p>
                     </div>
-                    <div class="faq-summary__toggle" aria-hidden="true">
-                      <svg
-                        class="faq-toggle-svg"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line
-                          class="toggle-line toggle-line--v"
-                          x1="12"
-                          y1="5"
-                          x2="12"
-                          y2="19"
-                        ></line>
-                        <line
-                          class="toggle-line toggle-line--h"
-                          x1="5"
-                          y1="12"
-                          x2="19"
-                          y2="12"
-                        ></line>
-                      </svg>
-                    </div>
-                  </summary>
-                  <div class="faq-answer">
-                    <div class="faq-answer__inner">
-                      <p class="faq-answer__text">{{ item.a }}</p>
-                    </div>
-                  </div>
-                </details>
+                  }
+                </div>
               }
+            </div>
+
+            <!-- Direct Inquiry Card below FAQ items -->
+            <div class="faq-inquiry-card">
+              <div class="faq-inquiry-info">
+                <span class="faq-inquiry-tag">Direct Studio Access</span>
+                <p class="faq-inquiry-text">
+                  {{
+                    contactPrompt() ||
+                      'Have a specific project scope or timeline in mind? Our senior team answers inquiries directly within studio hours.'
+                  }}
+                </p>
+              </div>
+              <a class="btn btn--primary faq-inquiry-btn" routerLink="/contact">
+                <span>Ask Us Directly</span>
+              </a>
             </div>
           </div>
         </div>
@@ -93,10 +82,28 @@ export interface PageFaqItem {
 })
 export class PageFaq {
   readonly tag = input<string>('FAQ');
-  readonly title = input.required<string>();
+  readonly title = input<string>('');
+  readonly titleSecondary = input<string>('');
   readonly subtitle = input<string>('');
   readonly items = input.required<PageFaqItem[]>();
-  readonly contactPrompt = input<string>(
-    'Have a specific project scope or timeline in mind? Alejandro and Yolanda answer inquiries directly within studio hours.'
-  );
+  readonly contactPrompt = input<string>('');
+
+  // Default: Open the first item initially
+  readonly openIndices = signal<Set<number>>(new Set([0]));
+
+  toggleItem(index: number): void {
+    this.openIndices.update((set) => {
+      const next = new Set(set);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  }
+
+  isOpen(index: number): boolean {
+    return this.openIndices().has(index);
+  }
 }

@@ -17,18 +17,18 @@ export interface HeaderNavItem {
       class="site-header"
       [class.is-scrolled-up]="isScrolledUp()"
       [class.is-scrolled-down]="isScrolledDown()"
+      [class.is-subpage]="currentPath() !== '/'"
       id="site-header"
     >
       <div class="header-inner">
-        <!-- Zelenia Logo (public/Zelenia-Logo.svg) -->
-        <a class="site-logo" routerLink="/" aria-label="Zelenia Home" (click)="onLogoClick($event)">
-          <img
-            src="/Zelenia-Logo.svg"
-            alt="Zelenia Logo"
-            class="site-logo-icon"
-            width="15"
-            height="18"
-          />
+        <!-- Zelenia Logo Mark -->
+        <a
+          class="site-logo"
+          routerLink="/"
+          aria-label="Zelenia Studio Home"
+          (click)="onLogoClick($event)"
+        >
+          <span class="site-logo-mark" aria-hidden="true">Z</span>
         </a>
 
         <!-- Main Nav Links (Our process, Services, About) -->

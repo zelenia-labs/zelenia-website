@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
       <div class="container footer-container">
         <!-- Left Column: Branding & Email matching design.svg -->
         <div class="footer-brand">
-          <span class="footer-logo">Zelenia Labs</span>
+          <span class="footer-logo">Zelenia Studio</span>
           <a href="mailto:hello@zelenia.com" class="footer-email">hello&#64;zelenia.com</a>
         </div>
 
@@ -76,10 +76,13 @@ import { RouterLink } from '@angular/router';
 
     .footer-logo {
       font-family: var(--font-serif);
-      font-size: 1.65rem;
-      font-weight: 500;
-      color: var(--text);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #4d4a48;
       letter-spacing: -0.02em;
+      line-height: 1.15;
+      -webkit-text-stroke: 0.1px #4d4a48;
+      paint-order: stroke fill;
     }
 
     .footer-email {

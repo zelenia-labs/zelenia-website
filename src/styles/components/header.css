@@ -21,14 +21,14 @@
   transform: translateY(-100%);
 }
 
-/* When scrolling up (showing intent to go up), reveal with background applied */
+/* When scrolling up (showing intent to go up), reveal with footer background applied */
 .site-header.is-scrolled-up {
   transform: translateY(0);
-  background: rgba(25, 24, 23, 0.75);
+  background: rgba(251, 251, 251, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(36, 32, 27, 0.08);
+  box-shadow: 0 4px 20px rgba(36, 32, 27, 0.06);
 }
 
 .header-inner {
@@ -42,19 +42,47 @@
   box-sizing: border-box;
 }
 
-/* Zelenia Logo Mark (x=64, y=32 in design.svg) */
+/* Zelenia Logo Mark */
 .site-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #ffffff;
+  line-height: 1;
 }
 
-.site-logo-icon {
-  width: 15px;
-  height: 18px;
-  display: block;
+.site-logo-mark {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke: 0.1px #ffffff;
+  paint-order: stroke fill;
+  line-height: 1;
+  display: inline-block;
+  user-select: none;
+  transition:
+    color var(--transition-fast),
+    -webkit-text-stroke-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.site-logo:hover .site-logo-mark {
+  opacity: 0.85;
+}
+
+/* On floating nav (scrolled up) and subpages, transition logo to studio charcoal */
+.site-header.is-scrolled-up .site-logo-mark,
+.site-header.is-subpage .site-logo-mark {
+  color: #4d4a48;
+  -webkit-text-stroke: 0.1px #4d4a48;
+}
+
+.site-header.is-scrolled-up .site-logo:hover .site-logo-mark,
+.site-header.is-subpage .site-logo:hover .site-logo-mark {
+  color: var(--dark-ink);
+  -webkit-text-stroke: 0.1px var(--dark-ink);
+  opacity: 1;
 }
 
 /* Site Navigation Links */
@@ -86,6 +114,23 @@
   font-weight: 550;
 }
 
+/* On floating nav (footer background) and subpages, links match footer typography */
+.site-header.is-scrolled-up .nav-link,
+.site-header.is-subpage .nav-link {
+  color: var(--text);
+}
+
+.site-header.is-scrolled-up .nav-link:hover,
+.site-header.is-subpage .nav-link:hover {
+  color: var(--text-primary);
+}
+
+.site-header.is-scrolled-up .nav-link.is-active,
+.site-header.is-subpage .nav-link.is-active {
+  color: var(--text-primary);
+  font-weight: 550;
+}
+
 /* Header Pill CTA Button matching design.svg (w=102, h=35, rx=17.5) */
 .header-cta {
   display: flex;
@@ -96,19 +141,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 35px;
-  padding-inline: 1.25rem;
+  height: 31px;
+  min-height: 31px;
+  padding-block: 0;
+  padding-inline: 1.15rem;
   border-radius: var(--radius-pill);
   background-color: #ffffff;
   color: var(--text);
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   font-weight: 550;
+  line-height: 1;
   text-decoration: none;
-  border: none;
+  border: 1px solid transparent;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .btn--pill-header:hover {
   background-color: #f4f5f6;
+}
+
+/* On floating nav and subpages, provide authoritative dark pill CTA */
+.site-header.is-scrolled-up .btn--pill-header,
+.site-header.is-subpage .btn--pill-header {
+  background-color: var(--dark-ink);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(36, 32, 27, 0.12);
+}
+
+.site-header.is-scrolled-up .btn--pill-header:hover,
+.site-header.is-subpage .btn--pill-header:hover {
+  background-color: #3d372f;
 }

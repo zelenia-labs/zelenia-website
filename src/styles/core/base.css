@@ -44,12 +44,12 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.15;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
   margin: 0;
   text-wrap: balance;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 /* Editorial Serif Utility (Signifier / Newsreader style) */
@@ -114,7 +114,7 @@ main:focus {
 }
 
 .block-luminous .section-tag {
-  color: var(--blue);
+  color: var(--text-muted);
 }
 
 .site-section::before {
@@ -169,42 +169,45 @@ main:focus {
 .section-tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 
 .section-heading h2,
 .section-title {
   margin: 12px 0 14px;
-  font-size: clamp(42px, 5vw, 64px);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  font-weight: 620;
-  color: var(--text-primary);
+  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  color: var(--text);
 }
 
 /* Profile Typography (Screenshots 2 & 5) */
 .profile-content h3 {
   margin: 14px 0 12px;
   font-size: 25px;
-  line-height: 1.08;
+  line-height: 1.2;
   letter-spacing: -0.03em;
+  font-weight: 500;
+  color: var(--text);
 }
 
 .profile-content p {
   margin: 0;
   color: var(--text-2);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .section-subhead {
-  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
-  color: var(--text-secondary);
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--text-2);
+  line-height: 1.6;
   margin: 0;
   text-wrap: pretty;
   font-weight: 400;
@@ -217,6 +220,7 @@ main:focus {
 
 /* ==========================================================================
    Architectural Studio Button Primitives (Prestige & Executive Trust)
+   Standardized universal pill radius matching home page and floating nav
    ========================================================================== */
 
 .btn {
@@ -230,7 +234,7 @@ main:focus {
   font-weight: 550;
   letter-spacing: -0.01em;
   line-height: 1.2;
-  border-radius: var(--radius-sm); /* 6px disciplined architectural precision */
+  border-radius: var(--radius-pill); /* Universal pill language across the entire studio */
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;
@@ -252,81 +256,52 @@ main:focus {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--dark-ink);
   outline-offset: 2px;
 }
 
-/* Primary Button: Deep Sovereign Obsidian & Oblique Emerald Accent */
+/* Primary Button: Sovereign Dark Ink */
 .btn--primary {
-  position: relative;
-  isolation: isolate;
-  background-color: #0a1324;
+  background-color: var(--dark-ink);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 1px 3px rgba(8, 14, 28, 0.16);
-  overflow: hidden;
+  border: 1px solid var(--dark-ink);
+  box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
   transition:
-    border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn--primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    #09101f 0%,
-    #0b162a 58%,
-    #0d2238 72%,
-    #064e3b 84%,
-    #059669 94%,
-    #064e3b 100%
-  );
-  opacity: 0;
-  z-index: -1;
-  pointer-events: none;
-  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn--primary:hover::before {
-  opacity: 1;
+    background-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn--primary:hover {
+  background-color: #3d372f;
+  border-color: #3d372f;
   color: #ffffff;
-  border-color: rgba(5, 150, 105, 0.38);
-  box-shadow:
-    0 1px 3px rgba(8, 14, 28, 0.14),
-    0 4px 18px -2px rgba(5, 150, 105, 0.22);
+  box-shadow: 0 2px 6px rgba(36, 32, 27, 0.18);
 }
 
 .btn--primary:active {
-  box-shadow: 0 1px 2px rgba(8, 14, 28, 0.24);
+  background-color: #1a1714;
+  border-color: #1a1714;
+  box-shadow: 0 1px 2px rgba(36, 32, 27, 0.24);
 }
 
-.btn--primary:active::before {
-  filter: brightness(0.9);
-}
-
-/* Secondary Button: Clean Gallery Alabaster & Hairline Border */
+/* Secondary Button: Clean Gallery Surface & Subtle Border */
 .btn--secondary {
-  background-color: #ffffff;
+  background-color: var(--surface-warm);
   color: var(--text);
-  border: 1px solid rgba(18, 22, 30, 0.14);
-  box-shadow: 0 1px 2px rgba(18, 22, 30, 0.03);
+  border: 1px solid rgba(36, 32, 27, 0.12);
+  box-shadow: 0 1px 2px rgba(36, 32, 27, 0.04);
 }
 
 .btn--secondary:hover {
-  background-color: #fbfaf8;
+  background-color: #f2ede4;
   color: var(--text);
-  border-color: rgba(18, 22, 30, 0.24);
-  box-shadow: 0 2px 4px rgba(18, 22, 30, 0.05);
+  border-color: rgba(36, 32, 27, 0.22);
+  box-shadow: 0 2px 4px rgba(36, 32, 27, 0.06);
 }
 
 .btn--secondary:active {
-  background-color: #f2efe7;
+  background-color: #e8e2d8;
   box-shadow: none;
 }
 
@@ -339,8 +314,8 @@ main:focus {
 
 .btn--ghost:hover {
   color: var(--text);
-  background-color: rgba(18, 22, 30, 0.04);
-  border-color: rgba(18, 22, 30, 0.08);
+  background-color: rgba(36, 32, 27, 0.05);
+  border-color: rgba(36, 32, 27, 0.08);
 }
 
 /* Secondary Action in Link Mode (Text / Arrow Link without solid button chrome) */
@@ -354,14 +329,14 @@ main:focus {
   color: var(--text-2);
   text-decoration: none;
   padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   background: transparent;
   border: 1px solid transparent;
   transition: color var(--transition-fast);
 }
 
 .action-secondary-link:hover {
-  color: var(--blue);
+  color: var(--text);
 }
 
 /* Arrow indicator: Fluid Motion */

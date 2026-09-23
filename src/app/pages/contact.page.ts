@@ -9,7 +9,7 @@ export const routeMeta: RouteMeta = {
     {
       name: 'description',
       content:
-        'Initiate your project sprint with Zelenia. Submit a structured scope request, schedule a 15-minute strategy call, or message the founders directly.'
+        'Initiate your project sprint with Zelenia. Submit a structured scope request, schedule a 15-minute strategy call, or message our team directly.'
     },
     {
       property: 'og:title',
@@ -18,7 +18,7 @@ export const routeMeta: RouteMeta = {
     {
       property: 'og:description',
       content:
-        'Direct communication with Alejandro Cuba and Yolanda Santa Cruz. Zero sales screens, zero account managers.'
+        'Direct communication with our engineering and design leads. Zero sales screens, zero account managers.'
     }
   ]
 };
@@ -34,7 +34,8 @@ export const routeMeta: RouteMeta = {
       <!-- Intake & Confidentiality FAQ -->
       <app-page-faq
         tag="Onboarding &amp; Privacy FAQ"
-        title="What to expect when connecting with Zelenia."
+        title="What to expect when"
+        titleSecondary="connecting with Zelenia."
         subtitle="Transparent answers regarding response SLAs, non-disclosure agreements, and scoping calls."
         [items]="contactFaqs"
       />
@@ -51,7 +52,7 @@ export default class ContactPage {
   readonly contactFaqs: PageFaqItem[] = [
     {
       q: 'How quickly will we receive a response after submitting our project scope?',
-      a: 'Every inquiry is reviewed directly by Alejandro and Yolanda within one business day during studio hours (Monday to Friday, 9:00 AM to 6:00 PM EST).'
+      a: 'Every inquiry is reviewed directly by our senior leads within one business day during studio hours (Monday to Friday, 9:00 AM to 6:00 PM EST).'
     },
     {
       q: 'Are the 15-minute strategy calls free and without sales pressure?',

@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
           <span class="section-tag-subtle">Founders</span>
           <h2 class="section-heading-twotone" id="founders-title">
             <span class="heading-primary">Meet the founders of</span>
-            <span class="heading-secondary">Zelenia Labs</span>
+            <span class="heading-secondary">Zelenia Studio</span>
           </h2>
 
           <p class="section-subhead">Built with care from vision to production.</p>
@@ -191,6 +191,7 @@ import { Component } from '@angular/core';
       letter-spacing: -0.02em;
       margin: 0 0 0.5rem 0;
       font-family: var(--font-sans);
+      line-height: 1.2;
     }
 
     .founder-bio {

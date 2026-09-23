@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-export type MetricTabKey = 'vitals' | 'responsive' | 'seo' | 'cro' | 'git';
+export type MetricTabKey = 'vitals' | 'responsive' | 'seo' | 'cro';
 
 export interface MetricTab {
   id: MetricTabKey;
@@ -112,7 +112,6 @@ export interface MetricTab {
                     [queryParams]="{ focus: 'vitals' }"
                   >
                     <span>Explore live speed audit</span>
-                    <span class="arrow-indicator" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -189,7 +188,6 @@ export interface MetricTab {
                     [queryParams]="{ focus: 'responsive' }"
                   >
                     <span>Explore responsive architecture</span>
-                    <span class="arrow-indicator" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -211,7 +209,11 @@ export interface MetricTab {
     &lt;<span class="code-tag">h1</span> <span class="code-attr">class</span>=<span class="code-val">"hero-title"</span>&gt;High-Performance Web&lt;/<span class="code-tag">h1</span>&gt;
   &lt;/<span class="code-tag">header</span>&gt;
   &lt;<span class="code-tag">script</span> <span class="code-attr">type</span>=<span class="code-val">"application/ld+json"</span>&gt;
-    &#123; "&#64;type": "ProfessionalService", "founder": "Alejandro Cuba", "designer": "Yolanda Santa Cruz" &#125;
+    &#123;
+      "&#64;type": "ProfessionalService",
+      "founder": "Alejandro Cuba",
+      "designer": "Yolanda Santa Cruz"
+    &#125;
   &lt;/<span class="code-tag">script</span>&gt;
 &lt;/<span class="code-tag">main</span>&gt;</code></pre>
 
@@ -235,7 +237,6 @@ export interface MetricTab {
                     [queryParams]="{ focus: 'technical-seo' }"
                   >
                     <span>Explore technical SEO sprint</span>
-                    <span class="arrow-indicator" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -284,57 +285,6 @@ export interface MetricTab {
                     [queryParams]="{ focus: 'visual-elevation' }"
                   >
                     <span>Explore aesthetic elevation</span>
-                    <span class="arrow-indicator" aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-            }
-
-            <!-- 5. Direct Git Commits Pane -->
-            @if (activeTab() === 'git') {
-              <div class="pane-content">
-                <div class="pane-topbar">
-                  <span class="pane-meta">DIRECT FOUNDER EXECUTION &bull; GIT COMMITS</span>
-                  <span class="badge-pill-git">100% REPOSITORY CUSTODY</span>
-                </div>
-
-                <div class="git-console-card">
-                  <div class="git-console-head">
-                    <span class="git-branch">main &bull; client-repo</span>
-                    <span class="git-sync">Committed directly by founders</span>
-                  </div>
-                  <div class="commit-rows">
-                    <div class="commit-item">
-                      <span class="hash">8f3a91c</span>
-                      <span class="msg"
-                        >feat: offload main-thread long tasks &bull; sub-0.5s LCP</span
-                      >
-                      <span class="author">Alejandro Cuba (GDE)</span>
-                    </div>
-                    <div class="commit-item">
-                      <span class="hash">e294b0f</span>
-                      <span class="msg"
-                        >design: harmonize typography tokens &amp; accessible landmarks</span
-                      >
-                      <span class="author">Yolanda Santa Cruz</span>
-                    </div>
-                    <div class="commit-item">
-                      <span class="hash">c41098a</span>
-                      <span class="msg">perf: zero layout shift font pre-allocation</span>
-                      <span class="author">Alejandro Cuba (GDE)</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="pane-narrative">
-                  <p>
-                    Unblock stalled roadmaps or replace underperforming agency retainers. Two senior
-                    founders committing production-grade TypeScript directly to your Git
-                    organization.
-                  </p>
-                  <a class="btn btn--pill-pane" routerLink="/contact">
-                    <span>Connect directly with founders</span>
-                    <span class="arrow-indicator" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
@@ -349,7 +299,7 @@ export interface MetricTab {
       background-color: var(--bg);
       padding-block: clamp(4.5rem, 7vw, 6.5rem);
       position: relative;
-      overflow: visible;
+      overflow: hidden;
     }
 
     .metrics-tracking-section .container {
@@ -380,16 +330,18 @@ export interface MetricTab {
     .telemetry-interactive-stage {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: start;
       max-width: var(--shell);
       margin-inline: auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     @media (min-width: 960px) {
       .telemetry-interactive-stage {
-        grid-template-columns: 320px 1fr;
-        gap: 3rem;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: clamp(1.75rem, 3vw, 2.75rem);
       }
     }
 
@@ -448,16 +400,25 @@ export interface MetricTab {
     .telemetry-screen {
       background-color: #ffffff;
       border-radius: var(--radius-lg);
-      padding: clamp(1.75rem, 3.5vw, 2.5rem);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
       border: none;
       box-shadow: none;
       min-height: 480px;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .pane-content {
       display: flex;
       flex-direction: column;
       gap: 1.75rem;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .pane-topbar {
@@ -720,18 +681,28 @@ export interface MetricTab {
       background-color: #1e1d1b;
       color: #f3f4f6;
       border-radius: var(--radius-sm);
-      padding: 1.25rem 1.5rem;
+      padding: clamp(1rem, 2vw, 1.5rem);
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
       border: none;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .dom-code {
       margin: 0;
       font-family: var(--font-mono);
-      font-size: 0.8125rem;
+      font-size: clamp(0.72rem, 1.05vw, 0.8125rem);
       line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .code-tag {
@@ -760,8 +731,7 @@ export interface MetricTab {
     }
 
     .badge-pill-wcag,
-    .badge-pill-cro,
-    .badge-pill-git {
+    .badge-pill-cro {
       font-family: var(--font-sans);
       font-size: 0.72rem;
       font-weight: 600;
@@ -839,67 +809,6 @@ export interface MetricTab {
       color: var(--text-2);
     }
 
-    /* Git Console */
-    .git-console-card {
-      background-color: #1e1d1b;
-      color: #f3f4f6;
-      border-radius: var(--radius-sm);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      border: none;
-    }
-
-    .git-console-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 0.65rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .git-branch {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #86efac;
-    }
-
-    .git-sync {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .commit-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .commit-item {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-    }
-
-    .commit-item .hash {
-      color: #93c5fd;
-    }
-
-    .commit-item .msg {
-      color: rgba(255, 255, 255, 0.85);
-      flex-grow: 1;
-    }
-
-    .commit-item .author {
-      color: #fca5a5;
-      font-size: 0.7rem;
-    }
-
     /* Narrative in Panes */
     .pane-narrative {
       display: flex;
@@ -963,11 +872,6 @@ export class MetricsTracking {
       id: 'cro',
       title: 'Aesthetic Crafted for High CRO',
       summary: 'Conversion psychology & visual balance'
-    },
-    {
-      id: 'git',
-      title: 'Direct Founder Execution',
-      summary: '100% repository custody & zero agency layers'
     }
   ];
 

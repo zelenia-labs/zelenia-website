@@ -143,12 +143,11 @@ import { AuditResults } from './pagespeed-client';
           <div class="remediation-text">
             <h4 class="remediation-title">Ready to eliminate technical bottlenecks?</h4>
             <p class="remediation-sub">
-              Our founders engineer direct solutions with zero junior delegation.
+              Our senior team engineers direct solutions with zero junior delegation.
             </p>
           </div>
           <a class="btn btn--primary btn--remediate" routerLink="/contact">
             <span>Remediate with the Team</span>
-            <span class="arrow-indicator" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>

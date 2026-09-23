@@ -42,18 +42,16 @@
 }
 
 .diagnostic-tab:hover {
-  color: var(--blue);
-  background: rgba(0, 85, 255, 0.06);
+  color: var(--text);
+  background: var(--surface-warm);
 }
 
 .diagnostic-tab[aria-selected='true'] {
   color: #ffffff;
-  background: linear-gradient(180deg, #0056fb 0%, #0047e0 100%);
-  border-color: rgba(0, 40, 160, 0.5);
+  background: var(--dark-ink);
+  border-color: transparent;
   font-weight: 600;
-  box-shadow:
-    0 1px 2px rgba(0, 20, 80, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
 }
 
 /* Pace Selector (Control 2) */
@@ -107,13 +105,11 @@
 }
 
 .diagnostic-pace-btn[aria-pressed='true'] {
-  background: linear-gradient(180deg, #0056fb 0%, #0047e0 100%);
+  background: var(--dark-ink);
   color: #ffffff;
   font-weight: 600;
-  border-color: rgba(0, 40, 160, 0.5);
-  box-shadow:
-    0 1px 2px rgba(0, 20, 80, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 /* Telemetry Stats Bar: Open, Typographic Row */
@@ -153,9 +149,9 @@
 }
 
 .telemetry-sub {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
-  color: var(--blue);
+  color: var(--text-2);
   margin-block-start: 0.4rem;
 }
 
@@ -185,7 +181,7 @@
 }
 
 .division-meter__eng {
-  background: linear-gradient(90deg, #0055ff 0%, #1a6cff 100%);
+  background: #059669;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,7 +194,7 @@
 }
 
 .division-meter__design {
-  background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+  background: #e07a5f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,7 +234,7 @@
   inline-size: 8px;
   block-size: 8px;
   border-radius: 2px;
-  background: var(--brand-primary);
+  background: #059669;
 }
 
 .meter-legend-item--design::before {
@@ -246,7 +242,7 @@
   inline-size: 8px;
   block-size: 8px;
   border-radius: 2px;
-  background: var(--accent-indigo);
+  background: #e07a5f;
 }
 
 /* Split Grid: Deliverables & Benchmarks */
@@ -258,11 +254,11 @@
 }
 
 .diagnostic-panel {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: var(--radius);
+  background: var(--surface);
+  border: none;
+  border-radius: var(--radius-lg);
   padding: clamp(1.75rem, 2.8vw, 2.25rem);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  box-shadow: none;
 }
 
 .panel-header {
@@ -270,10 +266,12 @@
 }
 
 .panel-code {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--brand-primary);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 550;
+  color: var(--text-muted);
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   display: block;
   margin-block-end: 0.35rem;
 }
@@ -281,7 +279,7 @@
 .panel-title {
   font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
   margin: 0;
   letter-spacing: -0.025em;
 }
@@ -301,13 +299,13 @@
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.9375rem;
-  color: #475569;
+  color: var(--text-2);
   line-height: 1.65;
 }
 
 .deliverables-bullet {
-  font-family: var(--font-mono);
-  color: var(--brand-primary);
+  font-family: var(--font-sans);
+  color: var(--text-muted);
 }
 
 /* Benchmarks Grid */
@@ -320,7 +318,7 @@
 .benchmark-tile {
   background: transparent;
   border: none;
-  border-block-start: 1px solid rgba(15, 23, 42, 0.08);
+  border-block-start: 1px solid var(--border);
   padding-block-start: 1rem;
   display: flex;
   flex-direction: column;
@@ -328,17 +326,18 @@
 }
 
 .benchmark-tile__metric {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
   letter-spacing: -0.03em;
 }
 
 .benchmark-tile__label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--brand-primary);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 550;
+  color: var(--text-muted);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -381,7 +380,7 @@
 }
 
 .accordion-trigger:hover {
-  color: var(--blue);
+  color: var(--dark-ink);
 }
 
 .accordion-trigger:focus-visible {
