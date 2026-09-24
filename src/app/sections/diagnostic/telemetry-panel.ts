@@ -1,25 +1,41 @@
 import { Component, input } from '@angular/core';
-import { DivisionOfLabor } from './diagnostic.model';
+import { Benchmark, DivisionOfLabor } from './diagnostic.model';
 
 @Component({
   selector: 'app-telemetry-panel',
   template: `
     <div class="diagnostic-telemetry">
-      <div class="telemetry-cell telemetry-cell--floor">
-        <span class="telemetry-label">Starting Investment</span>
-        <div class="telemetry-value-row">
-          <span class="telemetry-value" style="color: var(--cyan);">{{ investmentFloor() }}</span>
+      <div class="telemetry-commercials-row">
+        <div class="telemetry-cell telemetry-cell--floor">
+          <span class="telemetry-label">Starting Investment</span>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value">{{ investmentFloor() }}</span>
+          </div>
+          <span class="telemetry-sub">50% Deposit / 50% Staging Handoff</span>
         </div>
-        <span class="telemetry-sub">50% Deposit / 50% Staging Handoff</span>
+
+        <div class="telemetry-cell telemetry-cell--turnaround">
+          <span class="telemetry-label">Estimated Timeframe</span>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value">{{ turnaround() }}</span>
+          </div>
+          <span class="telemetry-sub">{{ paceLabel() }}</span>
+        </div>
       </div>
 
-      <div class="telemetry-cell telemetry-cell--turnaround">
-        <span class="telemetry-label">Estimated Timeframe</span>
-        <div class="telemetry-value-row">
-          <span class="telemetry-value">{{ turnaround() }}</span>
+      @if (benchmarks().length > 0) {
+        <div class="telemetry-benchmarks-dock">
+          <span class="telemetry-label">Target Performance Outputs</span>
+          <div class="benchmarks-pills-grid">
+            @for (bench of benchmarks(); track bench.label) {
+              <div class="benchmark-pill">
+                <span class="benchmark-pill__metric">{{ bench.metric }}</span>
+                <span class="benchmark-pill__label">{{ bench.label }}</span>
+              </div>
+            }
+          </div>
         </div>
-        <span class="telemetry-sub">{{ paceLabel() }}</span>
-      </div>
+      }
 
       <div class="telemetry-cell telemetry-cell--division">
         <div class="telemetry-division-header">
@@ -57,4 +73,5 @@ export class TelemetryPanel {
   readonly turnaround = input.required<string>();
   readonly paceLabel = input.required<string>();
   readonly division = input.required<DivisionOfLabor>();
+  readonly benchmarks = input<Benchmark[]>([]);
 }

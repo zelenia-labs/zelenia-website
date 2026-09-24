@@ -15,42 +15,62 @@ import { CategoryId } from './diagnostic.model';
       aria-labelledby="diagnostic-title"
     >
       <div class="container">
-        <div class="section-header section-header--center reveal-on-scroll">
-          <span class="section-tag-subtle">Scope &amp; Estimation</span>
-          <h2 class="section-heading-twotone" id="diagnostic-title">
-            <span class="heading-primary">Diagnose your project scope</span>
-            <span class="heading-secondary">in real time.</span>
-          </h2>
-          <p class="section-subhead">
-            Select your primary web challenge below to inspect our direct deliverables, timeline
-            estimates, division of labor, and process answers.
-          </p>
+        <!-- 2-Column Section Intro with Laptop Telemetry Visual -->
+        <div class="diagnostic-intro-grid reveal-on-scroll">
+          <div class="diagnostic-intro__content">
+            <span class="section-tag-subtle">Scope &amp; Estimation</span>
+            <h2 class="section-heading-twotone" id="diagnostic-title">
+              <span class="heading-primary">Diagnose your project scope</span>
+              <span class="heading-secondary">in real time.</span>
+            </h2>
+            <p class="section-subhead">
+              Select your primary web challenge below to inspect our direct deliverables, timeline
+              estimates, division of labor, and guaranteed target benchmarks.
+            </p>
+            <div class="diagnostic-intro__badges" aria-label="Scope Highlights">
+              <span class="chip-item">Interactive Scope Calculator</span>
+              <span class="chip-item">Real-Time Commercials</span>
+              <span class="chip-item">Production Deliverables</span>
+            </div>
+          </div>
+
+          <div class="diagnostic-intro__visual">
+            <div class="diagnostic-laptop-dock">
+              <img
+                src="/assets/images/diagnostic-laptop-mockup.jpg"
+                alt="Zelenia real-time diagnostic console displaying performance telemetry on laptop"
+                class="diagnostic-laptop-img"
+                width="560"
+                height="420"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
 
         <div class="diagnostic-console reveal-on-scroll reveal-delay-1" id="diagnostic-tool">
-          <!-- Category Tabs -->
-          <div class="diagnostic-nav" role="tablist" aria-label="Project Scope Categories">
-            @for (cat of state.categories; track cat.id; let i = $index) {
-              <button
-                class="diagnostic-tab"
-                type="button"
-                role="tab"
-                [id]="'tab-' + cat.id"
-                [attr.aria-selected]="state.activeCategoryId() === cat.id"
-                aria-controls="diagnostic-panel"
-                [attr.tabindex]="state.activeCategoryId() === cat.id ? '0' : '-1'"
-                (click)="state.selectCategory(cat.id)"
-                (keydown)="onTabKeydown($event, i)"
-              >
-                <span class="diagnostic-tab__label">{{ cat.label }}</span>
-              </button>
-            }
-          </div>
+          <!-- Unified Controls Bar: Category Tabs & Pace Toggle -->
+          <div class="diagnostic-controls-row">
+            <div class="diagnostic-nav" role="tablist" aria-label="Project Scope Categories">
+              @for (cat of state.categories; track cat.id; let i = $index) {
+                <button
+                  class="diagnostic-tab"
+                  type="button"
+                  role="tab"
+                  [id]="'tab-' + cat.id"
+                  [attr.aria-selected]="state.activeCategoryId() === cat.id"
+                  aria-controls="diagnostic-panel"
+                  [attr.tabindex]="state.activeCategoryId() === cat.id ? '0' : '-1'"
+                  (click)="state.selectCategory(cat.id)"
+                  (keydown)="onTabKeydown($event, i)"
+                >
+                  <span class="diagnostic-tab__label">{{ cat.label }}</span>
+                </button>
+              }
+            </div>
 
-          <!-- Pace Selector -->
-          <div class="diagnostic-control-bar">
-            <div class="pace-control-wrap">
-              <span class="control-label">PACE MODEL:</span>
+            <div class="diagnostic-pace-wrapper">
+              <span class="control-label">PACE:</span>
               <div
                 class="diagnostic-pace-toggle"
                 role="group"
@@ -71,7 +91,7 @@ import { CategoryId } from './diagnostic.model';
             </div>
           </div>
 
-          <!-- Reactive Output Dashboard -->
+          <!-- Reactive Output Dashboard: Condensed Unified Card -->
           <div
             class="diagnostic-dashboard"
             id="diagnostic-panel"
@@ -79,30 +99,33 @@ import { CategoryId } from './diagnostic.model';
             [attr.aria-labelledby]="'tab-' + state.activeCategoryId()"
             tabindex="0"
           >
-            <app-telemetry-panel
-              [investmentFloor]="state.investmentFloor()"
-              [turnaround]="state.turnaroundText()"
-              [paceLabel]="state.paceCadenceLabel()"
-              [division]="state.activeCategory().division"
-            />
+            <div class="diagnostic-unified-card">
+              <!-- Left Column: Scope Commercials, Targets, CTA -->
+              <div class="diagnostic-sidebar">
+                <app-telemetry-panel
+                  [investmentFloor]="state.investmentFloor()"
+                  [turnaround]="state.turnaroundText()"
+                  [paceLabel]="state.paceCadenceLabel()"
+                  [division]="state.activeCategory().division"
+                  [benchmarks]="state.benchmarks()"
+                />
 
-            <app-deliverables-list
-              [deliverables]="state.deliverables()"
-              [benchmarks]="state.benchmarks()"
-            />
+                <div class="diagnostic-sidebar-action">
+                  <a
+                    class="btn btn--primary btn--scope-request"
+                    routerLink="/contact"
+                    [queryParams]="{ focus: state.activeCategoryId() }"
+                    [attr.aria-label]="'Request sprint scope for ' + state.activeCategory().label"
+                  >
+                    <span>Request This Sprint Scope</span>
+                  </a>
+                </div>
+              </div>
 
-            <!-- Action to request this scope -->
-            <div
-              class="diagnostic-action-wrap"
-              style="display: flex; justify-content: flex-end; margin-top: 1.5rem;"
-            >
-              <a
-                class="btn btn--primary btn--scope-request"
-                routerLink="/contact"
-                [queryParams]="{ focus: state.activeCategoryId() }"
-              >
-                <span>Request This Sprint Scope</span>
-              </a>
+              <!-- Right Column: Direct Deliverables List -->
+              <div class="diagnostic-main">
+                <app-deliverables-list [deliverables]="state.deliverables()" />
+              </div>
             </div>
           </div>
         </div>

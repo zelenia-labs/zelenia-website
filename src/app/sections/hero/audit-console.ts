@@ -141,13 +141,14 @@ import { AuditResults } from './pagespeed-client';
         <!-- Remediation Callout -->
         <div class="audit-remediation-bar">
           <div class="remediation-text">
-            <h4 class="remediation-title">Ready to eliminate technical bottlenecks?</h4>
+            <h4 class="remediation-title">Ready to fix these speed bottlenecks?</h4>
             <p class="remediation-sub">
-              Our senior team engineers direct solutions with zero junior delegation.
+              The two of us design and build every solution directly, with personal care on every
+              detail.
             </p>
           </div>
           <a class="btn btn--primary btn--remediate" routerLink="/contact">
-            <span>Remediate with the Team</span>
+            <span>Fix This with Us</span>
           </a>
         </div>
       </div>

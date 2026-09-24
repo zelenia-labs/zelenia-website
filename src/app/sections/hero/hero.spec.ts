@@ -43,7 +43,7 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(metricsEl).toBeTruthy();
     expect(metricsEl.textContent).toContain('Technical SEO & Speed');
     expect(metricsEl.textContent).toContain('Fractional Partnership');
-    expect(metricsEl.textContent).toContain('Direct Senior Access');
+    expect(metricsEl.textContent).toContain('Direct Collaboration');
   });
 
   it('should render the background video and textured atmospheric overlays', () => {

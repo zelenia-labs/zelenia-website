@@ -41,8 +41,8 @@ import { RouterLink } from '@angular/router';
           </h1>
 
           <p class="hero-subheadline">
-            High-performance frontend architecture and product design, delivered directly by two
-            senior partners with zero agency overhead.
+            We’re a design and engineering couple crafting fast, thoughtful websites together—with
+            personal care, clear communication, and zero agency runaround.
           </p>
 
           <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
@@ -65,8 +65,8 @@ import { RouterLink } from '@angular/router';
             </div>
             <div class="metric-divider" aria-hidden="true"></div>
             <div class="metric-item">
-              <span class="metric-label">Direct Senior Access</span>
-              <span class="metric-sub">Zero agency overhead</span>
+              <span class="metric-label">Direct Collaboration</span>
+              <span class="metric-sub">Zero agency runaround</span>
             </div>
           </div>
         </div>

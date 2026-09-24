@@ -14,26 +14,22 @@ export type Partner = TeamMember;
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Alejandro Cuba Ruiz',
-    role: 'Principal Frontend Architect & GDE',
-    credentials: 'Principal Frontend Architect & Google Developer Expert (GDE)',
-    highlights: [
-      '20+ Years Experience',
-      'Fortune 100 Principal Engineer',
-      'Google Developer Expert'
-    ],
+    role: 'Frontend Architect & GDE',
+    credentials: 'Frontend Architect & Google Developer Expert (GDE)',
+    highlights: ['20+ Years Experience', 'Google Developer Expert', 'Frontend Architecture'],
     background:
-      '20+ years of software engineering leadership, currently serving as a Principal Software Engineer at a Fortune 100 enterprise. Specializes in scalable frontend architecture, runtime optimization, and high-resilience web applications.',
+      'Software engineer and Google Developer Expert who loves building fast, resilient web applications. With over 20 years of experience, Alejandro focuses on clean modern code, sub-second load times, and rock-solid architecture.',
     linkedin: 'https://www.linkedin.com/in/alejandrocuba/',
     avatarInitials: 'ACR',
     avatarImage: 'portrait_alejandro.jpg'
   },
   {
     name: 'Yolanda Santa Cruz',
-    role: 'Lead Product Designer',
-    credentials: 'Lead Product Designer',
-    highlights: ['10+ Years Experience', 'Seed to Series E Unicorns', 'Fortune 500 Enterprises'],
+    role: 'Lead Product Designer & Visual Artist',
+    credentials: 'Lead Product Designer & Visual Artist',
+    highlights: ['10+ Years Experience', 'Product Design', 'Visual Systems'],
     background:
-      '10+ years of experience leading UX and product design across venture-backed technology startups from Seed to Series E, as well as Fortune 500 enterprises. Specializes in art direction, visual conversion psychology, user experience, and aesthetic elevation for high-performance digital products.',
+      'Product designer and visual artist with over a decade of experience shaping brand identities and digital experiences. Yolanda focuses on thoughtful visual systems, typography, and interfaces that feel effortless to use.',
     linkedin: 'https://www.linkedin.com/in/yolandasantacruz/',
     avatarInitials: 'YSC',
     avatarImage: 'portrait_yolanda.jpg'

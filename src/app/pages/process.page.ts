@@ -12,7 +12,7 @@ export const routeMeta: RouteMeta = {
     {
       name: 'description',
       content:
-        'Explore our senior engineering and product design sprint process. Interactive scope calculator, runtime performance benchmarks, and accessibility protocols.'
+        'Explore how we design and build websites together. Interactive scope calculator, runtime performance benchmarks, and accessible UI protocols.'
     },
     {
       property: 'og:title',
@@ -21,7 +21,7 @@ export const routeMeta: RouteMeta = {
     {
       property: 'og:description',
       content:
-        'Direct senior execution. Web vitals remediation, accessible UI architecture, and predictable sprint delivery.'
+        'Thoughtful design and engineering by Yolanda and Alejandro. Interactive scope planning, sub-second web vitals, and clear sprint delivery.'
     }
   ]
 };
@@ -31,23 +31,52 @@ export const routeMeta: RouteMeta = {
   imports: [RouterLink, Diagnostic, PageFaq],
   template: `
     <div class="process-page">
-      <!-- Process Hero -->
+      <!-- Process Hero: 2-Column Hero Layout -->
       <section class="site-section process-hero" id="process-hero">
         <!-- Ambient Warm Glow Circle (1040x1040px, #f2ebdf) -->
         <div class="ambient-glow glow--process-warm" aria-hidden="true"></div>
 
         <div class="container">
-          <div class="section-header section-header--center reveal-on-scroll">
-            <span class="section-tag-subtle">Execution Protocol</span>
-            <h1 class="section-heading-twotone" id="process-hero-title">
-              <span class="heading-primary">Direct senior execution:</span>
-              <span class="heading-secondary">our development process</span>
-            </h1>
-            <p class="section-subhead">
-              We eliminate agency layers, account managers, and junior handoffs. Every sprint is
-              planned, engineered, and delivered directly by a Fortune 100 Principal Engineer and a
-              Lead Product Designer.
-            </p>
+          <div class="process-hero-grid reveal-on-scroll">
+            <div class="process-hero__content">
+              <span class="section-tag-subtle">How We Build</span>
+              <h1 class="section-heading-twotone" id="process-hero-title">
+                <span class="heading-primary">Thoughtful craft:</span>
+                <span class="heading-secondary">our development process</span>
+              </h1>
+              <p class="section-subhead">
+                We eliminate agency layers, account managers, and handoffs. Every sprint is planned,
+                designed, and coded directly by the two of us working closely with your team.
+              </p>
+
+              <div class="process-hero__badges" aria-label="Process Highlights">
+                <span class="chip-item">Direct Collaboration</span>
+                <span class="chip-item">Continuous Staging</span>
+                <span class="chip-item">Clear Sprint Milestones</span>
+              </div>
+
+              <div class="process-hero__actions">
+                <a class="btn btn--primary" routerLink="/contact">
+                  <span>Book a Scoping Call</span>
+                </a>
+                <a class="btn btn--secondary" href="#diagnostic">
+                  <span>Explore Sprint Scopes</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="process-hero__visual">
+              <div class="process-hero-image-dock">
+                <img
+                  src="/assets/images/senior-execution-craft.jpg"
+                  alt="Yolanda and Alejandro collaborating on product design and code in studio"
+                  class="process-hero-img"
+                  width="600"
+                  height="450"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -57,56 +86,30 @@ export const routeMeta: RouteMeta = {
         <app-diagnostic />
       </div>
 
-      <!-- Section 2: Deep Dive Sections (Performance & Accessibility) -->
+      <!-- Section 2: Condensed Architectural Rigor & Engineering Standards -->
       <section class="site-section process-deep-dive" id="process-deep-dive">
         <!-- Ambient Sage Glow Circle (808x808px, #d5dfe1) -->
         <div class="ambient-glow glow--process-sage" aria-hidden="true"></div>
 
         <div class="container">
-          <!-- Performance Engineering Block -->
-          <div class="deep-dive-block">
-            <div class="section-header section-header--center reveal-on-scroll">
-              <span class="section-tag-subtle">Runtime Rigor</span>
-              <h2 class="section-heading-twotone" id="performance-title">
-                <span class="heading-primary">Performance engineering:</span>
-                <span class="heading-secondary">runtime rigor over quick fixes</span>
-              </h2>
-              <p class="section-subhead">
-                True performance is an architectural discipline. We remediate client-side
-                bottlenecks directly in production code without disrupting backend infrastructure.
-              </p>
-            </div>
+          <div class="section-header section-header--center reveal-on-scroll">
+            <span class="section-tag-subtle">Engineering Standards</span>
+            <h2 class="section-heading-twotone" id="performance-title">
+              <span class="heading-primary">Architectural rigor:</span>
+              <span class="heading-secondary">built for sub-second runtime &amp; WCAG 2.2</span>
+            </h2>
+            <p class="section-subhead">
+              Every sprint is grounded in two uncompromising technical pillars: sub-second Core Web
+              Vitals and strict accessibility compliance. We remediate bottlenecks directly in
+              production code without disruptive backend infrastructure rewrites.
+            </p>
+          </div>
 
-            <!-- 3-card interfaces-grid matching home page with automatic staggered entrance -->
-            <div class="interfaces-grid deep-dive-grid">
-              <!-- Card 1 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--green" aria-hidden="true">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <h3 class="card-title">Long Task Offloading &amp; Sub-200ms INP</h3>
-                <p class="card-description">
-                  We refactor long JavaScript tasks on the browser main thread, implement
-                  cooperative scheduling with modern primitives, and ensure touch and click feedback
-                  is instantaneous.
-                </p>
-              </article>
-
-              <!-- Card 2 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--peach" aria-hidden="true">
+          <div class="standards-pillars-grid reveal-on-scroll">
+            <!-- Pillar 1: Runtime Performance Discipline -->
+            <article class="standards-pillar-card">
+              <div class="pillar-header">
+                <div class="pillar-icon badge--green" aria-hidden="true">
                   <svg
                     width="22"
                     height="22"
@@ -120,57 +123,38 @@ export const routeMeta: RouteMeta = {
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                   </svg>
                 </div>
-                <h3 class="card-title">Critical Path Priority &amp; Sub-1.8s LCP</h3>
-                <p class="card-description">
-                  We streamline the critical rendering path with speculative resource hints, modern
-                  responsive image sets, and zero-layout-shift font pre-allocation.
-                </p>
-              </article>
-
-              <!-- Card 3 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--lavender" aria-hidden="true">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                  </svg>
+                <div>
+                  <span class="pillar-tag">Pillar 01</span>
+                  <h3 class="pillar-title">Runtime Performance Discipline</h3>
                 </div>
-                <h3 class="card-title">CrUX Field Data Calibration</h3>
-                <p class="card-description">
-                  Synthetic lab scores are only a starting point. We optimize for 75th-percentile
-                  real-user metrics (CrUX) to guarantee organic Google ranking protection.
-                </p>
-              </article>
-            </div>
-          </div>
-
-          <!-- Technical Accessibility Block -->
-          <div class="deep-dive-block" style="margin-top: clamp(4.5rem, 8vw, 7rem);">
-            <div class="section-header section-header--center reveal-on-scroll">
-              <span class="section-tag-subtle">Standards &amp; Compliance</span>
-              <h2 class="section-heading-twotone" id="accessibility-title">
-                <span class="heading-primary">Technical accessibility:</span>
-                <span class="heading-secondary">WCAG 2.2 AA &amp; semantic SEO</span>
-              </h2>
-              <p class="section-subhead">
-                Accessible code is search-crawlable code. We build pristine semantic DOM trees that
-                pass stringent legal accessibility audits and maximize indexing reach.
+              </div>
+              <p class="pillar-intro">
+                Remediating client-side bottlenecks, main-thread blocking, and critical rendering
+                paths directly in production.
               </p>
-            </div>
+              <ul class="pillar-points">
+                <li>
+                  <strong class="point-lead">Long Task Offloading &amp; Sub-200ms INP:</strong>
+                  Refactoring heavy JavaScript execution trees and unblocking the main thread for
+                  instantaneous user feedback.
+                </li>
+                <li>
+                  <strong class="point-lead">Critical Path Priority &amp; Sub-1.8s LCP:</strong>
+                  Streamlining critical rendering paths with speculative resource hints and
+                  zero-layout-shift font pre-allocation.
+                </li>
+                <li>
+                  <strong class="point-lead">CrUX Field Data Calibration:</strong>
+                  Optimizing for 75th-percentile real-user metrics (CrUX) to protect organic search
+                  rankings.
+                </li>
+              </ul>
+            </article>
 
-            <!-- 3-card interfaces-grid matching home page with automatic staggered entrance -->
-            <div class="interfaces-grid deep-dive-grid">
-              <!-- Card 1 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--peach" aria-hidden="true">
+            <!-- Pillar 2: Technical Accessibility & Standards -->
+            <article class="standards-pillar-card">
+              <div class="pillar-header">
+                <div class="pillar-icon badge--peach" aria-hidden="true">
                   <svg
                     width="22"
                     height="22"
@@ -185,85 +169,43 @@ export const routeMeta: RouteMeta = {
                     <circle cx="12" cy="12" r="3"></circle>
                   </svg>
                 </div>
-                <h3 class="card-title">Native Screen Reader Workflows</h3>
-                <p class="card-description">
-                  Every view is tested with native VoiceOver and NVDA screen readers to verify
-                  robust ARIA patterns, live region announcements, and meaningful accessibility
-                  trees.
-                </p>
-              </article>
-
-              <!-- Card 2 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--green" aria-hidden="true">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                    <line x1="6" y1="8" x2="6.01" y2="8"></line>
-                    <line x1="10" y1="8" x2="10.01" y2="8"></line>
-                    <line x1="14" y1="8" x2="14.01" y2="8"></line>
-                    <line x1="18" y1="8" x2="18.01" y2="8"></line>
-                    <line x1="6" y1="12" x2="6.01" y2="12"></line>
-                    <line x1="18" y1="12" x2="18.01" y2="12"></line>
-                    <line x1="10" y1="16" x2="14" y2="16"></line>
-                  </svg>
+                <div>
+                  <span class="pillar-tag">Pillar 02</span>
+                  <h3 class="pillar-title">Technical Accessibility &amp; Standards</h3>
                 </div>
-                <h3 class="card-title">Zero Keyboard Trap Navigation</h3>
-                <p class="card-description">
-                  We enforce visible focus indicators, logical tab ordering, and focus containment
-                  on all modal dialogs, drawers, and interactive flyouts.
-                </p>
-              </article>
-
-              <!-- Card 3 -->
-              <article class="interface-card deep-dive-card">
-                <div class="card-icon-badge badge--lavender" aria-hidden="true">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <h3 class="card-title">DOM Hierarchy &amp; Technical SEO</h3>
-                <p class="card-description">
-                  We reconstruct broken DOM trees with exact heading structures, strict semantic
-                  HTML5 elements, and schema markup for optimal search engine indexing.
-                </p>
-              </article>
-            </div>
+              </div>
+              <p class="pillar-intro">
+                Rigorous WCAG 2.2 AA conformance and pristine semantic DOM structures for maximum
+                crawlability and reach.
+              </p>
+              <ul class="pillar-points">
+                <li>
+                  <strong class="point-lead">Native Screen Reader Workflows:</strong>
+                  Tested with native VoiceOver and NVDA to guarantee robust ARIA patterns and live
+                  region announcements.
+                </li>
+                <li>
+                  <strong class="point-lead">Zero Keyboard Trap Navigation:</strong>
+                  Enforcing visible focus indicators, logical tab ordering, and focus containment on
+                  all modals and flyouts.
+                </li>
+                <li>
+                  <strong class="point-lead">DOM Hierarchy &amp; Technical SEO:</strong>
+                  Constructing clean semantic HTML5 trees and schema markup for optimal search
+                  engine indexing.
+                </li>
+              </ul>
+            </article>
           </div>
 
-          <!-- Scope Boundary Box -->
-          <div
-            class="scope-boundary-box reveal-on-scroll"
-            style="margin-top: clamp(4rem, 7vw, 6rem);"
-          >
-            <span class="section-tag-subtle">Scope Boundaries</span>
-            <h3 class="scope-boundary-title">
-              High-Precision Frontend Engineering &amp; Interface Craft &mdash; Zero Design System
-              Bureaucracy
-            </h3>
-            <p class="scope-boundary-text">
-              We specialize in agile, high-impact frontend sprints, runtime speed, and
-              production-ready interfaces. We intentionally do not build bloated enterprise design
-              system committees that take twelve months to ship a button. You receive clean,
-              modular, documented code that your internal engineers can adopt immediately.
+          <!-- Scope Guarantee Reassurance Note -->
+          <div class="scope-assurance-bar reveal-on-scroll">
+            <span class="assurance-tag">Scope Commitment</span>
+            <p class="assurance-text">
+              <strong>Personal Craft &amp; Care:</strong> Every sprint is planned, designed, and
+              built directly by the two of us into your Git repository &mdash; zero agency
+              bureaucracy, no handoffs, and clean production code your team can take forward with
+              confidence.
             </p>
           </div>
         </div>
@@ -327,9 +269,9 @@ export const routeMeta: RouteMeta = {
       <div id="process-faq-wrapper">
         <app-page-faq
           tag="Process &amp; Delivery"
-          title="How our senior sprints"
+          title="How our sprints"
           titleSecondary="operate in practice."
-          subtitle="Answers about sprint timing, accelerated delivery, repository access, and scope changes."
+          subtitle="Answers about sprint timing, weekly progress, repository access, and scope changes."
           [items]="processFaqs"
         />
 
@@ -386,6 +328,61 @@ export const routeMeta: RouteMeta = {
       transform: translateX(-50%);
     }
 
+    /* 2-Column Process Hero */
+    .process-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .process-hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .process-hero__badges {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-block-start: 1.25rem;
+      margin-block-end: 2rem;
+    }
+
+    .process-hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .process-hero__visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .process-hero-image-dock {
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 36px -8px rgba(36, 32, 27, 0.12);
+      border: none;
+      background-color: transparent;
+    }
+
+    .process-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .section-header--center {
       text-align: center;
       margin-block-end: clamp(2.5rem, 4.5vw, 4rem);
@@ -407,7 +404,7 @@ export const routeMeta: RouteMeta = {
       padding-block-end: clamp(3rem, 6vw, 5rem);
     }
 
-    /* Section 2: Deep Dive */
+    /* Section 2: Condensed Architectural Rigor */
     .process-deep-dive {
       position: relative;
       background-color: var(--bg);
@@ -427,32 +424,39 @@ export const routeMeta: RouteMeta = {
       transform: translateX(-50%);
     }
 
-    .deep-dive-grid {
+    .standards-pillars-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
       margin-block-start: 2.5rem;
     }
 
-    .deep-dive-card {
-      background: var(--surface);
+    .standards-pillar-card {
+      background: #ffffff;
       border-radius: var(--radius-lg);
-      padding: clamp(1.75rem, 3vw, 2.5rem);
+      padding: clamp(2rem, 3.5vw, 2.75rem);
       display: flex;
       flex-direction: column;
-      border: none;
-      box-shadow: none;
+      border: 1px solid rgba(36, 32, 27, 0.06);
+      box-shadow: 0 4px 18px rgba(18, 22, 30, 0.03);
     }
 
-    .card-icon-badge {
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-block-end: 0.75rem;
+    }
+
+    .pillar-icon {
       width: 44px;
       height: 44px;
       border-radius: 22px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
       color: var(--dark-ink);
+      flex-shrink: 0;
     }
 
     .badge--peach {
@@ -467,48 +471,91 @@ export const routeMeta: RouteMeta = {
       background-color: var(--badge-lavender);
     }
 
-    .card-title {
-      font-size: 1.2rem;
+    .pillar-tag {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .pillar-title {
+      font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
       color: var(--text);
-      margin: 0 0 0.75rem 0;
+      margin: 0.15rem 0 0 0;
       line-height: 1.25;
     }
 
-    .card-description {
-      font-size: 0.925rem;
+    .pillar-intro {
+      font-size: 0.95rem;
       line-height: 1.6;
       color: var(--text-2);
-      margin: 0;
+      margin: 0 0 1.25rem 0;
     }
 
-    /* Scope Boundary Callout Box */
-    .scope-boundary-box {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      padding: clamp(2rem, 4vw, 3rem);
+    .pillar-points {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      border: none;
-      box-shadow: none;
+      gap: 0.9rem;
     }
 
-    .scope-boundary-title {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      font-weight: 550;
-      color: var(--text);
-      margin-block: 0.75rem 1rem;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-
-    .scope-boundary-text {
-      font-size: 0.95rem;
+    .pillar-points li {
+      font-size: 0.9rem;
       color: var(--text-2);
-      line-height: 1.7;
+      line-height: 1.6;
+      padding-inline-start: 0.85rem;
+      border-inline-start: 2px solid var(--border-subtle);
+    }
+
+    .point-lead {
+      color: var(--text);
+      font-weight: 550;
+      display: block;
+      margin-block-end: 0.15rem;
+    }
+
+    .scope-assurance-bar {
+      margin-block-start: 2rem;
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      border: 1px solid rgba(36, 32, 27, 0.06);
+      box-shadow: 0 2px 10px rgba(18, 22, 30, 0.02);
+    }
+
+    .assurance-tag {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: var(--surface-warm);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .assurance-text {
+      font-size: 0.8875rem;
+      color: var(--text-2);
+      line-height: 1.55;
       margin: 0;
-      max-inline-size: 70ch;
+    }
+
+    .assurance-text strong {
+      color: var(--text);
     }
 
     /* Bottom CTA Section */
@@ -651,15 +698,7 @@ export const routeMeta: RouteMeta = {
         0 24px 48px -10px rgba(36, 32, 27, 0.2),
         0 8px 20px -6px rgba(36, 32, 27, 0.12),
         0 0 1px rgba(36, 32, 27, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .audit-callout-card:hover .audit-dossier-frame {
-      box-shadow:
-        0 32px 64px -12px rgba(36, 32, 27, 0.25),
-        0 12px 24px -6px rgba(36, 32, 27, 0.14),
-        0 0 1px rgba(36, 32, 27, 0.3);
+      border: none;
     }
 
     .audit-dossier-img {
@@ -669,7 +708,28 @@ export const routeMeta: RouteMeta = {
       display: block;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 920px) {
+      .process-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .process-hero-image-dock {
+        max-width: 440px;
+        margin: 0 auto;
+      }
+
+      .standards-pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .scope-assurance-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
       .audit-callout-card {
         grid-template-columns: 1fr;
         padding: 2.25rem 1.75rem;
@@ -690,19 +750,6 @@ export const routeMeta: RouteMeta = {
       .audit-callout__btn {
         width: 100%;
         text-align: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .audit-dossier-frame {
-        transition: none !important;
-        transform: none !important;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .deep-dive-grid {
-        grid-template-columns: 1fr;
       }
     }
   `
@@ -726,15 +773,15 @@ export default class ProcessPage {
     },
     {
       q: 'Can we book an Accelerated Priority Sprint for a fixed deadline?',
-      a: 'Yes. In an accelerated sprint, both team members dedicate 100% of studio capacity to your repository with daily deployment synchronizations and expedited pull requests to meet strict launch dates.'
+      a: 'Yes. In an accelerated sprint, both of us dedicate our full daily focus to your project, with daily staging updates and quick feedback loops to meet critical launch dates.'
     },
     {
       q: 'Do you require direct access to our production infrastructure?',
       a: 'No. We work through feature branches in your Git repository and test against staging/preview environments. Your production deployment pipeline and credentials remain strictly under your control.'
     },
     {
-      q: 'What happens if our team discovers new technical requirements mid-sprint?',
-      a: 'Because you collaborate directly with the senior engineers and designers, scope adjustments are evaluated immediately in browser code without bureaucratic change-order delays. We either re-prioritize existing sprint tasks or schedule a follow-on milestone.'
+      q: 'What happens if we discover new requirements mid-sprint?',
+      a: 'Because you’re working directly with the two of us, scope adjustments are easy to talk through. We can test ideas right away in code and staging without bureaucratic delays, either swapping sprint priorities or scheduling a follow-up milestone.'
     }
   ];
 }

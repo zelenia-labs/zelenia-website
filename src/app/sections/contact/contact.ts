@@ -462,8 +462,8 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                   <div class="confirmation-text">
                     <h4 class="confirmation-title">Architectural Review Requested</h4>
                     <p class="confirmation-body">
-                      Thank you. Your inquiry has been routed directly to our engineering and design
-                      leads. We will review your architecture and respond within 24 hours.
+                      Thank you! Your message goes straight to Yolanda and Alejandro. We’ll review
+                      your details and get back to you personally within 24 hours.
                     </p>
                   </div>
                 </div>

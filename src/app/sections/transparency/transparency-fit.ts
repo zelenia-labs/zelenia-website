@@ -72,7 +72,7 @@ import { Component } from '@angular/core';
             </p>
             <ul class="transparency-card__checklist" aria-label="Warranty assurances">
               <li>Immediate resolution of post-launch regressions</li>
-              <li>Direct engineering team handoff session</li>
+              <li>Direct walkthrough and handoff with us</li>
               <li>Zero additional charge for sprint repairs</li>
             </ul>
           </article>
@@ -83,8 +83,8 @@ import { Component } from '@angular/core';
           <div class="section-header section-header--center">
             <h2 class="section-title">Determining Mutual Fit</h2>
             <p class="section-subhead">
-              We operate on senior density and direct execution. Here is how to know if we are the
-              optimal match for your organization.
+              We’re a close-knit duo who focus on personal care and honest collaboration. Here is
+              how to know if we’re a great match for your project.
             </p>
           </div>
 
@@ -98,25 +98,25 @@ import { Component } from '@angular/core';
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>Venture-backed scale-ups &amp; tech enterprises:</strong>
-                    Where sub-second web performance, Core Web Vitals, and enterprise UI fidelity
-                    directly close enterprise buyers.
+                    <strong>Fast-growing startups &amp; tech companies:</strong>
+                    Where sub-second web performance, Core Web Vitals, and polished UI fidelity
+                    directly convert visitors into customers.
                   </div>
                 </li>
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>High-value professional practices &amp; prestige brands:</strong>
-                    Regional commercial firms ($5M–$35M) and independent studios requiring an
-                    unmistakable digital flagship with zero maintenance overhead.
+                    <strong>Independent studios &amp; prestige brands:</strong>
+                    Teams and founders who want an unmistakable digital flagship with clean,
+                    maintainable code and zero maintenance headaches.
                   </div>
                 </li>
                 <li class="fit-item">
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
-                    <strong>Direct senior density:</strong>
-                    You demand direct collaboration with the seasoned Principal Engineer and Lead
-                    Designer writing the architecture and interfaces.
+                    <strong>Direct partnership:</strong>
+                    You want to work directly with the designer and engineer actually creating your
+                    site, with no middle managers in between.
                   </div>
                 </li>
               </ul>

@@ -26,7 +26,7 @@ export const routeMeta: RouteMeta = {
     {
       property: 'og:description',
       content:
-        'Direct senior execution. Sub-second web vitals, adaptive viewport architectures, and zero agency bureaucracy.'
+        'Thoughtful product design and high-performance frontend engineering by Yolanda Santa Cruz and Alejandro Cuba. Fast, beautiful websites with zero agency runaround.'
     },
     {
       property: 'og:image',
@@ -62,7 +62,7 @@ export const routeMeta: RouteMeta = {
     <!-- Section 5: Architectural Plan ("Get your personalized Zelenia plan") -->
     <app-personalized-plan />
 
-    <!-- Section 6: Founders ("Meet the founders of Zelenia Labs") -->
+    <!-- Section 6: Who We Are ("Meet the duo behind Zelenia Studio") -->
     <app-leadership />
 
     <!-- Section 7: Contact ("Tell us what needs attention") -->

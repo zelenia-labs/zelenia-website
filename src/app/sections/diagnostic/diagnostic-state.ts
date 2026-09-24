@@ -82,7 +82,7 @@ export class DiagnosticState {
           'Touch-target calibration (min 44x44px) and fluid typography scaling'
         ],
         accelerated: [
-          'Full-scale parallel remediation of high-traffic views by senior leads',
+          'Full-scale parallel remediation of high-traffic views with daily staging updates',
           'Immediate repair of screen-reader blockers and keyboard trap vulnerabilities',
           'Mobile viewport refactoring across edge-case device aspect ratios',
           'Comprehensive accessibility conformance statement and VPAT guidance'
@@ -198,12 +198,12 @@ export class DiagnosticState {
       ],
       faqs: [
         {
-          q: 'Can two people truly replace a full agency team?',
-          a: 'Yes. By removing account directors, junior developers, and layers of administrative meetings, two experienced senior leaders deliver production code faster and with far greater architectural integrity.'
+          q: 'Can two people really deliver what a full agency promises?',
+          a: 'Absolutely. By removing layers of project managers, salespeople, and administrative meetings, the two of us can design, build, and ship faster with continuous communication and personal attention to detail.'
         },
         {
-          q: 'What does direct partner access look like on a day-to-day basis?',
-          a: 'Direct communication via shared Slack/Discord channels, asynchronous Loom walk-throughs, and rapid weekly code reviews with zero intermediary gatekeepers.'
+          q: 'What does working directly with you look like day to day?',
+          a: 'We connect in shared Slack or Discord channels, send clear asynchronous video walkthroughs as we make progress, and share weekly staging updates so you’re always in the loop.'
         },
         {
           q: 'What tech stack do you recommend for our rebuild?',

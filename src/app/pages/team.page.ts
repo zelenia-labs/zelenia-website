@@ -6,21 +6,21 @@ import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
-  title: 'Our Team // Alejandro Cuba & Yolanda Santa Cruz // Zelenia',
+  title: 'About Us // Yolanda Santa Cruz & Alejandro Cuba // Zelenia',
   meta: [
     {
       name: 'description',
       content:
-        'Meet the makers behind Zelenia. 100% senior density pairing a Fortune 100 Principal Engineer with an industry-tested Lead Product Designer.'
+        'Meet Yolanda and Alejandro. A design and engineering couple who love building fast, beautiful web products together.'
     },
     {
       property: 'og:title',
-      content: 'Our Team // Alejandro Cuba & Yolanda Santa Cruz // Zelenia'
+      content: 'About Us // Yolanda Santa Cruz & Alejandro Cuba // Zelenia'
     },
     {
       property: 'og:description',
       content:
-        'Two dedicated senior practitioners building high-performance web applications without agency overhead.'
+        'A design and engineering couple creating high-performance web applications with personal care and zero agency runaround.'
     }
   ]
 };
@@ -30,22 +30,22 @@ export const routeMeta: RouteMeta = {
   imports: [RouterLink, PageFaq],
   template: `
     <div class="team-page">
-      <!-- Section 1: Team Hero & Founders -->
+      <!-- Section 1: Team Hero & About Us -->
       <section class="site-section team-hero" id="team-hero">
         <!-- Ambient Warm Glow Circle matching Figma specs (1040x1040px, #f2ebdf) -->
         <div class="ambient-glow glow--team-warm" aria-hidden="true"></div>
 
         <div class="container">
           <div class="team-hero-header reveal-on-scroll">
-            <span class="section-tag-subtle">Leadership &amp; Craft</span>
+            <span class="section-tag-subtle">About Us</span>
             <h1 class="section-heading-twotone" id="team-title">
-              <span class="heading-primary">Meet the team behind</span>
-              <span class="heading-secondary">every pixel and line of code</span>
+              <span class="heading-primary">Meet the two of us</span>
+              <span class="heading-secondary">designing and building your site</span>
             </h1>
             <p class="section-subhead">
-              We are Alejandro Cuba and Yolanda Santa Cruz. Two seasoned practitioners who build
-              high-performance digital products directly with you. Strictly capped at two concurrent
-              client sprints to guarantee 100% senior dedication.
+              We’re Yolanda Santa Cruz and Alejandro Cuba &mdash; a couple who share a love for
+              thoughtful design and fast, clean code. We partner directly with a small number of
+              clients at a time so we can give every project our full care and headspace.
             </p>
           </div>
 
@@ -55,19 +55,19 @@ export const routeMeta: RouteMeta = {
             <article class="team-profile-row team-profile-row--flipped reveal-on-scroll">
               <div class="team-profile-content-col">
                 <h2 class="founder-name">Alejandro Cuba Ruiz</h2>
-                <span class="founder-role">Principal Frontend Architect &amp; GDE</span>
+                <span class="founder-role">Frontend Architect &amp; GDE</span>
 
                 <div class="founder-chips" aria-label="Credentials">
                   <span class="chip-item">20+ Years Experience</span>
-                  <span class="chip-item">Fortune 100 Principal Engineer</span>
                   <span class="chip-item">Google Developer Expert</span>
+                  <span class="chip-item">Web Performance Specialist</span>
                 </div>
 
                 <p class="founder-bio">
-                  Google Developer Expert (GDE) and Fortune 100 Principal Software Engineer with 20+
-                  years of software engineering leadership. Specializes in scalable frontend
-                  architecture, runtime optimization, sub-second performance, and enterprise web
-                  systems.
+                  Google Developer Expert (GDE) with over 20 years of experience building scalable
+                  frontend architecture, sub-second web vitals, and resilient web systems. Passionate
+                  about modern web standards, fine-tuning runtime performance, and writing clean
+                  TypeScript that is accessible and a joy to maintain.
                 </p>
 
                 <div class="founder-social">
@@ -87,7 +87,7 @@ export const routeMeta: RouteMeta = {
                 <div class="founder-photo-dock">
                   <img
                     src="/assets/images/portrait_alejandro.jpg"
-                    alt="Alejandro Cuba Ruiz, Principal Frontend Architect & Google Developer Expert at Zelenia"
+                    alt="Alejandro Cuba Ruiz, Frontend Architect and Google Developer Expert at Zelenia"
                     class="founder-photo"
                     width="400"
                     height="400"
@@ -118,15 +118,15 @@ export const routeMeta: RouteMeta = {
 
                 <div class="founder-chips" aria-label="Credentials">
                   <span class="chip-item">10+ Years Experience</span>
-                  <span class="chip-item">Seed to Series E Unicorns</span>
-                  <span class="chip-item">Fortune 500 Enterprises</span>
+                  <span class="chip-item">Product &amp; UX Design</span>
+                  <span class="chip-item">Visual Conversion Craft</span>
                 </div>
 
                 <p class="founder-bio">
-                  10+ years of experience leading UX and product design across venture-backed
-                  technology startups from Seed to Series E, as well as Fortune 500 enterprises.
-                  Specializes in art direction, visual conversion psychology, user experience, and
-                  aesthetic elevation for high-performance digital products.
+                  Over 10 years of experience leading UX, product design, and brand aesthetics
+                  across high-growth startups and established brands. Specializes in art direction,
+                  visual conversion psychology, intuitive interface systems, and making digital
+                  products feel warm, memorable, and effortless to use.
                 </p>
 
                 <div class="founder-social">
@@ -146,20 +146,21 @@ export const routeMeta: RouteMeta = {
         </div>
       </section>
 
-      <!-- Section 2: Operational Standards (Matching Home Page Clarity Cards) -->
+      <!-- Section 2: How We Work (Principles) -->
       <section class="site-section team-principles-section" id="team-standards">
         <!-- Ambient Glow Circle matching Figma -->
         <div class="ambient-glow glow--team-pillars" aria-hidden="true"></div>
 
         <div class="container">
           <div class="section-header section-header--center reveal-on-scroll">
-            <span class="section-tag-subtle">Studio Standards</span>
+            <span class="section-tag-subtle">How We Work</span>
             <h2 class="section-heading-twotone" id="standards-title">
-              <span class="heading-primary">Uncompromising standards.</span>
-              <span class="heading-secondary">Zero agency overhead.</span>
+              <span class="heading-primary">Thoughtful craft.</span>
+              <span class="heading-secondary">No agency runaround.</span>
             </h2>
             <p class="section-subhead">
-              The direct execution model that sets Zelenia apart from traditional agency hierarchy.
+              A simple, honest way of working together that keeps things personal, fast, and
+              grounded.
             </p>
           </div>
 
@@ -181,11 +182,11 @@ export const routeMeta: RouteMeta = {
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
               </div>
-              <h3 class="card-title">100% Senior Hands</h3>
+              <h3 class="card-title">Just the Two of Us</h3>
               <p class="card-description">
-                Every wireframe, design token, TypeScript interface, and performance optimization is
-                authored directly by our senior team. Zero junior delegation, zero offshore
-                outsourcing.
+                Every wireframe, design token, TypeScript interface, and performance tweak is created
+                directly by the two of us. No junior handoffs, no outsourcing &mdash; you always work
+                directly with the makers.
               </p>
             </article>
 
@@ -206,11 +207,11 @@ export const routeMeta: RouteMeta = {
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h3 class="card-title">Strict Capacity Limits</h3>
+              <h3 class="card-title">Dedicated Focus</h3>
               <p class="card-description">
-                We cap active engagements to a maximum of two concurrent client sprints. Your
-                deliverables and production release milestones never compete with a backlogged
-                agency queue.
+                We strictly limit our studio to two client projects at any given time. That way, your
+                product, your questions, and your launch timeline always get our genuine headspace
+                and care.
               </p>
             </article>
 
@@ -232,11 +233,11 @@ export const routeMeta: RouteMeta = {
                   <polyline points="2 12 12 17 22 12"></polyline>
                 </svg>
               </div>
-              <h3 class="card-title">Design &amp; Code Parity</h3>
+              <h3 class="card-title">Design &amp; Code in Harmony</h3>
               <p class="card-description">
-                We eliminate the friction of static handoffs. Responsive layouts,
-                micro-interactions, fluid clamp typography, and WCAG AA accessibility criteria are
-                designed and engineered simultaneously in browser space.
+                Because we design and build together under one roof, there’s zero disconnect between
+                Figma and live browser code. Ideas turn into working, interactive prototypes smoothly
+                and quickly.
               </p>
             </article>
           </div>
@@ -246,10 +247,10 @@ export const routeMeta: RouteMeta = {
       <!-- Section 3: Team & Collaboration FAQ -->
       <div id="team-faq-wrapper">
         <app-page-faq
-          tag="Team &amp; Collaboration"
-          title="Direct practitioner"
-          titleSecondary="collaboration."
-          subtitle="Answers about who works on your project, daily communication, production rigor, and capacity limits."
+          tag="Questions &amp; Answers"
+          title="What it’s like"
+          titleSecondary="working together."
+          subtitle="Honest answers about who builds your project, daily communication, and how we work."
           [items]="teamFaqs"
         />
       </div>
@@ -262,14 +263,15 @@ export const routeMeta: RouteMeta = {
         <div class="container">
           <div class="section-header section-header--center reveal-on-scroll">
             <h2 class="section-heading-twotone" id="team-cta-heading" style="align-items: center;">
-              <span class="heading-primary">Ready to work directly</span>
-              <span class="heading-secondary">with our senior team?</span>
+              <span class="heading-primary">Have a project in mind?</span>
+              <span class="heading-secondary">We'd love to chat.</span>
             </h2>
             <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
-              Connect with our studio team for an honest assessment of your frontend architecture.
+              Reach out and let’s talk about what you’re building. No sales pitch &mdash; just an
+              open, friendly conversation.
             </p>
             <a class="btn btn--primary" routerLink="/contact">
-              <span>Connect With the Team</span>
+              <span>Get in Touch</span>
             </a>
           </div>
         </div>
@@ -601,24 +603,24 @@ export default class TeamPage {
 
   readonly teamFaqs: PageFaqItem[] = [
     {
-      q: 'Who actually writes our code and designs our interfaces?',
-      a: 'Alejandro Cuba and Yolanda Santa Cruz. We do not employ junior developers, account managers, or subcontractors. Client capital directly funds craft, not agency overhead—every line of code and interface element is created directly by our senior team.'
+      q: 'Who actually designs our site and writes our code?',
+      a: 'Just the two of us: Yolanda leads the product design and visual systems, and Alejandro engineers the architecture and code. We don’t hand your project off to junior developers, account managers, or outside contractors. When you work with Zelenia, you work directly with both of us from start to finish.'
     },
     {
-      q: 'How does the 100% senior density model compare to a traditional agency?',
-      a: 'Traditional agencies pitch senior credibility during sales meetings, then delegate execution to junior associates or offshore teams. We eliminate that overhead: you work directly with a Google Developer Expert and enterprise architect with 20+ years of experience, building clean TypeScript, optimal bundle budgets, and sub-second performance into your foundational codebase from day one.'
+      q: 'How is working with you different from an agency?',
+      a: 'Traditional agencies often pitch their best people in sales meetings, then hand off the real work to junior teams behind the scenes. With us, there’s no middle layer or corporate runaround. We’re a couple who genuinely love designing and building fast, thoughtful websites together—meaning every layout, component, and line of code gets our personal care and attention.'
     },
     {
-      q: 'What does day-to-day communication look like during a sprint?',
-      a: 'You communicate directly with our senior leads via shared Slack/Discord channels, asynchronous Loom video walk-throughs, and direct pull request reviews. Every architectural decision is handled by the practitioners writing the code, eliminating miscommunication, status meetings, and project drag.'
+      q: 'What does day-to-day collaboration feel like?',
+      a: 'Friendly, responsive, and completely transparent. We chat directly with you in shared Slack or Discord channels, send clear asynchronous video walkthroughs as we make progress, and share staging links so you always see exactly what we’re building. No bureaucratic status meetings or telephone games.'
     },
     {
-      q: 'How do engineering and design collaborate in real time?',
-      a: 'We collaborate in browser space from day one rather than relying on static Figma handoffs. Complex interaction states, responsive breakpoints, edge cases, and accessibility criteria are designed and validated simultaneously in production code with real-time parity.'
+      q: 'How do design and engineering work together in practice?',
+      a: 'Because we work together every single day, design and code happen side by side. We build in the browser early rather than getting stuck in static mockup handoffs. Interactions, animations, responsive layouts, and accessibility are tested and refined together in real time.'
     },
     {
-      q: 'How many client projects does Zelenia take on at once?',
-      a: 'To guarantee 100% senior density, rapid velocity, and total dedication, we strictly limit active engagements to a maximum of two concurrent client sprints. Your codebase, release milestones, and architecture never compete with an agency queue of backlogged accounts.'
+      q: 'How many projects do you take on at once?',
+      a: 'To make sure we can give each project the care, speed, and focus it deserves, we only work with one or two clients at a time. Your project will never get lost in a crowded agency queue.'
     }
   ];
 }
