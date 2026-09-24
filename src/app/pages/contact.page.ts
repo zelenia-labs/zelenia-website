@@ -18,7 +18,7 @@ export const routeMeta: RouteMeta = {
     {
       property: 'og:description',
       content:
-        'Talk directly with both of us. No salespeople, no account managers, and no runaround.'
+        'Work directly with the founders. Direct design, engineering, and personal guidance from day one.'
     }
   ]
 };
@@ -52,11 +52,11 @@ export default class ContactPage {
   readonly contactFaqs: PageFaqItem[] = [
     {
       q: 'How quickly will we hear back after reaching out?',
-      a: 'Every inquiry is reviewed directly by the two of us within one business day (Monday to Friday, 9:00 AM to 6:00 PM EST). We will follow up personally with clear next steps.'
+      a: 'Every inquiry is reviewed directly by Yolanda and Alejandro within one business day (Monday to Friday, 9:00 AM to 6:00 PM EST). We will follow up personally with clear next steps.'
     },
     {
-      q: 'Are intro calls free and without sales pressure?',
-      a: 'Yes, completely free and with zero sales pressure. You speak directly with both of us to explore what you need, see if we’re a great fit, and talk through ideas. No pitch decks, no salespeople.'
+      q: 'What happens during an initial discovery call?',
+      a: 'We review your project goals, explore your current website or ideas, discuss practical design and performance directions, and answer any questions you have about timelines and scope.'
     },
     {
       q: 'Can we sign an NDA before sharing details?',

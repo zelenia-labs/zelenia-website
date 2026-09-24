@@ -10,7 +10,7 @@ export class DiagnosticState {
       id: 'vitals',
       label: 'Performance Engineering Sprint',
       shortLabel: 'Performance Sprint',
-      tagline: 'LCP, INP & CLS Remediation',
+      tagline: 'Speed, Smooth Interactions & Load Stability',
       investmentFloor: 'From $6,500',
       division: {
         engineering: 80,
@@ -23,25 +23,25 @@ export class DiagnosticState {
       },
       deliverables: {
         standard: [
-          'Bundle splitting & critical JavaScript execution tree optimization',
-          'Interaction to Next Paint (INP) task refactoring and main-thread unblocking',
-          'Largest Contentful Paint (LCP) resource prioritization & responsive sub-pixel delivery',
-          'Cumulative Layout Shift (CLS) layout stability containment & font pre-allocation',
-          'Third-party tag audit, lazy hydration, and network pipeline optimization'
+          'Image compression, responsive media optimization, and clean script loading',
+          'Eliminating click delays and sluggish UI interactions',
+          'Optimizing heavy photography so pages appear instantly',
+          'Stopping unexpected layout jumps and shifting elements while pages load',
+          'Taming slow third-party analytics and marketing scripts'
         ],
         accelerated: [
           'Dedicated intensive audit and immediate critical-path pull requests',
-          'Real-time INP long-task refactoring and worker offloading',
-          'Sub-1.8s LCP remediation across top conversion landing templates',
-          'Zero-CLS guarantee on key interactive journeys',
+          'Real-time interaction lag refactoring and worker offloading',
+          'Sub-1.8s page load remediation across top conversion landing templates',
+          'Zero-shift visual stability guarantee on key interactive journeys',
           'Daily deployment synchronization and continuous synthetic monitoring'
         ]
       },
       benchmarks: [
-        { metric: 'Sub-1.8s', label: 'Target LCP' },
-        { metric: '< 200ms', label: 'Target INP' },
-        { metric: '0.00', label: 'Target CLS' },
-        { metric: '98+', label: 'Lighthouse Score' }
+        { metric: 'Sub-1.8s', label: 'Page Load Time' },
+        { metric: '< 200ms', label: 'Interaction Response' },
+        { metric: '0 Jumps', label: 'Visual Stability' },
+        { metric: '98+', label: 'Performance Score' }
       ],
       faqs: [
         {
@@ -49,12 +49,12 @@ export class DiagnosticState {
           a: 'No. We target client-side execution, third-party script loading, critical rendering paths, and asset delivery pipelines without disrupting backend infrastructure.'
         },
         {
-          q: 'How quickly will we observe measurable Core Web Vitals gains in production?',
-          a: 'Immediate synthetic improvements appear upon staging deployment; real-user field data (CrUX) typically reflects the full upgrade within 14 to 28 days.'
+          q: 'How quickly will we see measurable speed improvements in production?',
+          a: 'Immediate speed gains appear upon staging deployment; Google field data and real user measurements reflect the upgrades over the following weeks as visitors browse the updated site.'
         },
         {
           q: 'How do you isolate the impact of third-party tracking scripts?',
-          a: 'We implement speculative resource hints, facade loading patterns, and off-main-thread execution so analytics and marketing tags cannot penalize your organic search rank.'
+          a: 'We implement efficient loading patterns and background execution so analytics and marketing tags do not slow down your pages or penalize your search rankings.'
         }
       ]
     },
@@ -78,7 +78,7 @@ export class DiagnosticState {
           'Fluid breakpoint reconstruction and modern CSS grid/flexbox architecture',
           'Automated & manual WCAG 2.2 AA audit remediation across all device viewports',
           'Complete ARIA 1.3 patterns, keyboard navigation traps & screen reader flows',
-          'Semantic DOM restructuring to maximize search crawler visibility and index score',
+          'Clean semantic structure so search engines understand and rank your content',
           'Touch-target calibration (min 44x44px) and fluid typography scaling'
         ],
         accelerated: [
@@ -97,7 +97,7 @@ export class DiagnosticState {
       faqs: [
         {
           q: 'Will this impact our current SEO rankings?',
-          a: 'Yes, positively. Removing layout shifts, repairing broken DOM hierarchies, and adding semantic markup significantly elevates search engine crawlability and mobile index rankings.'
+          a: 'Yes, positively. Faster loading speeds, clean semantic code, and reliable mobile layouts help search engines index your pages more effectively and rank them higher.'
         },
         {
           q: 'Can we achieve WCAG 2.2 AA compliance without altering our core brand aesthetic?',
@@ -179,7 +179,7 @@ export class DiagnosticState {
         standard: [
           'Complete product redesign from user flows and UX architecture to visual polish',
           'Full-stack frontend architecture overhaul with zero-runtime, modern web primitives',
-          'Core Web Vitals 99+ target baseline and WCAG 2.2 AA certification out of the box',
+          'Sub-second load times, smooth interactions, and complete accessibility across all devices',
           'Production deployment pipeline, automated performance regression guards & test suites',
           'High-conversion editorial rhythms, micro-animations, and interactive assets'
         ],
@@ -199,7 +199,7 @@ export class DiagnosticState {
       faqs: [
         {
           q: 'Can two people really deliver what a full agency promises?',
-          a: 'Absolutely. By removing layers of project managers, salespeople, and administrative meetings, the two of us can design, build, and ship faster with continuous communication and personal attention to detail.'
+          a: 'Yes. By working directly with the designers and engineers building your site, we design, build, and ship faster with direct communication and personal attention to detail.'
         },
         {
           q: 'What does working directly with you look like day to day?',

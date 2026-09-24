@@ -15,16 +15,16 @@ import { Component } from '@angular/core';
         <div class="clarity-split-layout">
           <!-- Left Column: Section Heading (x=160 in design.svg) -->
           <div class="clarity-editorial reveal-on-scroll">
-            <span class="section-tag-subtle">Lean Code</span>
+            <span class="section-tag-subtle">Common Bottlenecks</span>
             <h2 class="section-heading-twotone" id="clarity-title">
-              <span class="heading-primary">Less weight.</span>
-              <span class="heading-secondary">More clarity.</span>
+              <span class="heading-primary">Less friction.</span>
+              <span class="heading-secondary">More visitors who stay.</span>
             </h2>
           </div>
 
           <!-- Right Column: 2x2 Grid of White Cards (w: 348, h: 244, rx: 20 in design.svg) -->
           <div class="clarity-cards-grid">
-            <!-- Card 1: Light Assets -->
+            <!-- Card 1: Heavy Photos & Media -->
             <article class="clarity-card">
               <div class="clarity-badge badge--peach" aria-hidden="true">
                 <svg
@@ -44,14 +44,14 @@ import { Component } from '@angular/core';
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Light Assets</h3>
+              <h3 class="clarity-card__title">Heavy Photos &amp; Media</h3>
               <p class="clarity-card__desc">
-                Oversized bundles and uncompressed media slow every page before the story even
-                begins.
+                Oversized photography, uncompressed videos, and heavy files slow your pages down
+                before visitors can even see what you offer.
               </p>
             </article>
 
-            <!-- Card 2: Search Crawl -->
+            <!-- Card 2: Search Visibility -->
             <article class="clarity-card">
               <div class="clarity-badge badge--green" aria-hidden="true">
                 <svg
@@ -68,14 +68,14 @@ import { Component } from '@angular/core';
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Search Crawl</h3>
+              <h3 class="clarity-card__title">Search Visibility</h3>
               <p class="clarity-card__desc">
-                Fragmented structure and weak semantics make content harder for engines to parse and
-                rank.
+                Confusing site structure and missing tags make it difficult for Google to read your
+                pages, keeping potential clients from discovering you.
               </p>
             </article>
 
-            <!-- Card 3: Core Web Vitals -->
+            <!-- Card 3: Page Speed & Stability -->
             <article class="clarity-card">
               <div class="clarity-badge badge--lavender" aria-hidden="true">
                 <svg
@@ -92,14 +92,14 @@ import { Component } from '@angular/core';
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Core Web Vitals</h3>
+              <h3 class="clarity-card__title">Page Speed &amp; Stability</h3>
               <p class="clarity-card__desc">
-                Layout shift, delayed content, and unstable loading make premium products feel
-                uncertain.
+                Pages that take seconds to appear or jump around while loading frustrate visitors
+                and cause them to click away before reading.
               </p>
             </article>
 
-            <!-- Card 4: UX Friction -->
+            <!-- Card 4: Clear Next Steps -->
             <article class="clarity-card">
               <div class="clarity-badge badge--peach" aria-hidden="true">
                 <svg
@@ -115,9 +115,10 @@ import { Component } from '@angular/core';
                   <path d="M12 2l3 7h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"></path>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">UX Friction</h3>
+              <h3 class="clarity-card__title">Clear Next Steps</h3>
               <p class="clarity-card__desc">
-                Unclear hierarchy and weak decisions interrupt trust, understanding, and conversion.
+                Cluttered pages and confusing navigation make it hard for visitors to find the
+                answers they need and take the next step.
               </p>
             </article>
           </div>

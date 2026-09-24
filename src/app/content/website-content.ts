@@ -22,7 +22,7 @@ export const WEBSITE_INFO: WebsiteInfo = {
   tagline: 'Frontend Engineering & Product Design Studio',
   url: 'https://zelenia.com',
   description:
-    'Zelenia is Yolanda Santa Cruz and Alejandro Cuba — a design and engineering couple crafting fast, beautiful websites together with personal care and zero agency runaround.'
+    'Zelenia is Yolanda Santa Cruz and Alejandro Cuba, a design and engineering couple crafting fast, beautiful websites together with personal care and zero agency runaround.'
 };
 
 @Injectable({

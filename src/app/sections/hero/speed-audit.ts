@@ -14,14 +14,14 @@ import { AuditConsole } from './audit-console';
     >
       <div class="container audit-container">
         <div class="section-header section-header--center reveal-on-scroll">
-          <span class="section-tag-subtle">Core Web Vitals</span>
+          <span class="section-tag-subtle">Site Speed Test</span>
           <h2 class="section-heading-twotone" id="speed-audit-title" style="align-items: center;">
             <span class="heading-primary">Audit your live</span>
             <span class="heading-secondary">web speed.</span>
           </h2>
           <p class="section-subhead">
-            Real-world Core Web Vitals via Google PageSpeed Insights. Zero sales gates, instant
-            diagnostic feedback.
+            Test how fast your website loads for real visitors with Google PageSpeed Insights,
+            getting instant feedback on speed, visual stability, and mobile responsiveness.
           </p>
         </div>
 
@@ -111,7 +111,7 @@ import { AuditConsole } from './audit-console';
                       <div class="scanner-pulse"></div>
                     </div>
                     <div class="scanner-status">
-                      <span class="scanner-title">Scanning Core Web Vitals</span>
+                      <span class="scanner-title">Analyzing page speed &amp; performance</span>
                       <span class="scanner-log" id="scanner-log">{{ pagespeed.scanLog() }}</span>
                     </div>
                   </div>

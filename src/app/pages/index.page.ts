@@ -12,7 +12,7 @@ import { Contact } from '../sections/contact/contact';
 import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
-  title: 'Zelenia — High-Performance Frontend Architecture & Product Design',
+  title: 'Zelenia | High-Performance Frontend Architecture & Product Design',
   meta: [
     {
       name: 'description',
@@ -21,7 +21,7 @@ export const routeMeta: RouteMeta = {
     },
     {
       property: 'og:title',
-      content: 'Zelenia — Frontend Architecture & Product Design'
+      content: 'Zelenia | Frontend Architecture & Product Design'
     },
     {
       property: 'og:description',
@@ -56,13 +56,13 @@ export const routeMeta: RouteMeta = {
     <!-- Section 3: Telemetry Benchmarks ("Tracking the metrics that matter") -->
     <app-metrics-tracking />
 
-    <!-- Section 4: Diagnostics & Clarity ("Less weight. More clarity.") -->
+    <!-- Section 4: Common Roadblocks ("Less friction. More visitors who stay.") -->
     <app-advantage />
 
     <!-- Section 5: Architectural Plan ("Get your personalized Zelenia plan") -->
     <app-personalized-plan />
 
-    <!-- Section 6: Who We Are ("Meet the duo behind Zelenia Studio") -->
+    <!-- Section 6: Who We Are ("The team behind Zelenia Studio") -->
     <app-leadership />
 
     <!-- Section 7: Contact ("Tell us what needs attention") -->

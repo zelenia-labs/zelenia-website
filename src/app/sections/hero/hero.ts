@@ -41,8 +41,8 @@ import { RouterLink } from '@angular/router';
           </h1>
 
           <p class="hero-subheadline">
-            We’re a design and engineering couple crafting fast, thoughtful websites together—with
-            personal care, clear communication, and zero agency runaround.
+            We are a design and engineering couple crafting fast, thoughtful websites together with
+            personal care, direct communication, and zero agency runaround.
           </p>
 
           <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
@@ -55,8 +55,8 @@ import { RouterLink } from '@angular/router';
           <!-- Bottom Metric Tiers separated by fine dividers -->
           <div class="hero-metrics-bar" aria-label="Core Capabilities Summary">
             <div class="metric-item">
-              <span class="metric-label">Technical SEO &amp; Speed</span>
-              <span class="metric-sub">Sub-second core vitals</span>
+              <span class="metric-label">Speed &amp; Search</span>
+              <span class="metric-sub">Sub-second page loads</span>
             </div>
             <div class="metric-divider" aria-hidden="true"></div>
             <div class="metric-item">

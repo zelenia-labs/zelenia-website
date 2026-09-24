@@ -39,13 +39,14 @@ export const routeMeta: RouteMeta = {
           <div class="team-hero-header reveal-on-scroll">
             <span class="section-tag-subtle">About Us</span>
             <h1 class="section-heading-twotone" id="team-title">
-              <span class="heading-primary">Meet the two of us</span>
-              <span class="heading-secondary">designing and building your site</span>
+              <span class="heading-primary">Direct partnership,</span>
+              <span class="heading-secondary">from first design to final code</span>
             </h1>
             <p class="section-subhead">
-              We’re Yolanda Santa Cruz and Alejandro Cuba &mdash; a couple who share a love for
-              thoughtful design and fast, clean code. We partner directly with a small number of
-              clients at a time so we can give every project our full care and headspace.
+              We are Yolanda Santa Cruz and Alejandro Cuba, a design and engineering couple who
+              share a love for thoughtful craft and fast, clean code. We partner directly with a
+              small number of clients at a time so we can give every project our full care and
+              headspace.
             </p>
           </div>
 
@@ -159,7 +160,7 @@ export const routeMeta: RouteMeta = {
               <span class="heading-secondary">No agency runaround.</span>
             </h2>
             <p class="section-subhead">
-              A simple, honest way of working together that keeps things personal, fast, and
+              A focused way of working together that keeps things personal, fast, and
               grounded.
             </p>
           </div>
@@ -182,11 +183,11 @@ export const routeMeta: RouteMeta = {
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
               </div>
-              <h3 class="card-title">Just the Two of Us</h3>
+              <h3 class="card-title">Direct Partnership</h3>
               <p class="card-description">
-                Every wireframe, design token, TypeScript interface, and performance tweak is created
-                directly by the two of us. No junior handoffs, no outsourcing &mdash; you always work
-                directly with the makers.
+                Every wireframe, design system, component, and performance optimization is created
+                directly by Yolanda and Alejandro. You always collaborate directly with the people
+                designing and coding your website.
               </p>
             </article>
 
@@ -250,7 +251,7 @@ export const routeMeta: RouteMeta = {
           tag="Questions &amp; Answers"
           title="What it’s like"
           titleSecondary="working together."
-          subtitle="Honest answers about who builds your project, daily communication, and how we work."
+          subtitle="Clear details on who builds your project, daily communication, and how we work."
           [items]="teamFaqs"
         />
       </div>
@@ -267,8 +268,8 @@ export const routeMeta: RouteMeta = {
               <span class="heading-secondary">We'd love to chat.</span>
             </h2>
             <p class="section-subhead" style="margin-inline: auto; margin-bottom: 2rem;">
-              Reach out and let’s talk about what you’re building. No sales pitch &mdash; just an
-              open, friendly conversation.
+              Reach out and let’s talk about what you’re building. We’ll review your goals and share
+              initial thoughts on design, performance, and timelines.
             </p>
             <a class="btn btn--primary" routerLink="/contact">
               <span>Get in Touch</span>
@@ -604,11 +605,11 @@ export default class TeamPage {
   readonly teamFaqs: PageFaqItem[] = [
     {
       q: 'Who actually designs our site and writes our code?',
-      a: 'Just the two of us: Yolanda leads the product design and visual systems, and Alejandro engineers the architecture and code. We don’t hand your project off to junior developers, account managers, or outside contractors. When you work with Zelenia, you work directly with both of us from start to finish.'
+      a: 'Yolanda leads the product design and visual systems, and Alejandro engineers the architecture and code. We do not hand your project off to junior developers, account managers, or outside contractors. When you work with Zelenia, you collaborate directly with both founders from start to finish.'
     },
     {
       q: 'How is working with you different from an agency?',
-      a: 'Traditional agencies often pitch their best people in sales meetings, then hand off the real work to junior teams behind the scenes. With us, there’s no middle layer or corporate runaround. We’re a couple who genuinely love designing and building fast, thoughtful websites together—meaning every layout, component, and line of code gets our personal care and attention.'
+      a: 'Traditional agencies often introduce senior leaders in early meetings, then hand off the day-to-day work to junior staff behind the scenes. With us, there is no middle layer or corporate runaround. We are a couple who genuinely love designing and building fast, thoughtful websites together, so every layout, component, and line of code gets our personal care and attention.'
     },
     {
       q: 'What does day-to-day collaboration feel like?',

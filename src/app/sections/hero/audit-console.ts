@@ -114,7 +114,7 @@ import { AuditResults } from './pagespeed-client';
         <!-- Vitals Breakdown Row -->
         <div class="audit-vitals-row">
           <div class="vital-pill">
-            <span class="vital-name">LCP (Largest Contentful Paint)</span>
+            <span class="vital-name">LCP (Main Content Load)</span>
             <span class="vital-val">{{ res.vitals.lcp.value }}</span>
             <span class="vital-badge" [attr.data-status]="res.vitals.lcp.status">
               {{ res.vitals.lcp.label }}
@@ -122,7 +122,7 @@ import { AuditResults } from './pagespeed-client';
           </div>
 
           <div class="vital-pill">
-            <span class="vital-name">INP (Interaction to Next Paint)</span>
+            <span class="vital-name">INP (Click &amp; Tap Delay)</span>
             <span class="vital-val">{{ res.vitals.inp.value }}</span>
             <span class="vital-badge" [attr.data-status]="res.vitals.inp.status">
               {{ res.vitals.inp.label }}
@@ -130,7 +130,7 @@ import { AuditResults } from './pagespeed-client';
           </div>
 
           <div class="vital-pill">
-            <span class="vital-name">CLS (Cumulative Layout Shift)</span>
+            <span class="vital-name">CLS (Visual Stability)</span>
             <span class="vital-val">{{ res.vitals.cls.value }}</span>
             <span class="vital-badge" [attr.data-status]="res.vitals.cls.status">
               {{ res.vitals.cls.label }}
@@ -143,8 +143,8 @@ import { AuditResults } from './pagespeed-client';
           <div class="remediation-text">
             <h4 class="remediation-title">Ready to fix these speed bottlenecks?</h4>
             <p class="remediation-sub">
-              The two of us design and build every solution directly, with personal care on every
-              detail.
+              We diagnose, redesign, and optimize your website directly, giving every detail personal
+              attention.
             </p>
           </div>
           <a class="btn btn--primary btn--remediate" routerLink="/contact">

@@ -102,16 +102,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    We profile and optimize main-thread workloads directly in production code.
-                    Targeting 75th-percentile field CrUX benchmarks to elevate organic search
-                    rankings and conversion velocity.
+                    We optimize code, images, and script loading directly in your codebase so pages
+                    load instantly for real visitors on any connection, helping improve search
+                    rankings and visitor engagement.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'vitals' }"
                   >
-                    <span>Explore live speed audit</span>
+                    <span>Explore speed sprint</span>
                   </a>
                 </div>
               </div>
@@ -178,16 +178,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Fluid CSS clamp layouts guarantee visual harmony and sub-50ms tap response
-                    across iOS, Android, macOS, and Windows. No horizontal scrolling or broken
-                    breakpoints.
+                    Carefully tuned layouts ensure your website looks great and responds instantly on
+                    phones, tablets, and desktop screens, with zero awkward cutoffs or horizontal
+                    scrolling.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'responsive' }"
                   >
-                    <span>Explore responsive architecture</span>
+                    <span>Explore responsive design</span>
                   </a>
                 </div>
               </div>
@@ -227,16 +227,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Accessible code is crawlable code. We build strict HTML5 landmark structures,
-                    verified screen reader navigation trees, and rich schema markup for automated
-                    organic discovery.
+                    Clean, accessible structure makes it easy for both visitors and search engines to
+                    navigate your site, helping Google understand your content and recommend you to the
+                    right audience.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'technical-seo' }"
                   >
-                    <span>Explore technical SEO sprint</span>
+                    <span>Explore search optimization</span>
                   </a>
                 </div>
               </div>
@@ -275,16 +275,15 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    We eliminate commercial clichés and visual friction. By uniting typographic
-                    balance with conversion-focused cognitive layouts, we turn visitors into signed
-                    clients.
+                    We design with clear visual hierarchy, readable typography, and intentional
+                    pacing so visitors understand what you offer and feel confident reaching out.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'visual-elevation' }"
                   >
-                    <span>Explore aesthetic elevation</span>
+                    <span>Explore design sprint</span>
                   </a>
                 </div>
               </div>
@@ -855,23 +854,23 @@ export class MetricsTracking {
   readonly tabs: MetricTab[] = [
     {
       id: 'vitals',
-      title: 'High-Performance Runtime',
-      summary: 'Sub-second speed & Core Web Vitals optimization'
+      title: 'Speed & Performance',
+      summary: 'Sub-second page loads and smooth interactions'
     },
     {
       id: 'responsive',
-      title: 'Adaptive Multi-Surface',
-      summary: 'Fluid viewport architecture & touch fidelity'
+      title: 'Mobile & Multi-Device',
+      summary: 'Flawless display on mobile, tablet, and desktop'
     },
     {
       id: 'seo',
-      title: 'Semantic DOM & Technical SEO',
-      summary: 'Automated crawlability, A11y & structured data'
+      title: 'Search Visibility',
+      summary: 'Clean structure and accessibility for search engines'
     },
     {
       id: 'cro',
-      title: 'Aesthetic Crafted for High CRO',
-      summary: 'Conversion psychology & visual balance'
+      title: 'Design & Conversion',
+      summary: 'Thoughtful visual craft that turns visitors into clients'
     }
   ];
 

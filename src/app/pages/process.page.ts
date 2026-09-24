@@ -46,7 +46,8 @@ export const routeMeta: RouteMeta = {
               </h1>
               <p class="section-subhead">
                 We eliminate agency layers, account managers, and handoffs. Every sprint is planned,
-                designed, and coded directly by the two of us working closely with your team.
+                designed, and coded directly by Yolanda and Alejandro, working closely alongside
+                your team.
               </p>
 
               <div class="process-hero__badges" aria-label="Process Highlights">
@@ -95,13 +96,13 @@ export const routeMeta: RouteMeta = {
           <div class="section-header section-header--center reveal-on-scroll">
             <span class="section-tag-subtle">Engineering Standards</span>
             <h2 class="section-heading-twotone" id="performance-title">
-              <span class="heading-primary">Architectural rigor:</span>
-              <span class="heading-secondary">built for sub-second runtime &amp; WCAG 2.2</span>
+              <span class="heading-primary">Engineering standards:</span>
+              <span class="heading-secondary">built for sub-second speed &amp; universal access</span>
             </h2>
             <p class="section-subhead">
-              Every sprint is grounded in two uncompromising technical pillars: sub-second Core Web
-              Vitals and strict accessibility compliance. We remediate bottlenecks directly in
-              production code without disruptive backend infrastructure rewrites.
+              Every sprint is grounded in two uncompromising technical pillars: sub-second page
+              loads and complete accessibility. We resolve bottlenecks directly in code without
+              disruptive backend infrastructure rewrites.
             </p>
           </div>
 
@@ -202,10 +203,9 @@ export const routeMeta: RouteMeta = {
           <div class="scope-assurance-bar reveal-on-scroll">
             <span class="assurance-tag">Scope Commitment</span>
             <p class="assurance-text">
-              <strong>Personal Craft &amp; Care:</strong> Every sprint is planned, designed, and
-              built directly by the two of us into your Git repository &mdash; zero agency
-              bureaucracy, no handoffs, and clean production code your team can take forward with
-              confidence.
+              <strong>Direct Partnership:</strong> Every sprint is planned, designed, and built
+              directly by Yolanda and Alejandro into your Git repository, delivering clean
+              production code your team can take forward with confidence.
             </p>
           </div>
         </div>
@@ -225,21 +225,20 @@ export const routeMeta: RouteMeta = {
             <div class="audit-callout__content">
               <span class="section-tag-subtle">Complimentary Diagnostic</span>
               <h2 class="audit-callout__title">
-                <span class="heading-primary">Unsure why your site feels slow</span>
-                <span class="heading-secondary">or fails Core Web Vitals?</span>
+                <span class="heading-primary">Wondering why your site feels slow</span>
+                <span class="heading-secondary">or why visitors leave before reaching out?</span>
               </h2>
               <p class="audit-callout__desc">
-                Request our complimentary Core Web Vitals and frontend architecture audit. We
-                examine your live production code, profile main-thread blocking tasks, evaluate
-                layout shifts, and deliver an actionable, comprehensive diagnostic roadmap &mdash;
-                completely free, with zero sales pressure.
+                Request a complimentary website speed and health review. We look at your live site,
+                pinpoint what is slowing down your pages (from oversized photography to heavy
+                scripts), and send you a clear, practical plan to speed it up.
               </p>
               <div class="audit-callout__actions">
                 <a
                   class="btn btn--primary audit-callout__btn"
                   routerLink="/contact"
                   [queryParams]="{ focus: 'vitals' }"
-                  aria-label="Request a complimentary Core Web Vitals and architecture audit"
+                  aria-label="Request a complimentary website speed and health review"
                 >
                   <span>Request Free Audit</span>
                 </a>
@@ -781,7 +780,7 @@ export default class ProcessPage {
     },
     {
       q: 'What happens if we discover new requirements mid-sprint?',
-      a: 'Because you’re working directly with the two of us, scope adjustments are easy to talk through. We can test ideas right away in code and staging without bureaucratic delays, either swapping sprint priorities or scheduling a follow-up milestone.'
+      a: 'Because you work directly with Yolanda and Alejandro without account manager intermediaries, scope adjustments are straightforward to talk through. We can test ideas right away in code and staging without delays, either swapping sprint priorities or scheduling a follow-up milestone.'
     }
   ];
 }

@@ -83,8 +83,8 @@ import { Component } from '@angular/core';
           <div class="section-header section-header--center">
             <h2 class="section-title">Determining Mutual Fit</h2>
             <p class="section-subhead">
-              We’re a close-knit duo who focus on personal care and honest collaboration. Here is
-              how to know if we’re a great match for your project.
+              We work closely with clients to deliver fast, thoughtful web products. Here is how to
+              know if we are a great match for your project.
             </p>
           </div>
 
@@ -99,8 +99,8 @@ import { Component } from '@angular/core';
                   <span class="fit-icon fit-icon--check" aria-hidden="true">✓</span>
                   <div>
                     <strong>Fast-growing startups &amp; tech companies:</strong>
-                    Where sub-second web performance, Core Web Vitals, and polished UI fidelity
-                    directly convert visitors into customers.
+                    Where fast page speeds, high visual polish, and smooth interactions turn
+                    visitors into customers.
                   </div>
                 </li>
                 <li class="fit-item">

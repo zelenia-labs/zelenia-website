@@ -42,19 +42,19 @@ import { RouterLink } from '@angular/router';
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Technical SEO &amp; Speed</h3>
+            <h3 class="card-title">Speed &amp; Search Visibility</h3>
             <p class="card-description">
-              Payload cleanup, crawl efficiency, and performance stability built into the structure
-              of the site.
+              Clean code, optimized media, and fast load times that help search engines index your
+              pages and keep visitors engaged.
             </p>
-            <ul class="card-checklist" aria-label="Technical deliverables">
+            <ul class="card-checklist" aria-label="Speed and search deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Payload &amp; crawl engine</span>
+                <span>Sub-second load times</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Core Web Vitals stabilization</span>
+                <span>Search engine indexing</span>
               </li>
             </ul>
           </article>
@@ -77,15 +77,15 @@ import { RouterLink } from '@angular/router';
                 ></path>
               </svg>
             </div>
-            <h3 class="card-title">UX/UI Redesign</h3>
+            <h3 class="card-title">Thoughtful UX &amp; Design</h3>
             <p class="card-description">
-              Editorial interface systems designed to clarify value, strengthen trust, and guide
-              action with ease.
+              Clean layouts and engaging typography designed to build trust, answer questions
+              quickly, and guide visitors to take action.
             </p>
             <ul class="card-checklist" aria-label="Design deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Conversion architecture</span>
+                <span>Clear paths to contact</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
@@ -112,19 +112,19 @@ import { RouterLink } from '@angular/router';
                 <polyline points="2 12 12 17 22 12"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Unified Build</h3>
+            <h3 class="card-title">Design &amp; Code Together</h3>
             <p class="card-description">
-              Bespoke design and fast code delivered as one continuous system from concept through
-              production.
+              Design systems and frontend code built together in the browser, ensuring your
+              finished website works smoothly and looks exactly as envisioned.
             </p>
             <ul class="card-checklist" aria-label="Execution deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Bespoke design &amp; fast code</span>
+                <span>Figma into clean code</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Production-ready handoff</span>
+                <span>Reliable on every device</span>
               </li>
             </ul>
           </article>

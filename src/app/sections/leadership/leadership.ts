@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
         <div class="section-header section-header--center reveal-on-scroll">
           <span class="section-tag-subtle">Who We Are</span>
           <h2 class="section-heading-twotone" id="founders-title">
-            <span class="heading-primary">Meet the duo behind</span>
+            <span class="heading-primary">The team behind</span>
             <span class="heading-secondary">Zelenia Studio</span>
           </h2>
 

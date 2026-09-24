@@ -27,22 +27,22 @@ import { RouterLink } from '@angular/router';
           </h2>
 
           <p class="plan-subtitle">
-            Understand your sites potential and take action today with a personalized plan designed
-            for your unique needs.
+            Understand your site's potential and take action today with a tailored roadmap designed
+            for your specific goals.
           </p>
 
           <ol class="plan-steps-list" aria-label="Assessment steps">
             <li>
-              <span class="step-angular-bracket" aria-hidden="true">[ 1 ]</span>
-              <span>Focused payloads</span>
+              <span class="step-angular-bracket" aria-hidden="true">1.</span>
+              <span>Fast page speeds</span>
             </li>
             <li>
-              <span class="step-angular-bracket" aria-hidden="true">[ 2 ]</span>
-              <span>Cleaner structure</span>
+              <span class="step-angular-bracket" aria-hidden="true">2.</span>
+              <span>Clear site structure</span>
             </li>
             <li>
-              <span class="step-angular-bracket" aria-hidden="true">[ 3 ]</span>
-              <span>Intentional UX</span>
+              <span class="step-angular-bracket" aria-hidden="true">3.</span>
+              <span>Engaging user experience</span>
             </li>
           </ol>
 
