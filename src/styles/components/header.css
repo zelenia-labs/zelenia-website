@@ -9,19 +9,16 @@
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     background-color 0.3s ease,
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease;
   transform: translateY(0);
 }
 
-/* When scrolling down, tuck away smoothly */
-.site-header.is-scrolled-down {
-  transform: translateY(-100%);
-}
-
-/* When scrolling up (showing intent to go up), reveal with footer background applied */
+/* Scrolled state with frosted glass background applied */
+.site-header.is-scrolled,
 .site-header.is-scrolled-up {
   transform: translateY(0);
   background: rgba(251, 251, 251, 0.82);
@@ -71,13 +68,15 @@
   opacity: 0.85;
 }
 
-/* On floating nav (scrolled up) and subpages, transition logo to studio charcoal */
+/* On floating nav (scrolled state) and subpages, transition logo to studio charcoal */
+.site-header.is-scrolled .site-logo-mark,
 .site-header.is-scrolled-up .site-logo-mark,
 .site-header.is-subpage .site-logo-mark {
   color: #4d4a48;
   -webkit-text-stroke: 0.1px #4d4a48;
 }
 
+.site-header.is-scrolled .site-logo:hover .site-logo-mark,
 .site-header.is-scrolled-up .site-logo:hover .site-logo-mark,
 .site-header.is-subpage .site-logo:hover .site-logo-mark {
   color: var(--dark-ink);
@@ -114,17 +113,20 @@
   font-weight: 550;
 }
 
-/* On floating nav (footer background) and subpages, links match footer typography */
+/* On floating nav (scrolled state) and subpages, links match footer typography */
+.site-header.is-scrolled .nav-link,
 .site-header.is-scrolled-up .nav-link,
 .site-header.is-subpage .nav-link {
   color: var(--text);
 }
 
+.site-header.is-scrolled .nav-link:hover,
 .site-header.is-scrolled-up .nav-link:hover,
 .site-header.is-subpage .nav-link:hover {
   color: var(--text-primary);
 }
 
+.site-header.is-scrolled .nav-link.is-active,
 .site-header.is-scrolled-up .nav-link.is-active,
 .site-header.is-subpage .nav-link.is-active {
   color: var(--text-primary);
@@ -166,6 +168,7 @@
 }
 
 /* On floating nav and subpages, provide authoritative dark pill CTA */
+.site-header.is-scrolled .btn--pill-header,
 .site-header.is-scrolled-up .btn--pill-header,
 .site-header.is-subpage .btn--pill-header {
   background-color: var(--dark-ink);
@@ -174,6 +177,7 @@
   box-shadow: 0 2px 8px rgba(36, 32, 27, 0.12);
 }
 
+.site-header.is-scrolled .btn--pill-header:hover,
 .site-header.is-scrolled-up .btn--pill-header:hover,
 .site-header.is-subpage .btn--pill-header:hover {
   background-color: #3d372f;

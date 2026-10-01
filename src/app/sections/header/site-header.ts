@@ -15,8 +15,8 @@ export interface HeaderNavItem {
   template: `
     <header
       class="site-header"
-      [class.is-scrolled-up]="isScrolledUp()"
-      [class.is-scrolled-down]="isScrolledDown()"
+      [class.is-scrolled]="isScrolled()"
+      [class.is-scrolled-up]="isScrolled()"
       [class.is-subpage]="currentPath() !== '/'"
       id="site-header"
     >
@@ -64,9 +64,8 @@ export class SiteHeader {
 
   readonly currentUrl = signal<string>('/');
   readonly activeSection = signal<string | null>(null);
-  readonly isScrolledUp = signal<boolean>(false);
-  readonly isScrolledDown = signal<boolean>(false);
-  private lastScrollY = 0;
+  readonly isScrolled = signal<boolean>(false);
+  readonly isScrolledUp = this.isScrolled;
 
   readonly navItems: HeaderNavItem[] = [
     { label: 'Our process', href: '/process' },
@@ -99,26 +98,15 @@ export class SiteHeader {
     if (this.isBrowser) {
       const onScroll = () => {
         const currentY = window.scrollY;
-        if (currentY <= 50) {
-          // At the top of the page: transparent, no background
-          this.isScrolledUp.set(false);
-          this.isScrolledDown.set(false);
-        } else if (currentY > this.lastScrollY + 8) {
-          // Scrolling down: tuck away
-          this.isScrolledDown.set(true);
-          this.isScrolledUp.set(false);
-        } else if (currentY < this.lastScrollY - 8) {
-          // Scrolling up (showing intent to navigate up): reveal with background applied
-          this.isScrolledUp.set(true);
-          this.isScrolledDown.set(false);
-        }
-        this.lastScrollY = currentY;
+        this.isScrolled.set(currentY > 30);
       };
 
       window.addEventListener('scroll', onScroll, { passive: true });
       this.destroyRef.onDestroy(() => {
         window.removeEventListener('scroll', onScroll);
       });
+
+      onScroll();
 
       setTimeout(() => {
         this.setupScrollSpy();
