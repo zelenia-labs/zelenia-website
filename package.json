@@ -4,7 +4,7 @@
   "description": "Zelenia Studio SPA",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.20.0",
+  "packageManager": "pnpm@12.8.1",
   "engines": {
     "node": ">=22.22.3"
   },
