@@ -46,20 +46,11 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(metricsEl.textContent).toContain('Direct Collaboration');
   });
 
-  it('should render the background video and textured atmospheric overlays', () => {
-    const videoEl = fixture.nativeElement.querySelector('.hero-video');
-    expect(videoEl).toBeTruthy();
-    expect(videoEl.getAttribute('autoplay')).not.toBeNull();
-    expect(videoEl.getAttribute('poster')).toBe('/assets/images/hero-workspace-bg.jpg');
-
-    const sourceEl = videoEl.querySelector('source');
-    expect(sourceEl).toBeTruthy();
-    expect(sourceEl.getAttribute('src')).toBe('/hero-video.mp4');
-
-    expect(fixture.nativeElement.querySelector('.hero-layer-blur')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.hero-fill-warm')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.hero-fill-charcoal')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.hero-fill-teal')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.hero-effect-noise')).toBeTruthy();
+  it('should render the atmospheric glow circles and noise overlay matching personalized plan', () => {
+    expect(fixture.nativeElement.querySelector('.glow--hero-sage')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.glow--hero-charcoal')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.glow--hero-sand')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.section-noise-overlay')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.hero-video')).toBeNull();
   });
 });

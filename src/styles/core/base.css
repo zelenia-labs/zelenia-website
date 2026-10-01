@@ -127,7 +127,7 @@ main:focus {
 }
 
 .hero-section::before {
-  background: var(--ambient-hero);
+  background: transparent;
 }
 
 .advantage-section::before {

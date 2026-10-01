@@ -31,7 +31,7 @@ export interface HeaderNavItem {
           <span class="site-logo-mark" aria-hidden="true">Z</span>
         </a>
 
-        <!-- Main Nav Links (Our process, Services, About) -->
+        <!-- Main Nav Links (Our process, About) -->
         <nav class="site-nav" id="site-navigation" aria-label="Main Navigation">
           @for (item of navItems; track item.label) {
             <a
@@ -70,7 +70,6 @@ export class SiteHeader {
 
   readonly navItems: HeaderNavItem[] = [
     { label: 'Our process', href: '/process' },
-    { label: 'Services', href: '/#tracks', fragment: 'tracks' },
     { label: 'About', href: '/team' }
   ];
 

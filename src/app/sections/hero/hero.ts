@@ -6,32 +6,13 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
-      <!-- Background Video & Exact Figma Layer Stack -->
-      <div class="hero-media-wrapper" aria-hidden="true">
-        <video
-          class="hero-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          poster="/assets/images/hero-workspace-bg.jpg"
-          aria-hidden="true"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <!-- Ambient Glow Circles matching Personalized Plan background -->
+      <div class="ambient-glow glow--hero-sage" aria-hidden="true"></div>
+      <div class="ambient-glow glow--hero-charcoal" aria-hidden="true"></div>
+      <div class="ambient-glow glow--hero-sand" aria-hidden="true"></div>
 
-      <!-- 1. Progressive Layer Blur (0px to 30px) -->
-      <div class="hero-layer-blur" aria-hidden="true"></div>
-      <!-- 2. Solid Color Fill: #462411 at 20% opacity -->
-      <div class="hero-fill-warm" aria-hidden="true"></div>
-      <!-- 3. Linear Gradient Fill: #666666 100% to 0% at 20% opacity -->
-      <div class="hero-fill-charcoal" aria-hidden="true"></div>
-      <!-- 4. Linear Gradient Fill: #1E595C 100% to 0% at 20% opacity -->
-      <div class="hero-fill-teal" aria-hidden="true"></div>
-      <!-- 5. Effect: Multi Noise (size 0.5, density 100%, opacity 25%) -->
-      <div class="hero-effect-noise" aria-hidden="true"></div>
+      <!-- Noise Effect Overlay: Mono, size 0.5, density 100%, color #FFFFFF 15% -->
+      <div class="section-noise-overlay" aria-hidden="true"></div>
 
       <div class="container hero-container">
         <div class="hero-content">

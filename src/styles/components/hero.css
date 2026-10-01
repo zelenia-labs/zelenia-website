@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Editorial Studio Hero Stage: Photography Cover & Refined Authority
+   Editorial Studio Hero Stage: Atmospheric Cover & Refined Authority
+   Matching Personalized Plan Section Background & Ambient Glow Stack
    ========================================================================== */
 
 .hero-section {
@@ -9,99 +10,41 @@
   align-items: center;
   overflow: hidden;
   color: #ffffff;
-}
-
-/* Background Media & Atmospheric Layer Stack */
-.hero-media-wrapper {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-  transform: scale(1.02);
+  background: linear-gradient(135deg, #95afb5 0%, #829da3 100%);
 }
 
 /* ==========================================================================
-   Exact Figma Video Overlays & Atmospheric Effects (Matching Screenshots)
-   Fills:
-   1. Progressive Layer Blur (0px on right to 30px on left)
-   2. Solid #462411 @ 20% opacity
-   3. Linear #666666 100% to 0% @ 20% opacity
-   4. Linear #1E595C 100% to 0% @ 20% opacity
-   5. Multi Noise (size 0.5, density 100%, opacity 25%)
+   Ambient Glow Circles matching Personalized Plan background
    ========================================================================== */
 
-/* 1. Progressive Layer Blur: 0px to 30px on left */
-.hero-layer-blur {
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.85) 35%,
-    rgba(0, 0, 0, 0.4) 60%,
-    rgba(0, 0, 0, 0) 80%
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.85) 35%,
-    rgba(0, 0, 0, 0.4) 60%,
-    rgba(0, 0, 0, 0) 80%
-  );
-  pointer-events: none;
-  z-index: 1;
+.glow--hero-sage {
+  width: 751px;
+  height: 751px;
+  background-color: #b5bf9c;
+  opacity: 0.7;
+  filter: blur(140px);
+  top: 10%;
+  right: -120px;
 }
 
-/* 2. Solid Color Fill: #462411 at 20% */
-.hero-fill-warm {
-  position: absolute;
-  inset: 0;
-  background-color: #462411;
-  opacity: 0.2;
-  pointer-events: none;
-  z-index: 2;
+.glow--hero-charcoal {
+  width: 618px;
+  height: 618px;
+  background-color: #6a7370;
+  opacity: 0.21;
+  filter: blur(90px);
+  top: 5%;
+  left: -140px;
 }
 
-/* 3. Linear Gradient Fill: #666666 100% to 0% at 20% */
-.hero-fill-charcoal {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(102, 102, 102, 0.2) 0%, rgba(102, 102, 102, 0) 100%);
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* 4. Linear Gradient Fill: #1E595C 100% to 0% at 20% */
-.hero-fill-teal {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(30, 89, 92, 0.2) 0%, rgba(30, 89, 92, 0) 100%);
-  pointer-events: none;
-  z-index: 4;
-}
-
-/* 5. Effect: Multi Noise (size 0.5, density 100%, opacity 25%) */
-.hero-effect-noise {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='figmaNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='1.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23figmaNoise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 100px 100px;
-  opacity: 0.25;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 5;
+.glow--hero-sand {
+  width: 541px;
+  height: 541px;
+  background-color: #f2e5c8;
+  opacity: 0.135;
+  filter: blur(90px);
+  top: -100px;
+  right: 20%;
 }
 
 .hero-container {
