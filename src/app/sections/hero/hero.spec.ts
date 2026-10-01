@@ -41,7 +41,7 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   it('should render the 3 bottom metric tiers', () => {
     const metricsEl = fixture.nativeElement.querySelector('.hero-metrics-bar');
     expect(metricsEl).toBeTruthy();
-    expect(metricsEl.textContent).toContain('Technical SEO & Speed');
+    expect(metricsEl.textContent).toContain('Speed & Search');
     expect(metricsEl.textContent).toContain('Fractional Partnership');
     expect(metricsEl.textContent).toContain('Direct Collaboration');
   });
