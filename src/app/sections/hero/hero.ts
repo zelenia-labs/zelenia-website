@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HeroCanvas } from './hero-canvas';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink],
+  imports: [RouterLink, HeroCanvas],
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
-      <!-- Ambient Glow Circles matching Personalized Plan background -->
-      <div class="ambient-glow glow--hero-sage" aria-hidden="true"></div>
-      <div class="ambient-glow glow--hero-charcoal" aria-hidden="true"></div>
-      <div class="ambient-glow glow--hero-sand" aria-hidden="true"></div>
+      <!-- High-Performance Interactive Atmospheric Canvas -->
+      <app-hero-canvas class="hero-canvas-host" aria-hidden="true" />
 
       <!-- Noise Effect Overlay: Mono, size 0.5, density 100%, color #FFFFFF 15% -->
       <div class="section-noise-overlay" aria-hidden="true"></div>

@@ -46,10 +46,8 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(metricsEl.textContent).toContain('Direct Collaboration');
   });
 
-  it('should render the atmospheric glow circles and noise overlay matching personalized plan', () => {
-    expect(fixture.nativeElement.querySelector('.glow--hero-sage')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.glow--hero-charcoal')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('.glow--hero-sand')).toBeTruthy();
+  it('should render the interactive atmospheric canvas host and noise overlay', () => {
+    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.section-noise-overlay')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.hero-video')).toBeNull();
   });
