@@ -46,8 +46,8 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(metricsEl.textContent).toContain('Direct Collaboration');
   });
 
-  it('should render the interactive atmospheric canvas host and noise overlay', () => {
-    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeTruthy();
+  it('should render the noise overlay without canvas host', () => {
+    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeNull();
     expect(fixture.nativeElement.querySelector('.section-noise-overlay')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.hero-video')).toBeNull();
   });
