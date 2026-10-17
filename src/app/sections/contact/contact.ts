@@ -1,5 +1,7 @@
 import { Component, computed, HostListener, inject, linkedSignal, signal } from '@angular/core';
 import { email, form, FormField, required, submit } from '@angular/forms/signals';
+import { ActivatedRoute } from '@angular/router';
+import { FocusCards } from './focus-cards';
 import { ContactIntake } from './contact-intake';
 import { ContactInquiry } from './contact.model';
 import { DiagnosticState } from '../diagnostic/diagnostic-state';
@@ -7,7 +9,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormField],
+  imports: [FormField, FocusCards],
   template: `
     <section class="site-section contact-section" id="contact" aria-labelledby="contact-title">
       <!-- Ambient Glow Circles matching Screenshot 4 & design.svg -->
@@ -93,328 +95,334 @@ import { PagespeedClient } from '../hero/pagespeed-client';
                 </div>
               </div>
 
-              <!-- Primary Focus / Timeline -->
-              <div class="form-group">
-                <label class="form-label" for="trigger-primary-focus">Focus &amp; Timeline</label>
-                <div class="select-wrapper custom-select-wrapper">
-                  <!-- Native select for form model & test compatibility -->
-                  <select
-                    class="sr-only-select"
-                    id="primary-focus"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    [formField]="contactForm.focus"
-                    (change)="onNativeSelectChange('focus', $event)"
-                  >
-                    @for (cat of diagnostic.categories; track cat.id) {
-                      <option [value]="cat.id">
-                        {{ cat.label }} ({{ cat.turnaround.standard }})
-                      </option>
-                    }
-                  </select>
-
-                  <!-- Custom Dropdown Trigger -->
-                  <button
-                    type="button"
-                    class="custom-select-trigger"
-                    id="trigger-primary-focus"
-                    aria-haspopup="listbox"
-                    [attr.aria-expanded]="openDropdown() === 'focus'"
-                    [title]="currentFocusLabel()"
-                    aria-controls="listbox-primary-focus"
-                    (click)="toggleDropdown('focus', $event)"
-                    (keydown)="onTriggerKeydown($event, 'focus')"
-                  >
-                    <span class="custom-select-value">{{ currentFocusLabel() }}</span>
-                    <svg
-                      class="custom-select-arrow"
-                      [class.is-open]="openDropdown() === 'focus'"
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M2.5 4.5L6 8L9.5 4.5"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </button>
-
-                  <!-- Custom Dropdown Menu -->
-                  @if (openDropdown() === 'focus') {
-                    <div
-                      class="custom-select-menu"
-                      id="listbox-primary-focus"
-                      role="listbox"
-                      aria-labelledby="trigger-primary-focus"
-                    >
-                      @for (opt of focusOptions(); track opt.value; let i = $index) {
-                        <button
-                          type="button"
-                          class="custom-select-option"
-                          role="option"
-                          [id]="'opt-focus-' + i"
-                          [attr.aria-selected]="model().focus === opt.value"
-                          [class.is-selected]="model().focus === opt.value"
-                          (click)="selectOption('focus', opt.value, 'primary-focus', $event)"
-                        >
-                          <span class="custom-option-label">{{ opt.label }}</span>
-                          @if (model().focus === opt.value) {
-                            <svg
-                              class="custom-option-check"
-                              width="14"
-                              height="14"
-                              viewBox="0 0 14 14"
-                              fill="none"
-                              aria-hidden="true"
-                            >
-                              <path
-                                d="M2.5 7.5L5.5 10.5L11.5 4"
-                                stroke="#24201b"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          }
-                        </button>
-                      }
-                    </div>
+              <!-- Primary Focus Cards (Radio Group) -->
+              <div class="form-group form-group--full">
+                <app-focus-cards
+                  [value]="model().focus"
+                  (valueChange)="onFocusChange($event)"
+                />
+                <!-- Native select for form model & test compatibility -->
+                <select
+                  class="sr-only-select"
+                  id="primary-focus"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  [formField]="contactForm.focus"
+                  (change)="onNativeSelectChange('focus', $event)"
+                >
+                  @for (cat of diagnostic.categories; track cat.id) {
+                    <option [value]="cat.id">
+                      {{ cat.label }} ({{ cat.turnaround.standard }})
+                    </option>
                   }
-                </div>
+                </select>
               </div>
 
-              <!-- Progressive Disclosure Toggle -->
-              <div class="form-group form-group--full">
-                <label class="progressive-toggle-wrapper">
+              <!-- Progressive Disclosure Fieldset with Accessible Legend & Unified Card -->
+              <fieldset class="progressive-fieldset form-group--full">
+                <legend class="sr-only">Additional Scope Specifications</legend>
+
+                <div
+                  class="scope-disclosure-card"
+                  [class.is-expanded]="contactForm.includeDetails().value()"
+                >
+                  <button
+                    type="button"
+                    class="scope-disclosure-trigger"
+                    id="trigger-details-toggle"
+                    [attr.aria-expanded]="contactForm.includeDetails().value()"
+                    aria-controls="progressive-expansion"
+                    (click)="toggleDetails()"
+                  >
+                    <!-- Custom Animated Checkbox UI -->
+                    <span
+                      class="scope-checkbox-ui"
+                      [class.is-checked]="contactForm.includeDetails().value()"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        class="scope-check-icon"
+                        [class.is-active]="contactForm.includeDetails().value()"
+                        width="12"
+                        height="10"
+                        viewBox="0 0 12 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M1.5 5.2L4.5 8.2L10.5 1.5"
+                          stroke="#24201b"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="scope-content-block">
+                      <span class="scope-heading-row">
+                        <span class="scope-title" id="legend-details-title">
+                          Additional Scope Specifications
+                        </span>
+                        <span class="scope-optional-badge">Optional</span>
+                      </span>
+                      <span class="scope-subtitle">
+                        Add budget bracket, timeline cadence &amp; current stack details
+                      </span>
+                    </span>
+
+                    <span
+                      class="scope-chevron-wrapper"
+                      [class.is-expanded]="contactForm.includeDetails().value()"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        class="scope-chevron-icon"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                      >
+                        <path
+                          d="M3 5.25L7 9.25L11 5.25"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <!-- Native checkbox kept visually hidden for Signal Forms & test sync -->
                   <input
                     type="checkbox"
                     id="include-details"
-                    class="progressive-checkbox"
+                    class="sr-only-checkbox"
                     [formField]="contactForm.includeDetails"
+                    (change)="onIncludeDetailsChange($event)"
                   />
-                  <span class="progressive-toggle-label">
-                    Add budget bracket, timeline &amp; stack details
-                  </span>
-                </label>
-              </div>
 
-              <!-- Expanded Technical Layer -->
-              @if (contactForm.includeDetails().value()) {
-                <div class="progressive-expansion form-group--full" id="progressive-expansion">
-                  <div class="form-grid">
-                    <div class="form-group">
-                      <label class="form-label" for="trigger-timeline-pace"
-                        >Sprint Cadence / Timeline</label
-                      >
-                      <div class="select-wrapper custom-select-wrapper">
-                        <!-- Native select for form model & test compatibility -->
-                        <select
-                          class="sr-only-select"
-                          id="timeline-pace"
-                          tabindex="-1"
-                          aria-hidden="true"
-                          [formField]="contactForm.timeline"
-                          (change)="onNativeSelectChange('timeline', $event)"
-                        >
-                          @for (opt of timelineOptions; track opt.value) {
-                            <option [value]="opt.value">{{ opt.label }}</option>
-                          }
-                        </select>
+                  <!-- Animated Expansion Body -->
+                  <div
+                    class="progressive-expansion"
+                    id="progressive-expansion"
+                    [class.is-expanded]="contactForm.includeDetails().value()"
+                    [attr.inert]="!contactForm.includeDetails().value() ? '' : null"
+                    [attr.aria-hidden]="!contactForm.includeDetails().value()"
+                  >
+                    <div class="progressive-expansion-inner">
+                      <div class="scope-expanded-body">
+                        <div class="form-grid">
+                          <div class="form-group">
+                            <label class="form-label" for="trigger-timeline-pace"
+                              >Sprint Cadence / Timeline</label
+                            >
+                            <div class="select-wrapper custom-select-wrapper">
+                              <!-- Native select for form model & test compatibility -->
+                              <select
+                                class="sr-only-select"
+                                id="timeline-pace"
+                                tabindex="-1"
+                                aria-hidden="true"
+                                [formField]="contactForm.timeline"
+                                (change)="onNativeSelectChange('timeline', $event)"
+                              >
+                                @for (opt of timelineOptions; track opt.value) {
+                                  <option [value]="opt.value">{{ opt.label }}</option>
+                                }
+                              </select>
 
-                        <!-- Custom Dropdown Trigger -->
-                        <button
-                          type="button"
-                          class="custom-select-trigger custom-select-trigger--nested"
-                          id="trigger-timeline-pace"
-                          aria-haspopup="listbox"
-                          [attr.aria-expanded]="openDropdown() === 'timeline'"
-                          [title]="currentTimelineLabel()"
-                          aria-controls="listbox-timeline-pace"
-                          (click)="toggleDropdown('timeline', $event)"
-                          (keydown)="onTriggerKeydown($event, 'timeline')"
-                        >
-                          <span class="custom-select-value">{{ currentTimelineLabel() }}</span>
-                          <svg
-                            class="custom-select-arrow"
-                            [class.is-open]="openDropdown() === 'timeline'"
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M2.5 4.5L6 8L9.5 4.5"
-                              stroke="currentColor"
-                              stroke-width="1.75"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-
-                        <!-- Custom Dropdown Menu -->
-                        @if (openDropdown() === 'timeline') {
-                          <div
-                            class="custom-select-menu"
-                            id="listbox-timeline-pace"
-                            role="listbox"
-                            aria-labelledby="trigger-timeline-pace"
-                          >
-                            @for (opt of timelineOptions; track opt.value; let i = $index) {
+                              <!-- Custom Dropdown Trigger -->
                               <button
                                 type="button"
-                                class="custom-select-option"
-                                role="option"
-                                [id]="'opt-timeline-' + i"
-                                [attr.aria-selected]="model().timeline === opt.value"
-                                [class.is-selected]="model().timeline === opt.value"
-                                (click)="
-                                  selectOption('timeline', opt.value, 'timeline-pace', $event)
-                                "
+                                class="custom-select-trigger custom-select-trigger--nested"
+                                id="trigger-timeline-pace"
+                                aria-haspopup="listbox"
+                                [attr.aria-expanded]="openDropdown() === 'timeline'"
+                                [title]="currentTimelineLabel()"
+                                aria-controls="listbox-timeline-pace"
+                                (click)="toggleDropdown('timeline', $event)"
+                                (keydown)="onTriggerKeydown($event, 'timeline')"
                               >
-                                <span class="custom-option-label">{{ opt.label }}</span>
-                                @if (model().timeline === opt.value) {
-                                  <svg
-                                    class="custom-option-check"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    fill="none"
-                                    aria-hidden="true"
-                                  >
-                                    <path
-                                      d="M2.5 7.5L5.5 10.5L11.5 4"
-                                      stroke="#24201b"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                    />
-                                  </svg>
-                                }
+                                <span class="custom-select-value">{{ currentTimelineLabel() }}</span>
+                                <svg
+                                  class="custom-select-arrow"
+                                  [class.is-open]="openDropdown() === 'timeline'"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 12 12"
+                                  fill="none"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    d="M2.5 4.5L6 8L9.5 4.5"
+                                    stroke="currentColor"
+                                    stroke-width="1.75"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
                               </button>
-                            }
+
+                              <!-- Custom Dropdown Menu -->
+                              @if (openDropdown() === 'timeline') {
+                                <div
+                                  class="custom-select-menu"
+                                  id="listbox-timeline-pace"
+                                  role="listbox"
+                                  aria-labelledby="trigger-timeline-pace"
+                                >
+                                  @for (opt of timelineOptions; track opt.value; let i = $index) {
+                                    <button
+                                      type="button"
+                                      class="custom-select-option"
+                                      role="option"
+                                      [id]="'opt-timeline-' + i"
+                                      [attr.aria-selected]="model().timeline === opt.value"
+                                      [class.is-selected]="model().timeline === opt.value"
+                                      (click)="
+                                        selectOption('timeline', opt.value, 'timeline-pace', $event)
+                                      "
+                                    >
+                                      <span class="custom-option-label">{{ opt.label }}</span>
+                                      @if (model().timeline === opt.value) {
+                                        <svg
+                                          class="custom-option-check"
+                                          width="14"
+                                          height="14"
+                                          viewBox="0 0 14 14"
+                                          fill="none"
+                                          aria-hidden="true"
+                                        >
+                                          <path
+                                            d="M2.5 7.5L5.5 10.5L11.5 4"
+                                            stroke="#24201b"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          />
+                                        </svg>
+                                      }
+                                    </button>
+                                  }
+                                </div>
+                              }
+                            </div>
                           </div>
-                        }
-                      </div>
-                    </div>
 
-                    <div class="form-group">
-                      <label class="form-label" for="trigger-budget-bracket">Budget Bracket</label>
-                      <div class="select-wrapper custom-select-wrapper">
-                        <!-- Native select for form model & test compatibility -->
-                        <select
-                          class="sr-only-select"
-                          id="budget-bracket"
-                          tabindex="-1"
-                          aria-hidden="true"
-                          [formField]="contactForm.budgetBracket"
-                          (change)="onNativeSelectChange('budgetBracket', $event)"
-                        >
-                          @for (opt of budgetOptions; track opt.value) {
-                            <option [value]="opt.value">{{ opt.label }}</option>
-                          }
-                        </select>
+                          <div class="form-group">
+                            <label class="form-label" for="trigger-budget-bracket">Budget Bracket</label>
+                            <div class="select-wrapper custom-select-wrapper">
+                              <!-- Native select for form model & test compatibility -->
+                              <select
+                                class="sr-only-select"
+                                id="budget-bracket"
+                                tabindex="-1"
+                                aria-hidden="true"
+                                [formField]="contactForm.budgetBracket"
+                                (change)="onNativeSelectChange('budgetBracket', $event)"
+                              >
+                                @for (opt of budgetOptions; track opt.value) {
+                                  <option [value]="opt.value">{{ opt.label }}</option>
+                                }
+                              </select>
 
-                        <!-- Custom Dropdown Trigger -->
-                        <button
-                          type="button"
-                          class="custom-select-trigger custom-select-trigger--nested"
-                          id="trigger-budget-bracket"
-                          aria-haspopup="listbox"
-                          [attr.aria-expanded]="openDropdown() === 'budget'"
-                          [title]="currentBudgetLabel()"
-                          aria-controls="listbox-budget-bracket"
-                          (click)="toggleDropdown('budget', $event)"
-                          (keydown)="onTriggerKeydown($event, 'budget')"
-                        >
-                          <span class="custom-select-value">{{ currentBudgetLabel() }}</span>
-                          <svg
-                            class="custom-select-arrow"
-                            [class.is-open]="openDropdown() === 'budget'"
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M2.5 4.5L6 8L9.5 4.5"
-                              stroke="currentColor"
-                              stroke-width="1.75"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-
-                        <!-- Custom Dropdown Menu -->
-                        @if (openDropdown() === 'budget') {
-                          <div
-                            class="custom-select-menu"
-                            id="listbox-budget-bracket"
-                            role="listbox"
-                            aria-labelledby="trigger-budget-bracket"
-                          >
-                            @for (opt of budgetOptions; track opt.value; let i = $index) {
+                              <!-- Custom Dropdown Trigger -->
                               <button
                                 type="button"
-                                class="custom-select-option"
-                                role="option"
-                                [id]="'opt-budget-' + i"
-                                [attr.aria-selected]="model().budgetBracket === opt.value"
-                                [class.is-selected]="model().budgetBracket === opt.value"
-                                (click)="
-                                  selectOption('budgetBracket', opt.value, 'budget-bracket', $event)
-                                "
+                                class="custom-select-trigger custom-select-trigger--nested"
+                                id="trigger-budget-bracket"
+                                aria-haspopup="listbox"
+                                [attr.aria-expanded]="openDropdown() === 'budget'"
+                                [title]="currentBudgetLabel()"
+                                aria-controls="listbox-budget-bracket"
+                                (click)="toggleDropdown('budget', $event)"
+                                (keydown)="onTriggerKeydown($event, 'budget')"
                               >
-                                <span class="custom-option-label">{{ opt.label }}</span>
-                                @if (model().budgetBracket === opt.value) {
-                                  <svg
-                                    class="custom-option-check"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    fill="none"
-                                    aria-hidden="true"
-                                  >
-                                    <path
-                                      d="M2.5 7.5L5.5 10.5L11.5 4"
-                                      stroke="#24201b"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                    />
-                                  </svg>
-                                }
+                                <span class="custom-select-value">{{ currentBudgetLabel() }}</span>
+                                <svg
+                                  class="custom-select-arrow"
+                                  [class.is-open]="openDropdown() === 'budget'"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 12 12"
+                                  fill="none"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    d="M2.5 4.5L6 8L9.5 4.5"
+                                    stroke="currentColor"
+                                    stroke-width="1.75"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
                               </button>
-                            }
-                          </div>
-                        }
-                      </div>
-                    </div>
 
-                    <div class="form-group form-group--full">
-                      <label class="form-label" for="tech-stack">Current Technical Stack</label>
-                      <div class="input-wrapper">
-                        <input
-                          class="form-input"
-                          id="tech-stack"
-                          type="text"
-                          placeholder="e.g. Angular, React, Next.js, TypeScript"
-                          [formField]="contactForm.techStack"
-                        />
+                              <!-- Custom Dropdown Menu -->
+                              @if (openDropdown() === 'budget') {
+                                <div
+                                  class="custom-select-menu"
+                                  id="listbox-budget-bracket"
+                                  role="listbox"
+                                  aria-labelledby="trigger-budget-bracket"
+                                >
+                                  @for (opt of budgetOptions; track opt.value; let i = $index) {
+                                    <button
+                                      type="button"
+                                      class="custom-select-option"
+                                      role="option"
+                                      [id]="'opt-budget-' + i"
+                                      [attr.aria-selected]="model().budgetBracket === opt.value"
+                                      [class.is-selected]="model().budgetBracket === opt.value"
+                                      (click)="
+                                        selectOption('budgetBracket', opt.value, 'budget-bracket', $event)
+                                      "
+                                    >
+                                      <span class="custom-option-label">{{ opt.label }}</span>
+                                      @if (model().budgetBracket === opt.value) {
+                                        <svg
+                                          class="custom-option-check"
+                                          width="14"
+                                          height="14"
+                                          viewBox="0 0 14 14"
+                                          fill="none"
+                                          aria-hidden="true"
+                                        >
+                                          <path
+                                            d="M2.5 7.5L5.5 10.5L11.5 4"
+                                            stroke="#24201b"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          />
+                                        </svg>
+                                      }
+                                    </button>
+                                  }
+                                </div>
+                              }
+                            </div>
+                          </div>
+
+                          <div class="form-group form-group--full">
+                            <label class="form-label" for="tech-stack">Current Technical Stack</label>
+                            <div class="input-wrapper">
+                              <input
+                                class="form-input"
+                                id="tech-stack"
+                                type="text"
+                                placeholder="e.g. Angular, React, Next.js, TypeScript"
+                                [formField]="contactForm.techStack"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              }
+              </fieldset>
 
               <!-- Project Notes Textarea (h: 120px in design.svg) -->
               <div class="form-group form-group--full">
@@ -826,109 +834,233 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       opacity: 0 !important;
     }
 
-    .progressive-toggle-wrapper {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      cursor: pointer;
-      color: #ffffff;
-      font-size: 0.875rem;
-      font-weight: 550;
-      background-color: rgba(255, 255, 255, 0.16);
-      padding: 0.65rem 1.15rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      transition: background-color var(--transition-fast);
-    }
-
-    .progressive-toggle-wrapper:hover {
-      background-color: rgba(255, 255, 255, 0.24);
-    }
-
-    .progressive-toggle-label {
-      color: #ffffff;
-      font-weight: 550;
-      font-size: 0.875rem;
-    }
-
-    .progressive-checkbox {
-      accent-color: #24201b;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-
-    /* Progressive Expansion Card: high-contrast, full-width, perfectly readable */
-    .progressive-expansion {
+    /* Progressive Disclosure Fieldset & Unified Card Architecture */
+    .progressive-fieldset {
       grid-column: 1 / -1;
       width: 100%;
       max-width: 100%;
       min-width: 0;
       box-sizing: border-box;
-      display: block;
-      background-color: #ffffff;
-      border: 1px solid rgba(36, 32, 27, 0.12);
-      border-radius: var(--radius-sm);
-      padding: 1.5rem clamp(1.25rem, 3vw, 1.75rem);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      margin-top: 0.25rem;
-      container-type: inline-size;
-      container-name: expansion;
+      border: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .progressive-expansion .form-grid {
+    .scope-disclosure-card {
       width: 100%;
       max-width: 100%;
       min-width: 0;
       box-sizing: border-box;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
     }
 
-    @media (min-width: 680px) {
-      .progressive-expansion .form-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-      }
+    .scope-disclosure-card:hover {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.38);
     }
 
-    @container expansion (min-width: 480px) {
-      .progressive-expansion .form-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-      }
+    .scope-disclosure-card.is-expanded {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.42);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     }
 
-    /* Labels inside the white expansion card must be deep charcoal for high contrast */
-    .progressive-expansion .form-label {
-      color: #24201b;
+    .scope-disclosure-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      text-align: left;
+      outline: none;
+      user-select: none;
+      box-sizing: border-box;
+      transition: background-color var(--transition-fast);
+    }
+
+    .scope-disclosure-trigger:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: -2px;
+    }
+
+    /* Custom Checkbox UI */
+    .scope-checkbox-ui {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
+      background-color: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition:
+        background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scope-disclosure-trigger:hover .scope-checkbox-ui {
+      border-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .scope-checkbox-ui.is-checked {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+
+    .scope-check-icon {
+      opacity: 0;
+      transform: scale(0.6);
+      transition:
+        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.15s ease;
+    }
+
+    .scope-check-icon.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Text Hierarchy */
+    .scope-content-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .scope-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .scope-title {
+      font-size: 0.9375rem;
       font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .scope-optional-badge {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .scope-subtitle {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.4;
+    }
+
+    /* Chevron Indicator */
+    .scope-chevron-wrapper {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+      transition:
+        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color var(--transition-fast);
+    }
+
+    .scope-disclosure-trigger:hover .scope-chevron-wrapper {
+      background-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .scope-chevron-wrapper.is-expanded {
+      transform: rotate(180deg);
+    }
+
+    .scope-chevron-icon {
+      display: block;
+    }
+
+    .sr-only-checkbox {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      opacity: 0 !important;
+    }
+
+    /* Animated Expansion Container (0fr -> 1fr CSS Grid) */
+    .progressive-expansion {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 240ms ease,
+        visibility 300ms;
+    }
+
+    .progressive-expansion.is-expanded {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .progressive-expansion-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* Direct Form Fields: NO nested card / NO box-in-a-box */
+    .scope-expanded-body {
+      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .scope-expanded-body .form-label {
+      color: #ffffff;
       font-size: 0.875rem;
+      font-weight: 500;
       margin-bottom: 0.45rem;
     }
 
-    /* Inputs inside the card */
-    .progressive-expansion .form-input {
-      background-color: #f7f9fa;
-      border: 1px solid rgba(36, 32, 27, 0.2);
+    .scope-expanded-body .form-input,
+    .scope-expanded-body .custom-select-trigger--nested {
+      background-color: #ffffff;
+      border: 1px solid rgba(36, 32, 27, 0.16);
       color: #24201b;
       font-weight: 500;
       width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      box-sizing: border-box;
-    }
-
-    .progressive-expansion .form-input:focus {
-      background-color: #ffffff;
-      border-color: #24201b;
-      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.12);
-    }
-
-    .progressive-expansion .form-input::placeholder {
-      color: #718096;
-      opacity: 1;
     }
 
     .form-actions-dock {
@@ -1048,6 +1180,7 @@ export class Contact {
   readonly intake = inject(ContactIntake);
   readonly diagnostic = inject(DiagnosticState);
   readonly pagespeed = inject(PagespeedClient);
+  private readonly route = inject(ActivatedRoute, { optional: true });
 
   readonly timelineOptions = [
     { value: 'immediate', label: 'Accelerated Priority (1–2 wks)' },
@@ -1062,22 +1195,7 @@ export class Contact {
     { value: '$40k+', label: '$40,000+ (Custom Architecture)' }
   ];
 
-  readonly openDropdown = signal<'focus' | 'timeline' | 'budget' | null>(null);
-
-  readonly focusOptions = computed(() =>
-    this.diagnostic.categories.map((cat) => ({
-      value: cat.id,
-      label: `${cat.label} (${cat.turnaround.standard})`
-    }))
-  );
-
-  readonly currentFocusLabel = computed(() => {
-    const currentVal = this.model().focus;
-    const match = this.focusOptions().find((opt) => opt.value === currentVal);
-    return (
-      match?.label ?? this.focusOptions()[0]?.label ?? 'Performance Engineering Sprint (2 Weeks)'
-    );
-  });
+  readonly openDropdown = signal<'timeline' | 'budget' | null>(null);
 
   readonly currentTimelineLabel = computed(() => {
     const currentVal = this.model().timeline;
@@ -1093,17 +1211,25 @@ export class Contact {
 
   protected readonly model = linkedSignal<string, ContactInquiry>({
     source: this.pagespeed.targetUrl,
-    computation: (heroUrl, previous) => ({
-      fullName: previous?.value.fullName ?? '',
-      companyUrl: heroUrl || (previous?.value.companyUrl ?? ''),
-      workEmail: previous?.value.workEmail ?? '',
-      focus: previous?.value.focus ?? this.diagnostic.activeCategoryId(),
-      includeDetails: previous?.value.includeDetails ?? false,
-      budgetBracket: previous?.value.budgetBracket ?? '$10k-$20k',
-      techStack: previous?.value.techStack ?? '',
-      timeline: previous?.value.timeline ?? 'immediate',
-      notes: previous?.value.notes ?? ''
-    })
+    computation: (heroUrl, previous) => {
+      const queryParamFocus = this.route?.snapshot.queryParams['focus'];
+      const initialFocus =
+        queryParamFocus && this.diagnostic.categories.some((c) => c.id === queryParamFocus)
+          ? queryParamFocus
+          : (previous?.value.focus ?? this.diagnostic.activeCategoryId());
+
+      return {
+        fullName: previous?.value.fullName ?? '',
+        companyUrl: heroUrl || (previous?.value.companyUrl ?? ''),
+        workEmail: previous?.value.workEmail ?? '',
+        focus: initialFocus,
+        includeDetails: previous?.value.includeDetails ?? false,
+        budgetBracket: previous?.value.budgetBracket ?? '$10k-$20k',
+        techStack: previous?.value.techStack ?? '',
+        timeline: previous?.value.timeline ?? 'immediate',
+        notes: previous?.value.notes ?? ''
+      };
+    }
   });
 
   protected readonly contactForm = form(this.model, (s) => {
@@ -1111,7 +1237,33 @@ export class Contact {
     email(s.workEmail, { message: 'Please provide a valid email format (name@company.com).' });
   });
 
-  toggleDropdown(name: 'focus' | 'timeline' | 'budget', event?: MouseEvent): void {
+  onFocusChange(id: string): void {
+    this.model.update((m) => ({ ...m, focus: id }));
+    const select = document.getElementById('primary-focus') as HTMLSelectElement | null;
+    if (select && select.value !== id) {
+      select.value = id;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  toggleDetails(): void {
+    const next = !this.model().includeDetails;
+    this.model.update((m) => ({ ...m, includeDetails: next }));
+    const cb = document.getElementById('include-details') as HTMLInputElement | null;
+    if (cb && cb.checked !== next) {
+      cb.checked = next;
+      cb.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  onIncludeDetailsChange(event: Event): void {
+    const target = event.target as HTMLInputElement | null;
+    if (target && this.model().includeDetails !== target.checked) {
+      this.model.update((m) => ({ ...m, includeDetails: target.checked }));
+    }
+  }
+
+  toggleDropdown(name: 'timeline' | 'budget', event?: MouseEvent): void {
     event?.stopPropagation();
     this.openDropdown.update((current) => (current === name ? null : name));
   }
@@ -1139,7 +1291,7 @@ export class Contact {
     }
   }
 
-  onTriggerKeydown(event: KeyboardEvent, name: 'focus' | 'timeline' | 'budget'): void {
+  onTriggerKeydown(event: KeyboardEvent, name: 'timeline' | 'budget'): void {
     if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
       if (this.openDropdown() !== name) {
@@ -1158,16 +1310,12 @@ export class Contact {
     }
   }
 
-  private cycleOption(name: 'focus' | 'timeline' | 'budget', step: number): void {
+  private cycleOption(name: 'timeline' | 'budget', step: number): void {
     let options: { value: string; label: string }[];
-    let field: 'focus' | 'timeline' | 'budgetBracket';
+    let field: 'timeline' | 'budgetBracket';
     let selectId: string;
 
-    if (name === 'focus') {
-      options = this.focusOptions();
-      field = 'focus';
-      selectId = 'primary-focus';
-    } else if (name === 'timeline') {
+    if (name === 'timeline') {
       options = this.timelineOptions;
       field = 'timeline';
       selectId = 'timeline-pace';

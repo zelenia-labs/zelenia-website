@@ -95,7 +95,9 @@ describe('Contact Component (Signal Forms)', () => {
   });
 
   it('should toggle progressive disclosure fields when include-details checkbox is checked', async () => {
-    expect(fixture.nativeElement.querySelector('#progressive-expansion')).toBeNull();
+    const expansion = fixture.nativeElement.querySelector('#progressive-expansion') as HTMLElement;
+    expect(expansion).toBeTruthy();
+    expect(expansion.classList.contains('is-expanded')).toBe(false);
 
     const checkbox = fixture.nativeElement.querySelector('#include-details') as HTMLInputElement;
     expect(checkbox).toBeTruthy();
@@ -103,8 +105,7 @@ describe('Contact Component (Signal Forms)', () => {
     fixture.detectChanges();
     await fixture.whenStable();
 
-    const expansion = fixture.nativeElement.querySelector('#progressive-expansion');
-    expect(expansion).toBeTruthy();
+    expect(expansion.classList.contains('is-expanded')).toBe(true);
 
     const budgetSelect = fixture.nativeElement.querySelector(
       '#budget-bracket'
@@ -115,87 +116,85 @@ describe('Contact Component (Signal Forms)', () => {
     expect(techInput).toBeTruthy();
   });
 
-  it('should toggle custom dropdown open and close on trigger click', async () => {
+  it('should toggle expandable legend and update aria-expanded on trigger button click', async () => {
     const trigger = fixture.nativeElement.querySelector(
-      '#trigger-primary-focus'
+      '#trigger-details-toggle'
     ) as HTMLButtonElement;
     expect(trigger).toBeTruthy();
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+
+    const expansion = fixture.nativeElement.querySelector('#progressive-expansion') as HTMLElement;
+    expect(expansion.classList.contains('is-expanded')).toBe(false);
 
     trigger.click();
     fixture.detectChanges();
     await fixture.whenStable();
 
     expect(trigger.getAttribute('aria-expanded')).toBe('true');
-    const menu = fixture.nativeElement.querySelector('#listbox-primary-focus');
-    expect(menu).toBeTruthy();
+    expect(expansion.classList.contains('is-expanded')).toBe(true);
 
-    // Click trigger again to close
+    // Toggle back
     trigger.click();
     fixture.detectChanges();
     await fixture.whenStable();
 
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+    expect(expansion.classList.contains('is-expanded')).toBe(false);
   });
 
-  it('should select an option from custom dropdown and update model, native select, and trigger label', async () => {
-    const trigger = fixture.nativeElement.querySelector(
-      '#trigger-primary-focus'
-    ) as HTMLButtonElement;
-    trigger.click();
+  it('should select an option from focus cards radio group and update model and native select', async () => {
+    const rebuildRadio = fixture.nativeElement.querySelector(
+      '#focus-radio-rebuild'
+    ) as HTMLInputElement;
+    expect(rebuildRadio).toBeTruthy();
+    expect(rebuildRadio.checked).toBe(false);
+
+    rebuildRadio.click();
     fixture.detectChanges();
     await fixture.whenStable();
+
+    expect(rebuildRadio.checked).toBe(true);
+    expect(component['model']().focus).toBe('rebuild');
+
+    const selectEl = fixture.nativeElement.querySelector('#primary-focus') as HTMLSelectElement;
+    expect(selectEl.value).toBe('rebuild');
+  });
+
+  it('should toggle and select nested custom dropdown in technical layer on trigger click', async () => {
+    // First expand the fieldset
+    const triggerDetails = fixture.nativeElement.querySelector(
+      '#trigger-details-toggle'
+    ) as HTMLButtonElement;
+    triggerDetails.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const timelineTrigger = fixture.nativeElement.querySelector(
+      '#trigger-timeline-pace'
+    ) as HTMLButtonElement;
+    expect(timelineTrigger).toBeTruthy();
+    expect(timelineTrigger.getAttribute('aria-expanded')).toBe('false');
+    expect(fixture.nativeElement.querySelector('#listbox-timeline-pace')).toBeNull();
+
+    timelineTrigger.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(timelineTrigger.getAttribute('aria-expanded')).toBe('true');
+    const menu = fixture.nativeElement.querySelector('#listbox-timeline-pace');
+    expect(menu).toBeTruthy();
 
     const options = fixture.nativeElement.querySelectorAll('.custom-select-option');
     expect(options.length).toBeGreaterThan(1);
 
-    // Select the second option
+    // Select second option
     const secondOption = options[1] as HTMLElement;
     secondOption.click();
     fixture.detectChanges();
     await fixture.whenStable();
 
-    // Menu should be closed
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
-
-    // Native select should reflect the updated value
-    const selectEl = fixture.nativeElement.querySelector('#primary-focus') as HTMLSelectElement;
-    expect(selectEl.value).toBe(component['diagnostic'].categories[1].id);
-
-    // Trigger value label should reflect the updated selection
-    const valueEl = trigger.querySelector('.custom-select-value');
-    expect(valueEl?.textContent).toContain(component['diagnostic'].categories[1].label);
-  });
-
-  it('should close open custom dropdown on Escape key or outside click', async () => {
-    const trigger = fixture.nativeElement.querySelector(
-      '#trigger-primary-focus'
-    ) as HTMLButtonElement;
-    trigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeTruthy();
-
-    // Dispatch Escape
-    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
-
-    // Open again, then click outside
-    trigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeTruthy();
-
-    document.body.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(fixture.nativeElement.querySelector('#listbox-primary-focus')).toBeNull();
+    expect(fixture.nativeElement.querySelector('#listbox-timeline-pace')).toBeNull();
+    expect(component['model']().timeline).toBe(component.timelineOptions[1].value);
   });
 });
+

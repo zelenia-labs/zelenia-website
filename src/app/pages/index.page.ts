@@ -8,7 +8,6 @@ import { MetricsTracking } from '../sections/hero/metrics-tracking';
 import { Advantage } from '../sections/advantage/advantage';
 import { PersonalizedPlan } from '../sections/diagnostic/personalized-plan';
 import { Leadership } from '../sections/leadership/leadership';
-import { Contact } from '../sections/contact/contact';
 import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
@@ -17,7 +16,7 @@ export const routeMeta: RouteMeta = {
     {
       name: 'description',
       content:
-        'Improve your online presence with sub-second speeds, bespoke design systems, and direct practitioner execution by a Google Developer Expert and a Lead Product Designer.'
+        'Direct senior partnership pairing a Fortune 100 Principal Engineer & GDE with a Lead Product Designer. Sub-second performance, design systems, and zero agency overhead.'
     },
     {
       property: 'og:title',
@@ -26,7 +25,7 @@ export const routeMeta: RouteMeta = {
     {
       property: 'og:description',
       content:
-        'Thoughtful product design and high-performance frontend engineering by Yolanda Santa Cruz and Alejandro Cuba. Fast, beautiful websites with zero agency runaround.'
+        'High-performance frontend architecture and product design executed directly by Yolanda Santa Cruz and Alejandro Cuba. 2–4 week sprints, sub-second speed, zero agency overhead.'
     },
     {
       property: 'og:image',
@@ -43,30 +42,26 @@ export const routeMeta: RouteMeta = {
     MetricsTracking,
     Advantage,
     PersonalizedPlan,
-    Leadership,
-    Contact
+    Leadership
   ],
   template: `
-    <!-- Section 1: Hero Section ("Improve your online presence") -->
+    <!-- Section 1: Hero Section -->
     <app-hero />
 
-    <!-- Section 2: Performant Interfaces ("Focused on performant interfaces") -->
+    <!-- Section 2: Performant Interfaces -->
     <app-engagement-tracks />
 
-    <!-- Section 3: Telemetry Benchmarks ("Tracking the metrics that matter") -->
+    <!-- Section 3: Telemetry Benchmarks -->
     <app-metrics-tracking />
 
-    <!-- Section 4: Common Roadblocks ("Less friction. More visitors who stay.") -->
+    <!-- Section 4: Common Roadblocks -->
     <app-advantage />
 
-    <!-- Section 5: Architectural Plan ("Get your personalized Zelenia plan") -->
+    <!-- Section 5: Architectural Plan -->
     <app-personalized-plan />
 
-    <!-- Section 6: Who We Are ("The team behind Zelenia Studio") -->
+    <!-- Section 6: Who We Are -->
     <app-leadership />
-
-    <!-- Section 7: Contact ("Tell us what needs attention") -->
-    <app-contact />
   `
 })
 export default class Home {

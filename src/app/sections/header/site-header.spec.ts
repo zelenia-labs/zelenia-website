@@ -47,7 +47,7 @@ describe('SiteHeader Component', () => {
     expect(ctaButton.textContent).toContain('Book Call');
   });
 
-  it('should only highlight Our process when route is /process', () => {
+  it('should only highlight Our process when route is /process and set aria-current', () => {
     component.currentUrl.set('/process');
     fixture.detectChanges();
 
@@ -58,9 +58,10 @@ describe('SiteHeader Component', () => {
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
     expect(activeLinks[0].textContent?.trim()).toBe('Our process');
+    expect(activeLinks[0].getAttribute('aria-current')).toBe('page');
   });
 
-  it('should only highlight About when route is /team', () => {
+  it('should only highlight About when route is /team and set aria-current', () => {
     component.currentUrl.set('/team');
     fixture.detectChanges();
 
@@ -71,6 +72,16 @@ describe('SiteHeader Component', () => {
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
     expect(activeLinks[0].textContent?.trim()).toBe('About');
+    expect(activeLinks[0].getAttribute('aria-current')).toBe('page');
+  });
+
+  it('should highlight Book Call CTA button when route is /contact', () => {
+    component.currentUrl.set('/contact');
+    fixture.detectChanges();
+
+    const ctaButton = fixture.nativeElement.querySelector('.btn--header') as HTMLAnchorElement;
+    expect(ctaButton.classList.contains('is-active')).toBe(true);
+    expect(ctaButton.getAttribute('aria-current')).toBe('page');
   });
 
   it('should not highlight any dedicated page link on root route without fragment', () => {

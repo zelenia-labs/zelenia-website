@@ -88,49 +88,87 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(1.5rem, 3vw, 2.75rem);
+  gap: clamp(0.75rem, 1.8vw, 1.5rem);
 }
 
 .nav-link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  color: #d5dfe1;
-  font-size: 0.9rem;
-  font-weight: 450;
+  color: #c4d1d4;
+  font-size: 0.875rem;
+  font-weight: 500;
   text-decoration: none;
   padding-block: 0.35rem;
+  padding-inline: 0.15rem;
+  background: transparent;
+  border: none;
   transition: color var(--transition-fast);
   white-space: nowrap;
+}
+
+/* Architectural hairline underline indicator (no chips, no circle dots) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
 .nav-link:hover {
   color: #ffffff;
 }
 
-.nav-link.is-active {
-  color: #ffffff;
-  font-weight: 550;
+.nav-link:hover::after {
+  transform: scaleX(0.4);
+  opacity: 0.5;
 }
 
-/* On floating nav (scrolled state) and subpages, links match footer typography */
+.nav-link.is-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* On floating nav (scrolled state) and subpages, links match editorial typography */
 .site-header.is-scrolled .nav-link,
 .site-header.is-scrolled-up .nav-link,
 .site-header.is-subpage .nav-link {
-  color: var(--text);
+  color: #718084;
+  font-weight: 500;
+}
+
+.site-header.is-scrolled .nav-link::after,
+.site-header.is-scrolled-up .nav-link::after,
+.site-header.is-subpage .nav-link::after {
+  background-color: var(--dark-ink);
 }
 
 .site-header.is-scrolled .nav-link:hover,
 .site-header.is-scrolled-up .nav-link:hover,
 .site-header.is-subpage .nav-link:hover {
-  color: var(--text-primary);
+  color: var(--dark-ink);
 }
 
 .site-header.is-scrolled .nav-link.is-active,
 .site-header.is-scrolled-up .nav-link.is-active,
 .site-header.is-subpage .nav-link.is-active {
-  color: var(--text-primary);
-  font-weight: 550;
+  color: var(--dark-ink);
+  font-weight: 600;
 }
 
 /* Header Pill CTA Button matching design.svg (w=102, h=35, rx=17.5) */
@@ -140,9 +178,11 @@
 }
 
 .btn--pill-header {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   height: 31px;
   min-height: 31px;
   padding-block: 0;
@@ -181,4 +221,11 @@
 .site-header.is-scrolled-up .btn--pill-header:hover,
 .site-header.is-subpage .btn--pill-header:hover {
   background-color: #3d372f;
+}
+
+/* Active state when on /contact */
+.site-header .btn--pill-header.is-active {
+  box-shadow:
+    0 0 0 1.5px var(--dark-ink),
+    0 4px 14px rgba(36, 32, 27, 0.18);
 }

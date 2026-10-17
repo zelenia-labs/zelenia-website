@@ -12,14 +12,15 @@ import { RouterLink } from '@angular/router';
       <div class="container">
         <!-- Section Header (Centered in design.svg) -->
         <div class="section-header section-header--center reveal-on-scroll">
-          <span class="section-tag-subtle">Who We Are</span>
+          <span class="section-tag-subtle">Founder Pedigree</span>
           <h2 class="section-heading-twotone" id="founders-title">
-            <span class="heading-primary">The team behind</span>
-            <span class="heading-secondary">Zelenia Studio</span>
+            <span class="heading-primary">Senior density.</span>
+            <span class="heading-secondary">Direct execution.</span>
           </h2>
 
           <p class="section-subhead">
-            A designer and an engineer who love building fast, thoughtful websites together.
+            Two senior practitioners pairing Fortune 100 engineering architecture with unicorn-tested
+            product design—delivering directly with zero agency hierarchy.
           </p>
         </div>
 
@@ -55,9 +56,9 @@ import { RouterLink } from '@angular/router';
             </div>
             <h3 class="founder-name">Yolanda Santa Cruz</h3>
             <p class="founder-bio">
-              Product designer and visual artist with over a decade of experience shaping brands and
-              digital experiences. Focused on clean layouts, beautiful typography, and interfaces
-              that feel effortless to use.
+              10+ years leading product design and UX from Seed to Series E unicorns and Fortune 500
+              companies. Specializes in art direction, cognitive friction reduction, and visual
+              conversion psychology for high-performance digital products.
             </p>
           </article>
 
@@ -90,9 +91,9 @@ import { RouterLink } from '@angular/router';
             </div>
             <h3 class="founder-name">Alejandro Cuba Ruiz</h3>
             <p class="founder-bio">
-              Software engineer and Google Developer Expert who loves building fast, resilient web
-              applications. Focused on modern web architecture, clean code, and sub-second load
-              times.
+              Fortune 100 Principal Software Engineer and Google Developer Expert (GDE) in Web
+              Technologies with 20+ years of experience. Specializes in scalable frontend architecture,
+              runtime performance engineering, and sub-second web applications.
             </p>
           </article>
         </div>

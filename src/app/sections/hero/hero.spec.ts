@@ -27,23 +27,23 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   it('should render the studio headline from design.svg', () => {
     const titleEl = fixture.nativeElement.querySelector('.hero-title');
     expect(titleEl).toBeTruthy();
-    expect(titleEl.textContent).toContain('Improve your');
-    expect(titleEl.textContent).toContain('online presence');
+    expect(titleEl.textContent).toContain('High-performance web');
+    expect(titleEl.textContent).toContain('executed by founders');
   });
 
   it('should render the primary pill CTA button linking to contact', () => {
     const ctaBtn = fixture.nativeElement.querySelector('.btn--pill-hero');
     expect(ctaBtn).toBeTruthy();
-    expect(ctaBtn.textContent).toContain('Get in touch');
+    expect(ctaBtn.textContent).toContain('Start conversation');
     expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
   });
 
   it('should render the 3 bottom metric tiers', () => {
     const metricsEl = fixture.nativeElement.querySelector('.hero-metrics-bar');
     expect(metricsEl).toBeTruthy();
-    expect(metricsEl.textContent).toContain('Speed & Search');
-    expect(metricsEl.textContent).toContain('Fractional Partnership');
-    expect(metricsEl.textContent).toContain('Direct Collaboration');
+    expect(metricsEl.textContent).toContain('Sub-Second Speed');
+    expect(metricsEl.textContent).toContain('Senior Density');
+    expect(metricsEl.textContent).toContain('Direct Execution');
   });
 
   it('should render the noise overlay without canvas host', () => {

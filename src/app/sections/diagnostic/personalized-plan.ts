@@ -22,33 +22,33 @@ import { RouterLink } from '@angular/router';
         <!-- Left Editorial Content (x=160 in design.svg) -->
         <div class="plan-content reveal-on-scroll">
           <h2 class="plan-title" id="plan-heading">
-            <span class="plan-title__primary">Get your personalized</span>
-            <span class="plan-title__secondary">Zelenia plan</span>
+            <span class="plan-title__primary">Scope your sprint</span>
+            <span class="plan-title__secondary">with clear milestones</span>
           </h2>
 
           <p class="plan-subtitle">
-            Understand your site's potential and take action today with a tailored roadmap designed
-            for your specific goals.
+            Explore interactive sprint scopes, technical benchmarks, and transparent turnaround
+            timelines calibrated for your digital flagship.
           </p>
 
           <ol class="plan-steps-list" aria-label="Assessment steps">
             <li>
               <span class="step-angular-bracket" aria-hidden="true">1.</span>
-              <span>Fast page speeds</span>
+              <span>Sub-second performance engineering (LCP &lt; 1.0s, INP &lt; 50ms)</span>
             </li>
             <li>
               <span class="step-angular-bracket" aria-hidden="true">2.</span>
-              <span>Clear site structure</span>
+              <span>Design system elevation &amp; WCAG 2.2 AA accessibility</span>
             </li>
             <li>
               <span class="step-angular-bracket" aria-hidden="true">3.</span>
-              <span>Engaging user experience</span>
+              <span>Direct production code commits in 2–4 week sprints</span>
             </li>
           </ol>
 
           <div class="plan-action">
             <a class="btn btn--pill-plan" routerLink="/process">
-              <span>Get a free audit</span>
+              <span>Explore Sprints &amp; Scope</span>
             </a>
           </div>
         </div>

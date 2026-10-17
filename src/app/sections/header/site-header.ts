@@ -37,6 +37,7 @@ export interface HeaderNavItem {
             <a
               class="nav-link"
               [class.is-active]="isItemActive(item)"
+              [attr.aria-current]="isItemActive(item) ? 'page' : null"
               [routerLink]="item.href"
               [fragment]="item.fragment"
               (click)="onNavClick($event, item)"
@@ -48,8 +49,13 @@ export interface HeaderNavItem {
 
         <!-- Right Pill Button (x=1274, y=24, w=102, h=35, rx=17.5 in design.svg: 'Book Call') -->
         <div class="header-cta">
-          <a class="btn btn--pill-header btn--header" routerLink="/contact">
-            <span>Book Call</span>
+          <a
+            class="btn btn--pill-header btn--header"
+            [class.is-active]="currentPath() === '/contact'"
+            [attr.aria-current]="currentPath() === '/contact' ? 'page' : null"
+            routerLink="/contact"
+          >
+            Book Call
           </a>
         </div>
       </div>

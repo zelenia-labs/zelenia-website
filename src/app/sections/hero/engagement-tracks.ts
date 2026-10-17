@@ -18,8 +18,8 @@ import { RouterLink } from '@angular/router';
         <!-- Section Header matching design.svg (x=160) -->
         <div class="section-header reveal-on-scroll">
           <h2 class="section-heading-twotone" id="tracks-heading">
-            <span class="heading-primary">Focused on</span>
-            <span class="heading-secondary">performant interfaces</span>
+            <span class="heading-primary">Core engagement</span>
+            <span class="heading-secondary">sprint tracks</span>
           </h2>
         </div>
 
@@ -42,21 +42,29 @@ import { RouterLink } from '@angular/router';
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Speed &amp; Search Visibility</h3>
+            <h3 class="card-title">Sub-Second Speed &amp; Web Vitals</h3>
             <p class="card-description">
-              Clean code, optimized media, and fast load times that help search engines index your
-              pages and keep visitors engaged.
+              Main-thread unblocking, speculative resource prefetching, and layout shift stabilization
+              to achieve sub-second LCP and pass Google CrUX field audits.
             </p>
             <ul class="card-checklist" aria-label="Speed and search deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Sub-second load times</span>
+                <span>Sub-second LCP &amp; INP &lt; 50ms</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Search engine indexing</span>
+                <span>Real-world CrUX &amp; RUM calibration</span>
               </li>
             </ul>
+            <a
+              class="track-link"
+              routerLink="/process"
+              [queryParams]="{ focus: 'vitals' }"
+              aria-label="Explore speed and Core Web Vitals sprint"
+            >
+              <span>Explore speed sprint &rarr;</span>
+            </a>
           </article>
 
           <!-- Card 2: UX/UI Redesign -->
@@ -77,21 +85,29 @@ import { RouterLink } from '@angular/router';
                 ></path>
               </svg>
             </div>
-            <h3 class="card-title">Thoughtful UX &amp; Design</h3>
+            <h3 class="card-title">Aesthetic Elevation &amp; Visual CRO</h3>
             <p class="card-description">
-              Clean layouts and engaging typography designed to build trust, answer questions
-              quickly, and guide visitors to take action.
+              Refined typography, friction-free cognitive layout, and high-trust conversion pathways
+              designed to command executive trust and eliminate bounce rates.
             </p>
             <ul class="card-checklist" aria-label="Design deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Clear paths to contact</span>
+                <span>Cognitive friction elimination</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Visual hierarchy and pacing</span>
+                <span>Live browser design reviews</span>
               </li>
             </ul>
+            <a
+              class="track-link"
+              routerLink="/process"
+              [queryParams]="{ focus: 'visual-elevation' }"
+              aria-label="Explore aesthetic elevation sprint"
+            >
+              <span>Explore design sprint &rarr;</span>
+            </a>
           </article>
 
           <!-- Card 3: Unified Build -->
@@ -112,21 +128,28 @@ import { RouterLink } from '@angular/router';
                 <polyline points="2 12 12 17 22 12"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Design &amp; Code Together</h3>
+            <h3 class="card-title">Senior Architecture &amp; Rebuild</h3>
             <p class="card-description">
-              Design systems and frontend code built together in the browser, ensuring your
-              finished website works smoothly and looks exactly as envisioned.
+              Full-stack frontend architecture overhaul and modern reactive state. Both founders
+              co-author design tokens and production TypeScript directly in your repo.
             </p>
             <ul class="card-checklist" aria-label="Execution deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Figma into clean code</span>
+                <span>100% repository custody &amp; Git PRs</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Reliable on every device</span>
+                <span>Zero agency middlemen or junior delegation</span>
               </li>
             </ul>
+            <a
+              class="track-link"
+              routerLink="/contact"
+              aria-label="Scope end-to-end modernization or rebuild"
+            >
+              <span>Scope your project &rarr;</span>
+            </a>
           </article>
         </div>
       </div>
@@ -255,6 +278,23 @@ import { RouterLink } from '@angular/router';
     .check-bullet {
       color: var(--dark-ink);
       font-weight: bold;
+    }
+
+    .track-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--dark-ink);
+      text-decoration: none;
+      margin-block-start: 1.5rem;
+      padding-block: 0.25rem;
+      transition: color var(--transition-fast);
+    }
+
+    .track-link:hover {
+      color: #1848b8;
     }
   `
 })
