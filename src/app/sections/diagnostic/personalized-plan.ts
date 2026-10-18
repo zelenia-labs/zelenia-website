@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { StarfieldCanvas } from '../hero/starfield-canvas';
 
 @Component({
   selector: 'app-personalized-plan',
-  imports: [RouterLink],
+  imports: [RouterLink, StarfieldCanvas],
   template: `
     <section
       class="site-section personalized-plan-section"
       id="plan"
       aria-labelledby="plan-heading"
     >
-      <!-- Ambient Glow Circles matching Screenshot 3 & design.svg -->
-      <div class="ambient-glow glow--plan-sage" aria-hidden="true"></div>
-      <div class="ambient-glow glow--plan-charcoal" aria-hidden="true"></div>
-      <div class="ambient-glow glow--plan-sand" aria-hidden="true"></div>
-
-      <!-- Noise Effect Overlay: Mono, size 0.5, density 100%, color #FFFFFF 15% -->
-      <div class="section-noise-overlay" aria-hidden="true"></div>
+      <!-- Atmospheric Dynamic Three.js WebGL & Accessible Static SVG Starfield -->
+      <app-starfield-canvas></app-starfield-canvas>
 
       <div class="container plan-container">
         <!-- Left Editorial Content (x=160 in design.svg) -->
@@ -69,7 +65,8 @@ import { RouterLink } from '@angular/router';
   `,
   styles: `
     .personalized-plan-section {
-      background: var(--gradient-sage);
+      background-color: var(--color-black);
+      background: var(--color-black);
       color: var(--color-white);
       padding-block: clamp(4.5rem, 8vw, 6.5rem);
       overflow: hidden;
@@ -96,36 +93,6 @@ import { RouterLink } from '@angular/router';
       position: relative;
       z-index: 2;
       width: 100%;
-    }
-
-    .glow--plan-sage {
-      width: 751px;
-      height: 751px;
-      background-color: var(--color-glow-sage);
-      opacity: 0.7;
-      filter: blur(140px);
-      top: 10%;
-      right: -120px;
-    }
-
-    .glow--plan-charcoal {
-      width: 618px;
-      height: 618px;
-      background-color: var(--color-text-secondary);
-      opacity: 0.21;
-      filter: blur(90px);
-      top: 5%;
-      left: -140px;
-    }
-
-    .glow--plan-sand {
-      width: 541px;
-      height: 541px;
-      background-color: var(--color-glow-sand);
-      opacity: 0.135;
-      filter: blur(90px);
-      top: -100px;
-      right: 20%;
     }
 
     .plan-content {
@@ -225,7 +192,7 @@ import { RouterLink } from '@angular/router';
       width: clamp(380px, 35.5vw, 506px);
       border-top-left-radius: 32px;
       overflow: hidden;
-      box-shadow: -16px -16px 48px var(--color-black-subtle);
+      box-shadow: -16px -16px 48px var(--color-black-heavy);
       z-index: 2;
       line-height: 0;
     }
@@ -239,7 +206,7 @@ import { RouterLink } from '@angular/router';
         margin-bottom: 0;
         width: min(92%, 460px);
         border-top-left-radius: 24px;
-        box-shadow: -12px -12px 32px var(--color-black-subtle);
+        box-shadow: -12px -12px 32px var(--color-black-heavy);
       }
     }
 

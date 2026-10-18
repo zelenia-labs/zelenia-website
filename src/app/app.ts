@@ -5,11 +5,12 @@ import { filter } from 'rxjs/operators';
 import { IntroPreloader } from './ui/motion/intro-preloader';
 import { SiteHeader } from './sections/header/site-header';
 import { SiteFooter } from './sections/footer/site-footer';
+import { RocketEasterEgg } from './sections/footer/rocket-easter-egg';
 import { initScrollReveal } from './ui/motion/scroll-reveal';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, IntroPreloader, SiteHeader, SiteFooter],
+  imports: [RouterOutlet, IntroPreloader, SiteHeader, SiteFooter, RocketEasterEgg],
   template: `
     <app-intro-preloader />
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -18,6 +19,7 @@ import { initScrollReveal } from './ui/motion/scroll-reveal';
       <router-outlet />
     </main>
     <app-site-footer />
+    <app-rocket-easter-egg />
   `
 })
 export class App {

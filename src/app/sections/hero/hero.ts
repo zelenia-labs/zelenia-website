@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { HeroCanvas } from './hero-canvas';
+import { StarfieldCanvas } from './starfield-canvas';
 
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, HeroCanvas],
+  imports: [RouterLink, StarfieldCanvas],
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
       <!-- High-Performance Interactive Three.js Grain Canvas Host -->
-      <app-hero-canvas></app-hero-canvas>
+      <app-starfield-canvas></app-starfield-canvas>
 
       <div class="container hero-container">
         <div class="hero-content">

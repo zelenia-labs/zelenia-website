@@ -30,6 +30,7 @@
    High-Performance Atmospheric Interactive Canvas Host
    ========================================================================== */
 
+.starfield-canvas-host,
 .hero-canvas-host {
   position: absolute;
   inset: 0;

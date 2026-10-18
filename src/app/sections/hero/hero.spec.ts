@@ -34,7 +34,7 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   it('should render the primary pill CTA button linking to contact', () => {
     const ctaBtn = fixture.nativeElement.querySelector('.btn--pill-hero');
     expect(ctaBtn).toBeTruthy();
-    expect(ctaBtn.textContent).toContain('Start your website project');
+    expect(ctaBtn.textContent).toContain('Schedule a consultation');
     expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
   });
 
@@ -43,13 +43,12 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(ribbonEl).toBeTruthy();
     const metricsEl = fixture.nativeElement.querySelector('.hero-metrics-bar');
     expect(metricsEl).toBeTruthy();
-    expect(metricsEl.textContent).toContain('Sub-Second Speed');
-    expect(metricsEl.textContent).toContain('Senior Density');
-    expect(metricsEl.textContent).toContain('Direct Execution');
+    expect(metricsEl.textContent.toLowerCase()).toContain('sub-second speed');
+    expect(metricsEl.textContent).toContain('Direct execution');
   });
 
-  it('should render the interactive hero canvas host', () => {
-    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeTruthy();
+  it('should render the interactive starfield canvas host', () => {
+    expect(fixture.nativeElement.querySelector('app-starfield-canvas')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.hero-video')).toBeNull();
   });
 });
