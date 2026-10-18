@@ -27,18 +27,20 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   it('should render the studio headline from design.svg', () => {
     const titleEl = fixture.nativeElement.querySelector('.hero-title');
     expect(titleEl).toBeTruthy();
-    expect(titleEl.textContent).toContain('High-performance web');
-    expect(titleEl.textContent).toContain('executed by founders');
+    expect(titleEl.textContent).toContain('Improve your');
+    expect(titleEl.textContent).toContain('website');
   });
 
   it('should render the primary pill CTA button linking to contact', () => {
     const ctaBtn = fixture.nativeElement.querySelector('.btn--pill-hero');
     expect(ctaBtn).toBeTruthy();
-    expect(ctaBtn.textContent).toContain('Start conversation');
+    expect(ctaBtn.textContent).toContain('Start your website project');
     expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
   });
 
-  it('should render the 3 bottom metric tiers', () => {
+  it('should render the trust banner with the 3 core standard pillars', () => {
+    const ribbonEl = fixture.nativeElement.querySelector('.hero-trust-ribbon');
+    expect(ribbonEl).toBeTruthy();
     const metricsEl = fixture.nativeElement.querySelector('.hero-metrics-bar');
     expect(metricsEl).toBeTruthy();
     expect(metricsEl.textContent).toContain('Sub-Second Speed');
@@ -46,9 +48,8 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(metricsEl.textContent).toContain('Direct Execution');
   });
 
-  it('should render the noise overlay without canvas host', () => {
-    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeNull();
-    expect(fixture.nativeElement.querySelector('.section-noise-overlay')).toBeTruthy();
+  it('should render the interactive hero canvas host', () => {
+    expect(fixture.nativeElement.querySelector('app-hero-canvas')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('.hero-video')).toBeNull();
   });
 });

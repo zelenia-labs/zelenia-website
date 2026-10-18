@@ -15,16 +15,16 @@ import { Component } from '@angular/core';
         <div class="clarity-split-layout">
           <!-- Left Column: Section Heading (x=160 in design.svg) -->
           <div class="clarity-editorial reveal-on-scroll">
-            <span class="section-tag-subtle">The Advantage</span>
+            <span class="section-tag-subtle">Common Bottlenecks</span>
             <h2 class="section-heading-twotone" id="clarity-title">
-              <span class="heading-primary">Senior density.</span>
-              <span class="heading-secondary">Zero agency overhead.</span>
+              <span class="heading-primary">Less friction.</span>
+              <span class="heading-secondary">More visitors who stay.</span>
             </h2>
           </div>
 
           <!-- Right Column: 2x2 Grid of White Cards (w: 348, h: 244, rx: 20 in design.svg) -->
           <div class="clarity-cards-grid">
-            <!-- Card 1: Agency Overhead Trap -->
+            <!-- Card 1: Heavy Photos & Media -->
             <article class="clarity-card">
               <div class="clarity-badge badge--peach" aria-hidden="true">
                 <svg
@@ -44,15 +44,14 @@ import { Component } from '@angular/core';
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">The Agency Overhead Trap</h3>
+              <h3 class="clarity-card__title">Heavy Photos &amp; Media</h3>
               <p class="clarity-card__desc">
-                Traditional agencies pitch senior partners, then delegate production to junior
-                subcontractors. Over 40% of billable hours fund account managers, status calls, and
-                siloed handoff friction that results in brittle code.
+                Oversized photography, uncompressed videos, and heavy files slow your pages down
+                before visitors can even see what you offer.
               </p>
             </article>
 
-            <!-- Card 2: Senior Density Model -->
+            <!-- Card 2: Search Visibility -->
             <article class="clarity-card">
               <div class="clarity-badge badge--green" aria-hidden="true">
                 <svg
@@ -65,19 +64,18 @@ import { Component } from '@angular/core';
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">The Senior Density Model</h3>
+              <h3 class="clarity-card__title">Search Visibility</h3>
               <p class="clarity-card__desc">
-                Zero account managers, zero junior delegation, and zero handoff decay. Both founders
-                co-author design tokens and production TypeScript directly in live browser space,
-                merging clean pull requests into your GitHub repo.
+                Confusing site structure and missing tags make it difficult for Google to read your
+                pages, keeping potential clients from discovering you.
               </p>
             </article>
 
-            <!-- Card 3: Capacity Governance -->
+            <!-- Card 3: Page Speed & Stability -->
             <article class="clarity-card">
               <div class="clarity-badge badge--lavender" aria-hidden="true">
                 <svg
@@ -94,15 +92,14 @@ import { Component } from '@angular/core';
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Strict Capacity Governance</h3>
+              <h3 class="clarity-card__title">Page Speed &amp; Stability</h3>
               <p class="clarity-card__desc">
-                Capped at a strict limit of two concurrent client sprints. We refuse bloated client
-                rosters, giving your digital flagship undivided executive focus and shipping in 2–4
-                weeks what agencies delay for quarters.
+                Pages that take seconds to appear or jump around while loading frustrate visitors
+                and cause them to click away before reading.
               </p>
             </article>
 
-            <!-- Card 4: Commercial Integrity -->
+            <!-- Card 4: Clear Next Steps -->
             <article class="clarity-card">
               <div class="clarity-badge badge--peach" aria-hidden="true">
                 <svg
@@ -115,14 +112,13 @@ import { Component } from '@angular/core';
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M12 2l3 7h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"></path>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Direct Commercial Integrity</h3>
+              <h3 class="clarity-card__title">Clear Next Steps</h3>
               <p class="clarity-card__desc">
-                100% repository custody from day one, $0 infrastructure markup on hosting or third-party
-                APIs, and a 30-day technical warranty ensuring immediate post-launch support and
-                regression protection.
+                Cluttered pages and confusing navigation make it hard for visitors to find the
+                answers they need and take the next step.
               </p>
             </article>
           </div>

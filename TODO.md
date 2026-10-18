@@ -1,0 +1,3 @@
+- [ ] Zelenia logo
+- [ ] Hero effects
+- [ ] Navbar underline animations

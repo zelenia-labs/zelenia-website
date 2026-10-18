@@ -24,7 +24,7 @@ describe('SiteHeader Component', () => {
     expect(logoEl).toBeTruthy();
     const markEl = logoEl.querySelector('.site-logo-mark');
     expect(markEl).toBeTruthy();
-    expect(markEl.textContent?.trim()).toBe('Z');
+    expect(markEl.textContent?.trim()).toBe('Zelenia');
   });
 
   it('should not contain a hamburger menu button or nav-toggle', () => {
@@ -35,7 +35,7 @@ describe('SiteHeader Component', () => {
     expect(hamburgerBars.length).toBe(0);
   });
 
-  it('should render desktop navigation links and Book Call pill button', () => {
+  it('should render desktop navigation links and CTA pill button', () => {
     const navEl = fixture.nativeElement.querySelector('#site-navigation');
     expect(navEl).toBeTruthy();
 
@@ -44,10 +44,10 @@ describe('SiteHeader Component', () => {
 
     const ctaButton = fixture.nativeElement.querySelector('.btn--header');
     expect(ctaButton).toBeTruthy();
-    expect(ctaButton.textContent).toContain('Book Call');
+    expect(ctaButton.textContent).toContain('Contact us');
   });
 
-  it('should only highlight Our process when route is /process and set aria-current', () => {
+  it('should only highlight Our Process when route is /process and set aria-current', () => {
     component.currentUrl.set('/process');
     fixture.detectChanges();
 
@@ -57,11 +57,11 @@ describe('SiteHeader Component', () => {
 
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('Our process');
+    expect(activeLinks[0].textContent?.trim()).toBe('Our Process');
     expect(activeLinks[0].getAttribute('aria-current')).toBe('page');
   });
 
-  it('should only highlight About when route is /team and set aria-current', () => {
+  it('should only highlight About us when route is /team and set aria-current', () => {
     component.currentUrl.set('/team');
     fixture.detectChanges();
 
@@ -71,7 +71,7 @@ describe('SiteHeader Component', () => {
 
     const activeLinks = links.filter((l) => l.classList.contains('is-active'));
     expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('About');
+    expect(activeLinks[0].textContent?.trim()).toBe('About us');
     expect(activeLinks[0].getAttribute('aria-current')).toBe('page');
   });
 

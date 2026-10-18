@@ -1,48 +1,99 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HeroCanvas } from './hero-canvas';
+
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink],
+  imports: [RouterLink, HeroCanvas],
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
-      <!-- Noise Effect Overlay: Mono, size 0.5, density 100%, color #FFFFFF 15% -->
-      <div class="section-noise-overlay" aria-hidden="true"></div>
+      <!-- High-Performance Interactive Three.js Grain Canvas Host -->
+      <app-hero-canvas></app-hero-canvas>
 
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            <span class="hero-title__line">High-performance web</span>
-            <span class="hero-title__line hero-title__line--secondary">executed by founders</span>
+            <span class="hero-title__line">Improve your</span>
+            <span class="hero-title__line hero-title__line--secondary">website</span>
           </h1>
 
           <p class="hero-subheadline">
-            Direct senior partnership pairing a Fortune 100 Principal Engineer &amp; GDE with a
-            Lead Product Designer. Sub-second performance and bespoke design systems delivered in
-            2–4 week focused sprints—with zero agency overhead.
+            Turn your website into a fast and well designed experience. Modern design and precision engineering built to load instantly, rank on search engines, and remain fully discoverable across modern AI models.
           </p>
 
           <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
           <div class="hero-action-dock">
             <a class="btn btn--pill-hero" routerLink="/contact">
-              <span>Start conversation</span>
+              <span>Schedule a consultation</span>
             </a>
           </div>
+        </div>
+      </div>
 
-          <!-- Bottom Metric Tiers separated by fine dividers -->
-          <div class="hero-metrics-bar" aria-label="Core Capabilities Summary">
-            <div class="metric-item">
-              <span class="metric-label">Sub-Second Speed</span>
-              <span class="metric-sub">LCP &lt; 1.0s &amp; CrUX RUM</span>
+      <!-- Authority & Trust Ribbon -->
+      <div class="hero-trust-ribbon" role="region" aria-label="Core Capabilities and Standards">
+        <div class="container trust-ribbon-container">
+          <div class="hero-metrics-bar trust-ribbon-grid" aria-label="Core Capabilities Summary">
+            <div class="trust-item metric-item">
+              <span class="trust-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </span>
+              <span class="trust-statement">Sub-second speed on every screen
+              </span>
             </div>
-            <div class="metric-divider" aria-hidden="true"></div>
-            <div class="metric-item">
-              <span class="metric-label">Senior Density</span>
-              <span class="metric-sub">Fortune 100 Architect &amp; Lead Designer</span>
+
+            <div class="trust-item metric-item">
+              <span class="trust-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
+                  <circle cx="19" cy="7" r="2"></circle>
+                  <path d="M22 17v-1a3 3 0 0 0-2-2.8"></path>
+                </svg>
+              </span>
+              <span class="trust-statement">Google Developer Expert &amp; Fortune 100 Designer
+              </span>
             </div>
-            <div class="metric-divider" aria-hidden="true"></div>
-            <div class="metric-item">
-              <span class="metric-label">Direct Execution</span>
-              <span class="metric-sub">Zero agency overhead &amp; handoff decay</span>
+
+            <div class="trust-item metric-item">
+              <span class="trust-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              <span class="trust-statement">
+                Direct execution with zero agency overhead
+              </span>
             </div>
           </div>
         </div>
@@ -50,4 +101,4 @@ import { RouterLink } from '@angular/router';
     </header>
   `
 })
-export class Hero {}
+export class Hero { }

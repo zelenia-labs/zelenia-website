@@ -25,8 +25,8 @@ export interface MetricTab {
         <!-- Centered Two-Tone Section Heading -->
         <div class="section-header section-header--center reveal-on-scroll">
           <h2 class="section-heading-twotone" id="metrics-heading">
-            <span class="heading-primary">Tracking the telemetry</span>
-            <span class="heading-secondary">that drives revenue</span>
+            <span class="heading-primary">Tracking the metrics</span>
+            <span class="heading-secondary">that matter</span>
           </h2>
         </div>
 
@@ -102,16 +102,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Every 100ms of latency bleeds pipeline and organic search authority. We refactor
-                    main-thread execution (&lt; 50ms tasks), pre-allocate fonts, and optimize the critical
-                    path so your pages render in under a second globally.
+                    We optimize code, images, and script loading directly in your codebase so pages
+                    load instantly for real visitors on any connection, helping improve search
+                    rankings and visitor engagement.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'vitals' }"
                   >
-                    <span>Explore speed sprint</span>
+                    <span>Explore speed optimization</span>
                   </a>
                 </div>
               </div>
@@ -178,16 +178,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Over 60% of web traffic experiences broken mobile layouts, cramped touch targets,
-                    and awkward shifts. We engineer responsive architectures that scale fluidly from
-                    375px mobile screens to wide desktop monitors with zero layout degradation.
+                    Carefully tuned layouts ensure your website looks great and responds instantly on
+                    phones, tablets, and desktop screens, with zero awkward cutoffs or horizontal
+                    scrolling.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'responsive' }"
                   >
-                    <span>Explore responsive overhaul</span>
+                    <span>Explore responsive design</span>
                   </a>
                 </div>
               </div>
@@ -227,16 +227,16 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Search crawlers and assistive technologies demand unambiguous semantic structure.
-                    We implement valid HTML5 landmark hierarchy, screen-reader-tested ARIA controls,
-                    and rich structured metadata to maximize indexing and discovery.
+                    Clean, accessible structure makes it easy for both visitors and search engines to
+                    navigate your site, helping Google understand your content and recommend you to the
+                    right audience.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'technical-seo' }"
                   >
-                    <span>Explore technical SEO &amp; A11y</span>
+                    <span>Explore search optimization</span>
                   </a>
                 </div>
               </div>
@@ -275,16 +275,15 @@ export interface MetricTab {
 
                 <div class="pane-narrative">
                   <p>
-                    Cookie-cutter SaaS templates create banner blindness and cause high-value prospects
-                    to bounce. Yolanda Santa Cruz crafts bespoke visual hierarchy, refined typography,
-                    and intuitive scan paths that command executive trust and drive conversion.
+                    We design with clear visual hierarchy, readable typography, and intentional
+                    pacing so visitors understand what you offer and feel confident reaching out.
                   </p>
                   <a
                     class="btn btn--pill-pane"
                     routerLink="/process"
                     [queryParams]="{ focus: 'visual-elevation' }"
                   >
-                    <span>Explore aesthetic elevation</span>
+                    <span>Explore design process</span>
                   </a>
                 </div>
               </div>
@@ -855,23 +854,23 @@ export class MetricsTracking {
   readonly tabs: MetricTab[] = [
     {
       id: 'vitals',
-      title: 'Sub-Second Speed & Web Vitals',
-      summary: 'LCP < 1.0s, INP < 50ms, and zero layout shift calibrated against real-world CrUX metrics.'
+      title: 'Speed & Performance',
+      summary: 'Sub-second page loads and smooth interactions'
     },
     {
       id: 'responsive',
-      title: 'Adaptive Multi-Surface Architecture',
-      summary: 'Fluid layouts across mobile, tablet, and desktop with zero horizontal jitter.'
+      title: 'Mobile & Multi-Device',
+      summary: 'Flawless display on mobile, tablet, and desktop'
     },
     {
       id: 'seo',
-      title: 'Semantic Foundation & Technical SEO',
-      summary: 'Valid HTML5 hierarchy, WCAG 2.2 AA compliance, and Schema.org structured data.'
+      title: 'Search Visibility',
+      summary: 'Clean structure and accessibility for search engines'
     },
     {
       id: 'cro',
-      title: 'Aesthetic Elevation & Visual CRO',
-      summary: 'Bespoke typography, cognitive clarity, and high-trust conversion pathways.'
+      title: 'Design & Conversion',
+      summary: 'Thoughtful visual craft that turns visitors into clients'
     }
   ];
 

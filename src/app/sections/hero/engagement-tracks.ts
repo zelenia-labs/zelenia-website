@@ -18,8 +18,8 @@ import { RouterLink } from '@angular/router';
         <!-- Section Header matching design.svg (x=160) -->
         <div class="section-header reveal-on-scroll">
           <h2 class="section-heading-twotone" id="tracks-heading">
-            <span class="heading-primary">Core engagement</span>
-            <span class="heading-secondary">sprint tracks</span>
+            <span class="heading-primary">Focused on</span>
+            <span class="heading-secondary">performant interfaces</span>
           </h2>
         </div>
 
@@ -42,28 +42,28 @@ import { RouterLink } from '@angular/router';
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Sub-Second Speed &amp; Web Vitals</h3>
+            <h3 class="card-title">Speed &amp; Search Visibility</h3>
             <p class="card-description">
-              Main-thread unblocking, speculative resource prefetching, and layout shift stabilization
-              to achieve sub-second LCP and pass Google CrUX field audits.
+              Clean code, optimized media, and fast load times that help search engines index your
+              pages and keep visitors engaged.
             </p>
             <ul class="card-checklist" aria-label="Speed and search deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Sub-second LCP &amp; INP &lt; 50ms</span>
+                <span>Sub-second load times</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Real-world CrUX &amp; RUM calibration</span>
+                <span>Search engine indexing</span>
               </li>
             </ul>
             <a
               class="track-link"
               routerLink="/process"
               [queryParams]="{ focus: 'vitals' }"
-              aria-label="Explore speed and Core Web Vitals sprint"
+              aria-label="Explore speed optimization"
             >
-              <span>Explore speed sprint &rarr;</span>
+              <span>Explore speed optimization &rarr;</span>
             </a>
           </article>
 
@@ -85,28 +85,28 @@ import { RouterLink } from '@angular/router';
                 ></path>
               </svg>
             </div>
-            <h3 class="card-title">Aesthetic Elevation &amp; Visual CRO</h3>
+            <h3 class="card-title">Thoughtful UX &amp; Design</h3>
             <p class="card-description">
-              Refined typography, friction-free cognitive layout, and high-trust conversion pathways
-              designed to command executive trust and eliminate bounce rates.
+              Clean layouts and engaging typography designed to build trust, answer questions
+              quickly, and guide visitors to take action.
             </p>
             <ul class="card-checklist" aria-label="Design deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Cognitive friction elimination</span>
+                <span>Clear paths to contact</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Live browser design reviews</span>
+                <span>Visual hierarchy and pacing</span>
               </li>
             </ul>
             <a
               class="track-link"
               routerLink="/process"
               [queryParams]="{ focus: 'visual-elevation' }"
-              aria-label="Explore aesthetic elevation sprint"
+              aria-label="Explore design process"
             >
-              <span>Explore design sprint &rarr;</span>
+              <span>Explore design process &rarr;</span>
             </a>
           </article>
 
@@ -128,27 +128,27 @@ import { RouterLink } from '@angular/router';
                 <polyline points="2 12 12 17 22 12"></polyline>
               </svg>
             </div>
-            <h3 class="card-title">Senior Architecture &amp; Rebuild</h3>
+            <h3 class="card-title">Design &amp; Code Together</h3>
             <p class="card-description">
-              Full-stack frontend architecture overhaul and modern reactive state. Both founders
-              co-author design tokens and production TypeScript directly in your repo.
+              Design systems and frontend code built together in the browser, ensuring your
+              finished website works smoothly and looks exactly as envisioned.
             </p>
             <ul class="card-checklist" aria-label="Execution deliverables">
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>100% repository custody &amp; Git PRs</span>
+                <span>From design concepts into clean code</span>
               </li>
               <li>
                 <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Zero agency middlemen or junior delegation</span>
+                <span>Reliable on every device</span>
               </li>
             </ul>
             <a
               class="track-link"
               routerLink="/contact"
-              aria-label="Scope end-to-end modernization or rebuild"
+              aria-label="Start your project"
             >
-              <span>Scope your project &rarr;</span>
+              <span>Start your project &rarr;</span>
             </a>
           </article>
         </div>

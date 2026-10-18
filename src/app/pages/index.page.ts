@@ -11,21 +11,21 @@ import { Leadership } from '../sections/leadership/leadership';
 import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
-  title: 'Zelenia | High-Performance Frontend Architecture & Product Design',
+  title: 'Zelenia | Fast, Thoughtful Websites & Product Design',
   meta: [
     {
       name: 'description',
       content:
-        'Direct senior partnership pairing a Fortune 100 Principal Engineer & GDE with a Lead Product Designer. Sub-second performance, design systems, and zero agency overhead.'
+        'Improve your website with sub-second speeds, clean design systems, and direct practitioner execution by a Google Developer Expert and a Lead Product Designer.'
     },
     {
       property: 'og:title',
-      content: 'Zelenia | Frontend Architecture & Product Design'
+      content: 'Zelenia | Fast, Thoughtful Websites & Product Design'
     },
     {
       property: 'og:description',
       content:
-        'High-performance frontend architecture and product design executed directly by Yolanda Santa Cruz and Alejandro Cuba. 2–4 week sprints, sub-second speed, zero agency overhead.'
+        'Thoughtful product design and high-performance web engineering by Yolanda Santa Cruz and Alejandro Cuba. Fast, beautiful websites with zero agency runaround.'
     },
     {
       property: 'og:image',

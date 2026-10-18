@@ -25,10 +25,10 @@ export interface HeaderNavItem {
         <a
           class="site-logo"
           routerLink="/"
-          aria-label="Zelenia Studio Home"
+          aria-label="Zelenia Home"
           (click)="onLogoClick($event)"
         >
-          <span class="site-logo-mark" aria-hidden="true">Z</span>
+          <span class="site-logo-mark" aria-hidden="true">Zelenia</span>
         </a>
 
         <!-- Main Nav Links (Our process, About) -->
@@ -55,7 +55,7 @@ export interface HeaderNavItem {
             [attr.aria-current]="currentPath() === '/contact' ? 'page' : null"
             routerLink="/contact"
           >
-            Book Call
+            Contact us
           </a>
         </div>
       </div>
@@ -74,8 +74,8 @@ export class SiteHeader {
   readonly isScrolledUp = this.isScrolled;
 
   readonly navItems: HeaderNavItem[] = [
-    { label: 'Our process', href: '/process' },
-    { label: 'About', href: '/team' }
+    { label: 'Our Process', href: '/process' },
+    { label: 'About us', href: '/team' }
   ];
 
   private observer: IntersectionObserver | null = null;

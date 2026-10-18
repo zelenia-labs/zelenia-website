@@ -50,12 +50,13 @@
 
 .site-logo-mark {
   font-family: var(--font-serif);
-  font-size: 1.85rem;
+  font-size: clamp(1.45rem, 2.2vw, 1.7rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: #ffffff;
   -webkit-text-stroke: 0.1px #ffffff;
   paint-order: stroke fill;
-  line-height: 1;
+  line-height: 1.15;
   display: inline-block;
   user-select: none;
   transition:
