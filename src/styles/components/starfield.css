@@ -1,0 +1,70 @@
+/* ==========================================================================
+   STARFIELD CANVAS SUBSYSTEM STYLES
+   ========================================================================== */
+
+app-starfield-canvas,
+app-hero-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.starfield-canvas,
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.starfield-canvas.is-ready,
+.hero-canvas.is-ready {
+  opacity: 1;
+}
+
+.starfield-canvas-snapshot,
+.hero-canvas-snapshot {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+/* When WebGL canvas is initialized and ready, fade out the static snapshot */
+.starfield-canvas.is-ready ~ .starfield-canvas-snapshot,
+.hero-canvas.is-ready ~ .hero-canvas-snapshot {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Accessibility: When reduced motion is preferred, show authentic static SVG snapshot unless overridden */
+@media (prefers-reduced-motion: reduce) {
+  app-starfield-canvas:not(.is-force-ignited) .starfield-canvas,
+  app-hero-canvas:not(.is-force-ignited) .starfield-canvas,
+  app-hero-canvas:not(.is-force-ignited) .hero-canvas {
+    display: none !important;
+  }
+
+  app-starfield-canvas:not(.is-force-ignited) .starfield-canvas-snapshot,
+  app-hero-canvas:not(.is-force-ignited) .starfield-canvas-snapshot,
+  app-hero-canvas:not(.is-force-ignited) .hero-canvas-snapshot {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}

@@ -44,3 +44,9 @@
   - NO orphan credentials or dangling delimiter bullets.
   - NO `backdrop-filter: blur()` over continuous `<canvas>` animations.
   - NO use of the words "boutique" or "atelier" anywhere in user-facing copy.
+
+## 4. Anti-Monolith & Token-Efficiency Architecture
+
+- **Token Budget & File Sizing (< 300 Lines)**:
+  - No TypeScript file should exceed ~300 lines of code. Large multi-hundred-line monoliths inflate token usage, exhaust LLM context windows, and invite regression bugs.
+  - Component stylesheets must be kept in `src/styles/components/<component>.css` and imported globally in `src/styles.css`, never embedded as multi-hundred-line inline `styles: \`...\`` blocks in `@Component`.

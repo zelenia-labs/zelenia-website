@@ -1,0 +1,349 @@
+/* ==========================================================================
+   TEAM PAGE COMPONENT STYLES
+   ========================================================================== */
+
+.team-page {
+  position: relative;
+  background-color: var(--bg);
+  overflow-x: clip;
+}
+
+.team-hero {
+  position: relative;
+  padding-block-start: clamp(6.5rem, 10vw, 8.5rem);
+  padding-block-end: clamp(4.5rem, 7vw, 6rem);
+  overflow: visible;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.glow--team-warm {
+  width: 1040px;
+  height: 1040px;
+  background-color: var(--color-surface-sand);
+  opacity: 0.32;
+  filter: blur(90px);
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Fluid Intertwining Curves Backdrop matching Frame 26 */
+.hero-fluid-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1320px;
+  height: 100%;
+  max-height: 560px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.fluid-curves-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.team-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.team-hero-header {
+  text-align: left;
+  margin-block-end: clamp(6.5rem, 11vw, 10rem);
+  max-width: 660px;
+}
+
+.team-hero-header .section-subhead {
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.68;
+  color: var(--text-2);
+  max-width: 620px;
+  margin-block-start: 1.15rem;
+  margin-block-end: 0;
+  margin-inline: 0;
+}
+
+/* Team Profiles Stack: Alternating Editorial Layout matching Frame 26 */
+.team-profiles-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 7vw, 6.5rem);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.team-profile-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5.5rem);
+}
+
+.team-profile-row--flipped {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
+}
+
+.team-profile-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.team-profile-photo-col {
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.section-header--center {
+  text-align: center;
+  margin-block-end: clamp(2.5rem, 4.5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-subhead {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--text-2);
+  max-width: 620px;
+  margin-block-start: 1rem;
+  margin-block-end: 0;
+}
+
+.founder-photo-dock {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--surface-warm);
+  box-shadow: 0 16px 40px -12px var(--color-ink-subtle);
+  border: 1px solid var(--color-ink-faint);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.founder-photo-dock:hover {
+  box-shadow: 0 20px 48px -12px var(--color-ink-subtle);
+}
+
+.founder-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--dark-ink);
+}
+
+.badge--peach {
+  background-color: var(--badge-peach);
+}
+
+.badge--green {
+  background-color: var(--badge-green);
+}
+
+.badge--lavender {
+  background-color: var(--badge-lavender);
+}
+
+.founder-name {
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+  font-weight: 550;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  margin: 0 0 0.35rem 0;
+  font-family: var(--font-sans);
+  line-height: 1.2;
+}
+
+.founder-role {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.founder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
+}
+
+.chip-item {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-2);
+  background-color: var(--color-sage-subtle);
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: -0.01em;
+}
+
+.founder-bio {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-2);
+  margin: 0 0 1.5rem 0;
+  font-family: var(--font-sans);
+  max-width: 580px;
+}
+
+.founder-social {
+  margin-top: 0.25rem;
+}
+
+.founder-social-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 550;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-ink-strong);
+  padding-bottom: 2px;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.founder-social-link:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+/* Section 2: Operational Standards / Principles */
+.team-principles-section {
+  position: relative;
+  background-color: var(--bg);
+  padding-block: clamp(4rem, 6.5vw, 6rem);
+  border-top: 1px solid var(--border);
+  overflow: visible;
+}
+
+.glow--team-pillars {
+  width: 808px;
+  height: 808px;
+  background-color: var(--color-sage-light);
+  opacity: 0.25;
+  filter: blur(90px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.team-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-block-start: 2.5rem;
+}
+
+.team-principle-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: none;
+}
+
+.card-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--dark-ink);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.25;
+}
+
+.card-description {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0;
+}
+
+/* Section 3: FAQ */
+.team-faq-section {
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+/* Section 4: CTA Section */
+.team-cta-section {
+  position: relative;
+  background-color: var(--bg);
+  padding-block: clamp(5rem, 8vw, 7rem);
+  border-top: 1px solid var(--border);
+  overflow: visible;
+}
+
+.glow--team-cta {
+  width: 618px;
+  height: 618px;
+  background-color: var(--color-badge-green);
+  opacity: 0.22;
+  filter: blur(90px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 860px) {
+  .team-profile-row,
+  .team-profile-row--flipped {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .team-profile-row--flipped .team-profile-photo-col {
+    order: -1;
+  }
+  .team-profile-photo-col {
+    max-width: 340px;
+  }
+  .team-principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-hero-header {
+    margin-block-end: 3.5rem;
+  }
+  .hero-fluid-backdrop {
+    opacity: 0.55;
+  }
+}

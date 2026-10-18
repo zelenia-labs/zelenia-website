@@ -59,7 +59,7 @@ import { RouterLink } from '@angular/router';
             </ul>
             <a
               class="track-link"
-              routerLink="/process"
+              routerLink="/contact"
               [queryParams]="{ focus: 'vitals' }"
               aria-label="Explore speed optimization"
             >
@@ -102,8 +102,8 @@ import { RouterLink } from '@angular/router';
             </ul>
             <a
               class="track-link"
-              routerLink="/process"
-              [queryParams]="{ focus: 'visual-elevation' }"
+              routerLink="/contact"
+              [queryParams]="{ focus: 'redesign' }"
               aria-label="Explore design process"
             >
               <span>Explore design process &rarr;</span>

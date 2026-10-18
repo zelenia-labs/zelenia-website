@@ -8,6 +8,7 @@ import { MetricsTracking } from '../sections/hero/metrics-tracking';
 import { Advantage } from '../sections/advantage/advantage';
 import { PersonalizedPlan } from '../sections/diagnostic/personalized-plan';
 import { Leadership } from '../sections/leadership/leadership';
+import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
 import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
@@ -42,7 +43,8 @@ export const routeMeta: RouteMeta = {
     MetricsTracking,
     Advantage,
     PersonalizedPlan,
-    Leadership
+    Leadership,
+    PageFaq
   ],
   template: `
     <!-- Section 1: Hero Section -->
@@ -62,11 +64,40 @@ export const routeMeta: RouteMeta = {
 
     <!-- Section 6: Who We Are -->
     <app-leadership />
+
+    <!-- Section 7: Process & Delivery FAQ -->
+    <app-page-faq
+      tag="Process &amp; Delivery"
+      title="How our sprints"
+      titleSecondary="operate in practice."
+      subtitle="Clear answers about sprint cadence, weekly staging progress, repository access, and scope changes."
+      [items]="processFaqs"
+      [showInquiry]="false"
+    />
   `
 })
 export default class Home {
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly route = inject(ActivatedRoute);
+
+  readonly processFaqs: PageFaqItem[] = [
+    {
+      q: 'How do you calculate sprint timelines and delivery milestones?',
+      a: 'Timelines are determined directly by the technical scope of the sprint (performance remediation, accessibility audit, or custom build) and your chosen cadence (Standard vs Accelerated). Sprints range from 2 to 8 weeks with fixed weekly milestone deliveries into your staging environment.'
+    },
+    {
+      q: 'Can we book an Accelerated Priority Sprint for a fixed deadline?',
+      a: 'Yes. In an accelerated sprint, both of us dedicate our full daily focus to your project, with daily staging updates and quick feedback loops to meet critical launch dates.'
+    },
+    {
+      q: 'Do you require direct access to our production infrastructure?',
+      a: 'No. We work through feature branches in your Git repository and test against staging/preview environments. Your production deployment pipeline and credentials remain strictly under your control.'
+    },
+    {
+      q: 'What happens if we discover new requirements mid-sprint?',
+      a: 'Because you work directly with Yolanda and Alejandro without account manager intermediaries, scope adjustments are straightforward to talk through. We can test ideas right away in code and staging without delays, either swapping sprint priorities or scheduling a follow-up milestone.'
+    }
+  ];
 
   constructor() {
     afterNextRender(() => {

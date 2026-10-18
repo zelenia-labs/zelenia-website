@@ -5,6 +5,5 @@ export interface NavItem {
 }
 
 export const NAVIGATION_ITEMS: NavItem[] = [
-  { label: 'Process', href: '/process' },
-  { label: 'Team', href: '/team' }
+  { label: 'About us', href: '/team' }
 ];

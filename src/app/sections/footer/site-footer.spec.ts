@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SiteFooter } from './site-footer';
 
-describe('SiteFooter Component (Minimalist & Spectacular Parallax)', () => {
+describe('SiteFooter Component', () => {
   let fixture: ComponentFixture<SiteFooter>;
   let component: SiteFooter;
 
@@ -23,59 +23,44 @@ describe('SiteFooter Component (Minimalist & Spectacular Parallax)', () => {
     expect(footerEl).toBeTruthy();
   });
 
-  it('should NOT render the email address', () => {
-    const footerText = fixture.nativeElement.textContent;
-    expect(footerText).not.toContain('hello@zelenia.com');
+  it('should render project scope evaluation CTA linking to /contact', () => {
+    const ctaTitle = fixture.nativeElement.querySelector('.footer-cta-title');
+    expect(ctaTitle).toBeTruthy();
+    expect(ctaTitle.textContent).toContain('Have a project in mind');
+
+    const ctaBtn = fixture.nativeElement.querySelector('.footer-cta-btn');
+    expect(ctaBtn).toBeTruthy();
+    expect(ctaBtn.textContent).toContain('Send us a message');
+    expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
   });
 
-  it('should render contact and linkedin as design system buttons on the left', () => {
-    const contactBtn = fixture.nativeElement.querySelector('.footer-cta-btn');
-    const linkedinBtn = fixture.nativeElement.querySelector('.footer-linkedin-btn');
+  it('should render LinkedIn and GitHub social profile links in the bottom right', () => {
+    const socialLinks = fixture.nativeElement.querySelectorAll('.footer-social-link');
+    expect(socialLinks.length).toBe(2);
 
-    expect(contactBtn).toBeTruthy();
-    expect(contactBtn.classList.contains('btn')).toBe(true);
-    expect(contactBtn.classList.contains('btn--primary')).toBe(true);
-    expect(contactBtn.textContent).toContain('Start a conversation');
-    expect(contactBtn.getAttribute('routerlink') || contactBtn.getAttribute('href')).toBe('/contact');
+    const hrefs = Array.from(socialLinks).map((a) => (a as Element).getAttribute('href'));
+    expect(hrefs.some((h) => h?.includes('linkedin.com'))).toBe(true);
+    expect(hrefs.some((h) => h?.includes('github.com'))).toBe(true);
 
-    expect(linkedinBtn).toBeTruthy();
-    expect(linkedinBtn.classList.contains('btn')).toBe(true);
-    expect(linkedinBtn.classList.contains('btn--secondary')).toBe(true);
-    expect(linkedinBtn.textContent).toContain('LinkedIn');
-    expect(linkedinBtn.getAttribute('href')).toContain('linkedin.com');
+    const labels = Array.from(socialLinks).map((a) => (a as Element).textContent?.trim());
+    expect(labels).toContain('LinkedIn');
+    expect(labels).toContain('GitHub');
   });
 
-  it('should only render Company group on the right', () => {
-    const titles = fixture.nativeElement.querySelectorAll('.footer-col__title');
-    expect(titles.length).toBe(1);
-    expect(titles[0].textContent.trim()).toBe('Company');
-
-    const companyLinks = fixture.nativeElement.querySelectorAll('.footer-right-col .footer-link');
-    expect(companyLinks.length).toBe(2);
-
-    const linkUrls = Array.from(companyLinks).map(
-      (a) => (a as Element).getAttribute('routerlink') || (a as Element).getAttribute('href')
-    );
-    expect(linkUrls).toContain('/about');
-    expect(linkUrls).toContain('/process');
-  });
-
-  it('should NOT render the bottom right status dot or wording', () => {
-    const statusPill = fixture.nativeElement.querySelector('.footer-status-pill');
-    const statusDot = fixture.nativeElement.querySelector('.status-dot');
-    expect(statusPill).toBeNull();
-    expect(statusDot).toBeNull();
-  });
-
-  it('should render the architectural parallax watermark', () => {
-    const watermarkEl = fixture.nativeElement.querySelector('.footer-watermark');
-    expect(watermarkEl).toBeTruthy();
-    expect(watermarkEl.textContent.trim()).toBe('ZELENIA');
-  });
-
-  it('should display the dynamic current copyright year', () => {
+  it('should display the dynamic current copyright year with left-aligned copy', () => {
     const copyrightEl = fixture.nativeElement.querySelector('.footer-copyright');
     expect(copyrightEl).toBeTruthy();
     expect(copyrightEl.textContent).toContain(new Date().getFullYear().toString());
+    expect(copyrightEl.textContent).toContain(
+      'High-performance front-end & product design.'
+    );
+  });
+
+  it('should NOT render the giant typographic watermark or company sitemap', () => {
+    const watermarkEl = fixture.nativeElement.querySelector('.footer-watermark');
+    expect(watermarkEl).toBeNull();
+
+    const companyLinks = fixture.nativeElement.querySelectorAll('.footer-col__title');
+    expect(companyLinks.length).toBe(0);
   });
 });

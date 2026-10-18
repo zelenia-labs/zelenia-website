@@ -45,10 +45,10 @@ export interface CapabilityItem {
         <div class="capabilities-action">
           <a
             class="btn btn--primary"
-            routerLink="/process"
-            aria-label="Explore Development Process and Scope Estimator"
+            routerLink="/contact"
+            aria-label="Start Your Project with Zelenia"
           >
-            <span>Explore Process &amp; Scope Estimator</span>
+            <span>Start Your Project</span>
           </a>
         </div>
       </div>

@@ -31,4 +31,29 @@ describe('RocketEasterEgg Component (Minimalist Geometric Vector Rocket & WebGL 
     const stage = fixture.nativeElement.querySelector('.rocket-flight-stage');
     expect(stage).toBeNull();
   });
+
+  it('should evaluate isHomePage correctly', () => {
+    expect(component.isHomePage()).toBe(true);
+  });
+
+  it('should not launch when reduced motion is preferred or slow connection exists', async () => {
+    const originalConnection = (navigator as any).connection;
+    try {
+      Object.defineProperty(navigator, 'connection', {
+        value: { effectiveType: '3g', saveData: false },
+        configurable: true,
+        writable: true
+      });
+
+      await component.launch();
+      expect(component.isFlying()).toBe(false);
+      expect(component.isActive()).toBe(false);
+    } finally {
+      Object.defineProperty(navigator, 'connection', {
+        value: originalConnection,
+        configurable: true,
+        writable: true
+      });
+    }
+  });
 });

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { StarfieldCanvas } from './starfield-canvas';
+import { StarfieldCanvas } from '../starfield';
 
 @Component({
   selector: 'app-hero',
@@ -8,13 +8,13 @@ import { StarfieldCanvas } from './starfield-canvas';
   template: `
     <header class="hero-section" id="hero" aria-label="Studio Introduction">
       <!-- High-Performance Interactive Three.js Grain Canvas Host -->
-      <app-starfield-canvas></app-starfield-canvas>
+      <app-starfield-canvas #starfield></app-starfield-canvas>
 
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            <span class="hero-title__line">Improve your</span>
-            <span class="hero-title__line hero-title__line--secondary">website</span>
+            <span class="hero-title__line hero-title__line--primary">Elevate</span>
+            <span class="hero-title__line hero-title__line--secondary">your website</span>
           </h1>
 
           <p class="hero-subheadline">
@@ -28,6 +28,52 @@ import { StarfieldCanvas } from './starfield-canvas';
             </a>
           </div>
         </div>
+
+        <!-- Starfield Advisory Notice in natural flow, between CTA and Trust Ribbon -->
+        @if (starfield.activeNotice(); as notice) {
+          <aside class="hero-starfield-advisory" role="status" aria-live="polite">
+            <div class="advisory-pill">
+              <div class="advisory-text">
+                <span class="advisory-msg">{{ notice.message }}</span>
+                <span class="advisory-instruction">{{ notice.instruction }}</span>
+              </div>
+              @if (starfield.isIgniting()) {
+                <div class="advisory-spinner-container" role="status" aria-label="Igniting starfield">
+                  <span class="advisory-spinner" aria-hidden="true"></span>
+                </div>
+              } @else {
+                <button
+                  type="button"
+                  class="advisory-action-btn"
+                  (click)="starfield.forceEnable()"
+                >
+                  {{ notice.actionText }}
+                </button>
+              }
+              <button
+                type="button"
+                class="advisory-dismiss-btn"
+                (click)="starfield.dismissNotice()"
+                aria-label="Dismiss starfield advisory"
+              >
+                <svg
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </aside>
+        }
       </div>
 
       <!-- Authority & Trust Ribbon -->

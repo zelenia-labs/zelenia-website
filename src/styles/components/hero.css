@@ -16,6 +16,9 @@
   background-color: var(--color-black);
   background: var(--color-black);
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 @media (max-height: 640px) {
@@ -49,18 +52,23 @@
   margin-inline: auto;
   padding-inline: var(--space-4, 1.5rem);
   padding-block-start: clamp(5.5rem, 10vh, 7.5rem);
-  padding-block-end: clamp(1.5rem, 3vh, 2.5rem);
+  padding-block-end: clamp(1rem, 2vh, 1.75rem);
   flex-grow: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .hero-content {
-  max-width: 680px;
+  max-width: clamp(680px, 60vw, 840px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-block: auto;
 }
 
 /* ==========================================================================
@@ -130,36 +138,43 @@ html.curtain-dismissed .hero-metrics-bar {
   font-size: clamp(2.75rem, 5.2vw, 4.25rem);
   font-weight: 500;
   letter-spacing: -0.04em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--color-white);
   text-shadow: 0 2px 24px var(--color-black-heavy);
+  user-select: none;
+  -webkit-user-select: none;
+  text-wrap: balance;
 }
 
 .hero-title__line {
   display: block;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
-.hero-title__line:first-child {
+.hero-title__line:first-child,
+.hero-title__line--primary {
   color: var(--color-white);
 }
 
 .hero-title__line:nth-child(2),
 .hero-title__line--secondary {
   color: var(--color-sage-light);
+  margin-inline-start: 0;
 }
 
 /* Subheadline */
 .hero-subheadline {
   margin-block-start: 1.5rem;
   margin-block-end: 0;
-  max-width: 620px;
+  max-width: clamp(560px, 52vw, 680px);
   font-size: clamp(1.05rem, 1.35vw, 1.2rem);
   line-height: 1.6;
   color: var(--color-white-reading);
   font-weight: 400;
   letter-spacing: -0.01em;
   text-shadow: 0 1px 16px var(--color-black-heavy);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Action Button */
@@ -229,6 +244,8 @@ html.curtain-dismissed .hero-metrics-bar {
   border-top: 1px solid var(--color-white-subtle);
   background: var(--color-black-heavy);
   padding-block: clamp(1.75rem, 3.5vh, 2.5rem);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .trust-ribbon-container {
@@ -287,4 +304,165 @@ html.curtain-dismissed .hero-metrics-bar {
 .trust-statement strong {
   color: var(--color-white);
   font-weight: 600;
+}
+
+/* ==========================================================================
+   Starfield Advisory Banner (Natural Flow / Low-Salience / Non-Intrusive)
+   ========================================================================== */
+.hero-starfield-advisory {
+  position: static;
+  margin-block-start: clamp(1.25rem, 2.5vh, 2rem);
+  margin-block-end: 0.5rem;
+  z-index: 10;
+  max-width: 100%;
+  pointer-events: auto;
+  align-self: flex-end;
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+  animation: heroAdvisoryFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroAdvisoryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.advisory-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.6rem 0.35rem 0.85rem;
+  background: rgba(14, 21, 20, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs, 4px);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--color-subtext, rgba(255, 255, 255, 0.7));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.advisory-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.advisory-msg {
+  color: var(--color-white);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.advisory-instruction {
+  color: var(--color-subtext, rgba(255, 255, 255, 0.7));
+}
+
+.advisory-action-btn {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 550;
+  color: var(--color-white);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.advisory-action-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-sage-light, #c0d1c7);
+}
+
+.advisory-action-btn:focus-visible {
+  outline: 2px solid var(--color-sage-light);
+  outline-offset: 2px;
+}
+
+.advisory-spinner-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.22rem 0.65rem;
+  min-height: 24px;
+}
+
+.advisory-spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: advisorySpin 0.65s linear infinite;
+}
+
+@keyframes advisorySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.advisory-dismiss-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-xs, 4px);
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.advisory-dismiss-btn:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.advisory-dismiss-btn:focus-visible {
+  outline: 2px solid var(--color-sage-light);
+  outline-offset: 1px;
+}
+
+@media (max-width: 768px) {
+  .hero-starfield-advisory {
+    margin-block-start: 1rem;
+    margin-block-end: 0.5rem;
+    width: 100%;
+    align-self: flex-start;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .advisory-pill {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-radius: var(--radius-xs, 4px);
+    padding: 0.4rem 0.65rem;
+  }
+
+  .advisory-text {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
 }

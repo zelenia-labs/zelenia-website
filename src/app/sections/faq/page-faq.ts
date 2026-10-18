@@ -61,19 +61,21 @@ export interface PageFaqItem {
             </div>
 
             <!-- Direct Inquiry Card below FAQ items -->
-            <div class="faq-inquiry-card">
-              <div class="faq-inquiry-info">
-                <p class="faq-inquiry-text">
-                  {{
-                    contactPrompt() ||
-                      "Have a specific project scope, timeline, or a question you didn't see answered here? We reply directly within studio hours."
-                  }}
-                </p>
+            @if (showInquiry()) {
+              <div class="faq-inquiry-card">
+                <div class="faq-inquiry-info">
+                  <p class="faq-inquiry-text">
+                    {{
+                      contactPrompt() ||
+                        "Have a specific project scope, timeline, or a question you didn't see answered here? We reply directly within studio hours."
+                    }}
+                  </p>
+                </div>
+                <a class="btn btn--primary faq-inquiry-btn" routerLink="/contact">
+                  <span>Ask Us Directly</span>
+                </a>
               </div>
-              <a class="btn btn--primary faq-inquiry-btn" routerLink="/contact">
-                <span>Ask Us Directly</span>
-              </a>
-            </div>
+            }
           </div>
         </div>
       </div>
@@ -87,6 +89,7 @@ export class PageFaq {
   readonly subtitle = input<string>('');
   readonly items = input.required<PageFaqItem[]>();
   readonly contactPrompt = input<string>('');
+  readonly showInquiry = input<boolean>(true);
 
   // Single-item accordion: Only one question open at a time (first item open initially)
   readonly openIndex = signal<number | null>(0);

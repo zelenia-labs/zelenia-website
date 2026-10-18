@@ -74,7 +74,6 @@ export class SiteHeader {
   readonly isScrolledUp = this.isScrolled;
 
   readonly navItems: HeaderNavItem[] = [
-    { label: 'Our Process', href: '/process' },
     { label: 'About us', href: '/team' }
   ];
 

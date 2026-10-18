@@ -47,19 +47,6 @@ describe('SiteHeader Component', () => {
     expect(ctaButton.textContent).toContain('Contact us');
   });
 
-  it('should only highlight Our Process when route is /process and set aria-current', () => {
-    component.currentUrl.set('/process');
-    fixture.detectChanges();
-
-    const links = Array.from(
-      fixture.nativeElement.querySelectorAll('.nav-link')
-    ) as HTMLAnchorElement[];
-
-    const activeLinks = links.filter((l) => l.classList.contains('is-active'));
-    expect(activeLinks.length).toBe(1);
-    expect(activeLinks[0].textContent?.trim()).toBe('Our Process');
-    expect(activeLinks[0].getAttribute('aria-current')).toBe('page');
-  });
 
   it('should only highlight About us when route is /team and set aria-current', () => {
     component.currentUrl.set('/team');

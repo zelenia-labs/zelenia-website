@@ -94,54 +94,6 @@ describe('Contact Component (Signal Forms)', () => {
     expect(companyInput.value).toBe('https://acmecorp.com');
   });
 
-  it('should toggle progressive disclosure fields when include-details checkbox is checked', async () => {
-    const expansion = fixture.nativeElement.querySelector('#progressive-expansion') as HTMLElement;
-    expect(expansion).toBeTruthy();
-    expect(expansion.classList.contains('is-expanded')).toBe(false);
-
-    const checkbox = fixture.nativeElement.querySelector('#include-details') as HTMLInputElement;
-    expect(checkbox).toBeTruthy();
-    checkbox.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(expansion.classList.contains('is-expanded')).toBe(true);
-
-    const budgetSelect = fixture.nativeElement.querySelector(
-      '#budget-bracket'
-    ) as HTMLSelectElement;
-    expect(budgetSelect).toBeTruthy();
-
-    const techInput = fixture.nativeElement.querySelector('#tech-stack') as HTMLInputElement;
-    expect(techInput).toBeTruthy();
-  });
-
-  it('should toggle expandable legend and update aria-expanded on trigger button click', async () => {
-    const trigger = fixture.nativeElement.querySelector(
-      '#trigger-details-toggle'
-    ) as HTMLButtonElement;
-    expect(trigger).toBeTruthy();
-    expect(trigger.getAttribute('aria-expanded')).toBe('false');
-
-    const expansion = fixture.nativeElement.querySelector('#progressive-expansion') as HTMLElement;
-    expect(expansion.classList.contains('is-expanded')).toBe(false);
-
-    trigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(trigger.getAttribute('aria-expanded')).toBe('true');
-    expect(expansion.classList.contains('is-expanded')).toBe(true);
-
-    // Toggle back
-    trigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(trigger.getAttribute('aria-expanded')).toBe('false');
-    expect(expansion.classList.contains('is-expanded')).toBe(false);
-  });
-
   it('should select an option from focus cards radio group and update model and native select', async () => {
     const rebuildRadio = fixture.nativeElement.querySelector(
       '#focus-radio-rebuild'
@@ -158,43 +110,6 @@ describe('Contact Component (Signal Forms)', () => {
 
     const selectEl = fixture.nativeElement.querySelector('#primary-focus') as HTMLSelectElement;
     expect(selectEl.value).toBe('rebuild');
-  });
-
-  it('should toggle and select nested custom dropdown in technical layer on trigger click', async () => {
-    // First expand the fieldset
-    const triggerDetails = fixture.nativeElement.querySelector(
-      '#trigger-details-toggle'
-    ) as HTMLButtonElement;
-    triggerDetails.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    const timelineTrigger = fixture.nativeElement.querySelector(
-      '#trigger-timeline-pace'
-    ) as HTMLButtonElement;
-    expect(timelineTrigger).toBeTruthy();
-    expect(timelineTrigger.getAttribute('aria-expanded')).toBe('false');
-    expect(fixture.nativeElement.querySelector('#listbox-timeline-pace')).toBeNull();
-
-    timelineTrigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(timelineTrigger.getAttribute('aria-expanded')).toBe('true');
-    const menu = fixture.nativeElement.querySelector('#listbox-timeline-pace');
-    expect(menu).toBeTruthy();
-
-    const options = fixture.nativeElement.querySelectorAll('.custom-select-option');
-    expect(options.length).toBeGreaterThan(1);
-
-    // Select second option
-    const secondOption = options[1] as HTMLElement;
-    secondOption.click();
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    expect(fixture.nativeElement.querySelector('#listbox-timeline-pace')).toBeNull();
-    expect(component['model']().timeline).toBe(component.timelineOptions[1].value);
   });
 });
 

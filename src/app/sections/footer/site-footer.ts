@@ -1,86 +1,79 @@
-import {
-  afterNextRender,
-  Component,
-  DestroyRef,
-  ElementRef,
-  inject,
-  PLATFORM_ID,
-  viewChild
-} from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-site-footer',
   imports: [RouterLink],
   template: `
-    <footer #footerRef class="site-footer" role="contentinfo">
-      <!-- Ambient Parallax Glow -->
+    <footer class="site-footer" role="contentinfo">
+      <!-- Ambient Warm Glow Circle -->
       <div class="ambient-glow glow--footer-warm" aria-hidden="true"></div>
 
-      <!-- Architectural Parallax Typographic Watermark -->
-      <div class="footer-watermark-wrap" aria-hidden="true">
-        <span class="footer-watermark">ZELENIA</span>
-      </div>
-
       <div class="container footer-container">
-        <!-- Main Upper Footer Row -->
-        <div class="footer-main-row">
-          <!-- Left Column: Branding, Design System CTA & LinkedIn -->
-          <div class="footer-left-col">
-            <span class="footer-logo">Zelenia Studio</span>
-            <p class="footer-tagline">
-              Frontend architecture &amp; product design executed directly by senior founders.
-            </p>
-
-            <div class="footer-left-actions">
-              <a
-                routerLink="/contact"
-                class="btn btn--primary footer-cta-btn footer-action-link--contact"
-              >
-                <span>Start a conversation</span>
-                <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn--secondary footer-linkedin-btn footer-action-link--linkedin"
-                aria-label="Connect with Zelenia founders on LinkedIn"
-              >
-                <span>LinkedIn</span>
-                <span class="ext-arrow" aria-hidden="true">&nearr;</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Only Company Group -->
-          <nav class="footer-right-col" aria-label="Company Navigation">
-            <div class="footer-col">
-              <span class="footer-col__title">Company</span>
-              <ul class="footer-links">
-                <li>
-                  <a routerLink="/about" class="footer-link">
-                    <span>About Us</span>
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/process" class="footer-link">
-                    <span>Process &amp; Scope</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+        <!-- Main Project Evaluation CTA Card -->
+        <div class="footer-cta-card reveal-on-scroll">
+          <h2 class="footer-cta-title" id="footer-cta-heading">
+            <span class="heading-primary">Have a project in mind?</span>
+            <span class="heading-secondary">We'd love to chat.</span>
+          </h2>
+          <p class="footer-cta-desc">
+            Reach out and let’s talk about what you’re building. We’ll review your goals and share initial thoughts on design, performance, and timelines.
+          </p>
+          <a class="btn btn--primary footer-cta-btn" routerLink="/contact">
+            <span>Send us a message</span>
+          </a>
         </div>
 
-        <!-- Minimalist Architectural Bottom Bar -->
+        <!-- Bottom Bar: Left-Aligned Copyright + Pure Social Links on Right -->
         <div class="footer-bottom-bar">
           <p class="footer-copyright">
-            &copy; {{ currentYear }} Zelenia. High-performance frontend architecture &amp; product
-            design.
+            &copy; {{ currentYear }} Zelenia. High-performance front-end &amp; product design.
           </p>
+
+          <div class="footer-social-links" aria-label="Social Profiles">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="Zelenia on LinkedIn"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/zelenia-labs"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="Zelenia on GitHub"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                />
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -89,232 +82,89 @@ import { RouterLink } from '@angular/router';
     .site-footer {
       background-color: var(--bg);
       border-top: 1px solid var(--border);
-      padding-block: clamp(4rem, 7vw, 6rem) clamp(2rem, 3.5vw, 3rem);
+      padding-block: clamp(5rem, 8vw, 7.5rem) clamp(2rem, 4vw, 3rem);
       color: var(--text);
       position: relative;
       overflow: hidden;
-      contain: layout paint;
     }
 
-    /* Ambient Warm Glow with Parallax Floating */
     .glow--footer-warm {
-      width: 700px;
-      height: 700px;
+      width: 680px;
+      height: 680px;
       background-color: var(--color-surface-sand);
       opacity: 0.35;
-      filter: blur(120px);
-      bottom: -160px;
+      filter: blur(110px);
+      top: 20%;
       left: 50%;
-      transform: translateX(-50%) translateY(var(--footer-parallax-y, 0px));
+      transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: 0;
-      transition: transform 0.12s linear;
-      will-change: transform;
     }
 
-    /* Giant Sculptural Architectural Typographic Watermark */
-    .footer-watermark-wrap {
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      user-select: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .footer-watermark {
-      font-family: var(--font-serif);
-      font-size: clamp(6rem, 18vw, 16rem);
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      line-height: 0.78;
-      color: var(--color-ink-faint);
-      white-space: nowrap;
-      text-transform: uppercase;
-      transform: translateY(var(--footer-watermark-y, 0px));
-      will-change: transform;
-      transition: transform 0.12s linear;
-    }
-
-    /* Native CSS Scroll-Driven Parallax on Modern Engines */
-    @supports (animation-timeline: view()) {
-      .footer-watermark {
-        animation: watermarkParallax linear both;
-        animation-timeline: view();
-        animation-range: entry 0% exit 100%;
-      }
-
-      .glow--footer-warm {
-        animation: glowParallax linear both;
-        animation-timeline: view();
-        animation-range: entry 0% exit 100%;
-      }
-    }
-
-    @keyframes watermarkParallax {
-      from {
-        transform: translateY(40px) scale(0.97);
-        opacity: 0.025;
-      }
-      to {
-        transform: translateY(-24px) scale(1.02);
-        opacity: 0.045;
-      }
-    }
-
-    @keyframes glowParallax {
-      from {
-        transform: translateX(-50%) translateY(35px);
-      }
-      to {
-        transform: translateX(-50%) translateY(-25px);
-      }
-    }
-
-    /* Layout Shell */
     .footer-container {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: clamp(3rem, 5vw, 4.5rem);
+      gap: clamp(3.5rem, 6vw, 5.5rem);
       max-width: var(--shell);
       margin-inline: auto;
     }
 
-    .footer-main-row {
+    .footer-cta-card {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    @media (min-width: 768px) {
-      .footer-main-row {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-    }
-
-    /* Left Column */
-    .footer-left-col {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      max-width: 480px;
-      gap: 1.15rem;
-    }
-
-    .footer-logo {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      font-weight: 700;
-      color: var(--dark-ink);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    .footer-tagline {
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-2);
-      margin: 0 0 0.5rem 0;
-    }
-
-    .footer-left-actions {
-      display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
+      text-align: center;
+      max-width: 680px;
+      margin-inline: auto;
     }
 
-    /* Design System CTA Button */
-    .footer-cta-btn {
-      min-height: 44px;
-      padding-inline: 1.65rem;
-      font-weight: 600;
-    }
-
-    .footer-cta-btn .btn-arrow {
-      transition: transform var(--transition-fast);
-    }
-
-    .footer-cta-btn:hover .btn-arrow {
-      transform: translateX(3px);
-    }
-
-    /* Design System Secondary LinkedIn Button */
-    .footer-linkedin-btn {
-      min-height: 44px;
-      padding-inline: 1.35rem;
-      font-weight: 550;
-    }
-
-    .footer-linkedin-btn .ext-arrow {
-      font-size: 0.85rem;
-      transition: transform var(--transition-fast);
-    }
-
-    .footer-linkedin-btn:hover .ext-arrow {
-      transform: translate(2px, -2px);
-    }
-
-    /* Right Column: Company Group Only */
-    .footer-right-col {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .footer-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      min-width: 150px;
-    }
-
-    .footer-col__title {
-      font-size: 0.75rem;
-      font-weight: 650;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
+    .footer-cta-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.2rem;
     }
 
-    .footer-link {
-      font-size: 0.9375rem;
-      font-weight: 500;
+    .footer-cta-title .heading-primary {
+      color: var(--color-text-primary);
+    }
+
+    .footer-cta-title .heading-secondary {
+      color: var(--color-sage-dark);
+    }
+
+    .footer-cta-desc {
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 1.25vw, 1.125rem);
+      line-height: 1.6;
       color: var(--text-2);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      transition: color var(--transition-fast);
+      max-width: 560px;
+      margin: 1.25rem 0 2rem 0;
     }
 
-    .footer-link:hover {
-      color: var(--dark-ink);
+    .footer-cta-btn {
+      min-height: 48px;
+      padding-inline: 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 16px var(--color-ink-subtle);
     }
 
-    /* Bottom Bar */
     .footer-bottom-bar {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      padding-block-start: 1.75rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding-block-start: 2rem;
       border-top: 1px solid var(--border-subtle);
     }
 
@@ -324,75 +174,63 @@ import { RouterLink } from '@angular/router';
       font-size: 0.8125rem;
       color: var(--text-muted);
       line-height: 1.5;
+      text-align: left;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .footer-watermark,
-      .glow--footer-warm {
-        animation: none !important;
-        transform: none !important;
+    .footer-social-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--text-2);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .footer-social-link:hover {
+      color: var(--dark-ink);
+    }
+
+    .footer-social-link svg {
+      flex-shrink: 0;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-social-link:focus-visible {
+      outline: 2px solid var(--dark-ink);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      .footer-copyright {
+        text-align: left;
+      }
+
+      .footer-social-links {
+        width: 100%;
+        justify-content: flex-start;
       }
     }
   `
 })
 export class SiteFooter {
   readonly currentYear = new Date().getFullYear();
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly footerRef = viewChild<ElementRef<HTMLElement>>('footerRef');
-
-  constructor() {
-    afterNextRender(() => {
-      if (!this.isBrowser) return;
-
-      // Progressive enhancement: only attach manual scroll listener if native CSS view() is not supported
-      if (typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline', 'view()')) {
-        return;
-      }
-
-      this.initParallaxFallback();
-    });
-  }
-
-  private initParallaxFallback(): void {
-    let ticking = false;
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          this.updateParallax();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    this.destroyRef.onDestroy(() => {
-      window.removeEventListener('scroll', onScroll);
-    });
-
-    this.updateParallax();
-  }
-
-  private updateParallax(): void {
-    const el = this.footerRef()?.nativeElement;
-    if (!el) return;
-
-    const rect = el.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Only compute when approaching or in viewport
-    if (rect.top <= windowHeight && rect.bottom >= 0) {
-      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-      const clamped = Math.max(0, Math.min(1, progress));
-
-      // Watermark shifts upward as user scrolls into footer
-      const watermarkShift = (clamped - 0.5) * -50;
-      const glowShift = (clamped - 0.5) * -35;
-
-      el.style.setProperty('--footer-watermark-y', `${watermarkShift.toFixed(1)}px`);
-      el.style.setProperty('--footer-parallax-y', `${glowShift.toFixed(1)}px`);
-    }
-  }
 }
