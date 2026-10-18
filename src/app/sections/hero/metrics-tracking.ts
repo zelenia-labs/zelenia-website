@@ -64,7 +64,7 @@ export interface MetricTab {
                     <span class="vitals-label">Largest Contentful Paint</span>
                     <div class="vitals-value vitals-value--green">0.48s</div>
                     <div class="vitals-meter">
-                      <div class="meter-bar" style="width: 24%; background-color: #059669;"></div>
+                      <div class="meter-bar" style="width: 24%; background-color: var(--color-emerald);"></div>
                     </div>
                     <span class="vitals-sub">Sub-second load across 75th percentile</span>
                   </div>
@@ -73,7 +73,7 @@ export interface MetricTab {
                     <span class="vitals-label">Interaction to Next Paint</span>
                     <div class="vitals-value vitals-value--green">18ms</div>
                     <div class="vitals-meter">
-                      <div class="meter-bar" style="width: 14%; background-color: #0284c7;"></div>
+                      <div class="meter-bar" style="width: 14%; background-color: var(--color-cyan);"></div>
                     </div>
                     <span class="vitals-sub">Instant input response, zero thread lock</span>
                   </div>
@@ -82,7 +82,7 @@ export interface MetricTab {
                     <span class="vitals-label">Cumulative Layout Shift</span>
                     <div class="vitals-value vitals-value--green">0.000</div>
                     <div class="vitals-meter">
-                      <div class="meter-bar" style="width: 4%; background-color: #059669;"></div>
+                      <div class="meter-bar" style="width: 4%; background-color: var(--color-emerald);"></div>
                     </div>
                     <span class="vitals-sub">Zero visual jitter or unexpected shift</span>
                   </div>
@@ -309,7 +309,7 @@ export interface MetricTab {
     .glow--metrics-sage {
       width: 541px;
       height: 541px;
-      background-color: #d8e2d5;
+      background-color: var(--badge-green);
       opacity: 0.15;
       filter: blur(90px);
       top: 20%;
@@ -370,11 +370,11 @@ export interface MetricTab {
     }
 
     .telemetry-tab-btn:hover {
-      background-color: rgba(36, 32, 27, 0.03);
+      background-color: var(--color-ink-faint);
     }
 
     .telemetry-tab-btn.is-active {
-      background-color: #ffffff;
+      background-color: var(--surface);
       border: none;
       box-shadow: none;
     }
@@ -397,7 +397,7 @@ export interface MetricTab {
 
     /* Right Screen Area */
     .telemetry-screen {
-      background-color: #ffffff;
+      background-color: var(--surface);
       border-radius: var(--radius-lg);
       padding: clamp(1.5rem, 3vw, 2.5rem);
       border: none;
@@ -427,7 +427,7 @@ export interface MetricTab {
       flex-wrap: wrap;
       gap: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(36, 32, 27, 0.06);
+      border-bottom: 1px solid var(--color-ink-faint);
     }
 
     .pane-meta {
@@ -444,7 +444,7 @@ export interface MetricTab {
       gap: 0.45rem;
       font-family: var(--font-sans);
       font-size: 0.6875rem;
-      color: #059669;
+      color: var(--color-emerald);
       font-weight: 600;
       letter-spacing: 0.06em;
     }
@@ -453,8 +453,8 @@ export interface MetricTab {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: #059669;
-      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+      background-color: var(--color-emerald);
+      box-shadow: 0 0 0 3px var(--color-emerald-subtle);
     }
 
     /* Vitals Metric Cards */
@@ -491,13 +491,13 @@ export interface MetricTab {
     }
 
     .vitals-value--green {
-      color: #059669;
+      color: var(--color-emerald);
     }
 
     .vitals-meter {
       width: 100%;
       height: 4px;
-      background-color: rgba(36, 32, 27, 0.08);
+      background-color: var(--border);
       border-radius: 2px;
       margin-block: 0.35rem;
       overflow: hidden;
@@ -542,20 +542,20 @@ export interface MetricTab {
     .waterfall-pill {
       font-family: var(--font-sans);
       font-size: 0.72rem;
-      color: #059669;
+      color: var(--color-emerald);
       font-weight: 600;
     }
 
     .waterfall-track {
       width: 100%;
-      background-color: rgba(36, 32, 27, 0.08);
+      background-color: var(--border);
       border-radius: 3px;
       overflow: hidden;
     }
 
     .waterfall-fill {
-      background: linear-gradient(90deg, #1848b8, #0284c7);
-      color: #ffffff;
+      background: linear-gradient(90deg, var(--color-blue), var(--color-cyan));
+      color: var(--color-white);
       padding: 0.35rem 0.75rem;
       font-family: var(--font-sans);
       font-size: 0.72rem;
@@ -583,8 +583,8 @@ export interface MetricTab {
     }
 
     .switch-btn.is-active {
-      background-color: #24201b;
-      color: #ffffff;
+      background-color: var(--dark-ink);
+      color: var(--color-white);
     }
 
     .viewport-preview-stage {
@@ -599,7 +599,7 @@ export interface MetricTab {
     }
 
     .viewport-device {
-      background-color: #ffffff;
+      background-color: var(--surface);
       border: none;
       border-radius: var(--radius-sm);
       box-shadow: none;
@@ -626,14 +626,14 @@ export interface MetricTab {
       align-items: center;
       gap: 0.35rem;
       padding-bottom: 0.45rem;
-      border-bottom: 1px solid rgba(36, 32, 27, 0.06);
+      border-bottom: 1px solid var(--color-ink-faint);
     }
 
     .device-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: rgba(36, 32, 27, 0.2);
+      background-color: var(--color-ink-medium);
     }
 
     .device-url {
@@ -671,14 +671,14 @@ export interface MetricTab {
     .touch-verified {
       font-family: var(--font-sans);
       font-size: 0.75rem;
-      color: #059669;
+      color: var(--color-emerald);
       font-weight: 550;
     }
 
     /* DOM Inspector */
     .dom-inspector-card {
-      background-color: #1e1d1b;
-      color: #f3f4f6;
+      background-color: var(--color-dark-ink-deep);
+      color: var(--color-surface-hover);
       border-radius: var(--radius-sm);
       padding: clamp(1rem, 2vw, 1.5rem);
       display: flex;
@@ -705,20 +705,20 @@ export interface MetricTab {
     }
 
     .code-tag {
-      color: #93c5fd;
+      color: var(--color-blue-subtle);
     }
     .code-attr {
-      color: #fca5a5;
+      color: var(--color-rose-subtle);
     }
     .code-val {
-      color: #86efac;
+      color: var(--color-emerald-subtle);
     }
 
     .a11y-chips-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--color-white-subtle);
       padding-top: 0.85rem;
     }
 
@@ -726,7 +726,7 @@ export interface MetricTab {
       font-family: var(--font-sans);
       font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--color-white-reading);
     }
 
     .badge-pill-wcag,
@@ -785,7 +785,7 @@ export interface MetricTab {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      border-top: 1px solid rgba(36, 32, 27, 0.06);
+      border-top: 1px solid var(--color-ink-faint);
       padding-top: 1rem;
     }
 
@@ -799,7 +799,7 @@ export interface MetricTab {
       font-family: var(--font-sans);
       font-size: 1.35rem;
       font-weight: 700;
-      color: #059669;
+      color: var(--color-emerald);
       letter-spacing: -0.02em;
     }
 
@@ -814,7 +814,7 @@ export interface MetricTab {
       flex-direction: column;
       gap: 1.25rem;
       align-items: flex-start;
-      border-top: 1px solid rgba(36, 32, 27, 0.06);
+      border-top: 1px solid var(--color-ink-faint);
       padding-top: 1.25rem;
     }
 
@@ -831,8 +831,8 @@ export interface MetricTab {
       gap: 0.5rem;
       height: 40px;
       padding-inline: 1.5rem;
-      background-color: #24201b;
-      color: #ffffff;
+      background-color: var(--dark-ink);
+      color: var(--color-white);
       font-size: 0.875rem;
       font-weight: 550;
       border-radius: var(--radius-pill);
@@ -843,7 +843,7 @@ export interface MetricTab {
     }
 
     .btn--pill-pane:hover {
-      background-color: #3d372f;
+      background-color: var(--color-dark-ink-hover);
     }
   `
 })

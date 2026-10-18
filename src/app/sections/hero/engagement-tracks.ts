@@ -171,7 +171,7 @@ import { RouterLink } from '@angular/router';
     .glow--interfaces-left {
       width: 541px;
       height: 541px;
-      background-color: #d7f2c8;
+      background-color: var(--color-badge-green-tint);
       opacity: 0.18;
       filter: blur(90px);
       top: 25%;
@@ -181,7 +181,7 @@ import { RouterLink } from '@angular/router';
     .glow--interfaces-right {
       width: 541px;
       height: 541px;
-      background-color: #e5dff2;
+      background-color: var(--badge-lavender);
       opacity: 0.25;
       filter: blur(90px);
       top: 15%;
@@ -206,7 +206,7 @@ import { RouterLink } from '@angular/router';
     }
 
     .interface-card {
-      background-color: #ffffff;
+      background-color: var(--surface);
       border-radius: var(--radius-lg);
       padding: clamp(2rem, 3vw, 2.5rem);
       display: flex;
@@ -294,7 +294,7 @@ import { RouterLink } from '@angular/router';
     }
 
     .track-link:hover {
-      color: #1848b8;
+      color: var(--color-blue);
     }
   `
 })

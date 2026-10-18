@@ -263,9 +263,9 @@ main:focus {
 /* Primary Button: Sovereign Dark Ink */
 .btn--primary {
   background-color: var(--dark-ink);
-  color: #ffffff;
+  color: var(--color-white);
   border: 1px solid var(--dark-ink);
-  box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
+  box-shadow: 0 1px 3px var(--color-ink-subtle);
   transition:
     background-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
     border-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -273,35 +273,35 @@ main:focus {
 }
 
 .btn--primary:hover {
-  background-color: #3d372f;
-  border-color: #3d372f;
-  color: #ffffff;
-  box-shadow: 0 2px 6px rgba(36, 32, 27, 0.18);
+  background-color: var(--color-dark-ink-hover);
+  border-color: var(--color-dark-ink-hover);
+  color: var(--color-white);
+  box-shadow: 0 2px 6px var(--color-ink-medium);
 }
 
 .btn--primary:active {
-  background-color: #1a1714;
-  border-color: #1a1714;
-  box-shadow: 0 1px 2px rgba(36, 32, 27, 0.24);
+  background-color: var(--color-dark-ink-deep);
+  border-color: var(--color-dark-ink-deep);
+  box-shadow: 0 1px 2px var(--color-ink-strong);
 }
 
 /* Secondary Button: Clean Gallery Surface & Subtle Border */
 .btn--secondary {
   background-color: var(--surface-warm);
   color: var(--text);
-  border: 1px solid rgba(36, 32, 27, 0.12);
-  box-shadow: 0 1px 2px rgba(36, 32, 27, 0.04);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 1px 2px var(--color-ink-faint);
 }
 
 .btn--secondary:hover {
-  background-color: #f2ede4;
+  background-color: var(--color-surface-sand);
   color: var(--text);
-  border-color: rgba(36, 32, 27, 0.22);
-  box-shadow: 0 2px 4px rgba(36, 32, 27, 0.06);
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 4px var(--color-ink-faint);
 }
 
 .btn--secondary:active {
-  background-color: #e8e2d8;
+  background-color: var(--color-surface-sand-dark);
   box-shadow: none;
 }
 
@@ -314,8 +314,8 @@ main:focus {
 
 .btn--ghost:hover {
   color: var(--text);
-  background-color: rgba(36, 32, 27, 0.05);
-  border-color: rgba(36, 32, 27, 0.08);
+  background-color: var(--color-ink-faint);
+  border-color: var(--border);
 }
 
 /* Secondary Action in Link Mode (Text / Arrow Link without solid button chrome) */
@@ -363,7 +363,7 @@ main:focus {
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-sm);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px var(--color-black-subtle);
   border: 1px solid var(--border-strong);
 }
 

@@ -32,15 +32,15 @@ import { isPlatformBrowser } from '@angular/common';
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background-color: var(--bg, #fbfbfb);
+      background-color: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       will-change: transform, opacity;
       transform: translate3d(0, 0, 0);
-      box-shadow: 0 20px 50px rgba(36, 32, 27, 0.06);
-      border-bottom: 1px solid rgba(36, 32, 27, 0.08);
+      box-shadow: 0 20px 50px var(--color-ink-faint);
+      border-bottom: 1px solid var(--border);
       transition: transform 0.65s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
@@ -60,10 +60,10 @@ import { isPlatformBrowser } from '@angular/common';
       font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
       font-size: clamp(3rem, 6vw, 4.75rem);
       font-weight: 700;
-      color: #4d4a48;
+      color: var(--text);
       letter-spacing: -0.02em;
       line-height: 1.15;
-      -webkit-text-stroke: 0.1px #4d4a48;
+      -webkit-text-stroke: 0.1px var(--text);
       paint-order: stroke fill;
     }
 
@@ -88,7 +88,7 @@ import { isPlatformBrowser } from '@angular/common';
     .preloader-line {
       inline-size: 0;
       block-size: 1px;
-      background: linear-gradient(90deg, transparent, #d5dfe1 15%, #d5dfe1 85%, transparent);
+      background: linear-gradient(90deg, transparent, var(--color-sage-light) 15%, var(--color-sage-light) 85%, transparent);
       opacity: 0;
       transition:
         inline-size 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,

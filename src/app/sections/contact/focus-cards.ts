@@ -68,13 +68,13 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       display: block;
       font-size: 0.875rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--color-white);
       letter-spacing: -0.01em;
     }
 
     .focus-selector-hint {
       font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.82);
+      color: var(--color-white-reading);
     }
 
     .focus-cards-grid {
@@ -93,7 +93,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
     }
 
     .focus-card {
-      background-color: #ffffff;
+      background-color: var(--color-white);
       border: 2px solid transparent;
       border-radius: var(--radius-sm);
       padding: 1.15rem 1.25rem;
@@ -104,7 +104,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       cursor: pointer;
       user-select: none;
       position: relative;
-      box-shadow: 0 2px 8px rgba(12, 15, 20, 0.04);
+      box-shadow: 0 2px 8px var(--color-obsidian-faint);
       transition:
         border-color var(--transition-fast),
         box-shadow var(--transition-fast),
@@ -114,17 +114,17 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
     }
 
     .focus-card:hover {
-      border-color: rgba(36, 32, 27, 0.25);
-      box-shadow: 0 6px 18px rgba(12, 15, 20, 0.08);
+      border-color: var(--color-ink-strong);
+      box-shadow: 0 6px 18px var(--color-obsidian-subtle);
       transform: translateY(-1px);
     }
 
     .focus-card.is-selected {
-      border-color: #24201b;
+      border-color: var(--dark-ink);
       box-shadow:
-        0 8px 24px rgba(36, 32, 27, 0.12),
-        0 0 0 1px #24201b;
-      background-color: #ffffff;
+        0 8px 24px var(--color-ink-subtle),
+        0 0 0 1px var(--dark-ink);
+      background-color: var(--color-white);
     }
 
     /* Native radio input visually hidden with accessibility preservation */
@@ -143,7 +143,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
 
     .sr-only-radio:focus-visible + .focus-card-header .focus-radio-circle,
     .focus-card:has(.sr-only-radio:focus-visible) {
-      outline: 2px solid #24201b;
+      outline: 2px solid var(--dark-ink);
       outline-offset: 2px;
     }
 
@@ -158,8 +158,8 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 2px solid rgba(36, 32, 27, 0.28);
-      background-color: #ffffff;
+      border: 2px solid var(--color-ink-strong);
+      background-color: var(--color-white);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -170,15 +170,15 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
     }
 
     .focus-card.is-selected .focus-radio-circle {
-      border-color: #24201b;
-      background-color: #ffffff;
+      border-color: var(--dark-ink);
+      background-color: var(--color-white);
     }
 
     .focus-radio-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #24201b;
+      background-color: var(--dark-ink);
       transform: scale(0);
       opacity: 0;
       transition:
@@ -199,9 +199,9 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       letter-spacing: 0.02em;
       padding: 0.25rem 0.65rem;
       border-radius: var(--radius-pill);
-      background-color: #f2f4f6;
-      color: #384252;
-      border: 1px solid rgba(36, 32, 27, 0.08);
+      background-color: var(--color-surface-hover);
+      color: var(--color-slate-reading);
+      border: 1px solid var(--color-ink-subtle);
       transition:
         background-color var(--transition-fast),
         color var(--transition-fast),
@@ -209,9 +209,9 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
     }
 
     .focus-card.is-selected .focus-turnaround-badge {
-      background-color: #24201b;
-      color: #ffffff;
-      border-color: #24201b;
+      background-color: var(--dark-ink);
+      color: var(--color-white);
+      border-color: var(--dark-ink);
     }
 
     .focus-card-body {
@@ -223,7 +223,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
     .focus-card-title {
       font-size: 0.95rem;
       font-weight: 650;
-      color: #24201b;
+      color: var(--dark-ink);
       margin: 0;
       line-height: 1.3;
       letter-spacing: -0.015em;
@@ -231,7 +231,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
 
     .focus-card-tagline {
       font-size: 0.8125rem;
-      color: #667478;
+      color: var(--color-text-secondary);
       margin: 0;
       line-height: 1.45;
     }
@@ -242,18 +242,18 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       justify-content: space-between;
       gap: 0.5rem;
       padding-top: 0.65rem;
-      border-top: 1px solid rgba(36, 32, 27, 0.08);
+      border-top: 1px solid var(--color-ink-subtle);
       font-size: 0.75rem;
     }
 
     .focus-card-division {
-      color: #90999b;
+      color: var(--color-text-muted);
       font-weight: 500;
     }
 
     .focus-card-floor {
       font-weight: 650;
-      color: #24201b;
+      color: var(--dark-ink);
       letter-spacing: -0.01em;
     }
   `

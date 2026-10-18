@@ -319,7 +319,7 @@ export const routeMeta: RouteMeta = {
     .glow--process-warm {
       width: 1040px;
       height: 1040px;
-      background-color: #f2ebdf;
+      background-color: var(--color-surface-sand);
       opacity: 0.32;
       filter: blur(90px);
       top: -18px;
@@ -370,7 +370,7 @@ export const routeMeta: RouteMeta = {
       aspect-ratio: 4 / 3;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 16px 36px -8px rgba(36, 32, 27, 0.12);
+      box-shadow: 0 16px 36px -8px var(--color-ink-subtle);
       border: none;
       background-color: transparent;
     }
@@ -415,7 +415,7 @@ export const routeMeta: RouteMeta = {
     .glow--process-sage {
       width: 808px;
       height: 808px;
-      background-color: #d5dfe1;
+      background-color: var(--color-sage-light);
       opacity: 0.28;
       filter: blur(90px);
       top: 35%;
@@ -431,13 +431,13 @@ export const routeMeta: RouteMeta = {
     }
 
     .standards-pillar-card {
-      background: #ffffff;
+      background: var(--color-white);
       border-radius: var(--radius-lg);
       padding: clamp(2rem, 3.5vw, 2.75rem);
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(36, 32, 27, 0.06);
-      box-shadow: 0 4px 18px rgba(18, 22, 30, 0.03);
+      border: 1px solid var(--color-ink-faint);
+      box-shadow: 0 4px 18px var(--color-obsidian-faint);
     }
 
     .pillar-header {
@@ -522,14 +522,14 @@ export const routeMeta: RouteMeta = {
 
     .scope-assurance-bar {
       margin-block-start: 2rem;
-      background: #ffffff;
+      background: var(--color-white);
       border-radius: var(--radius-sm);
       padding: 1.25rem 1.75rem;
       display: flex;
       align-items: center;
       gap: 1.25rem;
-      border: 1px solid rgba(36, 32, 27, 0.06);
-      box-shadow: 0 2px 10px rgba(18, 22, 30, 0.02);
+      border: 1px solid var(--color-ink-faint);
+      box-shadow: 0 2px 10px var(--color-obsidian-faint);
     }
 
     .assurance-tag {
@@ -569,7 +569,7 @@ export const routeMeta: RouteMeta = {
     .glow--process-cta {
       width: 618px;
       height: 618px;
-      background-color: #d8e2d5;
+      background-color: var(--color-badge-green);
       opacity: 0.22;
       filter: blur(90px);
       top: 50%;
@@ -588,7 +588,7 @@ export const routeMeta: RouteMeta = {
     .glow--audit-callout {
       width: 750px;
       height: 750px;
-      background-color: #d5dfe1;
+      background-color: var(--color-sage-light);
       opacity: 0.35;
       filter: blur(90px);
       top: 50%;
@@ -598,11 +598,11 @@ export const routeMeta: RouteMeta = {
 
     .audit-callout-card {
       position: relative;
-      background: linear-gradient(135deg, #f0f5f6 0%, #e4eff1 100%);
+      background: var(--gradient-process-card);
       border: none;
       border-radius: var(--radius-lg);
       padding: clamp(2.5rem, 5vw, 4.25rem) clamp(2rem, 5vw, 4.25rem);
-      box-shadow: 0 12px 36px rgba(130, 157, 163, 0.09);
+      box-shadow: 0 12px 36px var(--color-sage-faint);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: clamp(2.5rem, 5vw, 4.5rem);
@@ -630,11 +630,11 @@ export const routeMeta: RouteMeta = {
     }
 
     .audit-callout__title .heading-primary {
-      color: #4d4a48;
+      color: var(--color-text-primary);
     }
 
     .audit-callout__title .heading-secondary {
-      color: #7b989e;
+      color: var(--color-sage-dark);
     }
 
     .audit-callout__desc {
@@ -659,16 +659,16 @@ export const routeMeta: RouteMeta = {
       font-weight: 550;
       border-radius: var(--radius-pill);
       background-color: var(--dark-ink);
-      color: #ffffff;
+      color: var(--color-white);
       text-decoration: none;
       border: none;
-      box-shadow: 0 2px 8px rgba(36, 32, 27, 0.12);
+      box-shadow: 0 2px 8px var(--color-ink-subtle);
       transition: background-color var(--transition-fast);
       white-space: nowrap;
     }
 
     .audit-callout__btn:hover {
-      background-color: #3d372f;
+      background-color: var(--color-dark-ink-hover);
     }
 
     .audit-callout__meta {
@@ -692,11 +692,11 @@ export const routeMeta: RouteMeta = {
       aspect-ratio: 3 / 4;
       border-radius: 12px;
       overflow: hidden;
-      background-color: #ffffff;
+      background-color: var(--color-white);
       box-shadow:
-        0 24px 48px -10px rgba(36, 32, 27, 0.2),
-        0 8px 20px -6px rgba(36, 32, 27, 0.12),
-        0 0 1px rgba(36, 32, 27, 0.25);
+        0 24px 48px -10px var(--color-ink-medium),
+        0 8px 20px -6px var(--color-ink-subtle),
+        0 0 1px var(--color-ink-strong);
       border: none;
     }
 

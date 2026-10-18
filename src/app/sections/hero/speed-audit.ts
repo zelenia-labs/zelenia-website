@@ -146,11 +146,11 @@ import { AuditConsole } from './audit-console';
     }
 
     .hero-audit-card {
-      background: #ffffff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: clamp(1.5rem, 3.5vw, 2.5rem);
-      box-shadow: 0 4px 24px rgba(36, 32, 27, 0.04);
+      box-shadow: 0 4px 24px var(--color-ink-faint);
     }
 
     .hero-audit-bar {
@@ -168,11 +168,11 @@ import { AuditConsole } from './audit-console';
 
     .hero-audit-bar:focus-within {
       border-color: var(--dark-ink);
-      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.06);
+      box-shadow: 0 0 0 3px var(--color-ink-faint);
     }
 
     .hero-audit-bar.is-invalid {
-      border-color: var(--accent-rose, #e05252);
+      border-color: var(--color-rose);
     }
 
     .audit-input-wrapper {
@@ -214,7 +214,7 @@ import { AuditConsole } from './audit-console';
 
     .hero-audit-error {
       display: block;
-      color: var(--accent-rose, #e05252);
+      color: var(--color-rose);
       font-size: 0.8125rem;
       margin-top: 0.65rem;
       padding-left: 1.25rem;

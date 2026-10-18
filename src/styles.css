@@ -1,4 +1,5 @@
 @import './styles/core/reset.css';
+@import './styles/core/colors.css';
 @import './styles/setup.css';
 @import './styles/core/base.css';
 

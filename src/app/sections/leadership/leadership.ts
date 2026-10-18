@@ -126,7 +126,7 @@ import { RouterLink } from '@angular/router';
     .glow--founders-warm {
       width: 1040px;
       height: 1040px;
-      background-color: #f2ebdf;
+      background-color: var(--color-surface-sand);
       opacity: 0.32;
       filter: blur(90px);
       top: -18px;
@@ -231,17 +231,17 @@ import { RouterLink } from '@angular/router';
       font-weight: 550;
       border-radius: var(--radius-pill);
       background-color: var(--dark-ink);
-      color: #ffffff;
+      color: var(--color-white);
       text-decoration: none;
       border: none;
-      box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
+      box-shadow: 0 1px 3px var(--color-ink-subtle);
       transition: background-color var(--transition-fast);
       white-space: nowrap;
     }
 
     .founders-cta-btn:hover {
-      background-color: #3d372f;
-      box-shadow: 0 2px 6px rgba(36, 32, 27, 0.18);
+      background-color: var(--color-dark-ink-hover);
+      box-shadow: 0 2px 6px var(--color-ink-medium);
     }
   `
 })

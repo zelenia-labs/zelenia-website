@@ -100,7 +100,7 @@ import { RouterLink } from '@angular/router';
     .glow--footer-warm {
       width: 700px;
       height: 700px;
-      background-color: #f2ebdf;
+      background-color: var(--color-surface-sand);
       opacity: 0.35;
       filter: blur(120px);
       bottom: -160px;
@@ -132,7 +132,7 @@ import { RouterLink } from '@angular/router';
       font-weight: 700;
       letter-spacing: -0.05em;
       line-height: 0.78;
-      color: rgba(36, 32, 27, 0.035);
+      color: var(--color-ink-faint);
       white-space: nowrap;
       text-transform: uppercase;
       transform: translateY(var(--footer-watermark-y, 0px));
@@ -214,7 +214,7 @@ import { RouterLink } from '@angular/router';
       font-family: var(--font-serif);
       font-size: clamp(2rem, 3vw, 2.5rem);
       font-weight: 700;
-      color: #24201b;
+      color: var(--dark-ink);
       letter-spacing: -0.03em;
       line-height: 1.1;
     }

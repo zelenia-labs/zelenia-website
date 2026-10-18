@@ -38,7 +38,7 @@
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 16px 36px -8px rgba(36, 32, 27, 0.12);
+  box-shadow: 0 16px 36px -8px var(--color-ink-subtle);
   border: none;
   background-color: transparent;
 }
@@ -104,11 +104,11 @@
 }
 
 .diagnostic-tab[aria-selected='true'] {
-  color: #ffffff;
+  color: var(--color-white);
   background: var(--dark-ink);
   border-color: transparent;
   font-weight: 600;
-  box-shadow: 0 1px 3px rgba(36, 32, 27, 0.12);
+  box-shadow: 0 1px 3px var(--color-ink-subtle);
 }
 
 /* Pace Selector (Control 2) */
@@ -129,12 +129,12 @@
 
 .diagnostic-pace-toggle {
   display: inline-flex;
-  background: #ffffff;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 3px;
   gap: 3px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 1px 3px var(--color-obsidian-faint);
 }
 
 .diagnostic-pace-btn {
@@ -158,7 +158,7 @@
 
 .diagnostic-pace-btn[aria-pressed='true'] {
   background: var(--dark-ink);
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 600;
   border-color: transparent;
   box-shadow: none;
@@ -166,11 +166,11 @@
 
 /* Condensed Unified Card */
 .diagnostic-unified-card {
-  background: #ffffff;
+  background: var(--surface);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 3.5vw, 3rem);
-  box-shadow: 0 8px 30px rgba(18, 22, 30, 0.04);
-  border: 1px solid rgba(36, 32, 27, 0.06);
+  box-shadow: 0 8px 30px var(--color-obsidian-faint);
+  border: 1px solid var(--color-ink-faint);
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
   gap: clamp(2rem, 4vw, 3.5rem);
@@ -306,12 +306,12 @@
   block-size: 14px;
   border-radius: var(--radius-pill);
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.05);
+  background: var(--color-obsidian-faint);
   border: 1px solid var(--border);
 }
 
 .division-meter__eng {
-  background: #059669;
+  background: var(--color-emerald);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -320,11 +320,11 @@
 }
 
 .division-meter__eng .meter-tag {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .division-meter__design {
-  background: #e07a5f;
+  background: var(--color-coral);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,7 +333,7 @@
 }
 
 .division-meter__design .meter-tag {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .meter-tag {
@@ -365,7 +365,7 @@
   inline-size: 7px;
   block-size: 7px;
   border-radius: 2px;
-  background: #059669;
+  background: var(--color-emerald);
 }
 
 .meter-legend-item--design::before {
@@ -373,7 +373,7 @@
   inline-size: 7px;
   block-size: 7px;
   border-radius: 2px;
-  background: #e07a5f;
+  background: var(--color-coral);
 }
 
 /* Deliverables Panel */
@@ -425,7 +425,7 @@
 }
 
 .deliverables-check {
-  color: #059669;
+  color: var(--color-emerald);
   flex-shrink: 0;
   margin-top: 0.2rem;
   display: inline-flex;

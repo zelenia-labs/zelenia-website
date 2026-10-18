@@ -1,0 +1,219 @@
+:root {
+  /* ==========================================================================
+     ZELENIA DESIGN SYSTEM - UNIFIED COLOR TOKENS
+     Single Source of Truth for all Colors, Tints, Shadows, and Gradients.
+     Unified with intermediate values for ultra-similar tones.
+     ========================================================================== */
+
+  /* --------------------------------------------------------------------------
+     1. Base Neutrals & Surfaces
+     -------------------------------------------------------------------------- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Canvas & Warm Surfaces (Unified: #fbfbfb, #fbfaf7, #fbfaf8 -> #fbfaf8) */
+  --color-bg: #fbfaf8;
+  --color-surface-warm: #faf9f6;
+  /* Sand Surfaces (Unified: #f2ede4 and #f2ebdf -> #f2ece2) */
+  --color-surface-sand: #f2ece2;
+  --color-surface-sand-dark: #e8e2d8;
+  /* Hover / Tint Surfaces (Unified: #f4f5f6, #f3f4f6, #f2f4f6, #f0f5f6 -> #f3f5f6) */
+  --color-surface-hover: #f3f5f6;
+  --color-surface-cool-tint: #f7f9fa;
+
+  /* --------------------------------------------------------------------------
+     2. Inks, Obsidian & Reading Typography
+     -------------------------------------------------------------------------- */
+  /* Deep Obsidian (Unified: #0c0f14 and #0b0e14 -> #0c0f14) */
+  --color-obsidian-dark: #0c0f14;
+  --color-navy-dark: #0f172a;
+  --color-navy-deep: #112255;
+
+  /* Primary Dark Ink / Charcoal (Studio Ink) */
+  --color-dark-ink: #24201b;
+  --color-dark-ink-hover: #3d372f;
+  /* Deeper ink (Unified: #1a1714 and #1e1d1b -> #1c1a18) */
+  --color-dark-ink-deep: #1c1a18;
+
+  /* Typographic Contrast Hierarchy */
+  --color-text-primary: #4d4a48; /* Refined Charcoal */
+  --color-text-secondary: #667478; /* Slate Body */
+  /* Muted Slate Text (Unified: #718084 and #718096 -> #71808d) */
+  --color-text-muted-alt: #71808d;
+  --color-text-muted: #90999b; /* Subtle Muted Caption */
+  /* Accent Subheadings (Unified: #a9b4b7 and #a7b5b7 -> #a8b5b7) */
+  --color-text-accent: #a8b5b7;
+  --color-text-inverse: #ffffff;
+
+  /* Slate Reading Tiers (Unified: #384252 and #334155 -> #364254) */
+  --color-slate-reading: #364254;
+  --color-slate-600: #475569;
+  --color-slate-400: #94a3b8;
+
+  /* --------------------------------------------------------------------------
+     3. Sage & Slate-Teal Brand Tokens
+     -------------------------------------------------------------------------- */
+  --color-sage: #95afb5;
+  --color-sage-light: #d5dfe1;
+  /* Sage Dark (Unified: #829da3 and #7b989e -> #7f9aa1) */
+  --color-sage-dark: #7f9aa1;
+  /* Sage Light Tint (Unified: #e4eff1 and #e3eced -> #e4eeef) */
+  --color-sage-tint: #e4eeef;
+  --color-slate-tint: #c4d1d4;
+  --color-slate-blue-tint: #b4c4da;
+
+  /* --------------------------------------------------------------------------
+     4. Pastels & Badges
+     -------------------------------------------------------------------------- */
+  --color-badge-green: #d8e2d5;
+  --color-badge-green-tint: #d7f2c8;
+  --color-glow-sage: #b5bf9c;
+  --color-badge-peach: #f2d8c8;
+  --color-glow-sand: #f2e5c8;
+  --color-glow-charcoal: #6a7370;
+  --color-badge-lavender: #e5dff2;
+
+  /* --------------------------------------------------------------------------
+     5. Functional Accents (Telemetry, CWV, Status)
+     -------------------------------------------------------------------------- */
+  --color-emerald: #059669; /* CWV Good */
+  --color-emerald-light: #10b981;
+  --color-emerald-dark: #047857;
+  --color-emerald-subtle: #86efac;
+
+  --color-cyan: #0284c7; /* Diagnostic telemetry */
+  --color-blue: #1848b8; /* Architectural Lapis */
+  --color-blue-subtle: #93c5fd;
+
+  /* Purple / Violet (Unified: #8b5cf6 and #9366f8 -> #8f61f7) */
+  --color-purple: #8f61f7;
+  --color-purple-dark: #7c3aed;
+  --color-purple-deep: #6d28d9;
+
+  --color-rose: #e05252; /* Error / Regression */
+  --color-rose-alt: #e11d48;
+  --color-rose-subtle: #fca5a5;
+  --color-rose-tint: #ffdde4;
+
+  --color-coral: #e07a5f;
+  --color-amber-dark: #92400e;
+
+  /* --------------------------------------------------------------------------
+     6. Gradients
+     -------------------------------------------------------------------------- */
+  --gradient-sage: linear-gradient(135deg, var(--color-sage) 0%, var(--color-sage-dark) 100%);
+  --gradient-sage-soft: linear-gradient(180deg, var(--color-sage-light) 0%, var(--color-sage) 100%);
+  --gradient-emerald-card: linear-gradient(180deg, var(--color-emerald-faint) 0%, var(--color-white) 30%);
+  --gradient-rose-card: linear-gradient(180deg, var(--color-rose-faint) 0%, var(--color-white) 30%);
+  --gradient-process-card: linear-gradient(135deg, var(--color-surface-hover) 0%, var(--color-sage-tint) 100%);
+
+  /* --------------------------------------------------------------------------
+     7. Consolidated Alpha Tokens: Dark Ink (rgba(36, 32, 27, X))
+     -------------------------------------------------------------------------- */
+  --color-ink-faint: rgba(36, 32, 27, 0.04);
+  --color-ink-subtle: rgba(36, 32, 27, 0.10);
+  --color-ink-medium: rgba(36, 32, 27, 0.18);
+  --color-ink-strong: rgba(36, 32, 27, 0.28);
+
+  /* --------------------------------------------------------------------------
+     8. Consolidated Alpha Tokens: Obsidian (rgba(18, 22, 30, X))
+     -------------------------------------------------------------------------- */
+  --color-obsidian-faint: rgba(18, 22, 30, 0.04);
+  --color-obsidian-subtle: rgba(18, 22, 30, 0.08);
+  --color-obsidian-medium: rgba(18, 22, 30, 0.16);
+  --color-obsidian-strong: rgba(18, 22, 30, 0.30);
+
+  /* --------------------------------------------------------------------------
+     9. Consolidated Alpha Tokens: Neutral Black (rgba(0, 0, 0, X))
+     -------------------------------------------------------------------------- */
+  --color-black-faint: rgba(0, 0, 0, 0.06);
+  --color-black-subtle: rgba(0, 0, 0, 0.14);
+  --color-black-heavy: rgba(0, 0, 0, 0.80);
+
+  /* --------------------------------------------------------------------------
+     10. Consolidated Alpha Tokens: White Overlays (rgba(255, 255, 255, X))
+     -------------------------------------------------------------------------- */
+  --color-white-subtle: rgba(255, 255, 255, 0.14);
+  --color-white-medium: rgba(255, 255, 255, 0.24);
+  --color-white-strong: rgba(255, 255, 255, 0.40);
+  --color-white-reading: rgba(255, 255, 255, 0.86);
+
+  /* --------------------------------------------------------------------------
+     11. Consolidated Alpha Tokens: Color Accents
+     -------------------------------------------------------------------------- */
+  --color-sage-faint: rgba(130, 157, 163, 0.10);
+  --color-sage-subtle: rgba(149, 175, 181, 0.15);
+
+  --color-emerald-faint: rgba(16, 185, 129, 0.08);
+  --color-emerald-subtle: rgba(16, 185, 129, 0.20);
+  --color-emerald-medium: rgba(4, 120, 87, 0.55);
+
+  --color-amber-faint: rgba(245, 158, 11, 0.08);
+  --color-amber-subtle: rgba(245, 158, 11, 0.25);
+
+  --color-blue-faint: rgba(0, 82, 255, 0.08);
+  --color-blue-subtle-alpha: rgba(0, 82, 255, 0.30);
+
+  --color-purple-alpha: rgba(109, 40, 217, 0.55);
+
+  --color-rose-faint: rgba(225, 29, 72, 0.05);
+  --color-rose-subtle: rgba(244, 63, 94, 0.14);
+
+  /* --------------------------------------------------------------------------
+     12. Semantic Aliases & Compatibility Tokens
+     -------------------------------------------------------------------------- */
+  --bg: var(--color-bg);
+  --surface: var(--color-white);
+  --surface-warm: var(--color-surface-warm);
+  --surface-2: var(--color-surface-sand);
+  --surface-contrast: var(--color-dark-ink);
+  --surface-elevated: var(--color-white);
+
+  --sage: var(--color-sage);
+  --sage-light: var(--color-sage-light);
+  --sage-gradient: var(--gradient-sage);
+  --sage-soft-gradient: var(--gradient-sage-soft);
+
+  --badge-green: var(--color-badge-green);
+  --badge-peach: var(--color-badge-peach);
+  --badge-lavender: var(--color-badge-lavender);
+  --dark-ink: var(--color-dark-ink);
+
+  --input-bg: var(--color-surface-warm);
+  --input-border: var(--color-ink-subtle);
+  --input-focus: var(--color-text-primary);
+
+  --border: var(--color-ink-subtle);
+  --border-subtle: var(--color-ink-faint);
+  --border-medium: var(--color-ink-subtle);
+  --border-strong: var(--color-ink-medium);
+  --border-hover: var(--color-ink-strong);
+
+  --btn-primary-bg: var(--color-white);
+  --btn-primary-text: var(--color-text-primary);
+  --btn-primary-hover: var(--color-surface-hover);
+  --btn-primary-border: var(--color-ink-subtle);
+
+  --btn-dark-bg: var(--color-dark-ink);
+  --btn-dark-text: var(--color-white);
+  --btn-dark-hover: var(--color-dark-ink-hover);
+
+  --text: var(--color-text-primary);
+  --text-2: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --text-accent: var(--color-text-accent);
+  --text-inverse: var(--color-white);
+
+  --bg-base: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-elevated: var(--surface);
+  --bg-surface-hover: var(--color-surface-hover);
+  --bg-glass: rgba(251, 250, 248, 0.85);
+
+  --text-primary: var(--text);
+  --text-secondary: var(--text-2);
+  --muted: var(--text-muted);
+
+  --brand-primary: var(--btn-primary-bg);
+  --brand-primary-hover: var(--btn-primary-hover);
+}

@@ -29,7 +29,7 @@
   block-size: auto;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-medium);
-  box-shadow: 0 16px 40px -10px rgba(18, 22, 30, 0.08);
+  box-shadow: 0 16px 40px -10px var(--color-obsidian-subtle);
   object-fit: cover;
   aspect-ratio: 4 / 3;
 }

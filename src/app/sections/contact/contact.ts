@@ -178,8 +178,8 @@ import { PagespeedClient } from '../hero/pagespeed-client';
   `,
   styles: `
     .contact-section {
-      background: linear-gradient(135deg, #95afb5 0%, #829da3 100%);
-      color: #ffffff;
+      background: var(--gradient-sage);
+      color: var(--color-white);
       padding-block: clamp(5rem, 8vw, 7.5rem);
       position: relative;
       overflow: hidden;
@@ -198,7 +198,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .glow--contact-sage {
       width: 751px;
       height: 751px;
-      background-color: #b5bf9c;
+      background-color: var(--color-glow-sage);
       opacity: 0.7;
       filter: blur(140px);
       bottom: -120px;
@@ -208,7 +208,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .glow--contact-charcoal {
       width: 618px;
       height: 618px;
-      background-color: #6a7370;
+      background-color: var(--color-glow-charcoal);
       opacity: 0.21;
       filter: blur(90px);
       top: -80px;
@@ -218,7 +218,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .glow--contact-sand {
       width: 541px;
       height: 541px;
-      background-color: #f2e5c8;
+      background-color: var(--color-glow-sand);
       opacity: 0.135;
       filter: blur(90px);
       top: 35%;
@@ -239,7 +239,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #d5dfe1;
+      color: var(--color-sage-light);
       margin-bottom: 0.75rem;
     }
 
@@ -298,19 +298,19 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       display: block;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--color-white);
       margin-bottom: 0.45rem;
     }
 
     .form-input,
     .form-textarea {
       width: 100%;
-      background-color: #ffffff;
-      border: 1px solid rgba(36, 32, 27, 0.16);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-ink-medium);
       border-radius: var(--radius-sm);
       font-family: var(--font-sans);
       font-size: 0.9375rem;
-      color: #24201b;
+      color: var(--dark-ink);
       box-sizing: border-box;
       outline: none;
       transition:
@@ -327,7 +327,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .form-input::placeholder,
     .form-textarea::placeholder {
-      color: #718096;
+      color: var(--color-text-muted-alt);
       opacity: 1;
     }
 
@@ -340,21 +340,21 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .form-input:focus,
     .form-textarea:focus {
-      background-color: #ffffff;
-      color: #24201b;
-      border-color: #24201b;
-      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.18);
+      background-color: var(--color-white);
+      color: var(--dark-ink);
+      border-color: var(--dark-ink);
+      box-shadow: 0 0 0 3px var(--color-ink-medium);
     }
 
     .form-input.is-invalid {
-      border-color: #e11d48;
+      border-color: var(--color-rose-alt);
     }
 
     .form-error {
       display: block;
       margin-top: 0.35rem;
       font-size: 0.8rem;
-      color: #ffdde4;
+      color: var(--color-rose-tint);
       font-weight: 500;
     }
 
@@ -372,14 +372,14 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       max-width: 100%;
       min-width: 0;
       height: 48px;
-      background-color: #ffffff;
-      border: 1px solid rgba(36, 32, 27, 0.16);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-ink-medium);
       border-radius: var(--radius-sm);
       padding: 0 1rem;
       font-family: var(--font-sans);
       font-size: 0.9375rem;
       font-weight: 500;
-      color: #24201b;
+      color: var(--dark-ink);
       box-sizing: border-box;
       outline: none;
       cursor: pointer;
@@ -395,26 +395,26 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .custom-select-trigger:hover {
-      border-color: rgba(36, 32, 27, 0.32);
+      border-color: var(--color-ink-strong);
     }
 
     .custom-select-trigger:focus-visible,
     .custom-select-trigger[aria-expanded='true'] {
-      border-color: #24201b;
-      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.18);
-      background-color: #ffffff;
+      border-color: var(--dark-ink);
+      box-shadow: 0 0 0 3px var(--color-ink-medium);
+      background-color: var(--color-white);
     }
 
     .custom-select-trigger--nested {
-      background-color: #f7f9fa;
-      border: 1px solid rgba(36, 32, 27, 0.2);
+      background-color: var(--color-surface-cool-tint);
+      border: 1px solid var(--color-ink-medium);
     }
 
     .custom-select-trigger--nested:focus-visible,
     .custom-select-trigger--nested[aria-expanded='true'] {
-      border-color: #24201b;
-      box-shadow: 0 0 0 3px rgba(36, 32, 27, 0.12);
-      background-color: #ffffff;
+      border-color: var(--dark-ink);
+      box-shadow: 0 0 0 3px var(--color-ink-subtle);
+      background-color: var(--color-white);
     }
 
     .custom-select-value {
@@ -429,7 +429,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .custom-select-arrow {
       flex-shrink: 0;
-      color: #24201b;
+      color: var(--dark-ink);
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -444,13 +444,13 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       left: 0;
       right: 0;
       z-index: 100;
-      background-color: #ffffff;
-      border: 1px solid rgba(36, 32, 27, 0.14);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-ink-subtle);
       border-radius: 10px;
       padding: 0.375rem;
       box-shadow:
-        0 16px 36px -6px rgba(12, 15, 20, 0.16),
-        0 4px 12px rgba(12, 15, 20, 0.08);
+        0 16px 36px -6px var(--color-obsidian-medium),
+        0 4px 12px var(--color-obsidian-subtle);
       max-height: 280px;
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -483,7 +483,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       cursor: pointer;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #24201b;
+      color: var(--dark-ink);
       line-height: 1.35;
       user-select: none;
       transition:
@@ -492,13 +492,13 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .custom-select-option:hover {
-      background-color: #f4f5f6;
-      color: #0c0f14;
+      background-color: var(--color-surface-hover);
+      color: var(--color-obsidian-dark);
     }
 
     .custom-select-option.is-selected {
-      background-color: rgba(149, 175, 181, 0.16);
-      color: #24201b;
+      background-color: var(--color-sage-subtle);
+      color: var(--dark-ink);
       font-weight: 600;
     }
 
@@ -545,9 +545,9 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       max-width: 100%;
       min-width: 0;
       box-sizing: border-box;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid var(--color-white-medium);
       border-radius: var(--radius-sm);
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: var(--color-white-subtle);
       overflow: hidden;
       transition:
         background-color var(--transition-fast),
@@ -556,14 +556,14 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .scope-disclosure-card:hover {
-      background-color: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.38);
+      background-color: var(--color-white-subtle);
+      border-color: var(--color-white-strong);
     }
 
     .scope-disclosure-card.is-expanded {
-      background-color: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.42);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      background-color: var(--color-white-subtle);
+      border-color: var(--color-white-strong);
+      box-shadow: 0 4px 18px var(--color-black-faint);
     }
 
     .scope-disclosure-trigger {
@@ -574,7 +574,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       padding: 1.1rem 1.25rem;
       background: transparent;
       border: none;
-      color: #ffffff;
+      color: var(--color-white);
       cursor: pointer;
       text-align: left;
       outline: none;
@@ -584,7 +584,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .scope-disclosure-trigger:focus-visible {
-      outline: 2px solid #ffffff;
+      outline: 2px solid var(--color-white);
       outline-offset: -2px;
     }
 
@@ -593,8 +593,8 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       width: 22px;
       height: 22px;
       border-radius: 6px;
-      border: 1.5px solid rgba(255, 255, 255, 0.65);
-      background-color: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid var(--color-white-strong);
+      background-color: var(--color-white-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -607,14 +607,14 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .scope-disclosure-trigger:hover .scope-checkbox-ui {
-      border-color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.25);
+      border-color: var(--color-white);
+      background-color: var(--color-white-medium);
     }
 
     .scope-checkbox-ui.is-checked {
-      background-color: #ffffff;
-      border-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      background-color: var(--color-white);
+      border-color: var(--color-white);
+      box-shadow: 0 2px 6px var(--color-black-subtle);
     }
 
     .scope-check-icon {
@@ -649,7 +649,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .scope-title {
       font-size: 0.9375rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--color-white);
       letter-spacing: -0.01em;
       line-height: 1.3;
     }
@@ -659,15 +659,15 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--color-white);
+      background-color: var(--color-white-medium);
       padding: 0.15rem 0.5rem;
       border-radius: var(--radius-pill);
     }
 
     .scope-subtitle {
       font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.82);
+      color: var(--color-white-reading);
       line-height: 1.4;
     }
 
@@ -676,19 +676,19 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: var(--color-white-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #ffffff;
+      color: var(--color-white);
       transition:
         transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
         background-color var(--transition-fast);
     }
 
     .scope-disclosure-trigger:hover .scope-chevron-wrapper {
-      background-color: rgba(255, 255, 255, 0.22);
+      background-color: var(--color-white-medium);
     }
 
     .scope-chevron-wrapper.is-expanded {
@@ -738,11 +738,11 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     /* Direct Form Fields: NO nested card / NO box-in-a-box */
     .scope-expanded-body {
       padding: 1.25rem 1.25rem 1.5rem 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-top: 1px solid var(--color-white-subtle);
     }
 
     .scope-expanded-body .form-label {
-      color: #ffffff;
+      color: var(--color-white);
       font-size: 0.875rem;
       font-weight: 500;
       margin-bottom: 0.45rem;
@@ -750,9 +750,9 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .scope-expanded-body .form-input,
     .scope-expanded-body .custom-select-trigger--nested {
-      background-color: #ffffff;
-      border: 1px solid rgba(36, 32, 27, 0.16);
-      color: #24201b;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-ink-medium);
+      color: var(--dark-ink);
       font-weight: 500;
       width: 100%;
     }
@@ -775,7 +775,7 @@ import { PagespeedClient } from '../hero/pagespeed-client';
 
     .privacy-note {
       font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--color-white-reading);
       margin: 0;
       max-width: 440px;
       line-height: 1.45;
@@ -788,20 +788,20 @@ import { PagespeedClient } from '../hero/pagespeed-client';
       gap: 0.65rem;
       height: 48px;
       padding-inline: 1.85rem;
-      background-color: #ffffff;
+      background-color: var(--color-white);
       color: var(--text);
       font-size: 0.95rem;
       font-weight: 550;
       border-radius: var(--radius-pill);
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 14px var(--color-black-subtle);
       transition: background-color var(--transition-fast);
       white-space: nowrap;
     }
 
     .btn--pill-submit:hover:not(:disabled) {
-      background-color: #f4f5f6;
+      background-color: var(--color-surface-hover);
     }
 
     .btn--pill-submit:disabled {
@@ -834,9 +834,9 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     }
 
     .form-confirmation {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: var(--color-white-subtle);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid var(--color-white-medium);
       border-radius: var(--radius-sm);
       padding: 1.25rem 1.5rem;
       margin-top: 1.5rem;
@@ -851,20 +851,20 @@ import { PagespeedClient } from '../hero/pagespeed-client';
     .confirmation-icon {
       font-size: 1.25rem;
       font-weight: bold;
-      color: #ffffff;
+      color: var(--color-white);
       line-height: 1;
     }
 
     .confirmation-title {
       font-size: 1.05rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--color-white);
       margin: 0 0 0.25rem 0;
     }
 
     .confirmation-body {
       font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--color-white-reading);
       margin: 0;
       line-height: 1.5;
     }

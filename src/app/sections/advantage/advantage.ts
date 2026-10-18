@@ -142,7 +142,7 @@ import { Component } from '@angular/core';
     .glow--clarity-center {
       width: 808px;
       height: 808px;
-      background-color: #d5dfe1;
+      background-color: var(--color-sage-light);
       opacity: 0.32;
       filter: blur(90px);
       top: 50%;
@@ -182,7 +182,7 @@ import { Component } from '@angular/core';
     }
 
     .clarity-card {
-      background-color: #ffffff;
+      background-color: var(--surface);
       border-radius: var(--radius-md);
       padding: 1.85rem;
       display: flex;

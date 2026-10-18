@@ -69,8 +69,8 @@ import { RouterLink } from '@angular/router';
   `,
   styles: `
     .personalized-plan-section {
-      background: linear-gradient(135deg, #95afb5 0%, #829da3 100%);
-      color: #ffffff;
+      background: var(--gradient-sage);
+      color: var(--color-white);
       padding-block: clamp(4.5rem, 8vw, 6.5rem);
       overflow: hidden;
       position: relative;
@@ -101,7 +101,7 @@ import { RouterLink } from '@angular/router';
     .glow--plan-sage {
       width: 751px;
       height: 751px;
-      background-color: #b5bf9c;
+      background-color: var(--color-glow-sage);
       opacity: 0.7;
       filter: blur(140px);
       top: 10%;
@@ -111,7 +111,7 @@ import { RouterLink } from '@angular/router';
     .glow--plan-charcoal {
       width: 618px;
       height: 618px;
-      background-color: #6a7370;
+      background-color: var(--color-text-secondary);
       opacity: 0.21;
       filter: blur(90px);
       top: 5%;
@@ -121,7 +121,7 @@ import { RouterLink } from '@angular/router';
     .glow--plan-sand {
       width: 541px;
       height: 541px;
-      background-color: #f2e5c8;
+      background-color: var(--color-glow-sand);
       opacity: 0.135;
       filter: blur(90px);
       top: -100px;
@@ -147,14 +147,14 @@ import { RouterLink } from '@angular/router';
 
     .plan-title__primary {
       font-weight: 500;
-      color: #ffffff;
+      color: var(--color-white);
       line-height: 1.2;
       letter-spacing: -0.04em;
     }
 
     .plan-title__secondary {
       font-weight: 500;
-      color: #d5dfe1;
+      color: var(--color-sage-light);
       line-height: 1.2;
       letter-spacing: -0.04em;
     }
@@ -167,7 +167,7 @@ import { RouterLink } from '@angular/router';
       font-weight: 400;
       line-height: 1.6;
       letter-spacing: -0.02em;
-      color: #e3eced;
+      color: var(--color-sage-tint);
     }
 
     .plan-steps-list {
@@ -184,13 +184,13 @@ import { RouterLink } from '@angular/router';
       align-items: center;
       gap: 0.85rem;
       font-size: 0.95rem;
-      color: #ffffff;
+      color: var(--color-white);
     }
 
     .step-angular-bracket {
       font-size: 0.95rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--color-white);
       letter-spacing: -0.01em;
       font-family: var(--font-sans);
       flex-shrink: 0;
@@ -203,19 +203,19 @@ import { RouterLink } from '@angular/router';
       gap: 0.65rem;
       height: 42px;
       padding-inline: 1.75rem;
-      background-color: #ffffff;
+      background-color: var(--color-white);
       color: var(--text);
       font-size: 0.95rem;
       font-weight: 550;
       border-radius: var(--radius-pill);
       text-decoration: none;
       border: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 14px var(--color-black-subtle);
       transition: background-color var(--transition-fast);
     }
 
     .btn--pill-plan:hover {
-      background-color: #f4f5f6;
+      background-color: var(--color-surface-hover);
     }
 
     .plan-preview-dock {
@@ -225,7 +225,7 @@ import { RouterLink } from '@angular/router';
       width: clamp(380px, 35.5vw, 506px);
       border-top-left-radius: 32px;
       overflow: hidden;
-      box-shadow: -16px -16px 48px rgba(0, 0, 0, 0.14);
+      box-shadow: -16px -16px 48px var(--color-black-subtle);
       z-index: 2;
       line-height: 0;
     }
@@ -239,7 +239,7 @@ import { RouterLink } from '@angular/router';
         margin-bottom: 0;
         width: min(92%, 460px);
         border-top-left-radius: 24px;
-        box-shadow: -12px -12px 32px rgba(0, 0, 0, 0.14);
+        box-shadow: -12px -12px 32px var(--color-black-subtle);
       }
     }
 

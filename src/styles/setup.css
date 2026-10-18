@@ -1,54 +1,7 @@
+@import 'core/colors.css';
+
 :root {
   interpolate-size: allow-keywords;
-
-  /* Color Palette: Directly Extracted from design.svg */
-  --bg: #fbfbfb;
-  --surface: #ffffff;
-  --surface-warm: #faf9f6;
-  --surface-2: #f2ede4;
-  --surface-contrast: #24201b;
-  --surface-elevated: #ffffff;
-
-  /* Sage / Slate-Teal Gradient Tokens */
-  --sage: #95afb5;
-  --sage-light: #d5dfe1;
-  --sage-gradient: linear-gradient(135deg, #95afb5 0%, #829da3 100%);
-  --sage-soft-gradient: linear-gradient(180deg, #d5dfe1 0%, #95afb5 100%);
-
-  /* Icon Badge Pastels */
-  --badge-green: #d8e2d5;
-  --badge-peach: #f2d8c8;
-  --badge-lavender: #e5dff2;
-  --dark-ink: #24201b;
-
-  /* Form & Interactive Tokens */
-  --input-bg: #faf9f6;
-  --input-border: rgba(36, 32, 27, 0.08);
-  --input-focus: #4d4a48;
-
-  /* Architectural Hairline Borders */
-  --border: rgba(36, 32, 27, 0.08);
-  --border-subtle: rgba(36, 32, 27, 0.04);
-  --border-medium: rgba(36, 32, 27, 0.12);
-  --border-strong: rgba(36, 32, 27, 0.2);
-  --border-hover: rgba(36, 32, 27, 0.35);
-
-  /* Button Tokens */
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #4d4a48;
-  --btn-primary-hover: #f4f5f6;
-  --btn-primary-border: rgba(36, 32, 27, 0.1);
-
-  --btn-dark-bg: #24201b;
-  --btn-dark-text: #ffffff;
-  --btn-dark-hover: #3d372f;
-
-  /* Typographic Contrast Scale */
-  --text: #4d4a48; /* Refined Charcoal */
-  --text-2: #667478; /* Slate Body */
-  --text-muted: #90999b; /* Subtle Muted Caption */
-  --text-accent: #a9b4b7; /* Light Slate Subheading */
-  --text-inverse: #ffffff;
 
   /* Card & Geometry Tokens */
   --radius-xs: 4px;
@@ -60,21 +13,6 @@
 
   /* Exact Desktop Grid from design.svg: 1440px canvas - (2 * 160px) = 1120px */
   --shell: min(1120px, calc(100vw - 48px));
-
-  /* Surface & Background Aliases */
-  --bg-base: var(--bg);
-  --bg-surface: var(--surface);
-  --bg-surface-elevated: var(--surface);
-  --bg-surface-hover: #f4f5f6;
-  --bg-glass: rgba(251, 251, 251, 0.85);
-
-  /* Typography Hierarchy */
-  --text-primary: var(--text);
-  --text-secondary: var(--text-2);
-  --muted: var(--text-muted);
-
-  --brand-primary: var(--btn-primary-bg);
-  --brand-primary-hover: var(--btn-primary-hover);
 
   /* Typography Scales */
   --font-sans:
@@ -107,7 +45,7 @@
 }
 
 .section-heading-twotone .heading-primary {
-  color: #4d4a48;
+  color: var(--text);
   font-weight: 500;
   font-size: clamp(2.25rem, 4.2vw, 3.25rem);
   letter-spacing: -0.04em;
@@ -115,7 +53,7 @@
 }
 
 .section-heading-twotone .heading-secondary {
-  color: #a9b4b7;
+  color: var(--text-accent);
   font-weight: 500;
   font-size: clamp(2.25rem, 4.2vw, 3.25rem);
   letter-spacing: -0.04em;
@@ -125,13 +63,13 @@
 /* For darker background sections */
 .section-heading-twotone--dark .heading-primary,
 .section-heading-twotone.is-dark .heading-primary {
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 500;
 }
 
 .section-heading-twotone--dark .heading-secondary,
 .section-heading-twotone.is-dark .heading-secondary {
-  color: #d5dfe1;
+  color: var(--color-sage-light);
   font-weight: 500;
 }
 
