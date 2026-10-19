@@ -1,6 +1,4 @@
-import { afterNextRender, Component, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
 import { Hero } from '../sections/hero/hero';
 import { EngagementTracks } from '../sections/hero/engagement-tracks';
@@ -9,7 +7,7 @@ import { Advantage } from '../sections/advantage/advantage';
 import { PersonalizedPlan } from '../sections/diagnostic/personalized-plan';
 import { Leadership } from '../sections/leadership/leadership';
 import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
-import { initScrollReveal } from '../ui/motion/scroll-reveal';
+import { ProjectCta } from '../sections/footer/project-cta';
 
 export const routeMeta: RouteMeta = {
   title: 'Zelenia | Fast, Thoughtful Websites & Product Design',
@@ -44,28 +42,16 @@ export const routeMeta: RouteMeta = {
     Advantage,
     PersonalizedPlan,
     Leadership,
-    PageFaq
+    PageFaq,
+    ProjectCta
   ],
   template: `
-    <!-- Section 1: Hero Section -->
     <app-hero />
-
-    <!-- Section 2: Performant Interfaces -->
     <app-engagement-tracks />
-
-    <!-- Section 3: Telemetry Benchmarks -->
     <app-metrics-tracking />
-
-    <!-- Section 4: Common Roadblocks -->
     <app-advantage />
-
-    <!-- Section 5: Architectural Plan -->
     <app-personalized-plan />
-
-    <!-- Section 6: Who We Are -->
     <app-leadership />
-
-    <!-- Section 7: Process & Delivery FAQ -->
     <app-page-faq
       tag="Process &amp; Delivery"
       title="How our sprints"
@@ -74,12 +60,10 @@ export const routeMeta: RouteMeta = {
       [items]="processFaqs"
       [showInquiry]="false"
     />
+    <app-project-cta />
   `
 })
 export default class Home {
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
-  private readonly route = inject(ActivatedRoute);
-
   readonly processFaqs: PageFaqItem[] = [
     {
       q: 'How do you calculate sprint timelines and delivery milestones?',
@@ -98,22 +82,4 @@ export default class Home {
       a: 'Because you work directly with Yolanda and Alejandro without account manager intermediaries, scope adjustments are straightforward to talk through. We can test ideas right away in code and staging without delays, either swapping sprint priorities or scheduling a follow-up milestone.'
     }
   ];
-
-  constructor() {
-    afterNextRender(() => {
-      if (this.isBrowser) {
-        initScrollReveal();
-        const fragment = this.route.snapshot.fragment ?? window.location.hash.replace('#', '');
-        if (fragment) {
-          const el = document.getElementById(fragment);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < 0 || rect.top > 160) {
-              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }
-        }
-      }
-    });
-  }
 }

@@ -1,29 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RocketEasterEgg } from './rocket';
 
 @Component({
   selector: 'app-site-footer',
-  imports: [RouterLink],
   template: `
     <footer class="site-footer" role="contentinfo">
-      <!-- Ambient Warm Glow Circle -->
-      <div class="ambient-glow glow--footer-warm" aria-hidden="true"></div>
-
+      <div class="footer-divider-line" aria-hidden="true"></div>
       <div class="container footer-container">
-        <!-- Main Project Evaluation CTA Card -->
-        <div class="footer-cta-card reveal-on-scroll">
-          <h2 class="footer-cta-title" id="footer-cta-heading">
-            <span class="heading-primary">Have a project in mind?</span>
-            <span class="heading-secondary">We'd love to chat.</span>
-          </h2>
-          <p class="footer-cta-desc">
-            Reach out and let’s talk about what you’re building. We’ll review your goals and share initial thoughts on design, performance, and timelines.
-          </p>
-          <a class="btn btn--primary footer-cta-btn" routerLink="/contact">
-            <span>Send us a message</span>
-          </a>
-        </div>
-
         <!-- Bottom Bar: Left-Aligned Copyright + Pure Social Links on Right -->
         <div class="footer-bottom-bar">
           <p class="footer-copyright">
@@ -77,85 +60,29 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
     </footer>
+    <app-rocket-easter-egg />
   `,
   styles: `
     .site-footer {
       background-color: var(--bg);
-      border-top: 1px solid var(--border);
-      padding-block: clamp(5rem, 8vw, 7.5rem) clamp(2rem, 4vw, 3rem);
+      padding-block: 0 clamp(2rem, 4vw, 3rem);
       color: var(--text);
       position: relative;
       overflow: hidden;
     }
 
-    .glow--footer-warm {
-      width: 680px;
-      height: 680px;
-      background-color: var(--color-surface-sand);
-      opacity: 0.35;
-      filter: blur(110px);
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 0;
+    .footer-divider-line {
+      width: 100%;
+      height: 1px;
+      background-color: var(--border-subtle);
+      margin-bottom: 2rem;
     }
 
     .footer-container {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(3.5rem, 6vw, 5.5rem);
       max-width: var(--shell);
       margin-inline: auto;
-    }
-
-    .footer-cta-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      max-width: 680px;
-      margin-inline: auto;
-    }
-
-    .footer-cta-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-      font-weight: 500;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .footer-cta-title .heading-primary {
-      color: var(--color-text-primary);
-    }
-
-    .footer-cta-title .heading-secondary {
-      color: var(--color-sage-dark);
-    }
-
-    .footer-cta-desc {
-      font-family: var(--font-sans);
-      font-size: clamp(0.95rem, 1.25vw, 1.125rem);
-      line-height: 1.6;
-      color: var(--text-2);
-      max-width: 560px;
-      margin: 1.25rem 0 2rem 0;
-    }
-
-    .footer-cta-btn {
-      min-height: 48px;
-      padding-inline: 2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 4px 16px var(--color-ink-subtle);
     }
 
     .footer-bottom-bar {
@@ -164,8 +91,6 @@ import { RouterLink } from '@angular/router';
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.25rem;
-      padding-block-start: 2rem;
-      border-top: 1px solid var(--border-subtle);
     }
 
     .footer-copyright {
@@ -229,7 +154,8 @@ import { RouterLink } from '@angular/router';
         justify-content: flex-start;
       }
     }
-  `
+  `,
+  imports: [RocketEasterEgg]
 })
 export class SiteFooter {
   readonly currentYear = new Date().getFullYear();

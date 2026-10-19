@@ -37,10 +37,10 @@ describe('Leadership Component (Meet the Founders CTA)', () => {
     expect(alejandroImg).toBeTruthy();
   });
 
-  it('should render the "Learn More About Us" CTA linking to /team', () => {
+  it('should render the "Learn More About Us" CTA linking to /about', () => {
     const ctaBtn = fixture.nativeElement.querySelector('.founders-cta-btn');
     expect(ctaBtn).toBeTruthy();
     expect(ctaBtn.textContent.trim()).toBe('Learn More About Us');
-    expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/team');
+    expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/about');
   });
 });

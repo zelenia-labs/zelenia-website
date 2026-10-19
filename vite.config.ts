@@ -21,12 +21,7 @@ export default defineConfig(() => ({
               priority: '1.0'
             }
           },
-          {
-            route: '/team',
-            sitemap: {
-              priority: '0.9'
-            }
-          },
+
           {
             route: '/about',
             sitemap: {

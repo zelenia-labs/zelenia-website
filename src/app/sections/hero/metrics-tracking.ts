@@ -1,9 +1,5 @@
 import {
-  afterNextRender,
   Component,
-  DestroyRef,
-  ElementRef,
-  inject,
   signal
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -22,14 +18,14 @@ export interface MetricTab {
   template: `
     <section
       class="site-section metrics-tracking-section"
-      id="telemetry"
+      id="metrics"
       aria-labelledby="metrics-heading"
     >
       <!-- Ambient Glow Circle matching design.svg -->
       <div class="ambient-glow glow--metrics-sage" aria-hidden="true"></div>
 
       <div class="container">
-        <!-- Centered Two-Tone Section Heading -->
+        <!-- Section heading introduces the zone before sticky panel takes over -->
         <div class="section-header section-header--center reveal-on-scroll">
           <h2 class="section-heading-twotone" id="metrics-heading">
             <span class="heading-primary">Tracking the metrics</span>
@@ -37,25 +33,11 @@ export interface MetricTab {
           </h2>
         </div>
 
-        <!-- Scrollytelling Scroller Container with Anchor Points -->
-        <div class="telemetry-scroller">
-          <!-- Invisible Anchor Points for Scroll Synchronization -->
-          <div class="telemetry-anchors" aria-hidden="true">
-            @for (tab of tabs; track tab.id) {
-              <div
-                class="telemetry-anchor-point"
-                [id]="'metric-step-' + tab.id"
-                [attr.data-step]="tab.id"
-              ></div>
-            }
-          </div>
-
-          <!-- Sticky Staged Interactive Module -->
-          <div class="telemetry-sticky-stage">
-            <div class="telemetry-interactive-stage reveal-on-scroll reveal-delay-1">
+        <!-- Interactive Tabs Section (Clean click navigation, no sticky scroll trap) -->
+        <div class="telemetry-interactive-stage">
               <!-- Left Navigation Tabs (Flat on surface, with active progress bar) -->
               <nav class="telemetry-tabs-nav" aria-label="Metric Track Selector">
-                @for (tab of tabs; track tab.id; let i = $index) {
+                @for (tab of tabs; track tab.id) {
                   <button
                     type="button"
                     class="telemetry-tab-btn"
@@ -66,7 +48,6 @@ export interface MetricTab {
                     [attr.aria-selected]="activeTab() === tab.id"
                   >
                     <div class="tab-header-row">
-                      <span class="tab-index">0{{ i + 1 }}</span>
                       <h3 class="tab-title">{{ tab.title }}</h3>
                     </div>
                     <p class="tab-summary">{{ tab.summary }}</p>
@@ -333,20 +314,13 @@ export interface MetricTab {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
       </div>
     </section>
   `
 })
 export class MetricsTracking {
-  private readonly elementRef = inject(ElementRef<HTMLElement>);
-  private readonly destroyRef = inject(DestroyRef);
-
   readonly activeTab = signal<MetricTabKey>('vitals');
   readonly viewportMode = signal<'mobile' | 'tablet' | 'desktop'>('desktop');
-  private isUserClickScrolling = false;
-  private scrollResetTimer: ReturnType<typeof setTimeout> | null = null;
 
   readonly tabs: MetricTab[] = [
     {
@@ -371,90 +345,11 @@ export class MetricsTracking {
     }
   ];
 
-  constructor() {
-    afterNextRender(() => {
-      this.setupScrollObserver();
-    });
-  }
-
   selectTab(id: MetricTabKey): void {
-    this.scrollToStep(id);
-  }
-
-  scrollToStep(id: MetricTabKey): void {
     this.activeTab.set(id);
-    if (typeof window === 'undefined') return;
-
-    const el = this.elementRef.nativeElement;
-    const targetAnchor = el ? (el.querySelector(`#metric-step-${id}`) as HTMLElement | null) : null;
-    if (targetAnchor) {
-      this.isUserClickScrolling = true;
-      if (this.scrollResetTimer) clearTimeout(this.scrollResetTimer);
-
-      if (typeof targetAnchor.scrollIntoView === 'function') {
-        targetAnchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      this.scrollResetTimer = setTimeout(() => {
-        this.isUserClickScrolling = false;
-      }, 700);
-    }
   }
 
   setViewport(mode: 'mobile' | 'tablet' | 'desktop'): void {
     this.viewportMode.set(mode);
-  }
-
-  private setupScrollObserver(): void {
-    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
-
-    const el = this.elementRef.nativeElement;
-    if (!el) return;
-
-    const nodeList = el.querySelectorAll('.telemetry-anchor-point');
-    const anchors: HTMLElement[] = Array.from(nodeList) as HTMLElement[];
-    if (!anchors.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (this.isUserClickScrolling) return;
-
-        const intersecting = entries.filter((e) => e.isIntersecting);
-        if (!intersecting.length) return;
-
-        let bestEntry = intersecting[0];
-        let bestDistance = Infinity;
-        const viewportCenter = window.innerHeight / 2;
-
-        for (const entry of intersecting) {
-          const rect = entry.boundingClientRect;
-          const entryCenter = rect.top + rect.height / 2;
-          const dist = Math.abs(entryCenter - viewportCenter);
-          if (dist < bestDistance) {
-            bestDistance = dist;
-            bestEntry = entry;
-          }
-        }
-
-        const stepId = bestEntry.target.getAttribute('data-step') as MetricTabKey;
-        if (stepId && this.activeTab() !== stepId) {
-          this.activeTab.set(stepId);
-          const tabBtn = el.querySelector(`.telemetry-tab-btn[data-tab="${stepId}"]`) as HTMLElement | null;
-          if (tabBtn && typeof tabBtn.scrollIntoView === 'function') {
-            tabBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-          }
-        }
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1.0]
-      }
-    );
-
-    anchors.forEach((anchor: HTMLElement) => observer.observe(anchor));
-    this.destroyRef.onDestroy(() => {
-      observer.disconnect();
-      if (this.scrollResetTimer) clearTimeout(this.scrollResetTimer);
-    });
   }
 }

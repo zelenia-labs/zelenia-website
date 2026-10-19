@@ -68,13 +68,13 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       display: block;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--color-white);
+      color: var(--dark-ink);
       letter-spacing: -0.01em;
     }
 
     .focus-selector-hint {
       font-size: 0.8125rem;
-      color: var(--color-white-reading);
+      color: var(--color-text-secondary);
     }
 
     .focus-cards-grid {

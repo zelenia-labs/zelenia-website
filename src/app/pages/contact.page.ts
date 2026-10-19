@@ -43,7 +43,7 @@ export const routeMeta: RouteMeta = {
   `,
   styles: `
     .contact-page {
-      padding-block-start: clamp(1.5rem, 5vw, 4rem);
+      padding-block-start: 0;
       padding-block-end: clamp(4rem, 8vw, 6rem);
     }
   `

@@ -13,7 +13,7 @@ import { StarfieldCanvas } from '../starfield';
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            <span class="hero-title__line hero-title__line--primary">Elevate</span>
+            <span class="hero-title__line hero-title__line--primary">Speed up</span>
             <span class="hero-title__line hero-title__line--secondary">your website</span>
           </h1>
 
@@ -24,7 +24,7 @@ import { StarfieldCanvas } from '../starfield';
           <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
           <div class="hero-action-dock">
             <a class="btn btn--pill-hero" routerLink="/contact">
-              <span>Schedule a consultation</span>
+              <span>Get a project estimate</span>
             </a>
           </div>
         </div>
@@ -95,7 +95,7 @@ import { StarfieldCanvas } from '../starfield';
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                 </svg>
               </span>
-              <span class="trust-statement">Sub-second speed on every screen
+              <span class="trust-statement">Sub-second loading speeds on any phone, tablet, or desktop
               </span>
             </div>
 
@@ -117,7 +117,7 @@ import { StarfieldCanvas } from '../starfield';
                   <path d="M22 17v-1a3 3 0 0 0-2-2.8"></path>
                 </svg>
               </span>
-              <span class="trust-statement">Google Developer Expert &amp; Fortune 100 Designer
+              <span class="trust-statement">Small team of a Google Developer Expert and a Fortune 100 Designer
               </span>
             </div>
 
@@ -138,7 +138,7 @@ import { StarfieldCanvas } from '../starfield';
                 </svg>
               </span>
               <span class="trust-statement">
-                Direct execution with zero agency overhead
+                Direct communication with zero agency overhead
               </span>
             </div>
           </div>

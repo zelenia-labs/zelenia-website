@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
 import { SiteFooter } from './site-footer';
 
 describe('SiteFooter Component', () => {
@@ -8,8 +7,7 @@ describe('SiteFooter Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SiteFooter],
-      providers: [provideRouter([])]
+      imports: [SiteFooter]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SiteFooter);
@@ -23,18 +21,12 @@ describe('SiteFooter Component', () => {
     expect(footerEl).toBeTruthy();
   });
 
-  it('should render project scope evaluation CTA linking to /contact', () => {
-    const ctaTitle = fixture.nativeElement.querySelector('.footer-cta-title');
-    expect(ctaTitle).toBeTruthy();
-    expect(ctaTitle.textContent).toContain('Have a project in mind');
-
-    const ctaBtn = fixture.nativeElement.querySelector('.footer-cta-btn');
-    expect(ctaBtn).toBeTruthy();
-    expect(ctaBtn.textContent).toContain('Send us a message');
-    expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
+  it('should render the full-width side-to-side divider line', () => {
+    const dividerEl = fixture.nativeElement.querySelector('.footer-divider-line');
+    expect(dividerEl).toBeTruthy();
   });
 
-  it('should render LinkedIn and GitHub social profile links in the bottom right', () => {
+  it('should render LinkedIn and GitHub social profile links', () => {
     const socialLinks = fixture.nativeElement.querySelectorAll('.footer-social-link');
     expect(socialLinks.length).toBe(2);
 
@@ -54,13 +46,5 @@ describe('SiteFooter Component', () => {
     expect(copyrightEl.textContent).toContain(
       'High-performance front-end & product design.'
     );
-  });
-
-  it('should NOT render the giant typographic watermark or company sitemap', () => {
-    const watermarkEl = fixture.nativeElement.querySelector('.footer-watermark');
-    expect(watermarkEl).toBeNull();
-
-    const companyLinks = fixture.nativeElement.querySelectorAll('.footer-col__title');
-    expect(companyLinks.length).toBe(0);
   });
 });

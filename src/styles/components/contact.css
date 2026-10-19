@@ -3,11 +3,12 @@
    ========================================================================== */
 
 .contact-section {
-  background: var(--gradient-sage);
-  color: var(--color-white);
-  padding-block: clamp(5rem, 8vw, 7.5rem);
+  background-color: var(--bg);
+  color: var(--text);
+  padding-block: clamp(6.5rem, 10vw, 8.5rem);
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .contact-container {
@@ -20,34 +21,29 @@
   z-index: 2;
 }
 
-.glow--contact-sage {
-  width: 751px;
-  height: 751px;
-  background-color: var(--color-glow-sage);
-  opacity: 0.7;
-  filter: blur(140px);
-  bottom: -120px;
-  right: -100px;
+.glow--contact-warm {
+  width: 1040px;
+  height: 1040px;
+  background-color: var(--color-surface-sand);
+  opacity: 0.32;
+  filter: blur(90px);
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.glow--contact-charcoal {
-  width: 618px;
-  height: 618px;
-  background-color: var(--color-glow-charcoal);
-  opacity: 0.21;
-  filter: blur(90px);
-  top: -80px;
-  left: -120px;
-}
-
-.glow--contact-sand {
-  width: 541px;
-  height: 541px;
-  background-color: var(--color-glow-sand);
-  opacity: 0.135;
-  filter: blur(90px);
-  top: 35%;
-  right: 5%;
+/* Fluid Intertwining Curves Vector Backdrop matching About Us */
+.contact-fluid-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1320px;
+  height: 100%;
+  max-height: 560px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
 }
 
 .contact-header {
@@ -64,7 +60,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-sage-light);
+  color: var(--color-sage-dark);
   margin-bottom: 0.75rem;
 }
 
@@ -122,8 +118,8 @@
 .form-label {
   display: block;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-white);
+  font-weight: 550;
+  color: var(--text);
   margin-bottom: 0.45rem;
 }
 
@@ -131,7 +127,7 @@
 .form-textarea {
   width: 100%;
   background-color: var(--color-white);
-  border: 1px solid var(--color-ink-medium);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
@@ -168,7 +164,7 @@
   background-color: var(--color-white);
   color: var(--dark-ink);
   border-color: var(--dark-ink);
-  box-shadow: 0 0 0 3px var(--color-ink-medium);
+  box-shadow: 0 0 0 3px var(--color-ink-subtle);
 }
 
 .form-input.is-invalid {
@@ -179,7 +175,7 @@
   display: block;
   margin-top: 0.35rem;
   font-size: 0.8rem;
-  color: var(--color-rose-tint);
+  color: var(--color-rose-alt);
   font-weight: 500;
 }
 
@@ -198,7 +194,7 @@
   min-width: 0;
   height: 48px;
   background-color: var(--color-white);
-  border: 1px solid var(--color-ink-medium);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 0 1rem;
   font-family: var(--font-sans);
@@ -226,13 +222,13 @@
 .custom-select-trigger:focus-visible,
 .custom-select-trigger[aria-expanded='true'] {
   border-color: var(--dark-ink);
-  box-shadow: 0 0 0 3px var(--color-ink-medium);
+  box-shadow: 0 0 0 3px var(--color-ink-subtle);
   background-color: var(--color-white);
 }
 
 .custom-select-trigger--nested {
-  background-color: var(--color-surface-cool-tint);
-  border: 1px solid var(--color-ink-medium);
+  background-color: var(--color-surface);
+  border: 1px solid var(--border);
 }
 
 .custom-select-trigger--nested:focus-visible,
@@ -370,10 +366,11 @@
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  border: 1px solid var(--color-white-medium);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background-color: var(--color-white-subtle);
+  background-color: var(--color-white);
   overflow: hidden;
+  box-shadow: 0 1px 4px var(--color-obsidian-faint);
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast),
@@ -381,14 +378,13 @@
 }
 
 .scope-disclosure-card:hover {
-  background-color: var(--color-white-subtle);
-  border-color: var(--color-white-strong);
+  border-color: var(--color-ink-strong);
+  box-shadow: 0 4px 12px var(--color-obsidian-subtle);
 }
 
 .scope-disclosure-card.is-expanded {
-  background-color: var(--color-white-subtle);
-  border-color: var(--color-white-strong);
-  box-shadow: 0 4px 18px var(--color-black-faint);
+  border-color: var(--dark-ink);
+  box-shadow: 0 4px 18px var(--color-obsidian-subtle);
 }
 
 .scope-disclosure-trigger {
@@ -399,7 +395,7 @@
   padding: 1.1rem 1.25rem;
   background: transparent;
   border: none;
-  color: var(--color-white);
+  color: var(--text);
   cursor: pointer;
   text-align: left;
   outline: none;
@@ -409,7 +405,7 @@
 }
 
 .scope-disclosure-trigger:focus-visible {
-  outline: 2px solid var(--color-white);
+  outline: 2px solid var(--dark-ink);
   outline-offset: -2px;
 }
 
@@ -418,8 +414,8 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  border: 1.5px solid var(--color-white-strong);
-  background-color: var(--color-white-subtle);
+  border: 1.5px solid var(--border);
+  background-color: var(--color-surface);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -432,14 +428,18 @@
 }
 
 .scope-disclosure-trigger:hover .scope-checkbox-ui {
-  border-color: var(--color-white);
-  background-color: var(--color-white-medium);
+  border-color: var(--dark-ink);
+  background-color: var(--color-white);
 }
 
 .scope-checkbox-ui.is-checked {
-  background-color: var(--color-white);
-  border-color: var(--color-white);
+  background-color: var(--dark-ink);
+  border-color: var(--dark-ink);
   box-shadow: 0 2px 6px var(--color-black-subtle);
+}
+
+.scope-checkbox-ui.is-checked .scope-check-icon {
+  stroke: var(--color-white);
 }
 
 .scope-check-icon {
@@ -474,7 +474,7 @@
 .scope-title {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--dark-ink);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -484,15 +484,16 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-white);
-  background-color: var(--color-white-medium);
+  color: var(--color-slate-reading);
+  background-color: var(--color-surface-hover);
+  border: 1px solid var(--border);
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-pill);
 }
 
 .scope-subtitle {
   font-size: 0.8125rem;
-  color: var(--color-white-reading);
+  color: var(--color-text-secondary);
   line-height: 1.4;
 }
 
@@ -501,19 +502,20 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-color: var(--color-white-subtle);
+  background-color: var(--color-surface);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--color-white);
+  color: var(--dark-ink);
   transition:
     transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
     background-color var(--transition-fast);
 }
 
 .scope-disclosure-trigger:hover .scope-chevron-wrapper {
-  background-color: var(--color-white-medium);
+  background-color: var(--color-surface-hover);
 }
 
 .scope-chevron-wrapper.is-expanded {
@@ -563,20 +565,21 @@
 /* Direct Form Fields: NO nested card / NO box-in-a-box */
 .scope-expanded-body {
   padding: 1.25rem 1.25rem 1.5rem 1.25rem;
-  border-top: 1px solid var(--color-white-subtle);
+  border-top: 1px solid var(--border);
+  background-color: var(--color-surface);
 }
 
 .scope-expanded-body .form-label {
-  color: var(--color-white);
+  color: var(--text);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 550;
   margin-bottom: 0.45rem;
 }
 
 .scope-expanded-body .form-input,
 .scope-expanded-body .custom-select-trigger--nested {
   background-color: var(--color-white);
-  border: 1px solid var(--color-ink-medium);
+  border: 1px solid var(--border);
   color: var(--dark-ink);
   font-weight: 500;
   width: 100%;
@@ -600,7 +603,7 @@
 
 .privacy-note {
   font-size: 0.8125rem;
-  color: var(--color-white-reading);
+  color: var(--color-text-secondary);
   margin: 0;
   max-width: 440px;
   line-height: 1.45;
@@ -613,20 +616,25 @@
   gap: 0.65rem;
   height: 48px;
   padding-inline: 1.85rem;
-  background-color: var(--color-white);
-  color: var(--text);
+  background-color: var(--dark-ink);
+  color: var(--color-white);
   font-size: 0.95rem;
   font-weight: 550;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 14px var(--color-black-subtle);
-  transition: background-color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
   white-space: nowrap;
 }
 
 .btn--pill-submit:hover:not(:disabled) {
-  background-color: var(--color-surface-hover);
+  background-color: var(--color-obsidian-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px var(--color-obsidian-subtle);
 }
 
 .btn--pill-submit:disabled {
@@ -638,7 +646,7 @@
   display: none;
   width: 16px;
   height: 16px;
-  border: 2px solid var(--text);
+  border: 2px solid var(--color-white);
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -659,12 +667,12 @@
 }
 
 .form-confirmation {
-  background-color: var(--color-white-subtle);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--color-white-medium);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-sage-subtle);
   border-radius: var(--radius-sm);
   padding: 1.25rem 1.5rem;
   margin-top: 1.5rem;
+  box-shadow: 0 2px 8px var(--color-obsidian-faint);
 }
 
 .confirmation-content {
@@ -676,20 +684,20 @@
 .confirmation-icon {
   font-size: 1.25rem;
   font-weight: bold;
-  color: var(--color-white);
+  color: var(--color-sage-dark);
   line-height: 1;
 }
 
 .confirmation-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--dark-ink);
   margin: 0 0 0.25rem 0;
 }
 
 .confirmation-body {
   font-size: 0.875rem;
-  color: var(--color-white-reading);
+  color: var(--color-text-secondary);
   margin: 0;
   line-height: 1.5;
 }

@@ -74,7 +74,7 @@ export class SiteHeader {
   readonly isScrolledUp = this.isScrolled;
 
   readonly navItems: HeaderNavItem[] = [
-    { label: 'About us', href: '/team' }
+    { label: 'About us', href: '/about' }
   ];
 
   private observer: IntersectionObserver | null = null;

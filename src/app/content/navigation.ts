@@ -5,5 +5,5 @@ export interface NavItem {
 }
 
 export const NAVIGATION_ITEMS: NavItem[] = [
-  { label: 'About us', href: '/team' }
+  { label: 'About us', href: '/about' }
 ];

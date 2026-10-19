@@ -48,8 +48,8 @@ describe('SiteHeader Component', () => {
   });
 
 
-  it('should only highlight About us when route is /team and set aria-current', () => {
-    component.currentUrl.set('/team');
+  it('should only highlight About us when route is /about and set aria-current', () => {
+    component.currentUrl.set('/about');
     fixture.detectChanges();
 
     const links = Array.from(

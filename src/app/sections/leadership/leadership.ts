@@ -101,7 +101,7 @@ import { RouterLink } from '@angular/router';
         <div class="founders-action reveal-on-scroll">
           <a
             class="btn btn--primary founders-cta-btn"
-            routerLink="/team"
+            routerLink="/about"
             aria-label="Learn more about our team and background"
           >
             <span>Learn More About Us</span>

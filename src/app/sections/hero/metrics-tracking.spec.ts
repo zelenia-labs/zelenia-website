@@ -28,13 +28,13 @@ describe('MetricsTracking Component (Scrollytelling & Step Synchronization)', ()
     expect(responsiveLayer.classList.contains('is-active')).toBe(false);
   });
 
-  it('should render all 4 anchor points for scrollytelling steps', () => {
-    const anchors = fixture.nativeElement.querySelectorAll('.telemetry-anchor-point');
-    expect(anchors.length).toBe(4);
-    expect(anchors[0].getAttribute('data-step')).toBe('vitals');
-    expect(anchors[1].getAttribute('data-step')).toBe('responsive');
-    expect(anchors[2].getAttribute('data-step')).toBe('seo');
-    expect(anchors[3].getAttribute('data-step')).toBe('cro');
+  it('should render all 4 interactive tab selector buttons', () => {
+    const tabButtons = fixture.nativeElement.querySelectorAll('.telemetry-tab-btn');
+    expect(tabButtons.length).toBe(4);
+    expect(tabButtons[0].getAttribute('data-tab')).toBe('vitals');
+    expect(tabButtons[1].getAttribute('data-tab')).toBe('responsive');
+    expect(tabButtons[2].getAttribute('data-tab')).toBe('seo');
+    expect(tabButtons[3].getAttribute('data-tab')).toBe('cro');
   });
 
   it('should switch active tab and visibility layers when selectTab is called', () => {

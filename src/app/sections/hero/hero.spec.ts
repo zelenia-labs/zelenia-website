@@ -30,14 +30,14 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   it('should render the studio headline from design.svg', () => {
     const titleEl = fixture.nativeElement.querySelector('.hero-title');
     expect(titleEl).toBeTruthy();
-    expect(titleEl.textContent).toContain('Elevate');
+    expect(titleEl.textContent).toContain('Speed up');
     expect(titleEl.textContent).toContain('your website');
   });
 
   it('should render the primary pill CTA button linking to contact', () => {
     const ctaBtn = fixture.nativeElement.querySelector('.btn--pill-hero');
     expect(ctaBtn).toBeTruthy();
-    expect(ctaBtn.textContent).toContain('Schedule a consultation');
+    expect(ctaBtn.textContent).toContain('Get a project estimate');
     expect(ctaBtn.getAttribute('routerlink') || ctaBtn.getAttribute('href')).toBe('/contact');
   });
 
@@ -46,8 +46,8 @@ describe('Hero Component (Design Mockup Alignment)', () => {
     expect(ribbonEl).toBeTruthy();
     const metricsEl = fixture.nativeElement.querySelector('.hero-metrics-bar');
     expect(metricsEl).toBeTruthy();
-    expect(metricsEl.textContent.toLowerCase()).toContain('sub-second speed');
-    expect(metricsEl.textContent).toContain('Direct execution');
+    expect(metricsEl.textContent.toLowerCase()).toContain('sub-second loading speed');
+    expect(metricsEl.textContent).toContain('Direct communication');
   });
 
   it('should render the interactive starfield canvas host', () => {
