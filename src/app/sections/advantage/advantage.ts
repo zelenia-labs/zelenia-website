@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import advantageContent from './advantage.content.md';
 
 @Component({
   selector: 'app-advantage',
@@ -15,10 +16,10 @@ import { Component } from '@angular/core';
         <div class="clarity-split-layout">
           <!-- Left Column: Section Heading (x=160 in design.svg) -->
           <div class="clarity-editorial reveal-on-scroll">
-            <span class="section-tag-subtle">Common Bottlenecks</span>
+            <span class="section-tag-subtle">{{ content.tag }}</span>
             <h2 class="section-heading-twotone" id="clarity-title">
-              <span class="heading-primary">Less friction.</span>
-              <span class="heading-secondary">More visitors who stay.</span>
+              <span class="heading-primary">{{ content.titlePrimary }}</span>
+              <span class="heading-secondary">{{ content.titleSecondary }}</span>
             </h2>
           </div>
 
@@ -44,10 +45,9 @@ import { Component } from '@angular/core';
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Heavy Photos &amp; Media</h3>
+              <h3 class="clarity-card__title">{{ content.cards[0].title }}</h3>
               <p class="clarity-card__desc">
-                Oversized photography, uncompressed videos, and heavy files slow your pages down
-                before visitors can even see what you offer.
+                {{ content.cards[0].description }}
               </p>
             </article>
 
@@ -68,10 +68,9 @@ import { Component } from '@angular/core';
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Search Visibility</h3>
+              <h3 class="clarity-card__title">{{ content.cards[1].title }}</h3>
               <p class="clarity-card__desc">
-                Confusing site structure and missing tags make it difficult for Google to read your
-                pages, keeping potential clients from discovering you.
+                {{ content.cards[1].description }}
               </p>
             </article>
 
@@ -92,10 +91,9 @@ import { Component } from '@angular/core';
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Page Speed &amp; Stability</h3>
+              <h3 class="clarity-card__title">{{ content.cards[2].title }}</h3>
               <p class="clarity-card__desc">
-                Pages that take seconds to appear or jump around while loading frustrate visitors
-                and cause them to click away before reading.
+                {{ content.cards[2].description }}
               </p>
             </article>
 
@@ -115,10 +113,9 @@ import { Component } from '@angular/core';
                   <path d="M12 2l3 7h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"></path>
                 </svg>
               </div>
-              <h3 class="clarity-card__title">Clear Next Steps</h3>
+              <h3 class="clarity-card__title">{{ content.cards[3].title }}</h3>
               <p class="clarity-card__desc">
-                Cluttered pages and confusing navigation make it hard for visitors to find the
-                answers they need and take the next step.
+                {{ content.cards[3].description }}
               </p>
             </article>
           </div>
@@ -233,4 +230,6 @@ import { Component } from '@angular/core';
     }
   `
 })
-export class Advantage {}
+export class Advantage {
+  protected readonly content = advantageContent;
+}

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { Hero } from './hero';
-import { WebsiteContent } from '../../content/website-content';
 
 import { By } from '@angular/platform-browser';
 import { StarfieldCanvas } from '../starfield';
@@ -13,7 +12,7 @@ describe('Hero Component (Design Mockup Alignment)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Hero],
-      providers: [WebsiteContent, provideRouter([])]
+      providers: [provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Hero);

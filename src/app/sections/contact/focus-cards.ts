@@ -1,14 +1,15 @@
 import { Component, inject, input, output } from '@angular/core';
 import { DiagnosticState } from '../diagnostic/diagnostic-state';
 import { CategoryId } from '../diagnostic/diagnostic.model';
+import contactContent from './contact.content.md';
 
 @Component({
   selector: 'app-focus-cards',
   template: `
     <div class="focus-selector" role="radiogroup" aria-labelledby="focus-selector-legend">
       <div class="focus-selector-header">
-        <span class="focus-selector-title" id="focus-selector-legend">Focus &amp; Timeline</span>
-        <span class="focus-selector-hint">Select the sprint deliverable tier that fits your roadmap</span>
+        <span class="focus-selector-title" id="focus-selector-legend">{{ formCopy.focusLegend }}</span>
+        <span class="focus-selector-hint">{{ formCopy.focusHint }}</span>
       </div>
 
       <div class="focus-cards-grid">
@@ -68,13 +69,13 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       display: block;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--dark-ink);
+      color: var(--text);
       letter-spacing: -0.01em;
     }
 
     .focus-selector-hint {
       font-size: 0.8125rem;
-      color: var(--color-text-secondary);
+      color: var(--text-2);
     }
 
     .focus-cards-grid {
@@ -94,7 +95,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
 
     .focus-card {
       background-color: var(--color-white);
-      border: 2px solid transparent;
+      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 1.15rem 1.25rem;
       display: flex;
@@ -104,7 +105,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
       cursor: pointer;
       user-select: none;
       position: relative;
-      box-shadow: 0 2px 8px var(--color-obsidian-faint);
+      box-shadow: 0 1px 4px var(--color-obsidian-faint);
       transition:
         border-color var(--transition-fast),
         box-shadow var(--transition-fast),
@@ -115,14 +116,14 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
 
     .focus-card:hover {
       border-color: var(--color-ink-strong);
-      box-shadow: 0 6px 18px var(--color-obsidian-subtle);
+      box-shadow: 0 4px 14px var(--color-obsidian-subtle);
       transform: translateY(-1px);
     }
 
     .focus-card.is-selected {
       border-color: var(--dark-ink);
       box-shadow:
-        0 8px 24px var(--color-ink-subtle),
+        0 6px 20px var(--color-ink-subtle),
         0 0 0 1px var(--dark-ink);
       background-color: var(--color-white);
     }
@@ -259,6 +260,7 @@ import { CategoryId } from '../diagnostic/diagnostic.model';
   `
 })
 export class FocusCards {
+  protected readonly formCopy = contactContent.form;
   readonly state = inject(DiagnosticState);
   readonly value = input<string>('vitals');
   readonly valueChange = output<string>();

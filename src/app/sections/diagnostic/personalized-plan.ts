@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StarfieldCanvas } from '../starfield';
+import personalizedPlanContent from './personalized-plan.content.md';
 
 @Component({
   selector: 'app-personalized-plan',
@@ -18,29 +19,21 @@ import { StarfieldCanvas } from '../starfield';
         <!-- Left Editorial Content -->
         <div class="plan-content reveal-on-scroll">
           <h2 class="plan-title" id="plan-heading">
-            <span class="plan-title__primary">Wondering why your site feels slow</span>
-            <span class="plan-title__secondary">or why visitors leave before reaching out?</span>
+            <span class="plan-title__primary">{{ content.titlePrimary }}</span>
+            <span class="plan-title__secondary">{{ content.titleSecondary }}</span>
           </h2>
 
           <p class="plan-subtitle">
-            Request a complimentary website speed and health review. We look at your live site,
-            pinpointing what is slowing down your pages (from oversized photography to heavy
-            scripts), and deliver a clear, practical plan to speed it up.
+            {{ content.subtitle }}
           </p>
 
           <ul class="plan-steps-list" aria-label="Review highlights">
-            <li>
-              <span class="step-bullet" aria-hidden="true">&bull;</span>
-              <span>Delivered in 3 business days</span>
-            </li>
-            <li>
-              <span class="step-bullet" aria-hidden="true">&bull;</span>
-              <span>100% confidential &bull; <abbr title="Non-Disclosure Agreement" class="abbr-tooltip">NDA</abbr> included</span>
-            </li>
-            <li>
-              <span class="step-bullet" aria-hidden="true">&bull;</span>
-              <span>Actionable engineering roadmap with zero obligation</span>
-            </li>
+            @for (hl of content.highlights; track hl) {
+              <li>
+                <span class="step-bullet" aria-hidden="true">&bull;</span>
+                <span>{{ hl }}</span>
+              </li>
+            }
           </ul>
 
           <div class="plan-action">
@@ -50,7 +43,7 @@ import { StarfieldCanvas } from '../starfield';
               [queryParams]="{ focus: 'vitals' }"
               aria-label="Request a complimentary website speed and health review"
             >
-              <span>Request Free Audit</span>
+              <span>{{ content.ctaText }}</span>
             </a>
           </div>
         </div>
@@ -244,4 +237,6 @@ import { StarfieldCanvas } from '../starfield';
     }
   `
 })
-export class PersonalizedPlan {}
+export class PersonalizedPlan {
+  protected readonly content = personalizedPlanContent;
+}

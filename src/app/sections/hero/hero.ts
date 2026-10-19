@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StarfieldCanvas } from '../starfield';
+import heroContent from './hero.content.md';
 
 @Component({
   selector: 'app-hero',
@@ -13,18 +14,18 @@ import { StarfieldCanvas } from '../starfield';
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            <span class="hero-title__line hero-title__line--primary">Speed up</span>
-            <span class="hero-title__line hero-title__line--secondary">your website</span>
+            <span class="hero-title__line hero-title__line--primary">{{ content.titlePrimary }}</span>
+            <span class="hero-title__line hero-title__line--secondary">{{ content.titleSecondary }}</span>
           </h1>
 
           <p class="hero-subheadline">
-            Turn your website into a fast and well designed experience. Modern design and precision engineering built to load instantly, rank on search engines, and remain fully discoverable across modern AI models.
+            {{ content.subheadline }}
           </p>
 
           <!-- Primary Pill Action Button matching x=160, y=485, rx=21.5 in design.svg -->
           <div class="hero-action-dock">
             <a class="btn btn--pill-hero" routerLink="/contact">
-              <span>Get a project estimate</span>
+              <span>{{ content.ctaText }}</span>
             </a>
           </div>
         </div>
@@ -95,8 +96,7 @@ import { StarfieldCanvas } from '../starfield';
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                 </svg>
               </span>
-              <span class="trust-statement">Sub-second loading speeds on any phone, tablet, or desktop
-              </span>
+              <span class="trust-statement">{{ content.trustPillars[0] }}</span>
             </div>
 
             <div class="trust-item metric-item">
@@ -117,8 +117,7 @@ import { StarfieldCanvas } from '../starfield';
                   <path d="M22 17v-1a3 3 0 0 0-2-2.8"></path>
                 </svg>
               </span>
-              <span class="trust-statement">Small team of a Google Developer Expert and a Fortune 100 Designer
-              </span>
+              <span class="trust-statement">{{ content.trustPillars[1] }}</span>
             </div>
 
             <div class="trust-item metric-item">
@@ -137,9 +136,7 @@ import { StarfieldCanvas } from '../starfield';
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </span>
-              <span class="trust-statement">
-                Direct communication with zero agency overhead
-              </span>
+              <span class="trust-statement">{{ content.trustPillars[2] }}</span>
             </div>
           </div>
         </div>
@@ -147,4 +144,6 @@ import { StarfieldCanvas } from '../starfield';
     </header>
   `
 })
-export class Hero { }
+export class Hero {
+  protected readonly content = heroContent;
+}

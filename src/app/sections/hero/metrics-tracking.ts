@@ -3,6 +3,7 @@ import {
   signal
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import metricsContent from './metrics-tracking.content.md';
 
 export type MetricTabKey = 'vitals' | 'responsive' | 'seo' | 'cro';
 
@@ -28,8 +29,8 @@ export interface MetricTab {
         <!-- Section heading introduces the zone before sticky panel takes over -->
         <div class="section-header section-header--center reveal-on-scroll">
           <h2 class="section-heading-twotone" id="metrics-heading">
-            <span class="heading-primary">Tracking the metrics</span>
-            <span class="heading-secondary">that matter</span>
+            <span class="heading-primary">{{ metrics.titlePrimary }}</span>
+            <span class="heading-secondary">{{ metrics.titleSecondary }}</span>
           </h2>
         </div>
 
@@ -319,31 +320,11 @@ export interface MetricTab {
   `
 })
 export class MetricsTracking {
+  protected readonly metrics = metricsContent;
   readonly activeTab = signal<MetricTabKey>('vitals');
   readonly viewportMode = signal<'mobile' | 'tablet' | 'desktop'>('desktop');
 
-  readonly tabs: MetricTab[] = [
-    {
-      id: 'vitals',
-      title: 'Speed & Performance',
-      summary: 'Sub-second page loads and smooth interactions'
-    },
-    {
-      id: 'responsive',
-      title: 'Mobile & Multi-Device',
-      summary: 'Flawless display on mobile, tablet, and desktop'
-    },
-    {
-      id: 'seo',
-      title: 'Search Visibility',
-      summary: 'Clean structure and accessibility for search engines'
-    },
-    {
-      id: 'cro',
-      title: 'Design & Conversion',
-      summary: 'Thoughtful visual craft that turns visitors into clients'
-    }
-  ];
+  readonly tabs: MetricTab[] = this.metrics.tabs as MetricTab[];
 
   selectTab(id: MetricTabKey): void {
     this.activeTab.set(id);

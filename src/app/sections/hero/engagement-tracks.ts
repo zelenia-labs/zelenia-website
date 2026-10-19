@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import tracksContent from './engagement-tracks.content.md';
 
 @Component({
   selector: 'app-engagement-tracks',
@@ -18,139 +19,86 @@ import { RouterLink } from '@angular/router';
         <!-- Section Header matching design.svg (x=160) -->
         <div class="section-header reveal-on-scroll">
           <h2 class="section-heading-twotone" id="tracks-heading">
-            <span class="heading-primary">Focused on</span>
-            <span class="heading-secondary">performant interfaces</span>
+            <span class="heading-primary">{{ tracks.titlePrimary }}</span>
+            <span class="heading-secondary">{{ tracks.titleSecondary }}</span>
           </h2>
         </div>
 
         <!-- 3 White Cards Grid (w: 352, h: 360, rx: 24, gap: 32 in design.svg) -->
         <div class="interfaces-grid">
-          <!-- Card 1: Technical SEO & Speed -->
-          <article class="interface-card">
-            <div class="card-icon-badge badge--green" aria-hidden="true">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+          @for (card of tracks.cards; track card.title; let idx = $index) {
+            <article class="interface-card">
+              <div class="card-icon-badge badge--{{ cardMeta[idx]?.badge || 'green' }}" aria-hidden="true">
+                @switch (cardMeta[idx]?.icon) {
+                  @case ('code') {
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  }
+                  @case ('layout') {
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M17.18 13.01L16.03 7.28C16 7.13 15.93 6.98 15.81 6.87C15.7 6.76 15.56 6.67 15.41 6.64L4.87 3.87C4.73 3.84 4.59 3.84 4.45 3.88C4.31 3.92 4.19 3.99 4.09 4.09C3.99 4.19 3.91 4.32 3.88 4.45C3.84 4.59 3.83 4.74 3.87 4.88L6.64 15.41C6.67 15.57 6.75 15.71 6.87 15.82C6.98 15.93 7.13 16 7.28 16.03L13.01 17.18M4.09 4.1L10.17 10.17M15.27 19.92C15.11 20.08 14.9 20.17 14.68 20.17C14.46 20.17 14.24 20.08 14.09 19.92L12.77 18.6C12.61 18.45 12.52 18.23 12.52 18.01C12.52 17.79 12.61 17.58 12.77 17.42L17.42 12.77C17.58 12.61 17.79 12.52 18.01 12.52C18.23 12.52 18.44 12.61 18.6 12.77L19.92 14.09C20.08 14.25 20.17 14.46 20.17 14.68C20.17 14.9 20.08 15.11 19.92 15.27L15.27 19.92ZM13.01 11.35C13.01 12.27 12.26 13.01 11.34 13.01C10.42 13.01 9.68 12.27 9.68 11.35C9.68 10.43 10.42 9.68 11.34 9.68C12.26 9.68 13.01 10.43 13.01 11.35Z"
+                      ></path>
+                    </svg>
+                  }
+                  @case ('layers') {
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                      <polyline points="2 17 12 22 22 17"></polyline>
+                      <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                  }
+                }
+              </div>
+              <h3 class="card-title">{{ card.title }}</h3>
+              <p class="card-description">{{ card.description }}</p>
+              <ul class="card-checklist" [attr.aria-label]="card.title + ' deliverables'">
+                @for (item of card.checklist; track item) {
+                  <li>
+                    <span class="check-bullet" aria-hidden="true">&bull;</span>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
+              <a
+                class="track-link"
+                routerLink="/contact"
+                [queryParams]="card.focusQuery ? { focus: card.focusQuery } : null"
+                [attr.aria-label]="card.linkText"
               >
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-            </div>
-            <h3 class="card-title">Speed &amp; Search Visibility</h3>
-            <p class="card-description">
-              Clean code, optimized media, and fast load times that help search engines index your
-              pages and keep visitors engaged.
-            </p>
-            <ul class="card-checklist" aria-label="Speed and search deliverables">
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Sub-second load times</span>
-              </li>
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Search engine indexing</span>
-              </li>
-            </ul>
-            <a
-              class="track-link"
-              routerLink="/contact"
-              [queryParams]="{ focus: 'vitals' }"
-              aria-label="Explore speed optimization"
-            >
-              <span>Explore speed optimization &rarr;</span>
-            </a>
-          </article>
-
-          <!-- Card 2: UX/UI Redesign -->
-          <article class="interface-card">
-            <div class="card-icon-badge badge--peach" aria-hidden="true">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M17.18 13.01L16.03 7.28C16 7.13 15.93 6.98 15.81 6.87C15.7 6.76 15.56 6.67 15.41 6.64L4.87 3.87C4.73 3.84 4.59 3.84 4.45 3.88C4.31 3.92 4.19 3.99 4.09 4.09C3.99 4.19 3.91 4.32 3.88 4.45C3.84 4.59 3.83 4.74 3.87 4.88L6.64 15.41C6.67 15.57 6.75 15.71 6.87 15.82C6.98 15.93 7.13 16 7.28 16.03L13.01 17.18M4.09 4.1L10.17 10.17M15.27 19.92C15.11 20.08 14.9 20.17 14.68 20.17C14.46 20.17 14.24 20.08 14.09 19.92L12.77 18.6C12.61 18.45 12.52 18.23 12.52 18.01C12.52 17.79 12.61 17.58 12.77 17.42L17.42 12.77C17.58 12.61 17.79 12.52 18.01 12.52C18.23 12.52 18.44 12.61 18.6 12.77L19.92 14.09C20.08 14.25 20.17 14.46 20.17 14.68C20.17 14.9 20.08 15.11 19.92 15.27L15.27 19.92ZM13.01 11.35C13.01 12.27 12.26 13.01 11.34 13.01C10.42 13.01 9.68 12.27 9.68 11.35C9.68 10.43 10.42 9.68 11.34 9.68C12.26 9.68 13.01 10.43 13.01 11.35Z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="card-title">Thoughtful UX &amp; Design</h3>
-            <p class="card-description">
-              Clean layouts and engaging typography designed to build trust, answer questions
-              quickly, and guide visitors to take action.
-            </p>
-            <ul class="card-checklist" aria-label="Design deliverables">
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Clear paths to contact</span>
-              </li>
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Visual hierarchy and pacing</span>
-              </li>
-            </ul>
-            <a
-              class="track-link"
-              routerLink="/contact"
-              [queryParams]="{ focus: 'redesign' }"
-              aria-label="Explore design process"
-            >
-              <span>Explore design process &rarr;</span>
-            </a>
-          </article>
-
-          <!-- Card 3: Unified Build -->
-          <article class="interface-card">
-            <div class="card-icon-badge badge--lavender" aria-hidden="true">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <h3 class="card-title">Design &amp; Code Together</h3>
-            <p class="card-description">
-              Design systems and frontend code built together in the browser, ensuring your
-              finished website works smoothly and looks exactly as envisioned.
-            </p>
-            <ul class="card-checklist" aria-label="Execution deliverables">
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>From design concepts into clean code</span>
-              </li>
-              <li>
-                <span class="check-bullet" aria-hidden="true">&bull;</span>
-                <span>Reliable on every device</span>
-              </li>
-            </ul>
-            <a
-              class="track-link"
-              routerLink="/contact"
-              aria-label="Start your project"
-            >
-              <span>Start your project &rarr;</span>
-            </a>
-          </article>
+                <span>{{ card.linkText }} &rarr;</span>
+              </a>
+            </article>
+          }
         </div>
       </div>
     </section>
@@ -298,4 +246,11 @@ import { RouterLink } from '@angular/router';
     }
   `
 })
-export class EngagementTracks {}
+export class EngagementTracks {
+  protected readonly tracks = tracksContent;
+  protected readonly cardMeta = [
+    { badge: 'green', icon: 'code' },
+    { badge: 'peach', icon: 'layout' },
+    { badge: 'lavender', icon: 'layers' }
+  ];
+}

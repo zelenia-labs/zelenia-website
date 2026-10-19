@@ -1,70 +1,41 @@
 import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
 import { Contact } from '../sections/contact/contact';
-import { PageFaq, PageFaqItem } from '../sections/faq/page-faq';
+import contactContent from './contact.content.md';
 
 export const routeMeta: RouteMeta = {
-  title: 'Get in Touch // Yolanda & Alejandro // Zelenia Studio',
+  title: contactContent.meta.title,
   meta: [
     {
       name: 'description',
-      content:
-        'Initiate your project sprint with Zelenia. Submit a scope inquiry, book an intro call, or email us directly.'
+      content: contactContent.meta.description
     },
     {
       property: 'og:title',
-      content: 'Get in Touch // Yolanda & Alejandro // Zelenia Studio'
+      content: contactContent.meta.ogTitle
     },
     {
       property: 'og:description',
-      content:
-        'Work directly with the founders. Direct design, engineering, and personal guidance from day one.'
+      content: contactContent.meta.ogDescription
     }
   ]
 };
 
 @Component({
   selector: 'app-contact-page',
-  imports: [Contact, PageFaq],
+  imports: [Contact],
   template: `
     <div class="contact-page">
       <!-- Omnichannel Intake Hub -->
       <app-contact />
-
-      <!-- Intake & Confidentiality FAQ -->
-      <app-page-faq
-        tag="Questions &amp; Answers"
-        title="What to expect when"
-        titleSecondary="reaching out to us."
-        subtitle="Clear answers about response times, confidentiality, and our intro chats."
-        [items]="contactFaqs"
-      />
     </div>
   `,
   styles: `
     .contact-page {
-      padding-block-start: 0;
-      padding-block-end: clamp(4rem, 8vw, 6rem);
+      position: relative;
+      background-color: var(--bg);
+      overflow-x: clip;
     }
   `
 })
-export default class ContactPage {
-  readonly contactFaqs: PageFaqItem[] = [
-    {
-      q: 'How quickly will we hear back after reaching out?',
-      a: 'Every inquiry is reviewed directly by Yolanda and Alejandro within one business day (Monday to Friday, 9:00 AM to 6:00 PM EST). We will follow up personally with clear next steps.'
-    },
-    {
-      q: 'What happens during an initial discovery call?',
-      a: 'We review your project goals, explore your current website or ideas, discuss practical design and performance directions, and answer any questions you have about timelines and scope.'
-    },
-    {
-      q: 'Can we sign an NDA before sharing details?',
-      a: 'Of course. We are always happy to sign a mutual NDA before reviewing your repositories, product roadmap, or confidential assets.'
-    },
-    {
-      q: 'What information is most helpful to share upfront?',
-      a: 'Your current website URL, tech stack, what you’re hoping to improve (e.g. slow load times, outdated design, accessibility issues), and your ideal timeline. Our intake form makes sharing this quick and simple.'
-    }
-  ];
-}
+export default class ContactPage {}

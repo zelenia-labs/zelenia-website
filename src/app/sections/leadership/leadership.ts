@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import leadershipContent from './leadership.content.md';
 
 @Component({
   selector: 'app-leadership',
@@ -12,14 +13,14 @@ import { RouterLink } from '@angular/router';
       <div class="container">
         <!-- Section Header (Centered in design.svg) -->
         <div class="section-header section-header--center reveal-on-scroll">
-          <span class="section-tag-subtle">Who We Are</span>
+          <span class="section-tag-subtle">{{ content.tag }}</span>
           <h2 class="section-heading-twotone" id="founders-title">
-            <span class="heading-primary">The team behind</span>
-            <span class="heading-secondary">Zelenia Studio</span>
+            <span class="heading-primary">{{ content.titlePrimary }}</span>
+            <span class="heading-secondary">{{ content.titleSecondary }}</span>
           </h2>
 
           <p class="section-subhead">
-            A designer and an engineer partnering directly with you to build fast, thoughtful websites—with zero agency hierarchy.
+            {{ content.subhead }}
           </p>
         </div>
 
@@ -29,8 +30,8 @@ import { RouterLink } from '@angular/router';
           <article class="founder-card">
             <div class="founder-photo-dock">
               <img
-                src="/assets/images/portrait_yolanda.jpg"
-                alt="Yolanda Santa Cruz, Lead Product Designer and Visual Artist at Zelenia"
+                [src]="yolanda.photo"
+                [alt]="yolanda.photoAlt"
                 class="founder-photo"
                 width="300"
                 height="300"
@@ -53,11 +54,9 @@ import { RouterLink } from '@angular/router';
                 ></path>
               </svg>
             </div>
-            <h3 class="founder-name">Yolanda Santa Cruz</h3>
+            <h3 class="founder-name">{{ yolanda.name }}</h3>
             <p class="founder-bio">
-              Product designer and visual artist with over a decade of experience shaping brands and
-              digital experiences. Focused on clean layouts, beautiful typography, and interfaces
-              that feel effortless to use.
+              {{ yolanda.bio }}
             </p>
           </article>
 
@@ -65,8 +64,8 @@ import { RouterLink } from '@angular/router';
           <article class="founder-card">
             <div class="founder-photo-dock">
               <img
-                src="/assets/images/portrait_alejandro.jpg"
-                alt="Alejandro Cuba Ruiz, Principal Frontend Architect & Google Developer Expert at Zelenia"
+                [src]="alejandro.photo"
+                [alt]="alejandro.photoAlt"
                 class="founder-photo"
                 width="300"
                 height="300"
@@ -88,11 +87,9 @@ import { RouterLink } from '@angular/router';
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="founder-name">Alejandro Cuba Ruiz</h3>
+            <h3 class="founder-name">{{ alejandro.name }}</h3>
             <p class="founder-bio">
-              Software engineer and Google Developer Expert with 20+ years of experience, including
-              Fortune 100 architecture. Focused on clean code, rock-solid stability, and websites
-              that load in under a second.
+              {{ alejandro.bio }}
             </p>
           </article>
         </div>
@@ -104,7 +101,7 @@ import { RouterLink } from '@angular/router';
             routerLink="/about"
             aria-label="Learn more about our team and background"
           >
-            <span>Learn More About Us</span>
+            <span>{{ content.ctaText }}</span>
           </a>
         </div>
       </div>
@@ -245,4 +242,8 @@ import { RouterLink } from '@angular/router';
     }
   `
 })
-export class Leadership {}
+export class Leadership {
+  protected readonly content = leadershipContent;
+  protected readonly yolanda = this.content.founders[0];
+  protected readonly alejandro = this.content.founders[1];
+}

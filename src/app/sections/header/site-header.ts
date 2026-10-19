@@ -2,6 +2,7 @@ import { Component, computed, DestroyRef, inject, PLATFORM_ID, signal } from '@a
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import headerContent from './header.content.md';
 
 export interface HeaderNavItem {
   label: string;
@@ -55,7 +56,7 @@ export interface HeaderNavItem {
             [attr.aria-current]="currentPath() === '/contact' ? 'page' : null"
             routerLink="/contact"
           >
-            Contact us
+            {{ headerData.ctaText }}
           </a>
         </div>
       </div>
@@ -67,15 +68,14 @@ export class SiteHeader {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
+  protected readonly headerData = headerContent;
 
   readonly currentUrl = signal<string>('/');
   readonly activeSection = signal<string | null>(null);
   readonly isScrolled = signal<boolean>(false);
   readonly isScrolledUp = this.isScrolled;
 
-  readonly navItems: HeaderNavItem[] = [
-    { label: 'About us', href: '/about' }
-  ];
+  readonly navItems: HeaderNavItem[] = headerContent.nav;
 
   private observer: IntersectionObserver | null = null;
 

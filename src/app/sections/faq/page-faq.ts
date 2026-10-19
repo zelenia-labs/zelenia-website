@@ -1,5 +1,6 @@
 import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import faqContent from './faq.content.md';
 
 export interface PageFaqItem {
   q: string;
@@ -7,7 +8,7 @@ export interface PageFaqItem {
 }
 
 @Component({
-  selector: 'app-page-faq',
+  selector: 'app-faq',
   imports: [RouterLink],
   template: `
     <section class="site-section faq-section" id="faq" aria-labelledby="faq-heading">
@@ -15,13 +16,9 @@ export interface PageFaqItem {
         <div class="faq-layout">
           <!-- Left Column: FAQ Anchor & Context -->
           <div class="faq-left-col reveal-on-scroll">
-            <span class="section-tag-subtle">{{ tag() }}</span>
+            <span class="section-tag-subtle">{{ tag() || faqData.tag }}</span>
             <h2 class="faq-hero-heading" id="faq-heading">FAQ</h2>
-            @if (subtitle()) {
-              <p class="faq-hero-subhead">{{ subtitle() }}</p>
-            } @else if (title()) {
-              <p class="faq-hero-subhead">{{ title() }} {{ titleSecondary() }}</p>
-            }
+            <p class="faq-hero-subhead">{{ subtitle() || faqData.subtitle }}</p>
           </div>
 
           <!-- Right Column: Clean Accordion Stack & Direct Inquiry Dock -->
@@ -31,7 +28,7 @@ export interface PageFaqItem {
             aria-label="FAQ Accordion"
           >
             <div class="faq-accordion-stack">
-              @for (item of items(); track item.q; let i = $index) {
+              @for (item of activeItems(); track item.q; let i = $index) {
                 <div class="faq-accordion-card" [class.is-expanded]="isOpen(i)">
                   <button
                     type="button"
@@ -82,14 +79,18 @@ export interface PageFaqItem {
     </section>
   `
 })
-export class PageFaq {
-  readonly tag = input<string>('FAQ');
-  readonly title = input<string>('');
-  readonly titleSecondary = input<string>('');
+export class Faq {
+  protected readonly faqData = faqContent;
+
+  readonly tag = input<string>('');
   readonly subtitle = input<string>('');
-  readonly items = input.required<PageFaqItem[]>();
+  readonly items = input<PageFaqItem[]>();
   readonly contactPrompt = input<string>('');
-  readonly showInquiry = input<boolean>(true);
+  readonly showInquiry = input<boolean>(false);
+
+  protected activeItems(): PageFaqItem[] {
+    return this.items() || (this.faqData.items as PageFaqItem[]);
+  }
 
   // Single-item accordion: Only one question open at a time (first item open initially)
   readonly openIndex = signal<number | null>(0);

@@ -10,7 +10,7 @@ import {
   viewChild
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { RocketParticleEngine } from './rocket-particles';
 import {
@@ -18,6 +18,13 @@ import {
   hasNetworkOrBatteryConstraint,
   hasReducedMotion
 } from '../../starfield/starfield-power';
+
+// Tracks single-flight execution across the entire page lifecycle until page reload/refresh
+let hasFiredRocketEasterEgg = false;
+
+export function resetRocketEasterEggForTesting(): void {
+  hasFiredRocketEasterEgg = false;
+}
 
 @Component({
   selector: 'app-rocket-easter-egg',
@@ -211,9 +218,6 @@ export class RocketEasterEgg {
   private currentHeadingDeg = 0;
   private totalFlightDuration = 2.6;
 
-  // Auto-trigger sentinel flag
-  private hasAutoTriggered = false;
-
   constructor() {
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platformId)) return;
@@ -222,15 +226,21 @@ export class RocketEasterEgg {
 
     if (this.router) {
       const routerSub = this.router.events
-        .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+        .pipe(
+          filter(
+            (event): event is NavigationStart | NavigationEnd =>
+              event instanceof NavigationStart || event instanceof NavigationEnd
+          )
+        )
         .subscribe((event) => {
-          const cleanPath = (event.urlAfterRedirects || event.url).split('?')[0].split('#')[0];
-          const isHome = cleanPath === '' || cleanPath === '/';
-          if (!isHome && (this.isFlying() || this.isActive())) {
-            this.teardownAnimation();
-          }
-          if (isHome) {
-            this.hasAutoTriggered = false;
+          if (event instanceof NavigationStart) {
+            this.abortFlight();
+          } else if (event instanceof NavigationEnd) {
+            const cleanPath = (event.urlAfterRedirects || event.url).split('?')[0].split('#')[0];
+            const isHome = cleanPath === '' || cleanPath === '/';
+            if (!isHome) {
+              this.abortFlight();
+            }
           }
         });
 
@@ -240,8 +250,7 @@ export class RocketEasterEgg {
     }
 
     this.destroyRef.onDestroy(() => {
-      this.teardownAnimation();
-      this.engine.cleanup();
+      this.abortFlight();
     });
   }
 
@@ -261,7 +270,7 @@ export class RocketEasterEgg {
   }
 
   /**
-   * Lightweight scroll listener: Triggers consistent rocket launch upon reaching bottom of page.
+   * Lightweight scroll listener: Triggers rocket launch strictly once upon reaching bottom of page.
    */
   private async initAutoTriggerOnScroll(): Promise<void> {
     if (typeof window === 'undefined') return;
@@ -271,26 +280,18 @@ export class RocketEasterEgg {
     }
 
     const onScroll = () => {
+      if (hasFiredRocketEasterEgg) return;
       if (!this.isHomePage()) return;
       if (this.isFlying()) return;
 
       const currentY = window.scrollY || window.pageYOffset;
-
-      // Re-arm trigger if user scrolls back up near the top
-      if (currentY < 150) {
-        this.hasAutoTriggered = false;
-        return;
-      }
-
-      if (this.hasAutoTriggered) return;
-
       const innerHeight = window.innerHeight;
       const scrollHeight = document.documentElement.scrollHeight;
       const distanceFromBottom = scrollHeight - (currentY + innerHeight);
 
-      // Trigger consistently when reaching the footer boundary on the homepage
+      // Trigger strictly once when reaching the footer boundary on the homepage
       if (distanceFromBottom <= 48) {
-        this.hasAutoTriggered = true;
+        hasFiredRocketEasterEgg = true;
         this.launch();
       }
     };
@@ -308,7 +309,7 @@ export class RocketEasterEgg {
     if (!isPlatformBrowser(this.platformId) || this.isFlying() || !this.isHomePage()) return;
     if (await this.hasEnvironmentalConstraint()) return;
 
-    this.hasAutoTriggered = true;
+    hasFiredRocketEasterEgg = true;
     this.viewportW = window.innerWidth;
     this.viewportH = window.innerHeight;
     this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
@@ -419,12 +420,17 @@ export class RocketEasterEgg {
     this.rocketTransform.set(transformStr);
   }
 
-  private completeSequence(): void {
+  abortFlight(): void {
     this.teardownAnimation();
     this.engine.cleanup();
     this.isActive.set(false);
     this.isFlying.set(false);
     this.rocketVisible.set(false);
+    this.rocketTransform.set('');
+  }
+
+  private completeSequence(): void {
+    this.abortFlight();
   }
 
   private teardownAnimation(): void {

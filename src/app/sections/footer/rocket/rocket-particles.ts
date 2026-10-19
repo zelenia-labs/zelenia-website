@@ -71,6 +71,10 @@ export class RocketParticleEngine {
 
   clear(): void {
     this.particles = [];
+    if (this.gl) {
+      this.gl.clearColor(0.0, 0.0, 0.0, 0.0);
+      this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+    }
   }
 
   /**
@@ -312,6 +316,8 @@ export class RocketParticleEngine {
   cleanup(): void {
     if (!this.gl) return;
     const gl = this.gl;
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
     if (this.vertexBuffer) {
       gl.deleteBuffer(this.vertexBuffer);
       this.vertexBuffer = null;

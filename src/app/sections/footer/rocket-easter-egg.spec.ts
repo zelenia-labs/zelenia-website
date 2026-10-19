@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RocketEasterEgg } from './rocket-easter-egg';
+import { resetRocketEasterEggForTesting, RocketEasterEgg } from './rocket-easter-egg';
 
 describe('RocketEasterEgg Component (Minimalist Geometric Vector Rocket & WebGL Particles)', () => {
   let fixture: ComponentFixture<RocketEasterEgg>;
   let component: RocketEasterEgg;
 
   beforeEach(async () => {
+    resetRocketEasterEggForTesting();
     await TestBed.configureTestingModule({
       imports: [RocketEasterEgg]
     }).compileComponents();
@@ -55,5 +56,16 @@ describe('RocketEasterEgg Component (Minimalist Geometric Vector Rocket & WebGL 
         writable: true
       });
     }
+  });
+
+  it('should mark easter egg as triggered on launch and not re-arm across scroll cycles', async () => {
+    await component.launch();
+    expect(component.isFlying()).toBe(true);
+    component.abortFlight();
+    expect(component.isFlying()).toBe(false);
+
+    // Simulating scrolling up or down must not re-trigger or re-arm
+    window.dispatchEvent(new Event('scroll'));
+    expect(component.isFlying()).toBe(false);
   });
 });

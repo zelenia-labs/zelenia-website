@@ -1,5 +1,15 @@
 import { Component, computed, input } from '@angular/core';
-import { Partner } from '../../content/team';
+
+export interface Partner {
+  name: string;
+  role: string;
+  credentials: string;
+  highlights: string[];
+  background: string;
+  linkedin: string;
+  avatarInitials: string;
+  avatarImage?: string;
+}
 
 @Component({
   selector: 'app-partner-card',

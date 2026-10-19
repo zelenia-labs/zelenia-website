@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RocketEasterEgg } from './rocket';
+import footerContent from './footer.content.md';
 
 @Component({
   selector: 'app-site-footer',
@@ -10,12 +11,12 @@ import { RocketEasterEgg } from './rocket';
         <!-- Bottom Bar: Left-Aligned Copyright + Pure Social Links on Right -->
         <div class="footer-bottom-bar">
           <p class="footer-copyright">
-            &copy; {{ currentYear }} Zelenia. High-performance front-end &amp; product design.
+            &copy; {{ currentYear }} {{ content.brand }}. {{ content.copyrightStatement }}
           </p>
 
           <div class="footer-social-links" aria-label="Social Profiles">
             <a
-              href="https://linkedin.com"
+              [href]="content.socials.linkedin"
               target="_blank"
               rel="noopener noreferrer"
               class="footer-social-link"
@@ -35,7 +36,7 @@ import { RocketEasterEgg } from './rocket';
               <span>LinkedIn</span>
             </a>
             <a
-              href="https://github.com/zelenia-labs"
+              [href]="content.socials.github"
               target="_blank"
               rel="noopener noreferrer"
               class="footer-social-link"
@@ -158,5 +159,6 @@ import { RocketEasterEgg } from './rocket';
   imports: [RocketEasterEgg]
 })
 export class SiteFooter {
+  protected readonly content = footerContent;
   readonly currentYear = new Date().getFullYear();
 }

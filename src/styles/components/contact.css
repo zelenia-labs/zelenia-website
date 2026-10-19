@@ -3,12 +3,12 @@
    ========================================================================== */
 
 .contact-section {
+  position: relative;
   background-color: var(--bg);
   color: var(--text);
-  padding-block: clamp(6.5rem, 10vw, 8.5rem);
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
+  padding-block-start: clamp(6.5rem, 10vw, 8.5rem);
+  padding-block-end: clamp(4.5rem, 7vw, 6rem);
+  overflow: visible;
 }
 
 .contact-container {
@@ -32,20 +32,6 @@
   transform: translateX(-50%);
 }
 
-/* Fluid Intertwining Curves Vector Backdrop matching About Us */
-.contact-fluid-backdrop {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 1320px;
-  height: 100%;
-  max-height: 560px;
-  pointer-events: none;
-  z-index: 1;
-  overflow: visible;
-}
-
 .contact-header {
   text-align: left;
   margin-block-end: clamp(2rem, 3.5vw, 3rem);
@@ -60,7 +46,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-sage-dark);
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 
@@ -118,7 +104,7 @@
 .form-label {
   display: block;
   font-size: 0.875rem;
-  font-weight: 550;
+  font-weight: 500;
   color: var(--text);
   margin-bottom: 0.45rem;
 }
@@ -146,9 +132,14 @@
   line-height: 1.4;
 }
 
+.form-input:hover,
+.form-textarea:hover {
+  border-color: var(--color-ink-strong);
+}
+
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--color-text-muted-alt);
+  color: var(--text-muted);
   opacity: 1;
 }
 
@@ -227,7 +218,7 @@
 }
 
 .custom-select-trigger--nested {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-hover);
   border: 1px solid var(--border);
 }
 
@@ -378,13 +369,15 @@
 }
 
 .scope-disclosure-card:hover {
+  background-color: var(--color-white);
   border-color: var(--color-ink-strong);
-  box-shadow: 0 4px 12px var(--color-obsidian-subtle);
+  box-shadow: 0 3px 10px var(--color-obsidian-subtle);
 }
 
 .scope-disclosure-card.is-expanded {
+  background-color: var(--color-white);
   border-color: var(--dark-ink);
-  box-shadow: 0 4px 18px var(--color-obsidian-subtle);
+  box-shadow: 0 4px 16px var(--color-ink-subtle);
 }
 
 .scope-disclosure-trigger {
@@ -414,8 +407,8 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  border: 1.5px solid var(--border);
-  background-color: var(--color-surface);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -429,17 +422,13 @@
 
 .scope-disclosure-trigger:hover .scope-checkbox-ui {
   border-color: var(--dark-ink);
-  background-color: var(--color-white);
+  background-color: var(--color-surface-hover);
 }
 
 .scope-checkbox-ui.is-checked {
   background-color: var(--dark-ink);
   border-color: var(--dark-ink);
-  box-shadow: 0 2px 6px var(--color-black-subtle);
-}
-
-.scope-checkbox-ui.is-checked .scope-check-icon {
-  stroke: var(--color-white);
+  box-shadow: 0 2px 6px var(--color-ink-subtle);
 }
 
 .scope-check-icon {
@@ -474,7 +463,7 @@
 .scope-title {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--dark-ink);
+  color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -484,16 +473,15 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-slate-reading);
+  color: var(--text-muted);
   background-color: var(--color-surface-hover);
-  border: 1px solid var(--border);
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-pill);
 }
 
 .scope-subtitle {
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  color: var(--text-2);
   line-height: 1.4;
 }
 
@@ -502,20 +490,19 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-color: var(--color-surface);
-  border: 1px solid var(--border);
+  background-color: var(--color-surface-hover);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--dark-ink);
+  color: var(--text);
   transition:
     transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
     background-color var(--transition-fast);
 }
 
 .scope-disclosure-trigger:hover .scope-chevron-wrapper {
-  background-color: var(--color-surface-hover);
+  background-color: var(--color-surface-sand);
 }
 
 .scope-chevron-wrapper.is-expanded {
@@ -565,14 +552,13 @@
 /* Direct Form Fields: NO nested card / NO box-in-a-box */
 .scope-expanded-body {
   padding: 1.25rem 1.25rem 1.5rem 1.25rem;
-  border-top: 1px solid var(--border);
-  background-color: var(--color-surface);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .scope-expanded-body .form-label {
   color: var(--text);
   font-size: 0.875rem;
-  font-weight: 550;
+  font-weight: 500;
   margin-bottom: 0.45rem;
 }
 
@@ -603,7 +589,7 @@
 
 .privacy-note {
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  color: var(--text-2);
   margin: 0;
   max-width: 440px;
   line-height: 1.45;
@@ -621,20 +607,28 @@
   font-size: 0.95rem;
   font-weight: 550;
   border-radius: var(--radius-pill);
-  border: none;
+  border: 1px solid var(--dark-ink);
   cursor: pointer;
-  box-shadow: 0 4px 14px var(--color-black-subtle);
+  box-shadow: 0 2px 8px var(--color-ink-subtle);
   transition:
     background-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
   white-space: nowrap;
 }
 
 .btn--pill-submit:hover:not(:disabled) {
-  background-color: var(--color-obsidian-dark);
+  background-color: var(--color-dark-ink-hover);
+  border-color: var(--color-dark-ink-hover);
+  box-shadow: 0 4px 12px var(--color-ink-medium);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px var(--color-obsidian-subtle);
+}
+
+.btn--pill-submit:active:not(:disabled) {
+  background-color: var(--color-dark-ink-deep);
+  border-color: var(--color-dark-ink-deep);
+  transform: translateY(0);
 }
 
 .btn--pill-submit:disabled {
@@ -667,12 +661,11 @@
 }
 
 .form-confirmation {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-sage-subtle);
+  background-color: var(--color-surface-hover);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 1.25rem 1.5rem;
   margin-top: 1.5rem;
-  box-shadow: 0 2px 8px var(--color-obsidian-faint);
 }
 
 .confirmation-content {
@@ -684,20 +677,20 @@
 .confirmation-icon {
   font-size: 1.25rem;
   font-weight: bold;
-  color: var(--color-sage-dark);
+  color: var(--color-success, #16a34a);
   line-height: 1;
 }
 
 .confirmation-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--dark-ink);
+  color: var(--text);
   margin: 0 0 0.25rem 0;
 }
 
 .confirmation-body {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--text-2);
   margin: 0;
   line-height: 1.5;
 }
