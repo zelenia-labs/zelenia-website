@@ -1,8 +1,6 @@
-import { afterNextRender, Component, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
 import aboutContent from './about.content.md';
-import { initScrollReveal } from '../ui/motion/scroll-reveal';
 
 export const routeMeta: RouteMeta = {
   title: aboutContent.meta.title,
@@ -229,21 +227,14 @@ export const routeMeta: RouteMeta = {
   `
 })
 export default class AboutPage {
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly isBrowser = isPlatformBrowser(this.platformId);
-
   protected readonly about = aboutContent;
-  protected readonly alejandro = this.about.teamMembers.find((m: any) => m.id === 'alejandro');
-  protected readonly yolanda = this.about.teamMembers.find((m: any) => m.id === 'yolanda');
+  protected readonly alejandro = this.about.teamMembers.find(
+    (m: { id: string }) => m.id === 'alejandro'
+  );
+  protected readonly yolanda = this.about.teamMembers.find(
+    (m: { id: string }) => m.id === 'yolanda'
+  );
   protected readonly principle1 = this.about.principles.pillars[0];
   protected readonly principle2 = this.about.principles.pillars[1];
   protected readonly principle3 = this.about.principles.pillars[2];
-
-  constructor() {
-    afterNextRender(() => {
-      if (this.isBrowser) {
-        initScrollReveal();
-      }
-    });
-  }
 }

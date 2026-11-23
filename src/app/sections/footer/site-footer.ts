@@ -66,7 +66,7 @@ import footerContent from './footer.content.md';
   styles: `
     .site-footer {
       background-color: var(--bg);
-      padding-block: 0 clamp(2rem, 4vw, 3rem);
+      padding-block: 0;
       color: var(--text);
       position: relative;
       overflow: hidden;
@@ -76,7 +76,7 @@ import footerContent from './footer.content.md';
       width: 100%;
       height: 1px;
       background-color: var(--border-subtle);
-      margin-bottom: 2rem;
+      margin-bottom: 0;
     }
 
     .footer-container {
@@ -84,6 +84,7 @@ import footerContent from './footer.content.md';
       z-index: 1;
       max-width: var(--shell);
       margin-inline: auto;
+      padding-block: clamp(2rem, 4vw, 3rem);
     }
 
     .footer-bottom-bar {

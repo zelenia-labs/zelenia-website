@@ -12,7 +12,9 @@ export function initScrollReveal(rootElement: HTMLElement = document.body): () =
   }
 
   // Respect user preference for reduced motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
     return NOOP;
   }
@@ -37,8 +39,8 @@ export function initScrollReveal(rootElement: HTMLElement = document.body): () =
     },
     {
       root: null,
-      rootMargin: '0px 0px -40px 0px',
-      threshold: 0.08
+      rootMargin: '0px 0px -24px 0px',
+      threshold: 0.01
     }
   );
 
