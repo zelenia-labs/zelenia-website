@@ -38,7 +38,8 @@ describe('RocketEasterEgg Component (Minimalist Geometric Vector Rocket & WebGL 
   });
 
   it('should not launch when reduced motion is preferred or slow connection exists', async () => {
-    const originalConnection = (navigator as any).connection;
+    const nav = navigator as Navigator & { connection?: unknown };
+    const originalConnection = nav.connection;
     try {
       Object.defineProperty(navigator, 'connection', {
         value: { effectiveType: '3g', saveData: false },

@@ -11,8 +11,11 @@ function contentMarkdownPlugin(): Plugin {
     transform(code, id) {
       const cleanId = id.split('?')[0];
       if (cleanId.endsWith('.content.md') || cleanId.endsWith('.md')) {
-        const fm = typeof frontMatter === 'function' ? frontMatter : (frontMatter as any).default;
-        const parsed = fm(code);
+        const fm =
+          typeof frontMatter === 'function'
+            ? frontMatter
+            : (frontMatter as unknown as { default: typeof frontMatter }).default;
+        const parsed = fm<Record<string, unknown>>(code);
         const data = {
           ...parsed.attributes,
           body: parsed.body ? parsed.body.trim() : '',

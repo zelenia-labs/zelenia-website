@@ -1,42 +1,24 @@
 // @ts-check
 import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import angular from 'angular-eslint';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
-export default tseslint.config(
+export default defineConfig([
   {
-    ignores: [
-      'dist/**',
-      'node_modules/**',
-      '.analog/**',
-      '.agents/**',
-      '.user_uploaded/**',
-      'coverage/**',
-      'public/**'
-    ]
+    ignores: ['dist/**', '.angular/**']
   },
   {
     files: ['**/*.ts'],
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended
+      tseslint.configs.recommended,
+      tseslint.configs.stylistic,
+      angular.configs.tsRecommended
     ],
-    processor: angular.processInlineTemplates,
+    processor: angular.createProcessor(),
     rules: {
-      // Angular v20+ Intent over Role conventions (suffixless classes)
-      '@angular-eslint/component-class-suffix': 'off',
-      '@angular-eslint/directive-class-suffix': 'off',
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'app',
-          style: 'kebab-case'
-        }
-      ],
       '@angular-eslint/directive-selector': [
         'error',
         {
@@ -45,27 +27,23 @@ export default tseslint.config(
           style: 'camelCase'
         }
       ],
-      '@typescript-eslint/no-unused-vars': [
+      '@angular-eslint/component-selector': [
         'error',
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_'
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case'
         }
-      ],
-      '@typescript-eslint/consistent-type-definitions': 'off'
-    }
-  },
-  {
-    files: ['src/app/pages/**/*.page.ts'],
-    rules: {
-      // AnalogJS route components are rendered by the file router and do not require strict element selectors
-      '@angular-eslint/component-selector': 'off'
+      ]
     }
   },
   {
     files: ['**/*.html'],
-    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
+    extends: [
+      angular.configs.templateRecommended,
+      angular.configs.templateAccessibility
+    ],
     rules: {}
   },
   eslintConfigPrettier
-);
+]);

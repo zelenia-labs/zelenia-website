@@ -229,8 +229,7 @@ export class RocketParticleEngine {
   update(dt: number): void {
     const alive: RocketParticle[] = [];
 
-    for (let i = 0; i < this.particles.length; i++) {
-      const p = this.particles[i];
+    for (const p of this.particles) {
       p.age += dt;
 
       if (p.age < p.maxAge) {
@@ -277,7 +276,7 @@ export class RocketParticleEngine {
       const r = p.r;
       const g = p.g;
       const b = p.b;
-      let alpha = 0.0;
+      let alpha: number;
 
       if (p.isAdditive) {
         const glow = p.a * Math.max(0, 1.0 - lifeRatio);

@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ElementRef } from '@angular/core';
+import { DestroyRef, ElementRef } from '@angular/core';
 import { StarfieldCanvas } from './starfield-canvas';
 import { StarfieldPhysics } from './starfield-physics';
 import { StarfieldMeteorManager } from './starfield-meteor';
 import { StarfieldPowerManager } from './starfield-power';
+import { StarfieldNotice } from './starfield.types';
 
 describe('Starfield Canvas Subsystem Unit Tests', () => {
   describe('StarfieldPhysics', () => {
@@ -115,11 +116,9 @@ describe('Starfield Canvas Subsystem Unit Tests', () => {
 
   describe('StarfieldPowerManager', () => {
     let power: StarfieldPowerManager;
-    let powerModeChangedCount = 0;
     let lastReportedPowerMode = false;
 
     beforeEach(() => {
-      powerModeChangedCount = 0;
       lastReportedPowerMode = false;
 
       const mockElement = {
@@ -133,11 +132,10 @@ describe('Starfield Canvas Subsystem Unit Tests', () => {
 
       const mockDestroyRef = {
         onDestroy: vi.fn()
-      } as any;
+      } as unknown as DestroyRef;
 
       power = new StarfieldPowerManager(mockElement, mockDestroyRef, {
         onPowerModeChanged: (isLow) => {
-          powerModeChangedCount++;
           lastReportedPowerMode = isLow;
         }
       });
@@ -171,11 +169,12 @@ describe('Starfield Canvas Subsystem Unit Tests', () => {
     });
 
     it('should detect slow connections (3g, 2g, slow-2g) and trigger slow-connection notice', async () => {
-      const originalConnection = (navigator as any).connection;
+      const nav = navigator as Navigator & { connection?: unknown };
+      const originalConnection = nav.connection;
       try {
-        let triggeredNotice: any = null;
-        const mockElement = { nativeElement: { classList: { add: vi.fn(), remove: vi.fn() } } } as any;
-        const testPower = new StarfieldPowerManager(mockElement, { onDestroy: vi.fn() } as any, {
+        let triggeredNotice: StarfieldNotice | null = null;
+        const mockElement = { nativeElement: { classList: { add: vi.fn(), remove: vi.fn() } } } as unknown as ElementRef<HTMLElement>;
+        const testPower = new StarfieldPowerManager(mockElement, { onDestroy: vi.fn() } as unknown as DestroyRef, {
           onPowerModeChanged: vi.fn(),
           onNoticeTriggered: (notice) => {
             triggeredNotice = notice;
@@ -207,11 +206,12 @@ describe('Starfield Canvas Subsystem Unit Tests', () => {
     });
 
     it('should detect saveData and trigger data-saver notice', async () => {
-      const originalConnection = (navigator as any).connection;
+      const nav = navigator as Navigator & { connection?: unknown };
+      const originalConnection = nav.connection;
       try {
-        let triggeredNotice: any = null;
-        const mockElement = { nativeElement: { classList: { add: vi.fn(), remove: vi.fn() } } } as any;
-        const testPower = new StarfieldPowerManager(mockElement, { onDestroy: vi.fn() } as any, {
+        let triggeredNotice: StarfieldNotice | null = null;
+        const mockElement = { nativeElement: { classList: { add: vi.fn(), remove: vi.fn() } } } as unknown as ElementRef<HTMLElement>;
+        const testPower = new StarfieldPowerManager(mockElement, { onDestroy: vi.fn() } as unknown as DestroyRef, {
           onPowerModeChanged: vi.fn(),
           onNoticeTriggered: (notice) => {
             triggeredNotice = notice;

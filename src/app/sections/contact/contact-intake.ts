@@ -9,6 +9,7 @@ export class ContactIntake {
   readonly isSubmitted = signal(false);
 
   async submitInquiry(_inquiry: ContactInquiry): Promise<boolean> {
+    void _inquiry;
     this.isSubmitting.set(true);
 
     // Simulate asynchronous intake dispatch
